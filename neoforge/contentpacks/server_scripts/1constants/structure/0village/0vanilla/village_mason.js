@@ -1,0 +1,255 @@
+const vanilla_village_mason_stone = [
+    {
+        groupName: "stone_good",
+        groupWeight: 20,
+        min: 1, max: 2,
+        items: [
+            { id: 'minecraft:furnace', ratio: 10 },
+            { id: 'minecraft:armor_stand', ratio: 10 },
+            { id: 'supplementaries:hat_stand', ratio: 10 },
+            { id: 'kaleidoscope_cookery:stove', ratio: 10 },
+            { id: 'minecraft:grindstone', ratio: 10 },
+            { id: 'kaleidoscope_cookery:millstone', ratio: 10 },
+            { id: 'stonechest:chest_stone', ratio: 10 },
+            { id: 'supplementaries:statue', ratio: 3 },            // 雕像
+            { id: 'supplementaries:stone_lamp', ratio: 6 },        // 石灯
+            { id: 'supplementaries:pedestal', ratio: 4 },          // 展示台
+
+            { id: 'minecraft:terracotta', ratio: 5 },
+        ]
+    },
+
+    {
+        groupName: "stone_common",
+        groupWeight: 20,
+        min: 1, max: 2,
+        items: [
+            { id: 'minecraft:stone', ratio: 10 },
+            { id: 'minecraft:stone_stairs', ratio: 10 },            
+            { id: 'minecraft:stone_slab', ratio: 10 },
+
+            { id: 'minecraft:smooth_stone', ratio: 10 },
+            { id: 'minecraft:smooth_stone_slab', ratio: 10 },
+        
+            { id: 'minecraft:stone_bricks', ratio: 10 },
+            { id: 'minecraft:cracked_stone_bricks', ratio: 10 },            
+            { id: 'minecraft:stone_brick_stairs', ratio: 10 },            
+            { id: 'minecraft:stone_brick_slab', ratio: 10 },
+            { id: 'minecraft:chiseled_stone_bricks', ratio: 10 },
+
+            { id: 'stoneworks:stone_shingles', ratio: 10 },
+            { id: 'stoneworks:stone_shingle_stairs', ratio: 10 },
+            { id: 'stoneworks:stone_shingle_slab', ratio: 10 },
+
+            { id: 'stoneworks:stone_tiles', ratio: 10 },
+            { id: 'stoneworks:stone_tile_stairs', ratio: 10 },
+            { id: 'stoneworks:stone_tile_slab', ratio: 10 },
+            { id: 'stoneworks:cracked_stone_tiles', ratio: 10 },
+
+            { id: 'stoneworks:stone_pavers', ratio: 10 },
+            { id: 'stoneworks:stone_paver_stairs', ratio: 10 },
+            { id: 'stoneworks:stone_paver_slab', ratio: 10 },
+
+            { id: 'stoneworks:stone_plates', ratio: 10 },
+            { id: 'stoneworks:stone_plate_stairs', ratio: 10 },
+            { id: 'stoneworks:stone_plate_slab', ratio: 10 },
+
+            { id: 'stoneworks:stone_pillar', ratio: 10 },
+        ]
+    },
+
+    {        
+        groupName: "stone_materials",
+        groupWeight: 20,
+        min: 4, max: 4,
+        items: [
+            { id: 'minecraft:cobblestone', ratio: 10 },
+            { id: 'supplementaries:daub', ratio: 2 },
+            { id: 'minecraft:clay', ratio: 2 },
+            { id: 'minecraft:clay_ball', ratio: 2 },
+        ]
+    },
+]
+
+const vanilla_village_mason_brick = [
+    {
+        groupName: "brick_good",
+        groupWeight: 20,
+        min: 1, max: 2,
+        items: [
+            { id: 'bakery:baker_station', ratio: 10 }, 
+            { id: 'farm_and_charm:stove', ratio: 10 }, 
+            { id: 'bakery:brick_counter', ratio: 10 }, 
+            { id: 'farmersdelight:stove', ratio: 10 }, 
+            { id: 'bakery:kitchen_sink', ratio: 10 },
+            { id: 'trailandtales_delight:pottery_cooking_pot', ratio: 10 },
+            { id: 'kaleidoscope_chinesefood:pickle_jar', ratio: 10 },
+        ]
+    },
+
+    {
+        groupName: "brick_common",
+        groupWeight: 20,
+        min: 1, max: 2,
+        items: [
+            { id: 'minecraft:bricks', ratio: 10 },
+            { id: 'minecraft:flower_pot', ratio: 10 },
+            { id: 'minecraft:decorated_pot', ratio: 10 },
+            
+        ]
+    },
+
+    {        
+        groupName: "brick_materials",
+        groupWeight: 20,
+        min: 4, max: 4,
+        items: [
+            { id: 'minecraft:brick', ratio: 10 },
+        ]
+    },
+]
+
+const vanilla_village_mason_other_material = [
+    {
+        groupName: "other_good",
+        groupWeight: 0,
+        min: 1, max: 2,
+        items: [
+
+        ]
+    },
+
+    {
+        groupName: "other_common",
+        groupWeight: 20,
+        min: 1, max: 2,
+        items: [
+            { id: 'stoneworks:chiseled_andesite', ratio: 10 },       
+            { id: 'stoneworks:chiseled_granite', ratio: 10 },           
+            { id: 'stoneworks:chiseled_diorite', ratio: 10 },
+        ]
+    },
+
+    {        
+        groupName: "other_materials",
+        groupWeight: 20,
+        min: 4, max: 4,
+        items: [
+            { id: 'minecraft:diorite', ratio: 10 },
+            { id: 'minecraft:granite', ratio: 10 },
+            { id: 'minecraft:andesite', ratio: 10 },
+        ]
+    },
+]
+
+const vanilla_village_desert_sandstone_glass = [
+    {
+        groupName: "sandstone_good",
+        groupWeight: 20,
+        min: 1, max: 2,
+        items: [
+            { id: 'minecraft:chiseled_sandstone', ratio: 10 }, 
+            { id: 'minecraft:cut_sandstone', ratio: 10 }, 
+            { id: 'minecraft:smooth_sandstone', ratio: 10 }, 
+            { id: 'minecraft:glass_bottle', ratio: 10 }, 
+        ]
+    },
+
+    {
+        groupName: "sandstone_common",
+        groupWeight: 20,
+        min: 1, max: 2,
+        items: [
+            { id: 'minecraft:sandstone', ratio: 10 },         
+            { id: 'minecraft:sandstone_stairs', ratio: 10 },
+            { id: 'minecraft:sandstone_slab', ratio: 10 },
+            { id: 'minecraft:sandstone_wall', ratio: 10 },
+            { id: 'minecraft:glass', ratio: 10 },
+            { id: 'minecraft:glass_pane', ratio: 10 },
+        ]
+    },
+
+    // {         
+    //     groupName: "sandstone_materials",
+    //     groupWeight: 20,
+    //     min: 4, max: 4,
+    //     items: [
+    //         { id: 'minecraft:sand', ratio: 10 },
+    //     ]
+    // },
+]
+
+const vanilla_village_badlands_terracotta = [
+    {
+        groupName: "terracotta_good",
+        groupWeight: 20,
+        min: 1, max: 2,
+        items: [
+            { id: 'minecraft:white_glazed_terracotta', ratio: 10 },
+            { id: 'minecraft:orange_glazed_terracotta', ratio: 10 },
+            { id: 'minecraft:yellow_glazed_terracotta', ratio: 10 },
+            { id: 'minecraft:light_gray_glazed_terracotta', ratio: 10 },
+            { id: 'minecraft:brown_glazed_terracotta', ratio: 10 },
+            { id: 'minecraft:red_glazed_terracotta', ratio: 10 },
+            { id: 'minecraft:chiseled_red_sandstone', ratio: 10 },
+        ]
+    },
+
+    {
+        groupName: "terracotta_common",
+        groupWeight: 20,
+        min: 1, max: 2,
+        items: [
+            { id: 'minecraft:terracotta', ratio: 10 }, // 普通无色陶瓦
+            { id: 'minecraft:white_terracotta', ratio: 10 },
+            { id: 'minecraft:orange_terracotta', ratio: 10 },
+            { id: 'minecraft:yellow_terracotta', ratio: 10 },
+            { id: 'minecraft:light_gray_terracotta', ratio: 10 },
+            { id: 'minecraft:brown_terracotta', ratio: 10 },
+            { id: 'minecraft:red_terracotta', ratio: 10 },
+            { id: 'minecraft:red_sandstone', ratio: 10 },
+            { id: 'minecraft:red_sandstone_stairs', ratio: 10 },
+            { id: 'minecraft:red_sandstone_slab', ratio: 10 },
+            { id: 'minecraft:red_sandstone_wall', ratio: 10 },
+        ]
+    },
+
+    {         
+        groupName: "terracotta_materials",
+        groupWeight: 20,
+        min: 4, max: 4,
+        items: [
+            { id: 'minecraft:red_sand', ratio: 10 },
+        ]
+    },
+]
+
+
+const vanilla_village_mason_fuel = [
+    {        
+        groupName: "materials",
+        groupWeight: 20,
+        min: 3, max: 4,
+        items: [
+            { id: 'minecraft:coal', ratio: 5 },
+        ]
+    },
+]
+
+// =================================================================
+// 事件注册区域
+// =================================================================
+const village_mason_content = [
+    [vanilla_village_mason_brick, 3, 3, { matchBiome: '#minecraft:has_structure/village_plains' }],
+    [vanilla_village_mason_stone, 3, 3, /* { matchBiome: '#kubejs:not_desert_badland' } */],
+    [vanilla_village_mason_other_material, 2, 2, { matchBiome: '#kubejs:not_desert_badland' }],
+
+    [vanilla_village_desert_sandstone_glass, 5, 5, { matchBiome: '#minecraft:has_structure/village_desert' }],
+    [vanilla_village_badlands_terracotta, 5, 5, { matchBiome: '#minecraft:is_badlands' }],
+    
+    [vanilla_village_mason_fuel, 2, 2],
+];
+
+const loot_village_mason = [
+    [village_mason_content, 1],
+];
