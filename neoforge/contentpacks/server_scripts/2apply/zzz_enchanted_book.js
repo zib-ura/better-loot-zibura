@@ -209,13 +209,14 @@ let structureEnchantmentConfigs = [
         clean: false,
         tables: [
             "minecraft:chests/pillager_outpost",
+            "minecraft:chests/woodland_mansion",
+
             // "trek:pillagers/pillager_mansion",
             // "trek:pillagers/outpost_barrel",
             // "trek:overworld/rare/abandoned_castle_pillager",
             // "takesapillage:chests/bastille/church",
             // "nova_structures:chests/pillager_outpost_treasure",
             // "nova_structures:chests/illager_hideout_tresure",
-            // "minecraft:chests/woodland_mansion",
             // "mvs:pillager"
         ],
         enchants: [

@@ -9,16 +9,34 @@ const village_jungle_base_crops = [
         groupWeight: 70, 
         min: 2, max: 3,
         items: [
-            { id: 'minecraft:wheat_seeds', ratio: 5 },
-            { reference: 'lootjs:wheat_and_wheat_crate', ratio: 20 },
+            { reference: 'lootjs:wheat_seeds', ratio: 5 },
+            { reference: 'lootjs:wheat_and_wheat_block', ratio: 20 },
 
-            { id: 'minecraft:melon_seeds', ratio: 5 },
-            { reference: 'lootjs:melon_and_melon_crate', ratio: 20 },
+            { reference: 'lootjs:melon_seeds', ratio: 5 },
+            { reference: 'lootjs:melon_slice_and_melon_slice_block', ratio: 20 },
 
-            { id: 'minecraft:pumpkin_seeds', ratio: 5 },
-            { reference: 'lootjs:pumpkin_and_pumpkin_crate', ratio: 20 },
+            { reference: 'lootjs:pumpkin_seeds', ratio: 5 },
+            { reference: 'lootjs:pumpkin_slice_and_pumpkin_slice_block', ratio: 20 },
 
-            { reference: 'lootjs:cocoabeans_and_cocoabeans_crate', ratio: 20 },
+            { reference: 'lootjs:cocoabeans_and_cocoabeans_block', ratio: 25 },
+
+            { reference: 'lootjs:raw_coffee_beans_and_raw_coffee_beans_block', ratio: 25 },
+            // { reference: 'lootjs:roasted_coffee_beans_and_roasted_coffee_beans_block', ratio: 25 },
+
+            { reference: 'lootjs:avocado_and_avocado_block', ratio: 20 },
+            { reference: 'lootjs:avocado_sapling', ratio: 5 },
+
+            { reference: 'lootjs:cranberry_and_cranberry_block', ratio: 25 },
+            { reference: 'lootjs:durian_sapling', ratio: 5 },
+            { reference: 'lootjs:durian_flesh_and_durian_flesh_block', ratio: 20 },
+            { reference: 'lootjs:lychee_sapling', ratio: 5 },
+            { reference: 'lootjs:lychee_and_lychee_block', ratio: 20 },
+            { reference: 'lootjs:mango_sapling', ratio: 5 },
+            { reference: 'lootjs:mango_and_mango_block', ratio: 20 },
+            { reference: 'lootjs:mangosteen_sapling', ratio: 5 },
+            { reference: 'lootjs:mangosteen_and_mangosteen_block', ratio: 20 },
+            { reference: 'lootjs:peach_sapling', ratio: 5 },
+            { reference: 'lootjs:peach_and_peach_block', ratio: 20 },
         ]
     },
 
@@ -28,21 +46,22 @@ const village_jungle_base_crops = [
         min: 2, max: 3,
         items: [
 
-            { reference: 'lootjs:rice_and_rice_crate', ratio: 25 },
+            { reference: 'lootjs:rice', ratio: 25 },
 
             { reference: 'lootjs:tomato', ratio: 20 },
             { reference: 'lootjs:tomato_seeds', ratio: 5 },
 
-            { reference: 'lootjs:potato_and_potato_crate', ratio: 50 },
+            { reference: 'lootjs:potato', ratio: 25 },
 
-            { reference: 'lootjs:onion_and_onion_crate', ratio: 25 },
+            { reference: 'lootjs:onion', ratio: 25 },
 
-            { id: 'farmersdelight:cabbage_seeds', ratio: 5 },
-            { reference: 'farmersdelight:cabbage', ratio: 20 },
+            { reference: 'lootjs:cabbage_seeds', ratio: 5 },
+            { reference: 'lootjs:cabbage', ratio: 20 },
 
             { reference: 'lootjs:lettuce_seeds', ratio: 5 },
             { reference: 'lootjs:lettuce', ratio: 20 },
 
+            { reference: 'lootjs:egg', ratio: 25 },
         ]
     },
 ]
@@ -103,10 +122,10 @@ const village_jungle_dish = [
             { id: 'minecraft:bread', ratio: 10 },
 
 
-            { id: 'minecraft:cooked_beef', ratio: 10 },       // 牛排
-            { id: 'minecraft:cooked_porkchop', ratio: 10 },   // 熟猪排
-            { id: 'minecraft:cooked_mutton', ratio: 10 },     // 熟羊肉
-            { id: 'minecraft:cooked_chicken', ratio: 10 },    // 熟鸡肉
+            { id: 'minecraft:cooked_beef', ratio: 10 },       
+            { id: 'minecraft:cooked_porkchop', ratio: 10 },   
+            { id: 'minecraft:cooked_mutton', ratio: 10 },    
+            { id: 'minecraft:cooked_chicken', ratio: 10 },    
 
             { id: 'youkaisfeasts:steamed_egg_in_bamboo', ratio: 10 },
             { id: 'youkaisfeasts:tutu_congee', ratio: 10 },
@@ -116,6 +135,9 @@ const village_jungle_dish = [
             { id: 'kaleidoscope_cookery:bamboo_tube_rice', ratio: 10 },
 
             { id: 'vanillacookbook:grilled_melon', ratio: 10 },
+
+            { id: 'fruitsdelight:baked_durian', ratio: 10 },
+            { id: 'fruitsdelight:mango_salad', ratio: 10 }
         ]
     },
 
@@ -130,6 +152,7 @@ const village_jungle_dish = [
             { id: 'farmersdelight:stuffed_pumpkin', ratio: 10 },
             { id: 'kaleidoscope_chinesefood:pumpkin_porridge', ratio: 10 },
             { id: 'farmersdelight:pumpkin_soup', ratio: 10 },
+            { id: 'fruitsdelight:lychee_chicken', ratio: 10 },
         ]
     },
 ]
@@ -147,6 +170,12 @@ const village_jungle_drinks = [
             { id: 'farmersdelight:melon_juice', ratio: 10 },
             { id: 'kaleidoscope_tavern:watermelon_juice', ratio: 10 },
 
+            { id: 'fruitsdelight:cranberry_juice', ratio: 10 },
+            { id: 'fruitsdelight:lychee_cherry_tea', ratio: 10 },
+            { id: 'fruitsdelight:mango_tea', ratio: 10 },
+            { id: 'fruitsdelight:mangosteen_tea', ratio: 10 },
+            { id: 'fruitsdelight:peach_tea', ratio: 10 },
+            
             { id: 'vanillacookbook:chocolate_milk', ratio: 10 },
             { id: 'farmersdelight:hot_cocoa', ratio: 10 },
 
@@ -154,78 +183,114 @@ const village_jungle_drinks = [
     },
 ]
 
+// =================================================================
+// 丛林烘焙坊与房屋战利品表定义
+// =================================================================
 
-const village_jungle_bakery_bread = [
+const village_jungle_bakery_products = [
     {
-        groupName: "bread",
+        groupName: "jungle_cakes",
         groupWeight: 15,
-        min: 1, max: 2,
+        min: 1, max: 1,
         items: [
-            { id: 'kitchenkarrot:leafy_fresh_chocolate', ratio: 10 },
-            { id: 'kitchenkarrot:chocolate_croissant', ratio: 10 },
-            { id: 'minecraft:cookie', ratio: 10 },
-
-        ]
-    },
-]
-
-const village_jungle_bakery_dessert = [
-    {
-        groupName: "dessert_chocolate",
-        groupWeight: 15,
-        min: 1, max: 2,
-        items: [
-
             { id: 'vanillacookbook:chocolate_cake', ratio: 10 },
-            { id: 'vanillacookbook:brownie', ratio: 10 },
-            { id: 'vanillacookbook:chocolate_pudding', ratio: 10 },
-            { id: 'rusticdelight:chocolate_pancake', ratio: 10 },
-            { id: 'farmersdelight:chocolate_pie', ratio: 10 },
-            { id: 'rusticdelight:chocolate_pancakes', ratio: 10 },
-
-
             { id: 'bakery:chocolate_cake', ratio: 10 },
-            { id: 'bakery:chocolate_glazed_cookie', ratio: 10 },
-            { id: 'bakery:chocolate_truffle', ratio: 10 },
+            { id: 'vanillacookbook:cheesecake', ratio: 10 },
+            { id: 'vanillacookbook:ice_cream_cake', ratio: 10 },
+            { id: 'rusticdelight:chocolate_pancakes', ratio: 10 },
+        ]
+    },
+
+    {
+        groupName: "jungle_tarts_pies",
+        groupWeight: 15,
+        min: 1, max: 1,
+        items: [
+
             { id: 'bakery:chocolate_tart', ratio: 10 },
-            { id: 'brewinandchewin:cocoa_fudge', ratio: 10 },
+            { id: 'farmersdelight:chocolate_pie', ratio: 10 },
+
+
         ]
     },
-
 
     {
-        groupName: "dessert_pumpkin",
+        groupName: "jungle_dessert_puddings_cold",
         groupWeight: 15,
-        min: 1, max: 2,
+        min: 1, max: 1,
         items: [
+            { id: 'vanillacookbook:brownie_tray', ratio: 10 },
+            { id: 'fruitsdelight:mangosteen_cake', ratio: 10 },
+            { id: 'vanillacookbook:chocolate_ice_cream', ratio: 10 },
+    
+            { id: 'moredelight:chocolate_popsicle', ratio: 10 },
 
-            { id: 'minecraft:pumpkin_pie', ratio: 10 },
-            { id: 'kitchenkarrot:fried_pumpkin_cake', ratio: 10 },
-            { id: 'rusticdelight:pumpkin_pancakes', ratio: 10 },
-            { id: 'kaleidoscope_cookery:fondant_pie', ratio: 10 },
         ]
     },
-]
 
-const village_jungle_bakery_cooking_material = [
     {
-        groupName: "cooking",
+        groupName: "jungle_dessert_teatime_treats_slices",
         groupWeight: 15,
-        min: 1, max: 2,
+        min: 3, max: 4,
         items: [
-            { id: 'minecraft:milk_bucket', ratio: 10 },           
-            { id: 'minecraft:egg', ratio: 10 },  
-            { id: 'minecraft:wheat', ratio: 10 },
-            { id: 'minecraft:sugar', ratio: 10 },
-            { id: 'kaleidoscope_cookery:flour', ratio: 10 },
-            { reference: 'lootjs:cocoabeans_and_cocoabeans_crate', ratio: 10 },
-            { reference: 'lootjs:pumpkin_and_pumpkin_crate', ratio: 10 },
-            { reference: 'lootjs:sugar_and_sugar_crate', ratio: 10 },
-            { reference: 'lootjs:wheat_and_wheat_crate', ratio: 10 },
+            { id: 'minecraft:cookie'},
+            { id: 'vanillacookbook:chocolate', ratio: 10 },
+            { id: 'bakery:chocolate_truffle', ratio: 10 },   
+            { id: 'brewinandchewin:cocoa_fudge', ratio: 10 }, 
+            { id: 'vanillacookbook:brownie', ratio: 10 },
+            { id: 'vanillacookbook:chocolate_egg', ratio: 10 },
+            { id: 'kitchenkarrot:leafy_fresh_chocolate', ratio: 10 },
+
+            { id: 'bakery:chocolate_glazed_cookie', ratio: 10 },
+
+            { id: 'bakery:chocolate_cake_slice', ratio: 10 },
+            { id: 'vanillacookbook:chocolate_cake_slice', ratio: 10 },
+            { id: 'farmersdelight:chocolate_pie_slice', ratio: 10 },
+            { id: 'bakery:chocolate_tart_slice', ratio: 10 },
+
+            { id: 'fruitsdelight:durian_pie', ratio: 10 },
+            { id: 'rusticdelight:chocolate_pancake', ratio: 10 },
+
+            { id: 'rusticdelight:fruit_beignet', ratio: 10 },
         ]
     },
-]
 
+    {
+        groupName: "jungle_bread",
+        groupWeight: 15,
+        min: 3, max: 4,
+        items: [
+            { id: 'minecraft:bread', ratio: 10 },
+            { id: 'kitchenkarrot:chocolate_croissant', ratio: 10 },
+
+        ]
+    },
+];
+
+const village_jungle_bakery_baking_material = [
+    {
+        groupName: "baking_material",
+        groupWeight: 15,
+        min: 3, max: 4,
+        items: basic_baking_material
+        
+    },
+
+    {
+        groupName: "jungle_jam",
+        groupWeight: 15,
+        min: 1, max: 1,
+        items: [
+            { id: 'bakery:chocolate_jam', ratio: 10 },
+            { id: 'fruitsdelight:melon_jam', ratio: 10 },
+            { id: 'fruitsdelight:lychee_jam', ratio: 10 },
+            { id: 'fruitsdelight:mango_jam', ratio: 10 },
+            { id: 'fruitsdelight:peach_jam', ratio: 10 },
+            { id: 'fruitsdelight:mangosteen_jam', ratio: 10 },
+            { id: 'fruitsdelight:durian_jam', ratio: 10 },
+        ]
+    },
+];
 
 // =================================================================
 // 事件注册区域
@@ -239,9 +304,9 @@ const village_jungle_house_content = [
 
 const village_jungle_bakery_content = [
 
-    [village_jungle_bakery_bread, 3, 3],
-    [village_jungle_bakery_dessert, 3, 3],
-    [village_jungle_bakery_cooking_material, 10, 10],
+    [village_jungle_bakery_products, 8, 8],
+    [village_jungle_bakery_baking_material, 5, 5],
+    [village_smith_small_iron_knife, 1, 1],
 
 ];
 

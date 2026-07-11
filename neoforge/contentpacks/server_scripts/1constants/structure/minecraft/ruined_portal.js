@@ -1,4 +1,4 @@
-const vanilla_ruined_portal_nether_materials = [
+const ruined_portal_nether_materials = [
     {
         groupName: "Nether Resources",
         groupWeight: 99,
@@ -44,7 +44,7 @@ const vanilla_ruined_portal_nether_materials = [
     },
 ];
 
-const vanilla_gold_armor = [
+const ruined_portal_gold_armor = [
     {
         groupName: "Gold Armor Pieces",
         groupWeight: 85,
@@ -67,13 +67,32 @@ const vanilla_gold_armor = [
     // }
 ];
 
+const ruined_portal_supply = [
+    {
+        groupName: "fire_charge",
+        groupWeight: 50,
+        min: 1, max: 1,
+        items: [
+            { id: 'minecraft:potion', ratio: 10 , potion: "minecraft:fire_resistance" }, 
+            { id: 'touhou_little_maid:fire_protect_bauble', ratio: 10 }, 
+        ]
+    },
+    {
+        groupName: "empty",
+        groupWeight: 50,
+        items: [
+            { id: 'empty', ratio: 10 }, 
+        ]
+    },
+];
 // =================================================================
 // 事件注册区域
 // =================================================================
 const ruined_portal_content = [
-    [vanilla_ruined_portal_nether_materials, 6, 7],
+    [ruined_portal_nether_materials, 6, 7],
     [netherrack, 14, 15],
-    [vanilla_gold_armor, 1, 1],
+    [ruined_portal_gold_armor, 1, 1],
+    [ruined_portal_supply, 1, 1],
 ];
 
 const loot_ruined_portal = [

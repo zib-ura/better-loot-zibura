@@ -235,7 +235,7 @@ $G.addCustomLoot_1_20_1 = function(lootTable, config, minRolls, maxRolls, condit
                     entry.limitCount([minCount, maxCount]);
 
                     if (item.nbt) entry.addNBT(item.nbt);
-                    if (item.jsonfunction) entry.jsonFunction(item.jsonfunction); 
+                    if (item.jsonFunction) entry.functions(ItemFilter.ALWAYS_TRUE, (f) => {f.customFunction(item.jsonFunction)})
                     if (item.potion) entry.addPotion(item.potion);
                     
                     if (finalDamage !== undefined) {

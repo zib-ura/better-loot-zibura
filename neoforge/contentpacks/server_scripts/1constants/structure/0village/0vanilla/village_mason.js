@@ -1,4 +1,4 @@
-const vanilla_village_mason_stone = [
+const village_mason_stone = [
     {
         groupName: "stone_good",
         groupWeight: 20,
@@ -11,17 +11,20 @@ const vanilla_village_mason_stone = [
             { id: 'minecraft:grindstone', ratio: 10 },
             { id: 'kaleidoscope_cookery:millstone', ratio: 10 },
             { id: 'stonechest:chest_stone', ratio: 10 },
-            { id: 'supplementaries:statue', ratio: 3 },            // 雕像
-            { id: 'supplementaries:stone_lamp', ratio: 6 },        // 石灯
-            { id: 'supplementaries:pedestal', ratio: 4 },          // 展示台
+            { id: 'supplementaries:statue', ratio: 10 },            // 雕像
+            { id: 'supplementaries:stone_lamp', ratio: 10 },        // 石灯
+            { id: 'supplementaries:pedestal', ratio: 10 },          // 展示台
 
             { id: 'minecraft:terracotta', ratio: 5 },
+
+            { id: 'touhou_little_maid:furnace_backpack', ratio: 10 },
+
         ]
     },
 
     {
         groupName: "stone_common",
-        groupWeight: 20,
+        groupWeight: 40,
         min: 1, max: 2,
         items: [
             { id: 'minecraft:stone', ratio: 10 },
@@ -55,12 +58,13 @@ const vanilla_village_mason_stone = [
             { id: 'stoneworks:stone_plate_slab', ratio: 10 },
 
             { id: 'stoneworks:stone_pillar', ratio: 10 },
+
         ]
     },
 
     {        
         groupName: "stone_materials",
-        groupWeight: 20,
+        groupWeight: 40,
         min: 4, max: 4,
         items: [
             { id: 'minecraft:cobblestone', ratio: 10 },
@@ -71,7 +75,7 @@ const vanilla_village_mason_stone = [
     },
 ]
 
-const vanilla_village_mason_brick = [
+const village_mason_brick = [
     {
         groupName: "brick_good",
         groupWeight: 20,
@@ -109,7 +113,7 @@ const vanilla_village_mason_brick = [
     },
 ]
 
-const vanilla_village_mason_other_material = [
+const village_mason_other_material = [
     {
         groupName: "other_good",
         groupWeight: 0,
@@ -142,7 +146,7 @@ const vanilla_village_mason_other_material = [
     },
 ]
 
-const vanilla_village_desert_sandstone_glass = [
+const village_desert_sandstone_glass = [
     {
         groupName: "sandstone_good",
         groupWeight: 20,
@@ -179,7 +183,7 @@ const vanilla_village_desert_sandstone_glass = [
     // },
 ]
 
-const vanilla_village_badlands_terracotta = [
+const village_badlands_terracotta = [
     {
         groupName: "terracotta_good",
         groupWeight: 20,
@@ -224,8 +228,80 @@ const vanilla_village_badlands_terracotta = [
     },
 ]
 
+const village_beach_salt = [
+    // {
+    //     groupName: "salt_good",
+    //     groupWeight: 20,
+    //     min: 1, max: 2,
+    //     items: [
+    //         // { id: 'vintagedelight:cucumber_salad', ratio: 10 },
 
-const vanilla_village_mason_fuel = [
+    //     ]
+    // },
+
+    {
+        groupName: "salt_common",
+        groupWeight: 20,
+        min: 1, max: 2,
+        items: [
+            { id: 'vintagedelight:smooth_salt_block', ratio: 10 },
+            { id: 'vintagedelight:salt_pillar', ratio: 10 },
+            { id: 'vintagedelight:salt_bricks', ratio: 10 },
+            { id: 'vintagedelight:salt_brick_stairs', ratio: 10 },
+            { id: 'vintagedelight:salt_brick_slab', ratio: 10 },
+            { id: 'vintagedelight:salt_brick_wall', ratio: 10 },
+            { id: 'vintagedelight:mixed_salt_bricks', ratio: 10 },
+            { id: 'vintagedelight:mixed_salt_brick_stairs', ratio: 10 },
+            { id: 'vintagedelight:mixed_salt_brick_slab', ratio: 10 },
+            { id: 'vintagedelight:mixed_salt_brick_wall', ratio: 10 },
+        ]
+    },
+
+    {         
+        groupName: "salt_materials",
+        groupWeight: 20,
+        min: 4, max: 4,
+        items: [
+            { id: 'vintagedelight:salt_block', ratio: 10 }, 
+        ]
+    },
+]
+
+const village_mangrove_mud = [
+    // {
+    //     groupName: "mud_good",
+    //     groupWeight: 20,
+    //     min: 1, max: 2,
+    //     items: [
+    //         // { id: 'vintagedelight:cucumber_salad', ratio: 10 },
+
+    //     ]
+    // },
+
+    {
+        groupName: "mud_common",
+        groupWeight: 20,
+        min: 1, max: 2,
+        items: [
+            { id: 'minecraft:mud_bricks', ratio: 10 },
+            { id: 'minecraft:mud_brick_stairs', ratio: 10 },
+            { id: 'minecraft:mud_brick_slab', ratio: 10 },
+            { id: 'minecraft:mud_brick_wall', ratio: 10 },
+        ]
+    },
+
+    {         
+        groupName: "mud_materials",
+        groupWeight: 20,
+        min: 4, max: 4,
+        items: [
+            { id: 'minecraft:mud', ratio: 10 },
+            { id: 'minecraft:packed_mud', ratio: 10 },
+        ]
+    },
+]
+
+const village_mason_fuel = [
     {        
         groupName: "materials",
         groupWeight: 20,
@@ -240,14 +316,17 @@ const vanilla_village_mason_fuel = [
 // 事件注册区域
 // =================================================================
 const village_mason_content = [
-    [vanilla_village_mason_brick, 3, 3, { matchBiome: '#minecraft:has_structure/village_plains' }],
-    [vanilla_village_mason_stone, 3, 3, /* { matchBiome: '#kubejs:not_desert_badland' } */],
-    [vanilla_village_mason_other_material, 2, 2, { matchBiome: '#kubejs:not_desert_badland' }],
+    [village_mason_brick, 3, 3, { matchBiome: '#minecraft:has_structure/village_plains' }],
+    [village_mason_stone, 3, 3, /* { matchBiome: '#kubejs:not_desert_badland' } */],
+    [village_mason_other_material, 2, 2, { matchBiome: '#kubejs:mason/other' }],
 
-    [vanilla_village_desert_sandstone_glass, 5, 5, { matchBiome: '#minecraft:has_structure/village_desert' }],
-    [vanilla_village_badlands_terracotta, 5, 5, { matchBiome: '#minecraft:is_badlands' }],
-    
-    [vanilla_village_mason_fuel, 2, 2],
+    [village_desert_sandstone_glass, 5, 5, { matchBiome: '#minecraft:has_structure/village_desert' }],
+    [village_badlands_terracotta, 5, 5, { matchBiome: '#minecraft:is_badlands' }],
+    [village_beach_salt, 5, 5, { matchBiome: '#minecraft:is_beach' }],
+
+
+
+    [village_mason_fuel, 2, 2],
 ];
 
 const loot_village_mason = [

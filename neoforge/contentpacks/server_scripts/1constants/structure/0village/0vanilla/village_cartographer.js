@@ -1,4 +1,4 @@
-const vanilla_village_cartographer_products = [
+const village_cartographer_products = [
     {
         groupName: "maps_and_guides",
         groupWeight: 20,
@@ -11,7 +11,7 @@ const vanilla_village_cartographer_products = [
     },
 ]
 
-const vanilla_village_cartographer_materials = [
+const village_cartographer_materials = [
     {
         groupName: "materials",
         groupWeight: 20,
@@ -41,8 +41,9 @@ const vanilla_village_cartographer_materials = [
 // 事件注册区域
 // =================================================================
 const village_cartographer_content = [
-    [vanilla_village_cartographer_products, 2, 3],
-    [vanilla_village_cartographer_materials, 4, 5],
+    [village_cartographer_products, 2, 3],
+    [village_cartographer_materials, 4, 5],
+    [village_chess, 1, 1],
     [paper, 10, 18],
 ];
 

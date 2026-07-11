@@ -1,4 +1,4 @@
-const vanilla_village_armorer_products = [
+const village_armorer_products = [
     {
         groupName: "common_armor",
         groupWeight: 95,
@@ -68,7 +68,7 @@ const vanilla_village_armorer_products = [
 // 事件注册区域
 // =================================================================
 const village_armorer_content = [
-    [vanilla_village_armorer_products, 2, 4],
+    [village_armorer_products, 2, 4],
     [village_smith_common_products,    2, 4],
     [village_smith_materials,          2, 4],
     [iron_nugget,                      10, 18],

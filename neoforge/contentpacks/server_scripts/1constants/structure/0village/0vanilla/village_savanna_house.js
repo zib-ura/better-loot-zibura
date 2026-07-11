@@ -2,7 +2,7 @@
 // 战利品表定义区域（已按比例与组合规则重构）
 // =================================================================
 
-const vanilla_village_savanna_base_crops = [
+const village_savanna_base_crops = [
     {
         groupName: "base_crops",
         groupWeight: 100, 
@@ -10,15 +10,17 @@ const vanilla_village_savanna_base_crops = [
         max: 3,
         items: [
             { id: 'minecraft:wheat_seeds', ratio: 5 },
-            { reference: 'lootjs:wheat_and_wheat_crate', ratio: 20 },
+            { reference: 'lootjs:wheat_and_wheat_block', ratio: 20 },
 
             { reference: 'lootjs:corn_seeds', ratio: 5 },
-            { reference: 'lootjs:corn_and_corn_crate', ratio: 20 },
+            { reference: 'lootjs:corn_and_corn_block', ratio: 20 },
+
+            
         ]
     }
 ];
 
-const vanilla_village_savanna_other_crops = [
+const village_savanna_other_crops = [
     {
         groupName: "savanna special",
         groupWeight: 80, 
@@ -60,11 +62,14 @@ const vanilla_village_savanna_other_crops = [
             { id: 'rusticdelight:bell_pepper_green', ratio: 25 },
             
             { reference: 'lootjs:pepper_seeds', ratio: 5 },
-            { reference: 'lootjs:pepper_and_pepper_crate', ratio: 20 },
+            { reference: 'lootjs:pepper', ratio: 20 },
+
+            { reference: 'lootjs:egg', ratio: 25 },
+
         ]
     }
 ];
-const vanilla_village_savanna_essential_wealth_equipment = [
+const village_savanna_essential_wealth_equipment = [
 
     {
         groupName: "Villager Daily Essentials",
@@ -111,7 +116,7 @@ const vanilla_village_savanna_essential_wealth_equipment = [
     },
 ]
 
-const vanilla_village_savanna_dish = [
+const village_savanna_dish = [
     {
         groupName: "common",
         groupWeight: 70,
@@ -128,6 +133,7 @@ const vanilla_village_savanna_dish = [
             { id: 'corn_delight:caramel_popcorn', ratio: 10 },
             { id: 'corn_delight:grilled_corn', ratio: 10 },
             { id: 'corn_delight:boiled_corn', ratio: 10 },
+            { id: 'corn_delight:creamed_corn', ratio: 10 },
 
             { id: 'farm_and_charm:roasted_corn', ratio: 10 },
 
@@ -139,9 +145,13 @@ const vanilla_village_savanna_dish = [
             // { id: 'minecraft:cooked_rabbit', ratio: 10 },     // 烤兔肉
             // { id: 'minecraft:cooked_cod', ratio: 10 },        // 熟鳕鱼
             // { id: 'minecraft:cooked_salmon', ratio: 10 }      // 熟鲑鱼
+            { id: 'culturaldelights:popcorn', ratio: 10 },
+            { id: 'culturaldelights:tortilla_chips', ratio: 10 },
+            { id: 'culturaldelights:elote', ratio: 10 },
+            { id: 'culturaldelights:creamed_corn', ratio: 10 },
+            { id: 'culturaldelights:smoked_corn', ratio: 10 },
+            { id: 'culturaldelights:empanada', ratio: 10 },
 
-
-        
         ]
     },
 
@@ -153,7 +163,6 @@ const vanilla_village_savanna_dish = [
             { id: 'farmersdelight:smoked_ham', ratio: 10 },
 
             { id: 'corn_delight:corn_soup', ratio: 10 },
-            { id: 'corn_delight:creamed_corn', ratio: 10 },
             { id: 'corn_delight:cornbread_stuffing', ratio: 10 },
             { id: 'corn_delight:nachos_bowl', ratio: 10 },
             { id: 'corn_delight:taco', ratio: 10 },
@@ -164,11 +173,20 @@ const vanilla_village_savanna_dish = [
 
             { id: 'farm_and_charm:lamb_with_corn', ratio: 10 },
             { id: 'kaleidoscope_nether:corn_carrot_pork_rib_soup', ratio: 10 },
+
+            { id: 'vintagedelight:stuffed_burrito', ratio: 10 },
+
+            { id: 'rusticdelight:bell_pepper_pasta', ratio: 10 },
+
+            { id: 'culturaldelights:fish_taco', ratio: 10 },
+            { id: 'culturaldelights:chicken_taco', ratio: 10 },
+            { id: 'culturaldelights:beef_burrito', ratio: 10 },
+            { id: 'culturaldelights:pork_wrap', ratio: 10 },
         ]
     },
 ]
 
-const vanilla_village_savanna_drinks = [
+const village_savanna_drinks = [
     {
         groupName: "corn",
         groupWeight: 5,
@@ -187,11 +205,11 @@ const vanilla_village_savanna_drinks = [
 // =================================================================
 
 const village_savanna_house_content = [
-    [vanilla_village_savanna_base_crops, 1, 1],
-    [vanilla_village_savanna_other_crops, 1, 1],
-    [vanilla_village_savanna_dish, 3, 4],
-    [vanilla_village_savanna_essential_wealth_equipment, 4, 4],
-    [vanilla_village_savanna_drinks, 1, 2],
+    [village_savanna_base_crops, 1, 1],
+    [village_savanna_other_crops, 1, 1],
+    [village_savanna_dish, 3, 4],
+    [village_savanna_essential_wealth_equipment, 4, 4],
+    [village_savanna_drinks, 1, 2],
 ];
 
 const loot_village_savanna_house = [

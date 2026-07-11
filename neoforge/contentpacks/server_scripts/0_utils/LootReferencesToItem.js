@@ -1,6 +1,6 @@
 /**
  * 替换配置数组中所有 `reference` 占位符为实际可用的首选 Candidate ID
- * @param {Array} lootGroups - 战利品组大数组 (例如 vanilla_village_savanna_crops)
+ * @param {Array} lootGroups - 战利品组大数组 (例如 village_savanna_crops)
  * @param {Array} config - 重复物品映射配置 (DUPLICATE_ITEMS_CONFIG)
  * @returns {Array} 返回修改后的原数组
  */
@@ -14,8 +14,8 @@ $G.LootReferencesToItem_1_21_1 = function(lootGroups, config) {
     // 缓存已解析出的具体 ID，避免多次对同一个 item 进行性能消耗较高的有效性检测
     const resolvedCache = {};
 
-    // 匹配包含 "_and_" 且以 "_crate" 结尾的正则（如: lootjs:white_grape_and_white_grape_crate）
-    const skipRegex = /_and_.*_crate$/;
+    // 匹配包含 "_and_" 且以 "_crate" 结尾的正则（如: lootjs:white_grape_and_white_grape_block）
+    const skipRegex = /^lootjs:([a-zA-Z0-9_]+)_and_\1_block$/;
 
     // 遍历每一个大组（例如：Crops & Agriculture）
     lootGroups.forEach(group => {

@@ -2,20 +2,20 @@
 // 战利品表定义区域
 // =================================================================
 
-const vanilla_village_snowy_crops = [
+const village_snowy_crops = [
 
     {
         groupName: "common",
         groupWeight: 70, 
         min: 2, max: 3,
         items: [
-            { id: 'minecraft:wheat_seeds', ratio: 10 },
-            { reference: 'lootjs:wheat_and_wheat_crate', ratio: 40 },
+            { reference: 'lootjs:wheat_seeds', ratio: 10 },
+            { reference: 'lootjs:wheat_and_wheat_block', ratio: 40 },
 
-            { reference: 'lootjs:potato_and_potato_crate', ratio: 50 },
+            { reference: 'lootjs:potato_and_potato_block', ratio: 50 },
 
-            { id: 'minecraft:beetroot_seeds', ratio: 10 },
-            { reference: 'lootjs:beetroot_and_beetroot_crate', ratio: 40 },
+            { reference: 'lootjs:beetroot_seeds', ratio: 10 },
+            { reference: 'lootjs:beetroot_and_beetroot_block', ratio: 40 },
 
 
 
@@ -28,19 +28,24 @@ const vanilla_village_snowy_crops = [
         min: 2, max: 3,
         items: [
 
-            { reference: 'lootjs:onion_and_onion_crate', ratio: 25 },
+            { reference: 'lootjs:onion', ratio: 25 },
 
-            { id: 'farmersdelight:cabbage_seeds', ratio: 5 },
-            { reference: 'farmersdelight:cabbage', ratio: 20 },
+            { reference: 'lootjs:cabbage_seeds', ratio: 5 },
+            { reference: 'lootjs:cabbage', ratio: 20 },
 
             { reference: 'lootjs:lettuce_seeds', ratio: 5 },
             { reference: 'lootjs:lettuce', ratio: 20 },
 
+            { reference: 'lootjs:blueberry', ratio: 25 },
+            { reference: 'lootjs:persimmon_sapling', ratio: 5 },
+            { reference: 'lootjs:persimmon', ratio: 20 },
+
+            { reference: 'lootjs:egg', ratio: 25 },
         ]
     },
 ]
 
-const vanilla_village_snowy_essential_wealth_equipment = [
+const village_snowy_essential_wealth_equipment = [
 
 
     {
@@ -92,13 +97,19 @@ const vanilla_village_snowy_essential_wealth_equipment = [
     },
 ]
 
-const vanilla_village_snowy_dish = [
+const village_snowy_dish = [
     {
         groupName: "common",
         groupWeight: 35,
         min: 2, max: 3,
         items: [
-            
+            { id: 'fruitsdelight:blueberry_jam', ratio: 10 },
+            { id: 'fruitsdelight:blueberry_muffin', ratio: 10 },
+            { id: 'fruitsdelight:blueberry_custard', ratio: 10 },
+            { id: 'fruitsdelight:persimmon_jam', ratio: 10 },
+            { id: 'fruitsdelight:persimmon_cookie', ratio: 10 },
+            { id: 'fruitsdelight:dried_persimmon', ratio: 10 },
+
             { id: 'minecraft:baked_potato', ratio: 10 },
             // { id: 'minecraft:cooked_beef', ratio: 10 },
             // { id: 'minecraft:cooked_porkchop', ratio: 10 },
@@ -158,7 +169,7 @@ const vanilla_village_snowy_dish = [
     },
 ]
 
-const vanilla_village_snowy_drinks = [
+const village_snowy_drinks = [
     {
         groupName: "vodka",
         groupWeight: 5,
@@ -178,10 +189,10 @@ const vanilla_village_snowy_drinks = [
 // 事件注册区域
 // =================================================================
 const village_snowy_house_content = [
-    [vanilla_village_snowy_crops, 2, 2],
-    [vanilla_village_snowy_dish, 3, 4],
-    [vanilla_village_snowy_essential_wealth_equipment, 4, 4],
-    [vanilla_village_snowy_drinks, 1, 2],
+    [village_snowy_crops, 2, 2],
+    [village_snowy_dish, 3, 4],
+    [village_snowy_essential_wealth_equipment, 4, 4],
+    [village_snowy_drinks, 1, 2],
 ];
 
 

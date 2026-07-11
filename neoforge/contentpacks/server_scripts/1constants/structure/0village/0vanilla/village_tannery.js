@@ -1,4 +1,4 @@
-const vanilla_village_tannery_products = [
+const village_tannery_products = [
     {
         groupName: "common_leather_products",
         groupWeight: 20,
@@ -21,7 +21,7 @@ const vanilla_village_tannery_products = [
     },
 ]
 
-const vanilla_village_tannery_armors = [
+const village_tannery_armors = [
     {
         groupName: "leather_armors",
         groupWeight: 20,
@@ -37,7 +37,7 @@ const vanilla_village_tannery_armors = [
 
 ]
 
-const vanilla_village_tannery_materials = [
+const village_tannery_materials = [
     {        
         groupName: "materials",
         groupWeight: 20,
@@ -65,10 +65,10 @@ const desert_village_tannery_materials = [
 // 事件注册区域
 // =================================================================
 const village_tannery_content = [
-    [vanilla_village_tannery_products, 3, 4],
-    [vanilla_village_tannery_materials, 6, 7, { matchBiome: '#kubejs:not_desert' }],
+    [village_tannery_products, 3, 4],
+    [village_tannery_materials, 6, 7, { matchBiome: '#kubejs:not_desert' }],
     [desert_village_tannery_materials, 6, 7, { matchBiome: 'minecraft:desert' }],
-    [vanilla_village_tannery_armors, 1, 2],
+    [village_tannery_armors, 1, 2],
 ];
 
 const loot_village_tannery = [

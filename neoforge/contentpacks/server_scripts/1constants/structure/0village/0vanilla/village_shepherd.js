@@ -90,7 +90,8 @@ const woolTemplates = [
     { id: 'supplementaries:bunting_[COLOR]', ratio: 10 },
     { id: 'supplementaries:flag_[COLOR]', ratio: 10 },
     { id: 'minecraft:[COLOR]_bed', ratio: 10, max: 2 },
-    { id: 'minecraft:painting', ratio: 10 } // 固定产物，不含 [COLOR]
+    { id: 'minecraft:painting', ratio: 10 }, 
+    { id: 'touhou_little_maid:maid_bed', ratio: 10 },
 ];
 
 // 染料类统一模版 (顺便附赠染料的自动化配置)
@@ -134,7 +135,7 @@ const ryo_shepherd_products_dye           = createBiomeProductGroup("red_yellow_
 const other_shepherd_products_wool        = createBiomeProductGroup("other", "wool", woolTemplates);
 const other_shepherd_products_dye         = createBiomeProductGroup("other", "dye", dyeTemplates);
 
-const vanilla_village_shepherd_equipment = [
+const village_shepherd_equipment = [
     {        
         groupName: "equipment",
         groupWeight: 20,
@@ -151,7 +152,7 @@ const vanilla_village_shepherd_equipment = [
 ]
 
 
-const vanilla_village_shepherd_material = [
+const village_shepherd_material = [
     {        
         groupName: "materials",
         groupWeight: 20,
@@ -209,8 +210,8 @@ const village_shepherd_content = [
     [other_shepherd_products_dye, 3, 3, { matchBiome: '#kubejs:shepherd/other' }],
 
     // 通用共享产物
-    [vanilla_village_shepherd_equipment, 1, 2],
-    [vanilla_village_shepherd_material, 3, 3],
+    [village_shepherd_equipment, 1, 2],
+    [village_shepherd_material, 3, 3],
 ]
 
 const loot_village_shepherd = [

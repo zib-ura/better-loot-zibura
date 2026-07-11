@@ -1,4 +1,4 @@
-const vanilla_shipwreck_treasure_crops = [
+const shipwreck_treasure_crops = [
     {
         groupName: "New World Crops",
         groupWeight: 50,
@@ -35,7 +35,7 @@ const vanilla_shipwreck_treasure_crops = [
     }
 ];
 
-const vanilla_shipwreck_treasure_valuables = [
+const shipwreck_treasure_valuables = [
     {
         groupName: "Valuable Cargo",
         groupWeight: 25,
@@ -67,6 +67,8 @@ const vanilla_shipwreck_treasure_valuables = [
             // { id: 'supplementaries:antique_ink', ratio: 4 },       // 古式墨水 (古籍贸易)
             // { id: 'minecraft:lapis_lazuli', ratio: 6 },
             // { id: 'minecraft:glow_ink_sac', ratio: 5 },
+
+            { id: 'touhou_little_maid:drown_protect_bauble', ratio: 10 },
         ]
     },
 ];
@@ -276,8 +278,8 @@ const shipwreck_treasure_pottery_sherd = [
 // 事件注册区域
 // =================================================================
 const shipwreck_treasure_content = [
-    [vanilla_shipwreck_treasure_crops, 2, 3],
-    [vanilla_shipwreck_treasure_valuables, 2, 4],
+    [shipwreck_treasure_crops, 2, 3],
+    [shipwreck_treasure_valuables, 2, 4],
     [shipwreck_treasure_music_discs, 2, 2],
     [shipwreck_treasure_smithing_templates_common, 2, 2],
     [shipwreck_treasure_smithing_templates_exclusive, 1, 1],

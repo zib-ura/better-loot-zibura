@@ -1,4 +1,4 @@
-const vanilla_jungle_temple_treasure_equipment = [
+const jungle_temple_treasure_equipment = [
     // =================================================================
     // GROUP: 稀有宝藏 & 附魔书
     // =================================================================
@@ -14,6 +14,7 @@ const vanilla_jungle_temple_treasure_equipment = [
             { id: 'minecraft:enchanted_golden_apple', ratio: 5 },
             { id: 'minecraft:totem_of_undying', ratio: 5 },
 
+            { id: 'touhou_little_maid:projectile_protect_bauble', ratio: 10 },
         ]
     },
 
@@ -45,7 +46,7 @@ const jungle_temple_gold = [
         groupWeight: 50,
         min: 2, max: 3,
         items: [
-            { id: 'minecraft:gold_ingot', ratio: 20 },
+            { reference: 'lootjs:gold_ingot_and_gold_ingot_block', ratio: 10 },
         ]
     },
 ];
@@ -54,7 +55,7 @@ const jungle_temple_gold = [
 // 事件注册区域
 // =================================================================
 const jungle_temple_content = [
-    [vanilla_jungle_temple_treasure_equipment, 3, 6],
+    [jungle_temple_treasure_equipment, 3, 6],
     [jungle_temple_smithing_templates, 2, 2],
     [Vine, 5, 6],
     [jungle_temple_gold, 2, 3],

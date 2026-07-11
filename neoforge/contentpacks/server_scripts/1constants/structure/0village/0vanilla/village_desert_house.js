@@ -2,23 +2,23 @@
 // 战利品表定义区域
 // =================================================================
 
-const vanilla_village_desert_base_crops = [
+const village_desert_base_crops = [
 
     {
         groupName: "base_crops",
         groupWeight: 80, 
         min: 2, max: 3,
         items: [
-            { id: 'minecraft:wheat_seeds', ratio: 10 },
-            { reference: 'lootjs:wheat_and_wheat_crate', ratio: 40 },
+            { reference: 'lootjs:wheat_seeds', ratio: 10 },
+            { reference: 'lootjs:wheat_and_wheat_block', ratio: 40 },
 
             { reference: 'lootjs:tomato_seeds', ratio: 10 },
-            { reference: 'lootjs:tomato_and_tomato_crate', ratio: 40 },
+            { reference: 'lootjs:tomato_and_tomato_block', ratio: 40 },
 
-            { reference: 'lootjs:onion_and_onion_crate', ratio: 25 },
+            { reference: 'lootjs:onion_and_onion_block', ratio: 25 },
 
             { reference: 'lootjs:pepper_seeds', ratio: 5 },
-            { reference: 'lootjs:pepper_and_pepper_crate', ratio: 20 },
+            { reference: 'lootjs:pepper_and_pepper_block', ratio: 20 },
 
         ]
     },
@@ -26,7 +26,7 @@ const vanilla_village_desert_base_crops = [
 
 ]
 
-const vanilla_village_desert_other_crops = [
+const village_desert_other_crops = [
     {
         groupName: "desert special",
         groupWeight: 80, 
@@ -47,13 +47,16 @@ const vanilla_village_desert_other_crops = [
 
             { id: "kaleidoscope_tavern:grapevine", ratio: 25 },
 
-            { id: 'dumplings_delight:eggplant_seeds', ratio: 5 },
-            { id: 'dumplings_delight:eggplant', ratio: 20 },
+            { reference: 'lootjs:eggplant_seeds', ratio: 5 },
+            { reference: 'lootjs:eggplant', ratio: 20 },
 
             // { id: 'minecraft:apple', ratio: 25 },
             
-            { id: 'minecraft:melon_seeds', ratio: 5 },
-            { id: 'minecraft:melon', ratio: 20 },
+            { reference: 'lootjs:melon_seeds', ratio: 5 },
+            { reference: 'lootjs:melon', ratio: 20 },
+
+            { reference: 'lootjs:hamimelon', ratio: 25},
+
         ]
     },
     {
@@ -61,22 +64,24 @@ const vanilla_village_desert_other_crops = [
         groupWeight: 20, 
         min: 2, max: 4,
         items: [
-            { id: 'minecraft:carrot', ratio: 25 },
+            { reference: 'lootjs:carrot', ratio: 25 },
 
-            { id: 'minecraft:potato', ratio: 25 },
+            { reference: 'lootjs:potato', ratio: 25 },
 
-            { id: 'farmersdelight:cabbage_seeds', ratio: 5 },
-            { id: 'farmersdelight:cabbage', ratio: 20 },
+            { reference: 'lootjs:cabbage_seeds', ratio: 5 },
+            { reference: 'lootjs:cabbage', ratio: 20 },
 
             { reference: 'lootjs:lettuce_seeds', ratio: 5 },
             { reference: 'lootjs:lettuce', ratio: 20 },
 
-            { reference: 'lootjs:rice', ratio: 15 },
+            { reference: 'lootjs:rice', ratio: 25 },
+
+            { reference: 'lootjs:egg', ratio: 25 },
         ]
     },
 
 ]
-const vanilla_village_desert_essential_wealth_equipment = [
+const village_desert_essential_wealth_equipment = [
 
     // {
     //     groupName: "Wood",
@@ -131,7 +136,7 @@ const vanilla_village_desert_essential_wealth_equipment = [
     },
 ]
 
-const vanilla_village_desert_dish = [
+const village_desert_dish = [
     {
         groupName: "common",
         groupWeight: 70,
@@ -190,7 +195,7 @@ const vanilla_village_desert_dish = [
     },
 ]
 
-const vanilla_village_desert_drinks = [
+const village_desert_drinks = [
     {
         groupName: "drinks",
         groupWeight: 5,
@@ -201,6 +206,7 @@ const vanilla_village_desert_drinks = [
             // { id: 'kaleidoscope_tavern:wine', ratio: 10 },          
             // { id: 'youkaisfeasts:red_wine_bottle', ratio: 10 },
             // { id: 'youkaisfeasts:white_wine_bottle', ratio: 10 },
+            { id: 'fruitsdelight:hamimelon_juice', ratio: 10 },
         ]
     },
     {
@@ -221,11 +227,11 @@ const vanilla_village_desert_drinks = [
 // 事件注册区域
 // =================================================================
 const village_desert_house_content = [
-    [vanilla_village_desert_base_crops, 1, 1],
-    [vanilla_village_desert_other_crops, 1, 1],
-    [vanilla_village_desert_dish, 3, 4],
-    [vanilla_village_desert_essential_wealth_equipment, 4, 4],
-    [vanilla_village_desert_drinks, 1, 2],
+    [village_desert_base_crops, 1, 1],
+    [village_desert_other_crops, 1, 1],
+    [village_desert_dish, 3, 4],
+    [village_desert_essential_wealth_equipment, 4, 4],
+    [village_desert_drinks, 1, 2],
 ];
 
 const loot_village_desert_house = [

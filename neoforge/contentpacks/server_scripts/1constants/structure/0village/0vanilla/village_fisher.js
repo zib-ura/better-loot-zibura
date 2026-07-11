@@ -1,4 +1,4 @@
-const vanilla_village_fisher_products = [
+const village_fisher_fish = [
     {
         groupName: "raw fish",
         groupWeight: 20,
@@ -17,19 +17,37 @@ const vanilla_village_fisher_products = [
             { id: 'kaleidoscope_chinesefood:yellow_croaker', ratio: 5 },
             { id: 'minecraft:ink_sac', ratio: 10 },
             { id: 'kaleidoscope_cookery:sashimi', ratio: 10 },
+            { reference: 'lootjs:calamari', ratio: 10 },
+
 
         ]
     }
 ];
-const vanilla_village_fisher_equipement = [
+
+const village_fisher_products = [
+    {
+        groupName: "products",
+        groupWeight: 20,
+        min: 2, max: 3,
+        items: [
+            
+            { id: 'vintagedelight:salted_cod', ratio: 10 },
+            { id: 'vintagedelight:salted_salmon', ratio: 10 },
+            { id: 'vintagedelight:surstromming', ratio: 10 },
+
+        ]
+    }
+];
+
+const village_fisher_equipement = [
     {        
         groupName: "equipment",
         groupWeight: 20,
-        min: 1, max: 1,
+        min: 1, max: 1, enchantChance: 0.0,  damage: [0.2, 0.8],
         items: [
-            { id: 'minecraft:fishing_rod', ratio: 20, damage: [0.2, 0.8]},
-            { id: 'farmersdelight:iron_knife', ratio: 10, enchantChance: 0.0,  damage: [0.2, 0.8]},
-            { id: 'kaleidoscope_cookery:iron_kitchen_knife', ratio: 10, enchantChance: 0.0,  damage: [0.2, 0.8]},
+            { id: 'minecraft:fishing_rod', ratio: 20 },
+            { id: 'farmersdelight:iron_knife', ratio: 10 },
+            { id: 'kaleidoscope_cookery:iron_kitchen_knife', ratio: 10 },
         ]
     },
 ]
@@ -38,8 +56,10 @@ const vanilla_village_fisher_equipement = [
 // 事件注册区域
 // =================================================================
 const village_fisher_content = [
-    [vanilla_village_fisher_products, 3, 4],
-    [vanilla_village_fisher_equipement, 2, 4],
+    [village_fisher_fish, 3, 4],
+    [village_fisher_equipement, 2, 4],
+    [village_fisher_products, 3, 4],
+
 ];
 
 const loot_village_fisher = [

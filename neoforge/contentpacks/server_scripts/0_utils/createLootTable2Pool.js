@@ -43,7 +43,7 @@ $G.createLootTable2Pool_1_21_1 = function(config) {
             // 2. 只有当单品或箱子至少有一个合法存在时，才创建全新的虚拟战利品表
             // =================================================================
             if (validSingleId || validCrateId) {              
-                let tbl = event.create(`lootjs:${group.name}_and_${group.name}_crate`);
+                let tbl = event.create(`lootjs:${group.name}_and_${group.name}_block`);
                 
                 // 注入单品池
                 if (validSingleId) {
@@ -84,7 +84,7 @@ $G.createLootTable2Pool_1_20_1 = function(config) {
     //         let hasCrate = group.crates && group.crates[0];
 
     //         if (hasSingle || hasCrate) {
-    //             event.addGeneric(`lootjs:${group.name}_and_${group.name}_crate`, builder => {});
+    //             event.addGeneric(`lootjs:${group.name}_and_${group.name}_block`, builder => {});
     //         }
     //     });
     // });
@@ -113,7 +113,7 @@ $G.createLootTable2Pool_1_20_1 = function(config) {
 
     //         if (singleEntry || crateEntry) {
                 
-    //             let tbl = event.addLootTableModifier(`lootjs:${group.name}_and_${group.name}_crate`)
+    //             let tbl = event.addLootTableModifier(`lootjs:${group.name}_and_${group.name}_block`)
 
     //             if (singleEntry) {
     //                 tbl.pool(pool => {

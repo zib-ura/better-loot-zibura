@@ -2,96 +2,89 @@
 // 战利品表定义区域
 // =================================================================
 
-const vanilla_abandoned_mineshaft_ore = [
+const abandoned_mineshaft_ore = [
     {
         groupName: "common_ore",
         groupWeight: 80, 
+        min: 2, max: 3,
         items: [
-            { id: 'minecraft:raw_iron', ratio: 10, min: 1, max: 5 },
-            { id: 'minecraft:raw_gold', ratio: 5, min: 1, max: 3 },
-            { id: 'minecraft:redstone', ratio: 5, min: 4, max: 9 },
-            { id: 'minecraft:lapis_lazuli', ratio: 5, min: 4, max: 9 },
-            { id: 'minecraft:coal', ratio: 10, min: 3, max: 8 },
-
-            { id: 'create:raw_zinc', ratio: 10, min: 3, max: 8 },
-
+            { reference: 'lootjs:raw_iron_and_raw_iron_block', ratio: 10 },
+            { reference: 'lootjs:raw_gold_and_raw_gold_block', ratio: 5 },
+            { reference: 'lootjs:redstone_and_redstone_block', ratio: 5 },
+            { reference: 'lootjs:lapis_lazuli_and_lapis_lazuli_block', ratio: 5 },
+            { reference: 'lootjs:coal_and_coal_block', ratio: 10 },
+            { reference: 'lootjs:raw_zinc_and_raw_zinc_block', ratio: 10 },
         ]
     },
 
     {
         groupName: "rare_ore",
         groupWeight: 20, 
+        min: 2, max: 3,
         items: [
-            { id: 'minecraft:diamond', ratio: 10, min: 1, max: 2 },
+            { reference: 'lootjs:diamond', ratio: 10 },
         ]
     },
 ]
 
-const vanilla_abandoned_mineshaft_shaft = [
-
-    {
-        groupWeight: 40, 
-        items: [
-            
-            { id: 'minecraft:rail', ratio: 45, min: 4, max: 8 },
-            // { id: 'minecraft:powered_rail', ratio: 5, min: 1, max: 4 },
-            // { id: 'minecraft:detector_rail', ratio: 5, min: 1, max: 4 },
-            // { id: 'minecraft:activator_rail', ratio: 5, min: 1, max: 4 },
-            { id: 'minecraft:torch', ratio: 15, min: 8, max: 16 },
-            { id: 'minecraft:oak_planks', ratio: 10, min: 4, max: 16 },
-            { id: 'minecraft:oak_log', ratio: 10, min: 4, max: 16 },
-            { id: 'minecraft:oak_fence', ratio: 5, min: 2, max: 8 },
-            { id: 'minecraft:chain', ratio: 5, min: 1, max: 5 },
-            { id: 'minecraft:cobweb', ratio: 10, min: 1, max: 3 }
-        ]
-    },
-]
-
-
-const vanilla_abandoned_mineshaft_equipment = [
+const abandoned_mineshaft_equipment = [
     {
         groupName: "common_equipment",
         groupWeight: 90,
-        min: 1, max: 1,
+        min: 1, max: 1, enchantChance: 0 , damage: [0.4, 0.6],
         items: [        
-            { id: 'minecraft:iron_pickaxe', ratio: 5, enchantChance: 0 , damage: [0.4, 0.6] },
-            { id: 'minecraft:iron_shovel', ratio: 5, enchantChance: 0, damage: [0.4, 0.6] },
-            { id: 'minecraft:lantern', ratio: 5 },
+            { id: 'minecraft:iron_pickaxe', ratio: 5 },
+            { id: 'minecraft:iron_shovel', ratio: 5 },
         ]
     },
 
     {
         groupName: "rare_equipment",
         groupWeight: 10,
-        min: 1, max: 1,
+        min: 1, max: 1, enchantChance: 1.0, enchantLevels: [20, 30], damage: [0.7, 0.9],
         items: [
-            { id: 'minecraft:diamond_pickaxe', ratio: 1, enchantChance: 1.0, enchantLevels: [20, 30], damage: [0.7, 0.9] },
-            { id: 'minecraft:diamond_shovel', ratio: 1, enchantChance: 1.0, enchantLevels: [20, 30], damage: [0.7, 0.9] },
+            { id: 'minecraft:diamond_pickaxe', ratio: 1 },
+            { id: 'minecraft:diamond_shovel', ratio: 1 },
         ]
     },
 ]
 
-const vanilla_abandoned_mineshaft_supply = [
-
+const abandoned_mineshaft_lighting = [
     {
         groupWeight: 40, 
+        min: 4, max: 5,
         items: [
-            
-            { id: 'minecraft:torch', ratio: 10, min: 1, max: 1 },
-
+            { id: 'minecraft:lantern', ratio: 10 },
         ]
     },
 ]
 
+const abandoned_mineshaft_climbing = [
+    {
+        groupWeight: 40, 
+        min: 4, max: 5,
+        items: [
+            { id: 'minecraft:ladder', ratio: 10 },
+            { id: 'farmersdelight:rope', ratio: 10 },
+            { id: 'supplementaries:rope', ratio: 10 },
+            { id: 'farm_and_charm:sturdy_ladder', ratio: 10 },
+            { id: 'minecraft:scaffolding', ratio: 10 },
+            { id: 'create:copper_ladder', ratio: 10 },
+            { id: 'farmersdelight:safety_net', ratio: 10 },
+            { id: 'supplementaries:rope_arrow', ratio: 10 }
+        ]
+    }
+]
 // =================================================================
 // 事件注册区域
 // =================================================================
 const abandoned_mineshaft_content = [
-    [vanilla_abandoned_mineshaft_ore, 2, 4],
-    [vanilla_abandoned_mineshaft_equipment, 1, 3],
-    [vanilla_abandoned_mineshaft_supply, 5, 6],
+    [abandoned_mineshaft_ore, 5, 6],
+    [abandoned_mineshaft_equipment, 1, 3],
+    [abandoned_mineshaft_lighting, 2, 2],
+    [abandoned_mineshaft_climbing, 1, 1],
     [shipwreck_treasure_pottery_sherd, 1, 1],
-    [cobweb, 4, 5],
+    // [cobweb, 4, 5],
 ];
 
 const loot_abandoned_mineshaft = [

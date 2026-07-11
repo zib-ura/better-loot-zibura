@@ -1,4 +1,4 @@
-const vanilla_village_toolsmith_products = [
+const village_toolsmith_products = [
     {
         groupName: "common_tools",
         groupWeight: 95,
@@ -47,7 +47,7 @@ const vanilla_village_toolsmith_products = [
 // 事件注册区域
 // =================================================================
 const village_toolsmith_content = [
-    [vanilla_village_toolsmith_products, 2, 4],
+    [village_toolsmith_products, 2, 4],
     [village_smith_common_products, 2, 4],
     [village_smith_materials, 2, 4],
     [iron_nugget, 10, 18],

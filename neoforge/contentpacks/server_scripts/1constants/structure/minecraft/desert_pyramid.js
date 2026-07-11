@@ -1,4 +1,4 @@
-const vanilla_desert_pyramid_Treasure_Treasure = [
+const desert_pyramid_Treasure_Treasure = [
     {
         groupName: "Treasure",
         groupWeight: 30,
@@ -9,10 +9,13 @@ const vanilla_desert_pyramid_Treasure_Treasure = [
             { id: 'minecraft:ender_eye', ratio: 10 },
             { id: 'minecraft:gold_ingot', ratio: 10 },
             { id: 'minecraft:totem_of_undying', ratio: 5 },
+
+            { id: 'touhou_little_maid:fall_protect_bauble', ratio: 10 },
+            { id: 'touhou_little_maid:explosion_protect_bauble', ratio: 10 },
         ]
     },
 ];
-const vanilla_desert_pyramid_emerald = [
+const desert_pyramid_emerald = [
     {
         groupName: "emerald",
         groupWeight: 25,  
@@ -47,7 +50,7 @@ const desert_pyramid_smithing_templates = [
     },
 ];
 
-const vanilla_desert_pyramid_Food = [
+const desert_pyramid_Food = [
     {
         groupName: "Food",
         groupWeight: 25,
@@ -66,7 +69,7 @@ const vanilla_desert_pyramid_Food = [
 ];
 
 // 2. 沙漠神殿：食物与药水
-const vanilla_desert_pyramid_potion = [
+const desert_pyramid_potion = [
     {
         groupName: "potion",
         groupWeight: 25,
@@ -98,7 +101,7 @@ const vanilla_desert_pyramid_potion = [
         ]
     }
 ];
-const vanilla_desert_pyramid_gold_nugget = [
+const desert_pyramid_gold_nugget = [
     {
         groupName: "gold nugget",
         groupWeight: 25,  
@@ -110,7 +113,7 @@ const vanilla_desert_pyramid_gold_nugget = [
     },
 ];
 
-const vanilla_desert_pyramid_gold_and_diamond_products = [
+const desert_pyramid_gold_and_diamond_products = [
     {
         groupName: "Gold Products",
         groupWeight: 50,
@@ -159,7 +162,7 @@ const vanilla_desert_pyramid_gold_and_diamond_products = [
     }
 ];
 
-const vanilla_desert_pyramid_gold_and_diamond_repair = [
+const desert_pyramid_gold_and_diamond_repair = [
     {
         groupName: "Gold",
         groupWeight: 50,
@@ -180,7 +183,7 @@ const vanilla_desert_pyramid_gold_and_diamond_repair = [
     },
 ];
 
-const vanilla_desert_pyramid_anvil = [
+const desert_pyramid_anvil = [
     {
         groupName: "anvil",
         groupWeight: 50,
@@ -199,7 +202,7 @@ const vanilla_desert_pyramid_anvil = [
     },
 ];
 
-const vanilla_desert_pyramid_Archaeology = [
+const desert_pyramid_Archaeology = [
     {
         groupName: "Archaeology",
         groupWeight: 25,
@@ -216,25 +219,25 @@ const vanilla_desert_pyramid_Archaeology = [
 // 事件注册区域
 // =================================================================
 const desert_pyramid_valuable_content = [
-    [vanilla_desert_pyramid_Treasure_Treasure, 4, 4],
-    [vanilla_desert_pyramid_emerald, 14, 16],
+    [desert_pyramid_Treasure_Treasure, 4, 4],
+    [desert_pyramid_emerald, 14, 16],
     [desert_pyramid_smithing_templates, 1, 1],
 ];
 
 const desert_pyramid_supply_content = [
-    [vanilla_desert_pyramid_Food, 4, 4],
-    [vanilla_desert_pyramid_potion, 2, 4],
-    [vanilla_desert_pyramid_gold_nugget, 14, 16],
+    [desert_pyramid_Food, 4, 4],
+    [desert_pyramid_potion, 2, 4],
+    [desert_pyramid_gold_nugget, 14, 16],
 ];
 
 const desert_pyramid_Archaeology_content = [
-    [vanilla_desert_pyramid_Archaeology, 4, 4],
+    [desert_pyramid_Archaeology, 4, 4],
 ];
 
 const desert_pyramid_armor_content = [
-    [vanilla_desert_pyramid_gold_and_diamond_products, 4, 4],
-    [vanilla_desert_pyramid_gold_and_diamond_repair, 4, 4],
-    [vanilla_desert_pyramid_anvil, 1, 1],
+    [desert_pyramid_gold_and_diamond_products, 4, 4],
+    [desert_pyramid_gold_and_diamond_repair, 4, 4],
+    [desert_pyramid_anvil, 1, 1],
 ];
 
 const loot_desert_pyramid = [

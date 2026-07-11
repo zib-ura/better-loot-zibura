@@ -1,4 +1,4 @@
-// const vanilla_village_plains_photo = [
+// const village_plains_photo = [
 //     // =================================================================
 //     // Group 1: Photos & Misc
 //     // =================================================================
@@ -107,5 +107,5 @@
 // LootJS.lootTables(event => {
 //     const Loot = event.getLootTable("minecraft:chests/village/village_plains_house");
 
-//     addCustomLoot(Loot, vanilla_village_plains_photo, 1, 1);
+//     addCustomLoot(Loot, village_plains_photo, 1, 1);
 // });

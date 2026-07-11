@@ -2,31 +2,32 @@
 // 战利品表定义区域
 // =================================================================
 
-const vanilla_village_taiga_base_crops = [
+const village_taiga_base_crops = [
     {
         groupName: "base_crops",
         groupWeight: 80, 
         min: 2, 
         max: 3,
         items: [
-            { id: 'minecraft:wheat_seeds', ratio: 10 },
-            { reference: 'lootjs:wheat_and_wheat_crate', ratio: 40 },
+            { reference: 'lootjs:wheat_seeds', ratio: 10 },
+            { reference: 'lootjs:wheat_and_wheat_block', ratio: 40 },
             
-            { id: 'minecraft:pumpkin_seeds', ratio: 10 },
-            { reference: 'lootjs:pumpkin_and_pumpkin_crate', ratio: 40 },
+            { reference: 'lootjs:pumpkin_seeds', ratio: 10 },
+            { reference: 'lootjs:pumpkin_slice_and_pumpkin_slice_block', ratio: 40 },
 
-            { reference: 'lootjs:potato_and_potato_crate', ratio: 50 },
+            { reference: 'lootjs:potato_and_potato_block', ratio: 50 },
 
-            { id: 'minecraft:beetroot_seeds', ratio: 10 },
-            { reference: 'lootjs:beetroot_and_beetroot_crate', ratio: 40 },
+            { reference: 'lootjs:beetroot_seeds', ratio: 10 },
+            { reference: 'lootjs:beetroot_and_beetroot_block', ratio: 40 },
 
-            { id: 'farm_and_charm:barley', ratio: 20 },
-            { id: 'farm_and_charm:barley_seeds', ratio: 5 },
+            { reference: 'lootjs:barley', ratio: 20 },
+            { reference: 'lootjs:barley_seeds', ratio: 5 },
+
         ]
     }
 ];
 
-const vanilla_village_taiga_other_crops = [
+const village_taiga_other_crops = [
     {
         groupName: "taiga",
         groupWeight: 80, 
@@ -34,22 +35,18 @@ const vanilla_village_taiga_other_crops = [
         max: 3,
         items: [
             // --- 甜浆果 Sweet Berries 系列 (有作物、有种子[加Mod项]、箱子) ---
-            { id: 'minecraft:sweet_berries', ratio: 15 },
-            { id: 'berry_good:sweet_berry_pips', ratio: 5 },
-            { reference: 'lootjs:berry_and_berry_crate', ratio: 10 },
+            { reference: 'lootjs:sweet_berries', ratio: 15 },
+            { reference: 'lootjs:sweet_berry_pips', ratio: 5 },
+            { reference: 'lootjs:berry_and_berry_block', ratio: 10 },
 
             // --- 啤酒花 Hops 系列 (仅作物，无种子与箱子，保留原25分配) ---
-            { id: 'brewery:hops', ratio: 25 },
-
-
+            { reference: 'lootjs:hops', ratio: 25 },
 
             // --- 红蘑菇 Red Mushroom 系列 (有作物、箱子，无种子) ---
-            { id: 'minecraft:red_mushroom', ratio: 15 },
-            { reference: 'lootjs:mushroom_red_and_mushroom_red_crate', ratio: 10 },
+            { reference: 'lootjs:red_mushroom', ratio: 25 },
 
             // --- 棕蘑菇 Brown Mushroom 系列 (有作物、箱子，无种子) ---
-            { id: 'minecraft:brown_mushroom', ratio: 15 },
-            { reference: 'lootjs:mushroom_brown_and_mushroom_brown_crate', ratio: 10 },
+            { reference: 'lootjs:brown_mushroom', ratio: 25 },
         ]
     },
 
@@ -60,7 +57,7 @@ const vanilla_village_taiga_other_crops = [
         max: 3,
         items: [
             // --- 胡萝卜 Carrot 系列 (仅作物，总权重 25) ---
-            { id: 'minecraft:carrot', ratio: 25 },
+            { reference: 'lootjs:carrot', ratio: 25 },
 
             // --- 番茄 Tomato 系列 (作物+种子，总权重 25) ---
             { reference: 'lootjs:tomato', ratio: 20 },
@@ -70,19 +67,26 @@ const vanilla_village_taiga_other_crops = [
             { reference: 'lootjs:onion', ratio: 25 },
 
             // --- 卷心菜 Cabbage 系列 (作物+种子，总权重 25) ---
-            { id: 'farmersdelight:cabbage', ratio: 20 },
-            { id: 'farmersdelight:cabbage_seeds', ratio: 5 },
+            { reference: 'lootjs:cabbage', ratio: 20 },
+            { reference: 'lootjs:cabbage_seeds', ratio: 5 },
 
             // --- 生菜 Lettuce 系列 (作物+种子，总权重 25) ---
             { reference: 'lootjs:lettuce', ratio: 20 },
             { reference: 'lootjs:lettuce_seeds', ratio: 5 },
 
-            { id: 'minecraft:honey_bottle', ratio: 25 },
+            { reference: 'lootjs:honey_bottle', ratio: 25 },
 
+            { reference: 'lootjs:blueberry', ratio: 25 },
+            { reference: 'lootjs:hawberry_sapling', ratio: 5 },
+            { reference: 'lootjs:hawberry', ratio: 20 },
+            { reference: 'lootjs:persimmon_sapling', ratio: 5 },
+            { reference: 'lootjs:persimmon', ratio: 20 },
+
+            { reference: 'lootjs:egg', ratio: 25 },
         ]
     },
 ];
-const vanilla_village_taiga_essential_wealth_equipment = [
+const village_taiga_essential_wealth_equipment = [
     {
         groupName: "Villager Daily Essentials",
         groupWeight: 30, 
@@ -129,7 +133,7 @@ const vanilla_village_taiga_essential_wealth_equipment = [
     },
 ]
 
-const vanilla_village_taiga_dish = [
+const village_taiga_dish = [
     {
         groupName: "common",
         groupWeight: 35,
@@ -144,10 +148,12 @@ const vanilla_village_taiga_dish = [
             { id: 'farmersdelight:bone_broth', ratio: 10 },
             { id: 'rusticdelight:fried_mushrooms', ratio: 10 },    
 
-            { id: 'minecraft:cooked_beef', ratio: 10 },       // 牛排
-            { id: 'minecraft:cooked_porkchop', ratio: 10 },   // 熟猪排
-            { id: 'minecraft:cooked_mutton', ratio: 10 },     // 熟羊肉
-            { id: 'minecraft:cooked_chicken', ratio: 10 },    // 熟鸡肉
+            { id: 'berry_good:sweet_berry_meatballs', ratio: 10 },
+
+            { id: 'minecraft:cooked_beef', ratio: 10 },      
+            { id: 'minecraft:cooked_porkchop', ratio: 10 },   
+            { id: 'minecraft:cooked_mutton', ratio: 10 },    
+            { id: 'minecraft:cooked_chicken', ratio: 10 },   
         ]
     },
 
@@ -167,7 +173,7 @@ const vanilla_village_taiga_dish = [
     },
 ]
 
-const vanilla_village_taiga_drinks = [
+const village_taiga_drinks = [
     {
         groupName: "berry",
         groupWeight: 5,
@@ -175,6 +181,8 @@ const vanilla_village_taiga_drinks = [
         items: [
             { id: 'minecraft:potion', ratio: 10 , potion: "minecraft:water" }, 
 
+            { id: 'fruitsdelight:hawberry_tea', ratio: 10 },
+            
             { id: 'kitchenkarrot:mead', ratio: 10 },
             // { id: 'kaleidoscope_tavern:honey_wine', ratio: 10 },
             { id: 'youkaisfeasts:mead', ratio: 10 },
@@ -188,68 +196,117 @@ const vanilla_village_taiga_drinks = [
 
 
 
-const vanilla_village_taiga_bakery_dessert = [
+const village_taiga_bakery_products = [
     {
-        groupName: "dessert",
+        groupName: "taiga_cakes",
         groupWeight: 15,
-        min: 1, max: 2,
+        min: 1, max: 1,
         items: [
-            { id: 'brewinandchewin:sweet_berry_jam', ratio: 10 },
-            // { id: 'vanillacookbook:berry_cookie', ratio: 10 },
-            // { id: 'vanillacookbook:berry_juice', ratio: 10 },
-            // { id: 'vanillacookbook:berry_milk', ratio: 10 },
-            // { id: 'vanillacookbook:berry_candy', ratio: 10 },
-            // { id: 'vanillacookbook:berry_pancake', ratio: 10 },
-            { id: 'moredelight:toast_with_sweet_berries', ratio: 10 },
-            { id: 'farmersdelight:sweet_berry_cookie', ratio: 10 },
-
-            // { id: 'vanillacookbook:berry_pie', ratio: 10 },
-            // { id: 'vanillacookbook:berry_cake_slice', ratio: 10 },
-            // { id: 'vanillacookbook:berry_cake', ratio: 10 },
-            // { id: 'vanillacookbook:berry_brownie', ratio: 10 },
-            { id: 'kitchenkarrot:sweet_berry_tart', ratio: 10 },
-            { id: 'farmersdelight:sweet_berry_cheesecake', ratio: 10 },
-            { id: 'moredelight:toast_with_sweet_berries', ratio: 10 },
-            { id: 'bakery:sweetberry_cupcake', ratio: 10 },
-            { id: 'bakery:sweetberry_glazed_cookie', ratio: 10 },
             { id: 'bakery:sweetberry_cake', ratio: 10 },
+            { id: 'vanillacookbook:berry_cake', ratio: 10 },
+        ]
+    },
+
+    {
+        groupName: "taiga_tarts_pies",
+        groupWeight: 15,
+        min: 1, max: 1,
+        items: [
+            { id: 'farmersdelight:sweet_berry_cheesecake', ratio: 10 },
+            { id: 'kitchenkarrot:sweet_berry_tart', ratio: 10 },
+            { id: 'vanillacookbook:berry_pie', ratio: 10 },
+
+
+        ]
+    },
+
+    {
+        groupName: "taiga_dessert_puddings_cold",
+        groupWeight: 15,
+        min: 1, max: 1,
+        items: [
+            { id: 'fruitsdelight:blueberry_custard', ratio: 10 },
+            { id: 'vanillacookbook:berry_ice_cream', ratio: 10 },
+        ]
+    },
+
+    {
+        groupName: "taiga_dessert_teatime_treats_slices",
+        groupWeight: 15,
+        min: 3, max: 4,
+        items: [
+            { id: 'farmersdelight:sweet_berry_cheesecake_slice', ratio: 10 },
+            { id: 'farmersdelight:sweet_berry_cookie', ratio: 10 },
+            { id: 'vanillacookbook:berry_cookie', ratio: 10 },
+            { id: 'vanillacookbook:berry_pancake', ratio: 10 },
+            { id: 'vanillacookbook:berry_brownie', ratio: 10 },
+            { id: 'vanillacookbook:berry_candy', ratio: 10 },
+            { id: 'vanillacookbook:berry_cake_slice', ratio: 10 },
+            { id: 'bakery:sweetberry_cake_slice', ratio: 10 },
+            { id: 'bakery:sweetberry_glazed_cookie', ratio: 10 },
+            { id: 'bakery:sweetberry_cupcake', ratio: 10 },
+
+            { id: 'fruitsdelight:dried_persimmon', ratio: 10 },
+            { id: 'fruitsdelight:persimmon_cookie', ratio: 10 },
+            { id: 'fruitsdelight:blueberry_muffin', ratio: 10 },
+            { id: 'fruitsdelight:hawberry_stick', ratio: 10 },
+            { id: 'fruitsdelight:hawberry_roll', ratio: 10 },
+            { id: 'fruitsdelight:hawberry_sheet', ratio: 10 },
+            { id: 'rusticdelight:fruit_beignet', ratio: 10 },
+
+        ]
+    },
+
+    {
+        groupName: "taiga_bread",
+        groupWeight: 15,
+        min: 3, max: 4,
+        items: [
+            { id: 'minecraft:bread', ratio: 10 },
         ]
     },
 
 ]
 
-const vanilla_village_taiga_bakery_cooking_material = [
+const village_taiga_bakery_baking_material = [
     {
-        groupName: "cooking",
+        groupName: "baking_material",
         groupWeight: 15,
-        min: 1, max: 2,
+        min: 3, max: 4,
+        items: basic_baking_material
+    },
+
+    {
+        groupName: "taiga_jam",
+        groupWeight: 15,
+        min: 1, max: 1,
         items: [
-            { id: 'minecraft:milk_bucket', ratio: 10 },           
-            { id: 'minecraft:egg', ratio: 10 },  
-            { id: 'minecraft:wheat', ratio: 10 },
-            { id: 'minecraft:sugar', ratio: 10 },
-            { id: 'kaleidoscope_cookery:flour', ratio: 10 },
-            { reference: 'lootjs:berry_and_berry_crate', ratio: 10 },
-            { reference: 'lootjs:sugar_and_sugar_crate', ratio: 10 },
-            { reference: 'lootjs:wheat_and_wheat_crate', ratio: 10 },
+
+            { reference: 'lootjs:sweetberry_jam', ratio: 10 },
+            { id: 'fruitsdelight:blueberry_jam', ratio: 10 },
+            { id: 'fruitsdelight:hawberry_jam', ratio: 10 },
+            { id: 'fruitsdelight:persimmon_jam', ratio: 10 },
+
         ]
     },
+
 ]
 // =================================================================
 // 事件注册区域
 // =================================================================
 const village_taiga_house_content = [
-    [vanilla_village_taiga_base_crops, 1, 1],
-    [vanilla_village_taiga_other_crops, 1, 1],
-    [vanilla_village_taiga_dish, 3, 4],
-    [vanilla_village_taiga_essential_wealth_equipment, 4, 4],
-    [vanilla_village_taiga_drinks, 1, 2],
+    [village_taiga_base_crops, 1, 1],
+    [village_taiga_other_crops, 1, 1],
+    [village_taiga_dish, 3, 4],
+    [village_taiga_essential_wealth_equipment, 4, 4],
+    [village_taiga_drinks, 1, 2],
 ];
 
 const village_taiga_bakery_content = [
 
-    [vanilla_village_taiga_bakery_dessert, 3, 3],
-    [vanilla_village_taiga_bakery_cooking_material, 10, 10],
+    [village_taiga_bakery_products, 8, 8],
+    [village_taiga_bakery_baking_material, 5, 5],
+    [village_smith_small_iron_knife, 1, 1],
 
 ];
 

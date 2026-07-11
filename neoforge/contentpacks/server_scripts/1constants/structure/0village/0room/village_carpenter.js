@@ -98,16 +98,18 @@ const carpenterUtilityTemplates = [
     { id: 'woodenshears:wooden_shears', ratio: 10 },
     { id: 'farmersdelight:wooden_basket', ratio: 10 },
     { id: 'kaleidoscope_cookery:fruit_basket', ratio: 10 },
+
 ];
 
 // 1.2 家具模版
 const carpenterFurnitureTemplates = [
     // { id: 'minecraft:[WOOD]_stairs', ratio: 10 },
     // { id: 'minecraft:[WOOD]_slab', ratio: 10 },
-    // { id: 'minecraft:[WOOD]_door', ratio: 10 },
-    // { id: 'minecraft:[WOOD]_trapdoor', ratio: 10 },
+    { id: 'minecraft:[WOOD]_door', ratio: 10 },
+    { id: 'minecraft:[WOOD]_trapdoor', ratio: 10 },
     // { id: 'minecraft:[WOOD]_fence', ratio: 10 },
-    // { id: 'minecraft:[WOOD]_sign', ratio: 10 },
+    { id: 'minecraft:[WOOD]_sign', ratio: 10 },
+    { id: 'minecraft:[WOOD]_hanging_sign', ratio: 10 },
     { id: 'kaleidoscope_cookery:table_[WOOD]', ratio: 10 },
     { id: 'kaleidoscope_cookery:chair_[WOOD]', ratio: 10 },
     { id: 'kaleidoscope_cookery:cook_stool_[WOOD]', ratio: 10 },

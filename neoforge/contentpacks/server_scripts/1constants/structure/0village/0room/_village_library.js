@@ -13,47 +13,20 @@ const village_library_books_equipment = [
     },
 ]
 
-const village_library_enchanted_books = [
+const village_library_special_books = [
     {   
-        groupName: "Enchanted Book",
-        groupWeight: 70, 
+        groupName: "Special Book",
+        groupWeight: 30, 
         min: 1, max: 1,
         items: [
-            // {
-            //     id: 'minecraft:book',
-            //     ratio: 5,
-            //     enchantChance: 1.0,
-            //     enchantLevels: [5, 10],
-            //     treasure: true // 允许出冰霜行者等宝藏附魔
-            // },
-            // {
-            //     id: 'minecraft:book',
-            //     ratio: 5,
-            //     enchantChance: 1.0,
-            //     enchantLevels: [10, 15],
-            //     treasure: true // 允许出冰霜行者等宝藏附魔
-            // },
-            // {
-            //     id: 'minecraft:book',
-            //     ratio: 5,
-            //     enchantChance: 1.0,
-            //     enchantLevels: [15, 20],
-            //     treasure: true // 允许出冰霜行者等宝藏附魔
-            // },
-            // {
-            //     id: 'minecraft:book',
-            //     ratio: 5,
-            //     enchantChance: 1.0,
-            //     enchantLevels: [20, 25],
-            //     treasure: true // 允许出冰霜行者等宝藏附魔
-            // },
-            // {
-            //     id: 'minecraft:enchanted_book',
-            //     ratio: 5,
-            //     enchantChance: 1.0,
-            //     enchantLevels: [25, 30],
-            //     treasure: true // 允许出冰霜行者等宝藏附魔
-            // },
+            { id: 'xpbook:xp_tome', ratio: 10 },
+        ]
+    },
+    {   
+        groupName: "Special Book",
+        groupWeight: 70, 
+        items: [
+            { id: 'empty'},
         ]
     },
 ]
@@ -64,13 +37,14 @@ const village_library_drinks = [
         groupWeight: 50, 
         min: 1, max: 1,
         items: [
-            // { id: 'youkaisfeasts:americano', ratio: 10 },
-            // { id: 'youkaisfeasts:ristretto', ratio: 10 },
-            // { id: 'youkaisfeasts:latte', ratio: 10 },
-            // { id: 'youkaisfeasts:con_panna', ratio: 10 },
-            // { id: 'youkaisfeasts:cappuccino', ratio: 10 },
-            // { id: 'youkaisfeasts:macchiato', ratio: 10 },
-            // { id: 'youkaisfeasts:mocha', ratio: 10 },
+            { id: 'youkaisfeasts:americano', ratio: 10 },
+            { id: 'youkaisfeasts:ristretto', ratio: 10 },
+            { id: 'youkaisfeasts:latte', ratio: 10 },
+            { id: 'youkaisfeasts:con_panna', ratio: 10 },
+            { id: 'youkaisfeasts:cappuccino', ratio: 10 },
+            { id: 'youkaisfeasts:macchiato', ratio: 10 },
+            { id: 'youkaisfeasts:mocha', ratio: 10 },
+
             { id: 'rusticdelight:coffee', ratio: 10 },
             { id: 'rusticdelight:milk_coffee', ratio: 10 },
             { id: 'rusticdelight:chocolate_coffee', ratio: 10 },
@@ -98,14 +72,40 @@ const village_library_drinks = [
     },
 ]
 
+const village_chess = [
+    {
+        groupName: "board_state",
+        groupWeight: 50,
+        min: 1, max: 1,
+        items: [
+            { id: 'touhou_little_maid:gomoku_board_state', ratio: 10, jsonFunction: { "function": "touhou_little_maid:board_state_randomly", "tags": [ "library"]}},
+            { id: 'touhou_little_maid:cchess_board_state', ratio: 10, jsonFunction: { "function": "touhou_little_maid:board_state_randomly", "tags": [ "library"]}},
+            { id: 'touhou_little_maid:wchess_board_state', ratio: 10, jsonFunction: { "function": "touhou_little_maid:board_state_randomly", "tags": [ "library"]}},
+        ]
+    },
+    {
+        groupName: "empty",
+        groupWeight: 50,
+        items: [
+            { "id": "empty" },
+        ]
+    },
+]
+
+
 // =================================================================
 // 事件注册区域
 // =================================================================
 const village_library_content = [
     [village_library_books_equipment, 4, 6],
     [village_library_drinks, 1, 2],
+    [village_library_special_books, 1, 1],
     [paper, 4, 5],
+    [village_chess, 1, 1],
 ];
+
+
+
 
 const loot_village_library = [
     [village_library_content, 1],

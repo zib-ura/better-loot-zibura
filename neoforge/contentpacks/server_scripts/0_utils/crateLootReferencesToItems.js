@@ -8,7 +8,7 @@ $G.crateLootReferencesToItems_1_20_1 = function(lootGroups) {
             if (!item.reference) return item;
 
             // 1. 提取出 reference 里的基础名称
-            let match = item.reference.match(/^lootjs:([a-zA-Z0-9_]+)_and_\1_crate$/);
+            let match = item.reference.match(/^lootjs:([a-zA-Z0-9_]+)_and_\1_block$/);
             
             // 如果不符合这个特定格式，直接原样返回，不做任何替换
             if (!match) return item; 

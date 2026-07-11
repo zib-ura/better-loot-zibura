@@ -9,10 +9,10 @@ const village_ocean_base_crops = [
         groupWeight: 70, 
         min: 2, max: 3,
         items: [
-            { id: 'minecraft:wheat_seeds', ratio: 5 },
-            { reference: 'lootjs:wheat_and_wheat_crate', ratio: 20 },
+            { reference: 'lootjs:wheat_seeds', ratio: 5 },
+            { reference: 'lootjs:wheat_and_wheat_block', ratio: 20 },
 
-            { reference: 'lootjs:kelp_and_kelp_crate', ratio: 25 },
+            { reference: 'lootjs:kelp_and_kelp_block', ratio: 25 },
 
         ]
     },
@@ -22,18 +22,19 @@ const village_ocean_base_crops = [
         groupWeight: 30, 
         min: 2, max: 3,
         items: [
-            { reference: 'lootjs:rice_and_rice_crate', ratio: 25 },
+            { reference: 'lootjs:rice_and_rice_block', ratio: 25 },
 
-            { reference: 'lootjs:potato_and_potato_crate', ratio: 25 },
+            { reference: 'lootjs:potato_and_potato_block', ratio: 25 },
 
-            { reference: 'lootjs:onion_and_onion_crate', ratio: 25 },
+            { reference: 'lootjs:onion_and_onion_block', ratio: 25 },
 
-            { id: 'farmersdelight:cabbage_seeds', ratio: 5 },
-            { reference: 'farmersdelight:cabbage', ratio: 20 },
+            { reference: 'lootjs:cabbage_seeds', ratio: 5 },
+            { reference: 'lootjs:cabbage', ratio: 20 },
 
             { reference: 'lootjs:lettuce_seeds', ratio: 5 },
             { reference: 'lootjs:lettuce', ratio: 20 },
 
+            { reference: 'lootjs:egg', ratio: 25 },
         ]
     },
 ]
@@ -90,6 +91,8 @@ const village_ocean_dish = [
         groupWeight: 70,
         min: 2, max: 3,
         items: [
+
+
             { id: 'minecraft:cooked_cod', ratio: 10 },
             { id: 'minecraft:cooked_salmon', ratio: 10 },
 
@@ -115,7 +118,26 @@ const village_ocean_dish = [
             { id: 'kaleidoscope_chinesefood:seaweed_egg_drop_soup', ratio: 10 },            
             { id: 'youkaisfeasts:onigili', ratio: 10 },  
    
+            { id: 'culturaldelights:tropical_roll', ratio: 10 },
+            { id: 'culturaldelights:sushi', ratio: 10 },
+            { id: 'culturaldelights:pufferfish_roll', ratio: 10 },
+            { id: 'culturaldelights:midori_roll_slice', ratio: 10 },
+            { id: 'culturaldelights:egg_roll', ratio: 10 },
+            { id: 'culturaldelights:chicken_roll_slice', ratio: 10 },
+            { id: 'culturaldelights:calamari_roll', ratio: 10 },
+            { id: 'culturaldelights:tamago', ratio: 10 },
+            { id: 'culturaldelights:rice_ball', ratio: 10 },
 
+
+            { id: 'vintagedelight:salted_cod', ratio: 10 },
+            { id: 'vintagedelight:salted_salmon', ratio: 10 },
+            { id: 'vintagedelight:surstromming', ratio: 10 },
+            { id: 'brewinandchewin:kippers', ratio: 10 },
+            { id: 'culturaldelights:pickle', ratio: 10 },
+            { id: 'vintagedelight:pickled_onion', ratio: 10 },
+            { id: 'vintagedelight:pickled_beetroot', ratio: 10 },
+            { id: 'vintagedelight:pickle', ratio: 10 },
+            { id: 'vintagedelight:pickled_egg', ratio: 10 },
         ]
     },
 
@@ -128,9 +150,6 @@ const village_ocean_dish = [
             { id: 'farmersdelight:baked_cod_stew', ratio: 10 },  
             { id: 'farmersdelight:squid_ink_pasta', ratio: 10 },  
 
-
-            { id: 'kaleidoscope_chinesefood:yellow_croaker_soup', ratio: 10 },
-            { id: 'kaleidoscope_chinesefood:sichuan_boiled_fish', ratio: 10 },
             { id: 'kaleidoscope_chinesefood:yellow_croaker_soup', ratio: 10 },
 
             { id: 'kaleidoscope_cookery:oil_splashed_fish', ratio: 10 },
@@ -144,6 +163,13 @@ const village_ocean_dish = [
 
             { id: 'farmersdelight:kelp_roll', ratio: 10 },  
             { id: 'farmersdelight:noodle_soup', ratio: 10 },  
+            { id: 'farmersdelight:rice_roll_medley_block', ratio: 10 },  
+           
+            { id: 'culturaldelights:midori_roll', ratio: 10 },
+            { id: 'culturaldelights:chicken_roll', ratio: 10 },
+            { id: 'culturaldelights:exotic_roll_medley', ratio: 10 },
+
+            { id: 'rustic_delight:fried_calamari', ratio: 10 },
 
         ]
     },

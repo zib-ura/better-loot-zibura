@@ -1,4 +1,4 @@
-const vanilla_village_fletcher_products = [
+const village_fletcher_products = [
     {
         groupName: "weapons",
         groupWeight: 20,
@@ -26,7 +26,7 @@ const vanilla_village_fletcher_products = [
         ]
     },
 ]
-const vanilla_village_fletcher_materials = [
+const village_fletcher_materials = [
     {        
         groupName: "materials",
         groupWeight: 20,
@@ -47,8 +47,8 @@ const vanilla_village_fletcher_materials = [
 // 事件注册区域
 // =================================================================
 const village_fletcher_content = [
-    [vanilla_village_fletcher_products, 2, 4],
-    [vanilla_village_fletcher_materials, 2, 4],
+    [village_fletcher_products, 2, 4],
+    [village_fletcher_materials, 2, 4],
 ];
 
 const loot_village_fletcher = [

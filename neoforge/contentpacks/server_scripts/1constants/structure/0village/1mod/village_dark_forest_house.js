@@ -9,10 +9,10 @@ const village_dark_forest_base_crops = [
         min: 2, 
         max: 3,
         items: [
-            { id: 'minecraft:wheat_seeds', ratio: 5 },
-            { reference: 'lootjs:wheat_and_wheat_crate', ratio: 20 },
+            { reference: 'lootjs:wheat_seeds', ratio: 5 },
+            { reference: 'lootjs:wheat_and_wheat_block', ratio: 20 },
         
-            { reference: 'lootjs:potato_and_potato_crate', ratio: 25 },
+            { reference: 'lootjs:potato_and_potato_block', ratio: 25 },
 
         ]
     }
@@ -20,32 +20,35 @@ const village_dark_forest_base_crops = [
 
 const village_dark_forest_other_crops = [
     {
-        groupName: "other",
+        groupName: "common",
         groupWeight: 80, 
         min: 2, 
         max: 3,
         items: [
-            { id: 'minecraft:apple', ratio: 15 },
-            { reference: 'lootjs:apple_and_apple_crate', ratio: 10 },
+            { reference: 'lootjs:apple', ratio: 15 },
+            { reference: 'lootjs:apple_and_apple_block', ratio: 10 },
 
             // --- 红蘑菇 Red Mushroom 系列 (有作物、箱子，无种子) ---
-            { id: 'minecraft:red_mushroom', ratio: 15 },
-            { reference: 'lootjs:mushroom_red_and_mushroom_red_crate', ratio: 10 },
+            { reference: 'lootjs:red_mushroom', ratio: 15 },
+            { reference: 'lootjs:red_mushroom_and_red_mushroom_block', ratio: 10 },
 
             // --- 棕蘑菇 Brown Mushroom 系列 (有作物、箱子，无种子) ---
-            { id: 'minecraft:brown_mushroom', ratio: 15 },
-            { reference: 'lootjs:mushroom_brown_and_mushroom_brown_crate', ratio: 10 },
+            { reference: 'lootjs:brown_mushroom', ratio: 15 },
+            { reference: 'lootjs:brown_mushroom_and_brown_mushroom_block', ratio: 10 },
+
+            { reference: 'lootjs:gearo_berry_and_gearo_berry_block', ratio: 25 },
+            { reference: 'lootjs:cranberry_and_cranberry_block', ratio: 25 },
         ]
     },
 
     {
-        groupName: "other",
+        groupName: "rare",
         groupWeight: 20, 
         min: 2, 
         max: 3,
         items: [
             // --- 胡萝卜 Carrot 系列 (仅作物，总权重 25) ---
-            { id: 'minecraft:carrot', ratio: 25 },
+            { reference: 'lootjs:carrot', ratio: 25 },
 
             // --- 番茄 Tomato 系列 (作物+种子，总权重 25) ---
             { reference: 'lootjs:tomato', ratio: 20 },
@@ -55,12 +58,14 @@ const village_dark_forest_other_crops = [
             { reference: 'lootjs:onion', ratio: 25 },
 
             // --- 卷心菜 Cabbage 系列 (作物+种子，总权重 25) ---
-            { id: 'farmersdelight:cabbage', ratio: 20 },
-            { id: 'farmersdelight:cabbage_seeds', ratio: 5 },
+            { reference: 'lootjs:cabbage', ratio: 20 },
+            { reference: 'lootjs:cabbage_seeds', ratio: 5 },
 
             // --- 生菜 Lettuce 系列 (作物+种子，总权重 25) ---
             { reference: 'lootjs:lettuce', ratio: 20 },
             { reference: 'lootjs:lettuce_seeds', ratio: 5 },
+
+            { reference: 'lootjs:egg', ratio: 25 },
 
         ]
     },
@@ -158,48 +163,84 @@ const village_dark_forest_drinks = [
 
             { id: 'vanillacookbook:apple_juice', ratio: 10 },
             { id: 'farmersdelight:apple_cider', ratio: 10 },
-
         ]
     },
 ]
 
 
 
-const village_dark_forest_bakery_dessert = [
+// =================================================================
+// 战利品表定义区域 (Village Dark Forest - Bakery Focus)
+// =================================================================
+
+const village_dark_forest_bakery_products = [
+    // {
+    //     groupName: "dark_forest_cakes",
+    //     groupWeight: 15,
+    //     min: 1, max: 1,
+    //     items: [
+
+    //     ]
+    // },
+
     {
-        groupName: "dessert_apple",
+        groupName: "dark_forest_tarts_pies",
         groupWeight: 15,
-        min: 1, max: 2,
+        min: 1, max: 1,
         items: [
             { id: 'bakery:apple_pie', ratio: 10 },
             { id: 'farmersdelight:apple_pie', ratio: 10 },
-            { id: 'youkaisfeasts:candy_apple', ratio: 10 },
-            { id: 'bakery:apple_cupcake', ratio: 10 },
-            { id: 'bakery:apple_jam', ratio: 10 },
             { id: 'vanillacookbook:apple_pie', ratio: 10 },
+        
         ]
     },
 
-]
-
-const village_dark_forest_bakery_cooking_material = [
     {
-        groupName: "cooking",
+        groupName: "dark_forest_dessert_teatime_treats_slices",
         groupWeight: 15,
-        min: 1, max: 2,
+        min: 3, max: 4,
         items: [
-            { id: 'minecraft:milk_bucket', ratio: 10 },           
-            { id: 'minecraft:egg', ratio: 10 },  
-            { id: 'minecraft:wheat', ratio: 10 },
-            { id: 'minecraft:sugar', ratio: 10 },
-            { id: 'kaleidoscope_cookery:flour', ratio: 10 },
-            { reference: 'lootjs:berry_and_berry_crate', ratio: 10 },
-            { reference: 'lootjs:sugar_and_sugar_crate', ratio: 10 },
-            { reference: 'lootjs:wheat_and_wheat_crate', ratio: 10 },
+            { id: 'bakery:apple_pie_slice', ratio: 10 },
+            { id: 'farmersdelight:apple_pie_slice', ratio: 10 },
+            { id: 'bakery:apple_cupcake', ratio: 10 },
+            
+            { id: 'youkaishomecoming:candy_apple', ratio: 10 }, 
+            { id: 'vanillacookbook:apple_chips', ratio: 10 },
+            { id: 'vanillacookbook:baked_apple', ratio: 10 },
+
+            { id: 'rusticdelight:fruit_beignet', ratio: 10 },
         ]
     },
-]
 
+    {
+        groupName: "dark_forest_bread",
+        groupWeight: 15,
+        min: 3, max: 4,
+        items: [
+            { id: 'minecraft:bread', ratio: 10 },
+        ]
+    }
+];
+
+const village_dark_forest_bakery_baking_material = [
+    {
+        groupName: "baking_material",
+        groupWeight: 15,
+        min: 3, max: 4,
+        items: basic_baking_material 
+    },
+
+    {
+        groupName: "dark_forest_jam",
+        groupWeight: 15,
+        min: 1, max: 1,
+        items: [
+            { reference: 'lootjs:apple_jam', ratio: 10 },
+            { id: 'vintagedelight:gearo_berry_mason_jar', ratio: 10 },
+            
+        ]
+    },
+];
 
 // =================================================================
 // 事件注册区域
@@ -213,9 +254,9 @@ const village_dark_forest_house_content = [
 ];
 
 const village_dark_forest_bakery_content = [
-
-    [village_dark_forest_bakery_dessert, 3, 3],
-    [village_dark_forest_bakery_cooking_material, 10, 10],
+    [village_dark_forest_bakery_products, 8, 8],
+    [village_dark_forest_bakery_baking_material, 5, 5],
+    [village_smith_small_iron_knife, 1, 1],
 
 ];
 

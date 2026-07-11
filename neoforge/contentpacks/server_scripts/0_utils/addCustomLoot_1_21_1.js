@@ -157,7 +157,7 @@ $G.addCustomLoot_1_21_1 = function(event, lootTableId, config, minRolls, maxRoll
                 if (isNormalItem) {
                     entry.setCount([minCount, maxCount]);
                     if (item.nbt) entry.setCustomData(item.nbt); // 1.21 变更为 setCustomData
-                    if (item.jsonfunction) entry.jsonFunction(item.jsonfunction);
+                    if (item.jsonFunction) entry.jsonFunction(item.jsonFunction);
                     if (item.potion) entry.addPotion(item.potion);
                     
                     // 应用最终耐久伤害伤害

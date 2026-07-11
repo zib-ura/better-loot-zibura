@@ -9,10 +9,10 @@ const village_swamp_base_crops = [
         groupWeight: 70, 
         min: 2, max: 3,
         items: [
-            { id: 'minecraft:wheat_seeds', ratio: 5 },
-            { reference: 'lootjs:wheat_and_wheat_crate', ratio: 20 },
+            { reference: 'lootjs:wheat_seeds', ratio: 5 },
+            { reference: 'lootjs:wheat_and_wheat_block', ratio: 20 },
 
-            { reference: 'lootjs:rice_and_rice_crate', ratio: 100 },
+            { reference: 'lootjs:rice_and_rice_block', ratio: 100 },
 
         ]
     },
@@ -27,16 +27,26 @@ const village_swamp_base_crops = [
             { reference: 'lootjs:tomato_seeds', ratio: 5 },
 
 
-            { reference: 'lootjs:potato_and_potato_crate', ratio: 50 },
+            { reference: 'lootjs:potato_and_potato_block', ratio: 50 },
 
-            { reference: 'lootjs:onion_and_onion_crate', ratio: 25 },
+            { reference: 'lootjs:onion_and_onion_block', ratio: 25 },
 
-            { id: 'farmersdelight:cabbage_seeds', ratio: 5 },
-            { reference: 'farmersdelight:cabbage', ratio: 20 },
+            { reference: 'lootjs:cabbage_seeds', ratio: 5 },
+            { reference: 'lootjs:cabbage', ratio: 20 },
 
             { reference: 'lootjs:lettuce_seeds', ratio: 5 },
             { reference: 'lootjs:lettuce', ratio: 20 },
 
+            { reference: 'lootjs:bayberry_sapling', ratio: 5 },
+            { reference: 'lootjs:bayberry', ratio: 20 },
+            { reference: 'lootjs:blueberry', ratio: 25 },
+            { reference: 'lootjs:cranberry', ratio: 25 },
+            { reference: 'lootjs:durian_sapling', ratio: 5 },
+            { reference: 'lootjs:durian', ratio: 20 }, 
+            { reference: 'lootjs:mangosteen_sapling', ratio: 5 },
+            { reference: 'lootjs:mangosteen', ratio: 20 },
+
+            { reference: 'lootjs:egg', ratio: 25 },
         ]
     },
 ]
@@ -156,6 +166,20 @@ const village_swamp_dish = [
     },
 ]
 
+const village_swamp_drinks = [
+
+    {
+        groupName: "juice",
+        groupWeight: 5,
+        min: 1, max: 2,
+        items: [
+
+            { id: 'minecraft:potion', ratio: 10 , potion: "minecraft:water" }, 
+
+            { id: 'fruitsdelight:mangosteen_tea', ratio: 10 }
+        ]
+    },
+]
 // =================================================================
 // 事件注册区域
 // =================================================================
@@ -164,6 +188,7 @@ const village_swamp_house_content = [
     // [village_swamp_other_crops, 1, 1],
     [village_swamp_dish, 3, 4],
     [village_swamp_essential_wealth_equipment, 4, 4],
+    [village_swamp_drinks, 1, 2],
 
 ];
 

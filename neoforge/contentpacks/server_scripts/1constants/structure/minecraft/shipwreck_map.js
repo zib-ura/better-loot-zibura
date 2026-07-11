@@ -2,7 +2,7 @@
 // 事件注册区域
 // =================================================================
 const shipwreck_map_content = [
-    [vanilla_village_cartographer_products, 2, 4],
+    [village_cartographer_products, 2, 4],
     [seagrass, 4, 5],
 ];
 

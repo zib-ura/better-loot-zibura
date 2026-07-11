@@ -1,4 +1,4 @@
-const vanilla_shipwreck_supply_crops = [
+const shipwreck_supply_crops = [
     // =================================================================
     // 组 1: 新大陆作物与种子 (New World Crops & Seeds)
     // 模拟从远方土地带回的奇异植物
@@ -8,20 +8,20 @@ const vanilla_shipwreck_supply_crops = [
         groupWeight: 60,
         min: 2, max: 3,
         items: [
-            { reference: 'lootjs:potato_and_potato_crate', ratio: 10 },
-            { reference: 'lootjs:carrot_and_carrot_crate', ratio: 10 },
-            { reference: 'lootjs:beetroot_and_beetroot_crate', ratio: 10 },
-            { reference: 'lootjs:onion_and_onion_crate', ratio: 10 },
-            { reference: 'lootjs:cabbage_and_cabbage_crate', ratio: 10 },
+            { reference: 'lootjs:potato_and_potato_block', ratio: 10 },
+            { reference: 'lootjs:carrot_and_carrot_block', ratio: 10 },
+            { reference: 'lootjs:beetroot_and_beetroot_block', ratio: 10 },
+            { reference: 'lootjs:onion_and_onion_block', ratio: 10 },
+            { reference: 'lootjs:cabbage_and_cabbage_block', ratio: 10 },
 
-            { reference: 'lootjs:cod_and_cod_crate', ratio: 10 },
-            { reference: 'lootjs:salmon_and_salmon_crate', ratio: 10 },
+            { reference: 'lootjs:cod_and_cod_block', ratio: 10 },
+            { reference: 'lootjs:salmon_and_salmon_block', ratio: 10 },
             { id: 'rationcraft:crate_of_hardtack', ratio: 5 },
             { id: 'rationcraft:salted_pork', ratio: 10 },
             { id: 'voidlessframework:salt_block', ratio: 10 },
-            { reference: 'lootjs:sugar_and_sugar_crate', ratio: 10 },
+            { reference: 'lootjs:sugar_and_sugar_block', ratio: 10 },
 
-            { reference: 'lootjs:poisonous_potato_and_poisonous_potato_crate', ratio: 10 },
+            { reference: 'lootjs:poisonous_potato_and_poisonous_potato_block', ratio: 10 },
 
             { id: 'kitchenkarrot:rum', ratio: 10 },
             { id: 'brewinandchewin:flaxen_cheese_wheel', ratio: 10 },
@@ -32,7 +32,7 @@ const vanilla_shipwreck_supply_crops = [
     {
         groupName: "rare",
         groupWeight: 30,
-        min: 2, max: 5,
+        min: 2, max: 3,
         items: [
             // --- 香料与调料 ---
             { id: 'barbequesdelight:chili_powder', ratio: 3 },
@@ -74,7 +74,7 @@ const vanilla_shipwreck_supply_crops = [
 // 事件注册区域
 // =================================================================
 const shipwreck_supply_content = [
-    [vanilla_shipwreck_supply_crops, 4, 6],
+    [shipwreck_supply_crops, 10, 11],
     [seagrass, 4, 5],
 ];
 

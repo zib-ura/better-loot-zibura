@@ -50,13 +50,14 @@ const village_smith_common_products = [
             // { id: 'immersive_melodies:trumpet', ratio: 5 },
 
             { id: 'minecraft:blast_furnace', ratio: 10 },
-            { id: 'minecraft:anvil', ratio: 10 },
+            // { id: 'minecraft:anvil', ratio: 10 },
             { id: 'minecraft:stonecutter', ratio: 10 },
             { id: 'minecraft:smithing_table', ratio: 10 },
             { id: 'minecraft:piston', ratio: 10 },
             { id: 'minecraft:lantern', ratio: 10 },
             { id: 'minecraft:compass', ratio: 10 },
             { id: 'minecraft:bucket', ratio: 10 },
+            { id: 'minecraft:flint_and_steel', ratio: 10 },
 
             { id: 'minecraft:lightning_rod', ratio: 10 },
 
@@ -67,6 +68,10 @@ const village_smith_common_products = [
             { id: 'sawmill:sawmill', ratio: 10 },
 
             { id: 'kaleidoscope_cookery:shawarma_spit', ratio: 10 },
+
+            { id: 'touhou_little_maid:item_magnet_bauble', ratio: 10 },
+            { id: 'touhou_little_maid:servant_bell', ratio: 10 },
+            { id: 'touhou_little_maid:chisel', ratio: 10 },
           
         ]
     },
@@ -76,9 +81,22 @@ const village_smith_nametag = [
     {        
         groupName: "nametag",
         groupWeight: 95,
-        min: 1, max: 3,
+        min: 1, max: 2,
         items: [
             { id: 'minecraft:name_tag', ratio: 10 },
+
+        ]
+    },
+    
+]
+
+const village_smith_small_iron_knife = [
+    {        
+        groupName: "small_iron_knife",
+        groupWeight: 95,
+        min: 1, max: 1,
+        items: [
+            { reference: 'lootjs:small_iron_knife', ratio: 10 },
 
         ]
     },

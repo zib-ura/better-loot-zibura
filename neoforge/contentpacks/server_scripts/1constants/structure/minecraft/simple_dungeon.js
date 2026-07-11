@@ -2,7 +2,7 @@
 // 战利品表定义区域
 // =================================================================
 
-const vanilla_simple_dungeon_equipment = [
+const simple_dungeon_equipment = [
 
     {
         groupName: "common_armors",
@@ -91,7 +91,7 @@ const vanilla_simple_dungeon_equipment = [
     }
 ];
 
-const vanilla_simple_dungeon_resources_treasure = [
+const simple_dungeon_resources_treasure = [
     // {
     //     groupName: "ore",
     //     groupWeight: 40,
@@ -142,7 +142,7 @@ const vanilla_simple_dungeon_resources_treasure = [
     },
 ];
 
-const vanilla_simple_dungeon_supply = [
+const simple_dungeon_supply = [
     // {
     //     groupName: "ore",
     //     groupWeight: 40,
@@ -172,11 +172,11 @@ const vanilla_simple_dungeon_supply = [
 // 事件注册区域
 // =================================================================
 const simple_dungeon_content = [
-    [vanilla_simple_dungeon_equipment, 2, 4],
-    [vanilla_simple_dungeon_resources_treasure, 3, 5],
+    [simple_dungeon_equipment, 2, 4],
+    [simple_dungeon_resources_treasure, 3, 5],
     [shipwreck_treasure_music_discs, 2, 2],
     [shipwreck_treasure_smithing_templates_common, 2, 2],
-    [vanilla_simple_dungeon_supply, 3, 4],
+    [simple_dungeon_supply, 3, 4],
 ];
 
 const loot_simple_dungeon = [

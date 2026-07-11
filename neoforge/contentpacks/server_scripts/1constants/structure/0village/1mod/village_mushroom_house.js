@@ -9,10 +9,10 @@ const village_mushroom_base_crops = [
         min: 2, 
         max: 3,
         items: [
-            { id: 'minecraft:wheat_seeds', ratio: 5 },
-            { reference: 'lootjs:wheat_and_wheat_crate', ratio: 20 },
+            { reference: 'lootjs:wheat_seeds', ratio: 5 },
+            { reference: 'lootjs:wheat_and_wheat_block', ratio: 20 },
         
-            { reference: 'lootjs:potato_and_potato_crate', ratio: 25 },
+            { reference: 'lootjs:potato_and_potato_block', ratio: 25 },
 
         ]
     }
@@ -26,12 +26,12 @@ const village_mushroom_other_crops = [
         max: 3,
         items: [
             // --- 红蘑菇 Red Mushroom 系列 (有作物、箱子，无种子) ---
-            { id: 'minecraft:red_mushroom', ratio: 15 },
-            { reference: 'lootjs:mushroom_red_and_mushroom_red_crate', ratio: 10 },
+            { reference: 'lootjs:red_mushroom', ratio: 15 },
+            { reference: 'lootjs:red_mushroom_and_red_mushroom_block', ratio: 10 },
 
             // --- 棕蘑菇 Brown Mushroom 系列 (有作物、箱子，无种子) ---
-            { id: 'minecraft:brown_mushroom', ratio: 15 },
-            { reference: 'lootjs:mushroom_brown_and_mushroom_brown_crate', ratio: 10 },
+            { reference: 'lootjs:brown_mushroom', ratio: 15 },
+            { reference: 'lootjs:brown_mushroom_and_brown_mushroom_block', ratio: 10 },
         ]
     },
 
@@ -42,7 +42,7 @@ const village_mushroom_other_crops = [
         max: 3,
         items: [
             // --- 胡萝卜 Carrot 系列 (仅作物，总权重 25) ---
-            { id: 'minecraft:carrot', ratio: 25 },
+            { reference: 'lootjs:carrot', ratio: 25 },
 
             // --- 番茄 Tomato 系列 (作物+种子，总权重 25) ---
             { reference: 'lootjs:tomato', ratio: 20 },
@@ -52,12 +52,14 @@ const village_mushroom_other_crops = [
             { reference: 'lootjs:onion', ratio: 25 },
 
             // --- 卷心菜 Cabbage 系列 (作物+种子，总权重 25) ---
-            { id: 'farmersdelight:cabbage', ratio: 20 },
-            { id: 'farmersdelight:cabbage_seeds', ratio: 5 },
+            { reference: 'lootjs:cabbage', ratio: 20 },
+            { reference: 'lootjs:cabbage_seeds', ratio: 5 },
 
             // --- 生菜 Lettuce 系列 (作物+种子，总权重 25) ---
             { reference: 'lootjs:lettuce', ratio: 20 },
             { reference: 'lootjs:lettuce_seeds', ratio: 5 },
+
+            { reference: 'lootjs:egg', ratio: 25 },
 
         ]
     },

@@ -5,6 +5,7 @@ const stronghold_library_books_equipment = [
         min: 2, max: 3,
         items: [
             { id: 'minecraft:book', ratio: 20 },
+            { id: 'minecraft:paper', ratio: 10 },
 
     ]},
 
@@ -14,7 +15,8 @@ const stronghold_library_books_equipment = [
 // 事件注册区域
 // =================================================================
 const stronghold_library_content = [
-    [stronghold_library_books_equipment, 3, 4],
+    [stronghold_library_books_equipment, 4, 6],
+    [village_chess, 1, 1],
     [ash, 4, 5],
 ];
 
