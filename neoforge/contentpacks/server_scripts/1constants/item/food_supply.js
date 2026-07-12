@@ -15,7 +15,6 @@ const food_supply = [
             { reference: "lootjs:carrot_and_carrot_block" },
             { reference: "lootjs:egg_and_egg_block" },
             { reference: "lootjs:potato_and_potato_block" },
-            { reference: "lootjs:sugar_and_sugar_block" },
             { reference: "lootjs:cabbage_and_cabbage_block" },
 
             { reference: "lootjs:lettuce_and_lettuce_block" },

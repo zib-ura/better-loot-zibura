@@ -2,7 +2,7 @@
 // 战利品表定义区域
 // =================================================================
 
-const village_badland_base_crops = [
+const village_badlands_base_crops = [
 
     {
         groupName: "base_crops",
@@ -18,7 +18,7 @@ const village_badland_base_crops = [
 
 ]
 
-const village_badland_essential_wealth_equipment = [
+const village_badlands_essential_wealth_equipment = [
 
     // {
     //     groupName: "Wood",
@@ -38,7 +38,6 @@ const village_badland_essential_wealth_equipment = [
             // --- Household Utilities ---
             { id: 'minecraft:glass_bottle', ratio: 10 },
             { id: 'minecraft:bowl', ratio: 10 },
-            { id: 'farmersdelight:iron_knife', ratio: 10, max: 1, enchantChance: 0.0, damage: [0.7, 0.8]},
         ]
     },
 
@@ -69,11 +68,12 @@ const village_badland_essential_wealth_equipment = [
 
             { id: 'farmersdelight:cooking_pot', ratio: 10 }, 
             { id: 'farmersdelight:skillet', ratio: 10 },    
+            { id: 'farmersdelight:iron_knife', ratio: 10, max: 1, enchantChance: 0.0, damage: [0.7, 0.8]},
         ]
     },
 ]
 
-const village_badland_dish = [
+const village_badlands_dish = [
     {
         groupName: "common",
         groupWeight: 70,
@@ -122,7 +122,7 @@ const village_badland_dish = [
     },
 ]
 
-const village_badland_drinks = [
+const village_badlands_drinks = [
     {
         groupName: "drinks",
         groupWeight: 5,
@@ -141,10 +141,10 @@ const village_badland_drinks = [
 // 事件注册区域
 // =================================================================
 const village_badlands_house_content = [
-    [village_badland_base_crops, 1, 1],
-    [village_badland_dish, 3, 4],
-    [village_badland_essential_wealth_equipment, 4, 4],
-    [village_badland_drinks, 1, 2],
+    [village_badlands_base_crops, 1, 1],
+    [village_badlands_dish, 3, 4],
+    [village_badlands_essential_wealth_equipment, 4, 4],
+    [village_badlands_drinks, 1, 2],
 
 ];
 

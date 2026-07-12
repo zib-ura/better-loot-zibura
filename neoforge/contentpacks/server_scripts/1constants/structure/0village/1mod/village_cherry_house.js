@@ -33,7 +33,6 @@ const village_cherry_essential_wealth_equipment = [
         items: [
             { id: 'minecraft:glass_bottle', ratio: 10 },
             { id: 'minecraft:bowl', ratio: 10 },
-            { id: 'farmersdelight:iron_knife', ratio: 10, max: 1, enchantChance: 0.0, damage: [0.7, 0.8]},
 
         ]
     },

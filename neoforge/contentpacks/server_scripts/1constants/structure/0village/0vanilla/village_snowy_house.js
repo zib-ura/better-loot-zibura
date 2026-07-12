@@ -59,7 +59,6 @@ const village_snowy_essential_wealth_equipment = [
             { id: 'minecraft:charcoal', ratio: 10 },
             { id: 'minecraft:glass_bottle', ratio: 10 },
             { id: 'minecraft:bowl', ratio: 10 },
-            { id: 'farmersdelight:iron_knife', ratio: 10, max: 1, enchantChance: 0.0, damage: [0.7, 0.8]},
 
         ]
     },
@@ -93,6 +92,7 @@ const village_snowy_essential_wealth_equipment = [
 
             { id: 'farmersdelight:cooking_pot', ratio: 10 }, 
             { id: 'farmersdelight:skillet', ratio: 10 },    
+            { id: 'farmersdelight:iron_knife', ratio: 10, max: 1, enchantChance: 0.0, damage: [0.7, 0.8]},
         ]
     },
 ]

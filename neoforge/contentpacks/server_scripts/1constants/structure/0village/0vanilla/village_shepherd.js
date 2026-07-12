@@ -167,52 +167,34 @@ const village_shepherd_material = [
 // =================================================================
 // 事件注册区域
 // =================================================================
-const village_shepherd_content = [
-// -------------------------------------------------------------
-    // 【独立群系注册】
-    // -------------------------------------------------------------
-    [plains_shepherd_products_wool, 3, 3, { matchBiome: '#minecraft:has_structure/village_plains' }],
-    [plains_shepherd_products_dye, 3, 3, { matchBiome: '#minecraft:has_structure/village_plains' }],
+const village_shepherd_content = [];
 
-    [desert_shepherd_products_wool, 3, 3, { matchBiome: '#minecraft:has_structure/village_desert' }],
-    [desert_shepherd_products_dye, 3, 3, { matchBiome: '#minecraft:has_structure/village_desert' }],
+// 1. 定义群系映射表 [ 前缀, 抽取最小次数, 抽取最大次数, 匹配条件 ]
+const shepherd_biome_mapping = [
+    ['plains',       3, 3, { matchBiome: '#minecraft:has_structure/village_plains' }],
+    ['desert',       3, 3, { matchBiome: '#minecraft:has_structure/village_desert' }],
+    ['snowy',        3, 3, { matchBiome: '#minecraft:has_structure/village_snowy' }],
+    ['taiga',        3, 3, { matchBiome: '#minecraft:is_taiga' }],
+    ['swamp',        3, 3, { matchBiome: 'minecraft:swamp' }],
+    ['cherry_grove', 3, 3, { matchBiome: 'minecraft:cherry_grove' }],
+    ['jungle',       3, 3, { matchBiome: '#minecraft:is_jungle' }],
+    ['ryb',          3, 3, { matchBiome: '#kubejs:shepherd/red_yellow_blue' }],
+    ['ryo',          3, 3, { matchBiome: '#kubejs:shepherd/red_yellow_orange' }],
+    ['other',        3, 3, { matchBiome: '#kubejs:shepherd/other' }]
+];
 
-    [snowy_shepherd_products_wool, 3, 3, { matchBiome: '#minecraft:has_structure/village_snowy' }],
-    [snowy_shepherd_products_dye, 3, 3, { matchBiome: '#minecraft:has_structure/village_snowy' }],
+// 2. 自动遍历并注入 羊毛 和 染料 的配置
+shepherd_biome_mapping.forEach(([prefix, min, max, condition]) => {
+    // 自动动态获取对应的全局变量，并拼入对应的 min 和 max 数量
+    village_shepherd_content.push([eval(`${prefix}_shepherd_products_wool`), min, max, condition]);
+    village_shepherd_content.push([eval(`${prefix}_shepherd_products_dye`), min, max, condition]);
+});
 
-    [taiga_shepherd_products_wool, 3, 3, { matchBiome: '#minecraft:is_taiga' }],
-    [taiga_shepherd_products_dye, 3, 3, { matchBiome: '#minecraft:is_taiga' }],
-
-    [swamp_shepherd_products_wool, 3, 3, { matchBiome: 'minecraft:swamp' }],
-    [swamp_shepherd_products_dye, 3, 3, { matchBiome: 'minecraft:swamp' }],
-
-    [cherry_grove_shepherd_products_wool, 3, 3, { matchBiome: 'minecraft:cherry_grove' }],
-    [cherry_grove_shepherd_products_dye, 3, 3, { matchBiome: 'minecraft:cherry_grove' }],
-
-    [jungle_shepherd_products_wool, 3, 3, { matchBiome: '#minecraft:is_jungle' }],
-    [jungle_shepherd_products_dye, 3, 3, { matchBiome: '#minecraft:is_jungle' }],
-    // -------------------------------------------------------------
-    // 【大组用 Tag 注册】
-    // 直接使用你要求的 #kubejs: 标签进行群系批量匹配
-    // -------------------------------------------------------------
-    // 大组 A（红黄蓝）：可在数据包中把向日葵平原、繁花森林、草甸等塞进该标签
-    [ryb_shepherd_products_wool, 3, 3, { matchBiome: '#kubejs:shepherd/red_yellow_blue' }],
-    [ryb_shepherd_products_dye, 3, 3, { matchBiome: '#kubejs:shepherd/red_yellow_blue' }],
-
-    // 大组 B（红黄橙）：可在数据包中把稀树草原、各类普通森林变种（不含针叶林）塞进该标签
-    [ryo_shepherd_products_wool, 3, 3, { matchBiome: '#kubejs:shepherd/red_yellow_orange' }],
-    [ryo_shepherd_products_dye, 3, 3, { matchBiome: '#kubejs:shepherd/red_yellow_orange' }],
-
-    // -------------------------------------------------------------
-    // 【其他任何群系兜底：纯白色】
-    // -------------------------------------------------------------
-    [other_shepherd_products_wool, 3, 3, { matchBiome: '#kubejs:shepherd/other' }],
-    [other_shepherd_products_dye, 3, 3, { matchBiome: '#kubejs:shepherd/other' }],
-
-    // 通用共享产物
+// 3. 注入通用共享产物
+village_shepherd_content.push(
     [village_shepherd_equipment, 1, 2],
-    [village_shepherd_material, 3, 3],
-]
+    [village_shepherd_material, 3, 3]
+);
 
 const loot_village_shepherd = [
     [village_shepherd_content, 1],

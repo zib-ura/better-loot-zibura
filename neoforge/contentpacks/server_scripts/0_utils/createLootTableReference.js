@@ -12,7 +12,7 @@
  */
 
 
-$G.createLootTableReference_1_21_1 = function(tableId, entriesArray) {
+$G.createLootTableReference_1_21_1 = function(tableId, entriesArray, mode) {
 
     // 1. 自动化处理物品引用与合并（由于是嵌套数组，需要双重循环解包）
     entriesArray.forEach(([subTableData]) => {
@@ -27,7 +27,9 @@ $G.createLootTableReference_1_21_1 = function(tableId, entriesArray) {
     });
 
     // 2. 自动化清空原表
-    clearLootTable([tableId]);
+    if (mode === "REPLACE") {
+        clearLootTable([tableId]);
+    }
 
     // 第一步：动态生成子表 ID 并填充具体物品
     LootJS.lootTables(event => {
@@ -64,7 +66,7 @@ $G.createLootTableReference_1_21_1 = function(tableId, entriesArray) {
     });
 }
 
-$G.createLootTableReference_1_20_1 = function(tableId, entriesArray) {
+$G.createLootTableReference_1_20_1 = function(tableId, entriesArray, mode) {
     // 1. 自动化处理物品引用与合并（由于是嵌套数组，需要双重循环解包）
     entriesArray.forEach(([subTableData]) => {
         if (Array.isArray(subTableData)) {
@@ -78,7 +80,9 @@ $G.createLootTableReference_1_20_1 = function(tableId, entriesArray) {
     });
 
     // 2. 自动化清空原表
-    clearLootTable([tableId]);
+    if (mode === "REPLACE") {
+        clearLootTable([tableId]);
+    }
     
     LootJS.modifiers(event => {
         // 1. 先计算总权重（决定时间轴的总长度）

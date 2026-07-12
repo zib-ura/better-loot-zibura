@@ -3,12 +3,12 @@
 // =================================================================
 
 
-const stronghold_armors_and_weapons = [
+const stronghold_corridor_armors_and_weapons = [
 
     {
         groupName: "common_armors",
         groupWeight: 80,
-        min: 1, max: 1, enchantChance: 1, enchantLevels: [20, 30], damage: [0.1, 0.2],
+        min: 1, max: 1, enchantChance: 1, enchantLevels: [40, 40], damage: [0.1, 0.1],
         items: [
 
             { id: 'immersive_armors:bone_helmet', ratio: 6 },
@@ -46,8 +46,8 @@ const stronghold_armors_and_weapons = [
         min: 1, 
         max: 1, 
         enchantChance: 1, 
-        enchantLevels: [20, 30], 
-        damage: [0.1, 0.2],
+        enchantLevels: [40, 40], 
+        damage: [0.1, 0.1],
         items: [
             { id: 'immersive_armors:divine_helmet', ratio: 1.5 },
             { id: 'immersive_armors:divine_chestplate', ratio: 1.5 },
@@ -67,8 +67,8 @@ const stronghold_armors_and_weapons = [
         min: 1, 
         max: 1, 
         enchantChance: 1, 
-        enchantLevels: [20, 30], 
-        damage: [0.1, 0.2],
+        enchantLevels: [40, 40], 
+        damage: [0.1, 0.1],
         items: [
             { id: 'minecraft:iron_sword', ratio: 2 },
             { id: 'minecraft:iron_axe', ratio: 2 },
@@ -83,8 +83,8 @@ const stronghold_armors_and_weapons = [
         min: 1, 
         max: 1, 
         enchantChance: 1, 
-        enchantLevels: [20, 30], 
-        damage: [0.1, 0.2],
+        enchantLevels: [40, 40], 
+        damage: [0.1, 0.1],
         items: [
             { id: 'minecraft:diamond_sword', ratio: 1.5 },
             { id: 'minecraft:diamond_axe', ratio: 1.5 },
@@ -93,7 +93,7 @@ const stronghold_armors_and_weapons = [
 ];
 
 
-const stronghold_passed_people = [
+const stronghold_corridor_passed_people = [
     {
         groupName: "undead_remains",
         groupWeight: 60,
@@ -105,7 +105,7 @@ const stronghold_passed_people = [
     },
 ]
 
-const stronghold_ender_eyes = [
+const stronghold_corridor_ender_eyes = [
     {
         groupName: "portal_clues",
         groupWeight: 40,
@@ -118,7 +118,7 @@ const stronghold_ender_eyes = [
     },
 ];
 
-const stronghold_villager_and_treasure = [
+const stronghold_corridor_villager_and_treasure = [
     {
         groupName: "villager_economy",
         groupWeight: 50,
@@ -144,7 +144,7 @@ const stronghold_villager_and_treasure = [
         ]
     },
 ]
-const stronghold_nametag = [
+const stronghold_corridor_nametag = [
     {
         groupName: "special_utility",
         groupWeight: 15,
@@ -159,14 +159,14 @@ const stronghold_nametag = [
 // 事件注册区域
 // =================================================================
 
-const stronghold_chest_content = [
-    [stronghold_armors_and_weapons, 3, 4],              
-    [stronghold_passed_people, 5, 6],    
-    [stronghold_ender_eyes, 1, 2],                     
-    [stronghold_villager_and_treasure, 2, 3],   
-    [stronghold_nametag, 2, 3],
+const stronghold_corridor_content = [
+    [stronghold_corridor_armors_and_weapons, 1, 2],              
+    [stronghold_corridor_passed_people, 16, 17],    
+    [stronghold_corridor_ender_eyes, 1, 2],                     
+    [stronghold_corridor_villager_and_treasure, 2, 3],   
+    [stronghold_corridor_nametag, 2, 3],
 ];
 
-const loot_stronghold = [
-    [stronghold_chest_content, 1],
+const loot_stronghold_corridor = [
+    [stronghold_corridor_content, 1],
 ];
