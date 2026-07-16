@@ -40,7 +40,9 @@ function createCarpenterBiomeGroup(biomeName, groupName, productTemplates, confi
                 if (woodType === "bamboo") {
                     itemId = itemId.replace('bamboo_log', 'bamboo_block'); 
                 }
-                
+                if (woodType === "mangrove") {
+                    itemId = itemId.replace('mangrove_sapling', 'mangrove_propagule'); // 红树林树苗叫胎生苗
+                }
                 const itemObject = {
                     id: itemId,
                     ratio: template.ratio
@@ -175,11 +177,11 @@ function getCarpenterConfig(biomeName) {
 
     // 3. 返回组合结果
     return [
-        [utility, 5, 5],
-        [furniture, 5, 5],
-        [materials, 2, 3],
+        [utility, 1, 2],
+        [furniture, 1, 2],
+        [materials, 5, 5],
         [sapling,   1, 2],
-        [axes,      1, 1],
+        [axes,      1, 2],
         [sawmills,  1, 1]
     ];
 }

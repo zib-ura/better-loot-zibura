@@ -83,16 +83,6 @@ const village_desert_other_crops = [
 ]
 const village_desert_essential_wealth_equipment = [
 
-    // {
-    //     groupName: "Wood",
-    //     groupWeight: 0, 
-    //     min: 3, max: 8,
-    //     items: [
-
-    //     ]
-    // },
-
-
     {
         groupName: "Villager Daily Essentials",
         groupWeight: 30, 
@@ -101,6 +91,9 @@ const village_desert_essential_wealth_equipment = [
             // --- Household Utilities ---
             { id: 'minecraft:glass_bottle', ratio: 10 },
             { id: 'minecraft:bowl', ratio: 10 },
+            { id: 'minecraft:bundle', ratio: 10 },       
+            // { id: 'farmersdelight:wooden_basket', ratio: 10 },       
+            // { id: 'kaleidoscope_cookery:fruit_basket', ratio: 10 },      
         ]
     },
 
@@ -110,28 +103,6 @@ const village_desert_essential_wealth_equipment = [
         min: 3, max: 4,
         items: [
             { id: 'minecraft:emerald', ratio: 20 },
-        ]
-    },
-
-
-    {
-        groupName: "Equipment",
-        groupWeight: 30,
-        min: 1, max: 1,
-        items: [
-
-            { id: 'minecraft:bundle', ratio: 10 },       
-            // { id: 'farmersdelight:wooden_basket', ratio: 10 },       
-            // { id: 'kaleidoscope_cookery:fruit_basket', ratio: 10 },       
-
-            { id: 'kaleidoscope_cookery:stockpot', ratio: 10 }, 
-            { id: 'kaleidoscope_cookery:pot', ratio: 10 }, 
-            { id: 'kaleidoscope_cookery:stockpot_lid', ratio: 10 }, 
-            { id: 'kaleidoscope_cookery:kitchen_shovel', ratio: 10 }, 
-
-            { id: 'farmersdelight:cooking_pot', ratio: 10 }, 
-            { id: 'farmersdelight:skillet', ratio: 10 },    
-            { id: 'farmersdelight:iron_knife', ratio: 10, max: 1, enchantChance: 0.0, damage: [0.7, 0.8]},
         ]
     },
 ]
@@ -229,8 +200,9 @@ const village_desert_drinks = [
 const village_desert_house_content = [
     [village_desert_base_crops, 1, 1],
     [village_desert_other_crops, 1, 1],
-    [village_desert_dish, 3, 4],
-    [village_desert_essential_wealth_equipment, 4, 4],
+    [village_desert_dish, 1, 1],
+    [village_desert_essential_wealth_equipment, 1, 1],
+    [common_cooking_equipment, 1, 1],
     [village_desert_drinks, 1, 2],
 ];
 

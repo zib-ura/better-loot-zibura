@@ -2,7 +2,7 @@ const village_smith_materials = [
     {        
         groupName: "common_materials",
         groupWeight: 95,
-        min: 2, max: 4,
+        min: 2, max: 3,
         items: [
             { id: 'minecraft:iron_ingot', ratio: 10 },
             // { id: 'minecraft:lava_bucket', ratio: 10 , max: 3 },
@@ -81,13 +81,11 @@ const village_smith_nametag = [
     {        
         groupName: "nametag",
         groupWeight: 95,
-        min: 1, max: 2,
+        min: 1, max: 1,
         items: [
             { id: 'minecraft:name_tag', ratio: 10 },
-
         ]
     },
-    
 ]
 
 const village_smith_small_iron_knife = [
@@ -100,5 +98,4 @@ const village_smith_small_iron_knife = [
 
         ]
     },
-    
 ]

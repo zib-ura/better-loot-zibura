@@ -35,6 +35,8 @@ const abandoned_mineshaft_equipment = [
         items: [        
             { id: 'minecraft:iron_pickaxe', ratio: 5 },
             { id: 'minecraft:iron_shovel', ratio: 5 },
+            { id: 'minecraft:tnt', ratio: 5 },
+
         ]
     },
 
@@ -51,17 +53,26 @@ const abandoned_mineshaft_equipment = [
 
 const abandoned_mineshaft_lighting = [
     {
-        groupWeight: 40, 
+        groupWeight: 50, 
         min: 4, max: 5,
         items: [
             { id: 'minecraft:lantern', ratio: 10 },
+            { id: 'minecraft:redstone_torch', ratio: 10 },
+
+        ]
+    },
+    {
+        groupName: "empty",
+        groupWeight: 50,
+        items: [
+            { "id": "empty" },
         ]
     },
 ]
 
 const abandoned_mineshaft_climbing = [
     {
-        groupWeight: 40, 
+        groupWeight: 50, 
         min: 4, max: 5,
         items: [
             { id: 'minecraft:ladder', ratio: 10 },
@@ -73,17 +84,52 @@ const abandoned_mineshaft_climbing = [
             { id: 'farmersdelight:safety_net', ratio: 10 },
             { id: 'supplementaries:rope_arrow', ratio: 10 }
         ]
-    }
+    },
+    {
+        groupName: "empty",
+        groupWeight: 50,
+        items: [
+            { "id": "empty" },
+        ]
+    },
 ]
+
+
+const abandoned_mineshaft_enchanted_book = [
+    {
+        groupName: "mineshaft",
+        groupWeight: 50,
+        min: 1, max: 1,
+        items: [
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:fortune"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:silk_touch"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:unbreaking"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:efficiency"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["nova_structures:outreach"] },
+        ]
+    },
+
+    {
+        groupName: "empty",
+        groupWeight: 50,
+        items: [
+            { "id": "empty" },
+        ]
+    },
+];
+
+
 // =================================================================
 // 事件注册区域
 // =================================================================
 const abandoned_mineshaft_content = [
-    [abandoned_mineshaft_ore, 5, 6],
-    [abandoned_mineshaft_equipment, 1, 3],
-    [abandoned_mineshaft_lighting, 2, 2],
+    [abandoned_mineshaft_ore, 3, 4],
+    [abandoned_mineshaft_equipment, 1, 1],
+    [abandoned_mineshaft_lighting, 1, 1],
     [abandoned_mineshaft_climbing, 1, 1],
     [shipwreck_treasure_pottery_sherd, 1, 1],
+    [abandoned_mineshaft_enchanted_book, 1, 1],
+
     // [cobweb, 4, 5],
 ];
 

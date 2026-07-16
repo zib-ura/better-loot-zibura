@@ -86,9 +86,9 @@ const village_temple_product = [
 // 事件注册区域
 // =================================================================
 const village_temple_content = [
-    [village_temple_equipment, 2, 4],
-    [village_temple_material, 2, 3],
-    [village_temple_product, 2, 3],
+    [village_temple_equipment, 1, 1],
+    [village_temple_material, 3, 4],
+    [village_temple_product, 2, 2],
 ];
 
 const loot_village_temple = [

@@ -19,12 +19,6 @@ const village_armorer_products = [
             { id: 'minecraft:iron_leggings', ratio: 10 },
             { id: 'minecraft:iron_boots', ratio: 10 },
             { id: 'minecraft:shield', ratio: 10 },
-            
-            // 模块化盔甲 (Immersive Armors) - 木质系列
-            { id: 'immersive_armors:wooden_helmet', ratio: 10 },
-            { id: 'immersive_armors:wooden_chestplate', ratio: 10 },
-            { id: 'immersive_armors:wooden_leggings', ratio: 10 },
-            { id: 'immersive_armors:wooden_boots', ratio: 10 },
 
             // 模块化盔甲 - 战士系列
             { id: 'immersive_armors:warrior_helmet', ratio: 10 },
@@ -42,7 +36,7 @@ const village_armorer_products = [
             // 脚本内部的 isNormalItem 虽然会执行，但底层 Minecraft 对其应用 damage(0.7, 0.8) 会直接忽略，所以放在这里完全安全。
             { id: 'minecraft:iron_horse_armor', ratio: 10 },
             { id: 'minecraft:golden_horse_armor', ratio: 10 },   
-            // { id: 'minecraft:wolf_armor', ratio: 10 }
+            // { id: 'minecraft:wolf_armor', ratio: 10 },
         ]
     },
 
@@ -57,7 +51,7 @@ const village_armorer_products = [
             { id: 'minecraft:diamond_helmet', ratio: 10 },
             { id: 'minecraft:diamond_chestplate', ratio: 10 },
             { id: 'minecraft:diamond_leggings', ratio: 10 },
-            { id: 'minecraft:diamond_boots', ratio: 10 }
+            { id: 'minecraft:diamond_boots', ratio: 10 },
         ]
     }
 ];
@@ -68,11 +62,11 @@ const village_armorer_products = [
 // 事件注册区域
 // =================================================================
 const village_armorer_content = [
-    [village_armorer_products, 2, 4],
-    [village_smith_common_products,    2, 4],
+    [village_armorer_products, 1, 2],
+    [village_smith_common_products,    1, 2],
     [village_smith_materials,          2, 4],
-    [iron_nugget,                      10, 18],
-    [village_smith_nametag,            1, 1],
+    [iron_nugget, 3, 4],
+    [name_tag,    1, 1],
 ];
 
 const loot_village_armorer = [

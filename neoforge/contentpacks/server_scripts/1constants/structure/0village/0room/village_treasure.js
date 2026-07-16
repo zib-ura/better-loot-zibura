@@ -58,7 +58,10 @@ const village_expert_librarian_cleric = [
             { id: 'minecraft:experience_bottle', ratio: 10 },
             { id: 'minecraft:golden_carrot', ratio: 10 },     
             { id: 'minecraft:glistering_melon_slice', ratio: 10 }, 
-            { id: 'minecraft:ender_eye', ratio: 10 },         
+            { id: 'minecraft:blaze_powder', ratio: 10 },  
+            { id: 'minecraft:ender_pearl', ratio: 10 },  
+            { id: 'minecraft:ender_eye', ratio: 10 },        
+
         ]
     }
 ];
@@ -117,17 +120,26 @@ const village_treasure_quartz = [
 //     }
 // ];
 
+const village_treasure_enchanted_book = [
+    {   
+        groupName: "Book",
+        groupWeight: 50, 
+        min: 2, max: 3,
+        items: all_Available_Enchant_books
+    },
+];
 // =================================================================
 // 2. 事件注册与抽数控制区域
 // =================================================================
 
 const village_treasure_content = [
-    [village_treasure_quartz, 2, 3],
+    [village_treasure_quartz, 1, 1],
     [village_valuable_block, 1, 1],                 
     [village_master_trades_armor_weapon, 1, 1],               
     [village_expert_librarian_cleric, 2, 4],             
-    [village_treasure_emerald, 8, 12],           
-    // [village_smithing_templates_exclusive, 1, 1],  /
+    [village_treasure_emerald, 2, 3],           
+    // [village_smithing_templates_exclusive, 1, 1], 
+    [village_treasure_enchanted_book, 1, 1],
 ];
 
 const loot_village_treasure = [

@@ -31,9 +31,10 @@ const village_cherry_essential_wealth_equipment = [
         groupWeight: 80, 
         min: 2, max: 3,
         items: [
-            { id: 'minecraft:glass_bottle', ratio: 10 },
-            { id: 'minecraft:bowl', ratio: 10 },
-
+            { reference:'lootjs:plate', ratio: 10 },
+            { id: 'supplementaries:sack', ratio: 10 },       
+            { id: 'farmersdelight:wooden_basket', ratio: 10 },       
+            { id: 'kaleidoscope_cookery:fruit_basket', ratio: 10 },   
         ]
     },
 
@@ -166,8 +167,9 @@ const village_cherry_bakery_products = [
 // 事件注册区域
 // =================================================================
 const village_cherry_house_content = [
-    [village_cherry_bakery_cooking_material, 4, 4],
-    [village_cherry_essential_wealth_equipment, 4, 4],
+    [village_cherry_bakery_cooking_material, 3, 3],
+    [village_cherry_essential_wealth_equipment, 1, 1],
+    [common_cooking_equipment, 1, 1],
     [village_cherry_drinks, 1, 2],
     [village_cherry_bakery_products, 2, 2],
 ];

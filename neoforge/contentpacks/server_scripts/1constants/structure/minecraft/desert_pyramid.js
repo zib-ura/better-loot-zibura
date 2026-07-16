@@ -1,30 +1,29 @@
-const desert_pyramid_Treasure_Treasure = [
+const desert_pyramid_treasure = [
     {
         groupName: "Treasure",
         groupWeight: 30,
-        min: 1, max: 2,
+        min: 1, max: 1,
         items: [
-            { id: 'minecraft:diamond', ratio: 10 },
             { id: 'minecraft:ender_pearl', ratio: 10 },
             { id: 'minecraft:ender_eye', ratio: 10 },
-            { id: 'minecraft:gold_ingot', ratio: 10 },
             { id: 'minecraft:totem_of_undying', ratio: 5 },
-
             { id: 'touhou_little_maid:fall_protect_bauble', ratio: 10 },
             { id: 'touhou_little_maid:explosion_protect_bauble', ratio: 10 },
         ]
     },
 ];
-const desert_pyramid_emerald = [
+
+
+const desert_pyramid_ore = [
     {
-        groupName: "emerald",
+        groupName: "ore",
         groupWeight: 25,  
         min: 1,
         max: 1,
         items: [
-            { id: 'minecraft:emerald_block', ratio: 10 },
-
-            { id: 'minecraft:emerald', ratio: 10 },
+            { reference: 'lootjs:gold_ingot_and_gold_ingot_block', ratio: 10 },
+            { reference: 'lootjs:emerald_and_emerald_block', ratio: 10 },
+            { id: 'minecraft:diamond', ratio: 10 },
 
         ]
     },
@@ -68,7 +67,6 @@ const desert_pyramid_Food = [
     }
 ];
 
-// 2. 沙漠神殿：食物与药水
 const desert_pyramid_potion = [
     {
         groupName: "potion",
@@ -120,7 +118,7 @@ const desert_pyramid_gold_and_diamond_products = [
         min: 1,
         max: 1,        
         enchantChance: 0.7, 
-        enchantLevels: [20, 30], 
+        enchantLevels: [20, 40], 
         items: [
             // 金制工具与武器
             { id: 'minecraft:golden_sword', ratio: 10 },
@@ -142,7 +140,7 @@ const desert_pyramid_gold_and_diamond_products = [
         min: 1,
         max: 1,        
         enchantChance: 0.7, 
-        enchantLevels: [20, 30], 
+        enchantLevels: [20, 40], 
         items: [
             // 钻石制工具与武器
             { id: 'minecraft:diamond_sword', ratio: 10 },
@@ -206,7 +204,7 @@ const desert_pyramid_Archaeology = [
     {
         groupName: "Archaeology",
         groupWeight: 25,
-        min: 1, max: 2,
+        min: 1, max: 1,
         items: [
             { id: 'minecraft:pottery_sherd_archer', ratio: 10 },   // 弓箭手陶片
             { id: 'minecraft:pottery_sherd_prize', ratio: 10 },    // 奖杯陶片
@@ -215,34 +213,69 @@ const desert_pyramid_Archaeology = [
         ]
     }
 ];
+
+const desert_pyramid_enchanted_book = [
+    {
+        groupName: "desert_pyramid",
+        groupWeight: 50,
+        min: 1, max: 1,
+        items: [
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:unbreaking"] }, 
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:mending"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["nova_structures:conductivity_curse"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["nova_structures:photosynthesis"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:protection"] }, 
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:projectile_protection"] }, 
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:fire_protection"] }, 
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:blast_protection"] }, 
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["kattersstructures:light"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["nova_structures:outreach"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:feather_falling"] }, 
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["nova_structures:traveler"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:sharpness"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:smite"] }, 
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:bane_of_arthropods"] }, 
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:knockback"] }, 
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:looting"] }, 
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:sweeping_edge"] }, 
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["enchantencore:weaving_aspect"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["farmersdelight:backstabbing"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["kattersstructures:heavy"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["kattersstructures:blunt"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["kattersstructures:crystal_curse"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["nova_structures:illagers_bane"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:power"] }, 
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:punch"] }, 
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:flame"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:infinity"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["nova_structures:piercing"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["nova_structures:multishot"] },    
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:efficiency"] }, 
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:fortune"] }, 
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:silk_touch"] },
+        ]
+    }
+];
 // =================================================================
 // 事件注册区域
 // =================================================================
 const desert_pyramid_valuable_content = [
-    [desert_pyramid_Treasure_Treasure, 4, 4],
-    [desert_pyramid_emerald, 14, 16],
+    [desert_pyramid_treasure, 2, 3],
+    [desert_pyramid_gold_and_diamond_products, 1, 2],
     [desert_pyramid_smithing_templates, 1, 1],
+    [desert_pyramid_ore, 4, 6],
+    [desert_pyramid_enchanted_book, 1, 1]
 ];
 
 const desert_pyramid_supply_content = [
-    [desert_pyramid_Food, 4, 4],
-    [desert_pyramid_potion, 2, 4],
-    [desert_pyramid_gold_nugget, 14, 16],
-];
+    [desert_pyramid_Food, 3, 4],
+    [desert_pyramid_potion, 1, 2],
+    [desert_pyramid_Archaeology, 1, 2],
+    [desert_pyramid_gold_nugget, 4, 6],
 
-const desert_pyramid_Archaeology_content = [
-    [desert_pyramid_Archaeology, 4, 4],
-];
-
-const desert_pyramid_armor_content = [
-    [desert_pyramid_gold_and_diamond_products, 4, 4],
-    [desert_pyramid_gold_and_diamond_repair, 4, 4],
-    [desert_pyramid_anvil, 1, 1],
 ];
 
 const loot_desert_pyramid = [
     [desert_pyramid_valuable_content, 1],
     [desert_pyramid_supply_content, 1], 
-    // [desert_pyramid_Archaeology_content, 1],
-    [desert_pyramid_armor_content, 1], 
 ];

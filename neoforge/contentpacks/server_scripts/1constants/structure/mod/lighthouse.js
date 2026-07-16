@@ -27,8 +27,6 @@ const lighthouse = [
             { id: 'minecraft:glowstone', ratio: 10 },
             { id: 'minecraft:quartz', ratio: 10 },
 
-
-
         ]
     },
 ];

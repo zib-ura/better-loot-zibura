@@ -24,10 +24,10 @@ const gold_and_diamond_products = [
         items: [
             // 金制工具与武器
             { id: 'minecraft:golden_sword', ratio: 10 },
-            { id: 'minecraft:golden_pickaxe', ratio: 10 },
-            { id: 'minecraft:golden_axe', ratio: 10 },
-            { id: 'minecraft:golden_shovel', ratio: 10 },
-            { id: 'minecraft:golden_hoe', ratio: 10 },
+            // { id: 'minecraft:golden_pickaxe', ratio: 10 },
+            // { id: 'minecraft:golden_axe', ratio: 10 },
+            // { id: 'minecraft:golden_shovel', ratio: 10 },
+            // { id: 'minecraft:golden_hoe', ratio: 10 },
             // 金制盔甲
             { id: 'minecraft:golden_helmet', ratio: 10 },
             { id: 'minecraft:golden_chestplate', ratio: 10 },
@@ -57,10 +57,10 @@ const gold_and_diamond_products = [
         items: [
             // 钻石制工具与武器
             { id: 'minecraft:diamond_sword', ratio: 10 },
-            { id: 'minecraft:diamond_pickaxe', ratio: 10 },
-            { id: 'minecraft:diamond_axe', ratio: 10 },
-            { id: 'minecraft:diamond_shovel', ratio: 10 },
-            { id: 'minecraft:diamond_hoe', ratio: 10 },
+            // { id: 'minecraft:diamond_pickaxe', ratio: 10 },
+            // { id: 'minecraft:diamond_axe', ratio: 10 },
+            // { id: 'minecraft:diamond_shovel', ratio: 10 },
+            // { id: 'minecraft:diamond_hoe', ratio: 10 },
             // 钻石制盔甲
             { id: 'minecraft:diamond_helmet', ratio: 10 },
             { id: 'minecraft:diamond_chestplate', ratio: 10 },
@@ -81,9 +81,7 @@ const buried_treasure_emerald = [
         min: 1,
         max: 1,
         items: [
-            { id: 'minecraft:emerald_block', ratio: 10 },
-
-            { id: 'minecraft:emerald', ratio: 10 },
+            { reference: 'lootjs:emerald_and_emerald_block', ratio: 10 },
 
         ]
     },
@@ -110,14 +108,41 @@ const buried_treasure_smithing_templates_exclusive = [
     },
 ];
 
+const buried_treasure_enchanted_book = [
+    {
+        groupName: "underwater_ruin",
+        groupWeight: 50,
+        min: 1, max: 1,
+        items: [
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:aqua_affinity"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:depth_strider"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:luck_of_the_sea"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:lure"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:respiration"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:channeling"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:impaling"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:loyalty"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:riptide"] },
+        ]
+    },
+    {
+        groupName: "empty",
+        groupWeight: 50,
+        items: [
+            { "id": "empty" },
+        ]
+    },
+];
 // =================================================================
 // 事件注册区域
 // =================================================================
 const buried_treasure_content = [
-    [gold_and_diamond_products, 4, 5],
+    [gold_and_diamond_products, 1, 2],
     [buried_treasure_valuables, 1, 1],
     [buried_treasure_smithing_templates_exclusive, 1, 1],
-    [buried_treasure_emerald, 14, 16],
+    [buried_treasure_emerald, 4, 6],
+    [buried_treasure_enchanted_book, 1, 1],
+
 ];
 
 const loot_buried_treasure = [

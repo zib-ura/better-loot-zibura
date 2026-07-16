@@ -2,7 +2,7 @@ const food_supply = [
     {
         groupName: "common_food",
         groupWeight: 70,
-        min: 2, max: 4,
+        min: 2, max: 3,
         items: [
             { reference: "lootjs:pumpkin_slice_and_pumpkin_slice_block" },
             { reference: "lootjs:melon_slice_and_melon_slice_block" },
@@ -31,7 +31,7 @@ const food_supply = [
     {
         groupName: "rare_food",
         groupWeight: 30,
-        min: 2, max: 4,
+        min: 2, max: 3,
         items: [
             { reference: "lootjs:cocoabeans_and_cocoabeans_block" },
 
@@ -100,7 +100,7 @@ const food_supply = [
 // 事件注册区域
 // =================================================================
 const food_supply_content = [
-    [food_supply, 8, 10],
+    [food_supply, 4, 5],
 ];
 
 const loot_food_supply = [

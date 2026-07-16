@@ -74,7 +74,7 @@ const shipwreck_supply_crops = [
 // 事件注册区域
 // =================================================================
 const shipwreck_supply_content = [
-    [shipwreck_supply_crops, 10, 11],
+    [shipwreck_supply_crops, 4, 5],
     [seagrass, 4, 5],
 ];
 

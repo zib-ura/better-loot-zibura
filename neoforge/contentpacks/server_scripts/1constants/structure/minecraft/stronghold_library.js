@@ -6,11 +6,22 @@ const stronghold_library_books_equipment = [
         items: [
             { id: 'minecraft:book', ratio: 20 },
             { id: 'minecraft:paper', ratio: 10 },
+            // { id: 'minecraft:book', ratio: 10, enchantRandomly: ['minecraft:sharpness'] },
+            // { id: 'minecraft:diamond_sword', ratio: 10, enchantRandomly: ['minecraft:sharpness'] },
 
-    ]},
+        ]
+    },
+];
 
-]
 
+const stronghold_library_enchanted_book = [
+    {   
+        groupName: "Book",
+        groupWeight: 50, 
+        min: 1, max: 1,
+        items: all_Available_Enchant_books
+    },
+];
 // =================================================================
 // 事件注册区域
 // =================================================================
@@ -18,6 +29,7 @@ const stronghold_library_content = [
     [stronghold_library_books_equipment, 4, 6],
     [village_chess, 1, 1],
     [ash, 4, 5],
+    [stronghold_library_enchanted_book, 2, 3],
 ];
 
 const loot_stronghold_library = [

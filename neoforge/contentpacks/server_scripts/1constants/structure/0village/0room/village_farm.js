@@ -2,14 +2,11 @@ const village_farm_equipment = [
     {   
         groupName: "common_equipment",
         groupWeight: 95, 
-        min: 1, max: 2, enchantChance: 0.0, damage: [0.5, 0.9],
+        min: 1, max: 1, enchantChance: 0.0, damage: [0.5, 0.9],
         items: [
             { id: 'minecraft:iron_hoe', ratio: 10 },
-            { id: 'minecraft:stone_hoe', ratio: 20 },
             { id: 'kaleidoscope_cookery:sickle', ratio: 10 },
-            { id: 'farmersdelight:flint_knife', ratio: 10 },
             { id: 'farmersdelight:iron_knife', ratio: 10 },
-            { id: 'moredelight:stone_knife', ratio: 10 },
             { id: 'minecraft:water_bucket', ratio: 10 },
         ]
     },
@@ -392,20 +389,20 @@ const village_other_farm_seed = [
 const village_farm_content = [
     [village_farm_equipment,        2, 3],
 
-    [village_plains_farm_seed,      4, 6, { matchBiome: '#minecraft:has_structure/village_plains' }],
-    [village_savanna_farm_seed,     4, 6, { matchBiome: '#minecraft:has_structure/village_savanna' }],
-    [village_snowy_farm_seed,       4, 6, { matchBiome: '#minecraft:has_structure/village_snowy' }],
-    [village_taiga_farm_seed,       4, 6, { matchBiome: '#minecraft:is_taiga' }],
-    [village_desert_farm_seed,      4, 6, { matchBiome: '#minecraft:has_structure/village_desert' }],
+    [village_plains_farm_seed,      2, 3, { matchBiome: '#minecraft:has_structure/village_plains' }],
+    [village_savanna_farm_seed,     2, 3, { matchBiome: '#minecraft:has_structure/village_savanna' }],
+    [village_snowy_farm_seed,       2, 3, { matchBiome: '#minecraft:has_structure/village_snowy' }],
+    [village_taiga_farm_seed,       2, 3, { matchBiome: '#minecraft:is_taiga' }],
+    [village_desert_farm_seed,      2, 3, { matchBiome: '#minecraft:has_structure/village_desert' }],
 
-    [village_badland_farm_seed,     4, 6, { matchBiome: '#minecraft:is_badlands' }],          
-    [village_beach_farm_seed,       4, 6, { matchBiome: '#minecraft:is_beach' }],                 
-    [village_cherry_farm_seed,      4, 6, { matchBiome: 'minecraft:cherry_grove' }],           
-    [village_dark_forest_farm_seed, 4, 6, { matchBiome: 'minecraft:dark_forest' }],      
-    [village_jungle_farm_seed,      4, 6, { matchBiome: '#minecraft:is_jungle' }],              
-    [village_mushroom_farm_seed,    4, 6, { matchBiome: 'minecraft:mushroom_fields' }],   
-    [village_ocean_farm_seed,       4, 6, { matchBiome: '#minecraft:is_ocean' }],                
-    [village_swamp_farm_seed,       4, 6, { matchBiome: 'minecraft:swamp' }],
+    [village_badland_farm_seed,     2, 3, { matchBiome: '#minecraft:is_badlands' }],          
+    [village_beach_farm_seed,       2, 3, { matchBiome: '#minecraft:is_beach' }],                 
+    [village_cherry_farm_seed,      2, 3, { matchBiome: 'minecraft:cherry_grove' }],           
+    [village_dark_forest_farm_seed, 2, 3, { matchBiome: 'minecraft:dark_forest' }],      
+    [village_jungle_farm_seed,      2, 3, { matchBiome: '#minecraft:is_jungle' }],              
+    [village_mushroom_farm_seed,    2, 3, { matchBiome: 'minecraft:mushroom_fields' }],   
+    [village_ocean_farm_seed,       2, 3, { matchBiome: '#minecraft:is_ocean' }],                
+    [village_swamp_farm_seed,       2, 3, { matchBiome: 'minecraft:swamp' }],
 
     
     [village_other_farm_seed,       2, 3, /* { matchBiome: '' } */],

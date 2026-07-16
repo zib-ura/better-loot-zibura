@@ -91,7 +91,7 @@ const woolTemplates = [
     { id: 'supplementaries:flag_[COLOR]', ratio: 10 },
     { id: 'minecraft:[COLOR]_bed', ratio: 10, max: 2 },
     { id: 'minecraft:painting', ratio: 10 }, 
-    { id: 'touhou_little_maid:maid_bed', ratio: 10 },
+    { id: 'touhou_little_maid:maid_bed', ratio: 10, max: 1 },
 ];
 
 // 染料类统一模版 (顺便附赠染料的自动化配置)
@@ -186,14 +186,14 @@ const shepherd_biome_mapping = [
 // 2. 自动遍历并注入 羊毛 和 染料 的配置
 shepherd_biome_mapping.forEach(([prefix, min, max, condition]) => {
     // 自动动态获取对应的全局变量，并拼入对应的 min 和 max 数量
-    village_shepherd_content.push([eval(`${prefix}_shepherd_products_wool`), min, max, condition]);
-    village_shepherd_content.push([eval(`${prefix}_shepherd_products_dye`), min, max, condition]);
+    village_shepherd_content.push([eval(`${prefix}_shepherd_products_wool`), 1, 1, condition]);
+    village_shepherd_content.push([eval(`${prefix}_shepherd_products_dye`), 2, 2, condition]);
 });
 
 // 3. 注入通用共享产物
 village_shepherd_content.push(
     [village_shepherd_equipment, 1, 2],
-    [village_shepherd_material, 3, 3]
+    [village_shepherd_material, 2, 2]
 );
 
 const loot_village_shepherd = [

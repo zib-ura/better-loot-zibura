@@ -2,7 +2,7 @@ const village_tannery_products = [
     {
         groupName: "common_leather_products",
         groupWeight: 20,
-        min: 3, max: 4,
+        min: 2, max: 3,
         items: [
             { id: 'minecraft:item_frame', ratio: 5 },
             { id: 'minecraft:book', ratio: 5 },
@@ -25,12 +25,12 @@ const village_tannery_armors = [
     {
         groupName: "leather_armors",
         groupWeight: 20,
-        min: 1, max: 1,
+        min: 1, max: 1, enchantChance: 0.0 , damage: [0.7, 0.8],
         items: [
-            { id: 'minecraft:leather_boots', ratio: 5 , enchantChance: 0.0 , damage: [0.7, 0.8] },
-            { id: 'minecraft:leather_helmet', ratio: 5 , enchantChance: 0.0 , damage: [0.7, 0.8] },
-            { id: 'minecraft:leather_chestplate', ratio: 5 , enchantChance: 0.0 , damage: [0.7, 0.8] },
-            { id: 'minecraft:leather_leggings', ratio: 5 , enchantChance: 0.0 , damage: [0.7, 0.8] },
+            { id: 'minecraft:leather_boots', ratio: 5 },
+            { id: 'minecraft:leather_helmet', ratio: 5 },
+            { id: 'minecraft:leather_chestplate', ratio: 5 },
+            { id: 'minecraft:leather_leggings', ratio: 5 },
         ]
     },    
 
@@ -65,9 +65,9 @@ const desert_village_tannery_materials = [
 // 事件注册区域
 // =================================================================
 const village_tannery_content = [
-    [village_tannery_products, 3, 4],
-    [village_tannery_materials, 6, 7, { matchBiome: '#kubejs:not_desert' }],
-    [desert_village_tannery_materials, 6, 7, { matchBiome: 'minecraft:desert' }],
+    [village_tannery_products, 1, 2],
+    [village_tannery_materials, 3, 4, { matchBiome: '#kubejs:tannery/not_desert' }],
+    [desert_village_tannery_materials, 3, 4, { matchBiome: 'minecraft:desert' }],
     [village_tannery_armors, 1, 2],
 ];
 

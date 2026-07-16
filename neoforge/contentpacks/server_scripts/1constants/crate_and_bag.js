@@ -157,7 +157,7 @@ let DUPLICATE_ITEMS_CONFIG = [
     // { result: "lootjs:redbean_seeds",             candidates: ["youkaishomecoming:redbean_seeds", "youkaisfeasts:redbean_seeds"] },
     { result: "lootjs:rice",                        candidates: ["kaleidoscope_cookery:rice", "farmersdelight:rice"] },
     { result: "lootjs:roasted_coffee",              candidates: ["rusticdelight:roasted_coffee_beans"] },
-    { result: "lootjs:salt",                        candidates: ["voidlessframework:salt", "kaleidoscope_chinesefood:salt", "bakeries:salt", "vintagedelight:salt_dust"] },
+    { result: "lootjs:salt",                        candidates: ["kaleidoscope_chinesefood:salt", "voidlessframework:salt", "bakeries:salt", "vintagedelight:salt_dust"] },
     { result: "lootjs:soybean",                     candidates: ["youkaishomecoming:soybean", "youkaisfeasts:soybean"] },
     { result: "lootjs:soybean_seeds",               candidates: ["youkaishomecoming:soybean_seeds", "youkaisfeasts:soybean_seeds"] }, 
     { result: "lootjs:sugar",                       candidates: ["minecraft:sugar"] },
@@ -192,6 +192,7 @@ let DUPLICATE_ITEMS_CONFIG = [
 
     // === 7. 工具类 (Tools) ===
     { result: "lootjs:small_iron_knife",            candidates: ["farmersdelight:iron_knife", "kitchenkarrot:knife", "bakery:bread_knife", "bakeries:bread_knife"] },
+    { result: "lootjs:plate",                       candidates: ['youkaishomecoming:saucer', 'kitchenkarrot:plate_item']},   
 
 ];
 
@@ -368,7 +369,8 @@ let finalFoodSupplyRegistry = [
     { name: "peach",                     singles: ["lootjs:peach"],                        crates: ["lootjs:peach_block"] },
     { name: "pear",                      singles: ["lootjs:pear"],                         crates: ["lootjs:pear_block"] },
     { name: "persimmon",                 singles: ["lootjs:persimmon"],                    crates: ["lootjs:persimmon_block"] },
-    { name: "pineapple_slice",           singles: ["lootjs:pineapple_slice"],              crates: ["lootjs:pineapple_block"] },
+    { name: "pineapple_slice",           singles: ["lootjs:pineapple_slice"],              crates: ["lootjs:pineapple"] },
+    { name: "pineapple",                 singles: ["lootjs:pineapple"],                    crates: ["lootjs:pineapple_block"] },
     { name: "red_grape",                 singles: ["lootjs:red_grape"],                    crates: ["lootjs:red_grape_block"] },
     { name: "rosehip",                   singles: ["lootjs:rosehip"],                      crates: ["lootjs:rosehip_block"] },
     { name: "strawberry",                singles: ["lootjs:strawberry"],                   crates: ["lootjs:strawberry_block"] },

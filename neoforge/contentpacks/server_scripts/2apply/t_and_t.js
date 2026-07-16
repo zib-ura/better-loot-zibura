@@ -1,9 +1,3 @@
-const loot_t_And_T_village_smith = [
-    [village_armorer_content, 1],
-    [village_toolsmith_content, 1],
-    [village_weaponsmith_content, 1],
-];
-
 const t_And_T_LootTable = {
     // === 村庄特殊地形房屋 (Village Houses) ===
     "kaisyn:village/village_badlands_house":          loot_village_badlands_house,
@@ -14,7 +8,7 @@ const t_And_T_LootTable = {
     // === 村庄专属与特殊建筑 (Village Exclusives) ===
     // "kaisyn:village/exclusives/village_wandering_trader_hut": loot_village_wandering_trader_hut,
     "kaisyn:village/exclusives/village_classic_blacksmith":   loot_t_And_T_village_smith,
-    // "kaisyn:village/exclusives/village_mediterranean_house":  loot_village_mediterranean_house,
+    // "kaisyn:village/exclusives/village_mediterranean_house":  loot_village_plains_house,
     // "kaisyn:village/exclusives/village_piglin_barrel":        loot_village_piglin_barrel,
     // "kaisyn:village/exclusives/village_piglin_house":         loot_village_piglin_house,
 
@@ -24,8 +18,8 @@ const t_And_T_LootTable = {
 
     // === 前哨站专属木桶 (Outpost Exclusives) ===
     "kaisyn:outpost/exclusives/outpost_beach_barrel":         loot_village_beach_house,
-    // "kaisyn:outpost/exclusives/outpost_mediterranean_barrel": loot_outpost_mediterranean_barrel,
-    // "kaisyn:outpost/exclusives/outpost_rustic_barrel":        loot_outpost_rustic_barrel,
+    // "kaisyn:outpost/exclusives/outpost_mediterranean_barrel": loot_village_plains_house,
+    // "kaisyn:outpost/exclusives/outpost_rustic_barrel":        loot_village_plains_house,
 }
 
 registerLootTables(t_And_T_LootTable);

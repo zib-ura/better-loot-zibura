@@ -16,7 +16,7 @@ const village_beach_base_crops = [
             { reference: 'lootjs:beetroot_seeds', ratio: 5 },
             { reference: 'lootjs:beetroot_and_beetroot_block', ratio: 20 },
             { reference: 'lootjs:pineapple_sapling', ratio: 5 }, 
-            { reference: 'lootjs:pineapple_slice_and_pineapple_slice_block', ratio: 20 },
+            { reference: 'lootjs:pineapple_and_pineapple_block', ratio: 20 },
             { reference: 'lootjs:salt', ratio: 25 },
 
             { reference: 'lootjs:sugar_cane', ratio: 25 },
@@ -39,6 +39,9 @@ const village_beach_essential_wealth_equipment = [
             // --- Household Utilities ---
             { id: 'minecraft:glass_bottle', ratio: 10 },
             { id: 'minecraft:bowl', ratio: 10 },
+            { id: 'minecraft:bundle', ratio: 10 },       
+            // { id: 'farmersdelight:wooden_basket', ratio: 10 },       
+            // { id: 'kaleidoscope_cookery:fruit_basket', ratio: 10 },      
         ]
     },
 
@@ -48,30 +51,10 @@ const village_beach_essential_wealth_equipment = [
         min: 3, max: 4,
         items: [
             { id: 'minecraft:emerald', ratio: 20 },
+
         ]
     },
 
-
-    {
-        groupName: "Equipment",
-        groupWeight: 30,
-        min: 1, max: 1,
-        items: [
-
-            { id: 'minecraft:bundle', ratio: 10 },       
-            // { id: 'farmersdelight:wooden_basket', ratio: 10 },       
-            // { id: 'kaleidoscope_cookery:fruit_basket', ratio: 10 },       
-
-            { id: 'kaleidoscope_cookery:stockpot', ratio: 10 }, 
-            { id: 'kaleidoscope_cookery:pot', ratio: 10 }, 
-            { id: 'kaleidoscope_cookery:stockpot_lid', ratio: 10 }, 
-            { id: 'kaleidoscope_cookery:kitchen_shovel', ratio: 10 }, 
-
-            { id: 'farmersdelight:cooking_pot', ratio: 10 }, 
-            { id: 'farmersdelight:skillet', ratio: 10 },    
-            { id: 'farmersdelight:iron_knife', ratio: 10, max: 1, enchantChance: 0.0, damage: [0.7, 0.8]},
-        ]
-    },
 ]
 
 const village_beach_dish = [
@@ -261,16 +244,16 @@ const village_beach_bakery_baking_material = [
 // =================================================================
 const village_beach_house_content = [
     [village_beach_base_crops, 1, 1],
-    [village_beach_dish, 3, 4],
-    [village_beach_essential_wealth_equipment, 4, 4],
+    [village_beach_dish, 1, 1],
+    [village_beach_essential_wealth_equipment, 1, 1],
     [village_beach_drinks, 1, 2],
 
 ];
 
 const village_beach_bakery_content = [
 
-    [village_beach_bakery_products, 8, 8],
-    [village_beach_bakery_baking_material, 5, 5],
+    [village_beach_bakery_products, 2, 2],
+    [village_beach_bakery_baking_material, 3, 3],
     [village_smith_small_iron_knife, 1, 1],
 ];
 

@@ -6,10 +6,19 @@ const village_underground_base_crops = [
     {
         groupName: "base_crops",
         groupWeight: 80, 
-        min: 2, max: 4,
+        min: 2, max: 3,
         items: [
-            { reference: 'lootjs:glow_berries_and_glow_berries_block', ratio: 20 },
+            { reference: 'lootjs:glowberry_and_glowberry_block', ratio: 20 },
             { reference: 'lootjs:glowberry_seeds', ratio: 5 },
+
+
+        ]
+    },
+    {
+        groupName: "rare_crops",
+        groupWeight: 20, 
+        min: 2, max: 3,
+        items: [
             { reference: 'lootjs:wheat_and_wheat_block', ratio: 20 },
             { reference: 'lootjs:wheat_seeds', ratio: 5 },
             { reference: 'lootjs:potato_and_potato_block', ratio: 25 },
@@ -21,7 +30,6 @@ const village_underground_base_crops = [
             { reference: 'lootjs:cabbage_and_cabbage_block', ratio: 20 },
             { reference: 'lootjs:lettuce_seeds', ratio: 5 },
             { reference: 'lootjs:lettuce_and_lettuce_block', ratio: 20 },
-
         ]
     },
 ]
@@ -30,7 +38,7 @@ const village_underground_essential_wealth_equipment = [
     {
         groupName: "Villager Daily Essentials",
         groupWeight: 30, 
-        min: 3, max: 5,
+        min: 2, max: 3,
         items: [
             // --- Household Utilities ---
             { id: 'minecraft:glass_bottle', ratio: 10 },
@@ -41,8 +49,6 @@ const village_underground_essential_wealth_equipment = [
             // --- Light Sources & Storage ---
             { id: 'minecraft:torch', ratio: 10 },       // 火把
             { id: 'minecraft:lantern', ratio: 10 },     // 灯笼
-            { id: 'supplementaries:stone_lamp', ratio: 10 },
-            { id: 'supplementaries:lumisene_bottle', ratio: 10 }
         ]
     },
 
@@ -72,29 +78,13 @@ const village_underground_essential_wealth_equipment = [
             { id: 'minecraft:clock', ratio: 10 },         // 时钟（地底难辨日夜）
         ]
     },
-
-    {
-        groupName: "Equipment_cooking",
-        groupWeight: 15,
-        min: 1, max: 1,
-        items: [
-            { id: 'kaleidoscope_cookery:stockpot', ratio: 10 }, 
-            { id: 'kaleidoscope_cookery:pot', ratio: 10 }, 
-            { id: 'kaleidoscope_cookery:stockpot_lid', ratio: 10 }, 
-            { id: 'kaleidoscope_cookery:kitchen_shovel', ratio: 10 }, 
-            { id: 'farmersdelight:cooking_pot', ratio: 10 }, 
-            { id: 'farmersdelight:skillet', ratio: 10 },    
-            { id: 'farmersdelight:iron_knife', ratio: 10, max: 1, enchantChance: 0.0, damage: [0.7, 0.8]},
-
-        ]
-    }
 ]
 
 const village_underground_dish = [
     {
         groupName: "common",
         groupWeight: 70,
-        min: 2, max: 4,
+        min: 2, max: 3,
         items: [
             { id: 'minecraft:bread', ratio: 10 },
             { id: 'minecraft:baked_potato', ratio: 10 }, 
@@ -112,7 +102,7 @@ const village_underground_dish = [
     {
         groupName: "special",
         groupWeight: 30, 
-        min: 1, max: 3,
+        min: 2, max: 3,
         items: [
             { id: 'kitchenkarrot:shiny_pizza_slice', ratio: 5 },
             { id: 'farmersdelight:onion_soup', ratio: 10 },
@@ -134,14 +124,33 @@ const village_underground_drinks = [
     },
 ]
 
+const village_underground_crate_of_hardtack = [
+    {
+        groupName: "crate_of_hardtack",
+        groupWeight: 50,
+        min: 1, max: 1,
+        items: [
+            { id: 'rationcraft:rate_of_hardtack', ratio: 10 }
+        ]
+    },
+    {
+        groupName: "empty",
+        groupWeight: 50,
+        items: [
+            { "id": "empty" },
+        ]
+    },
+]
 // =================================================================
 // 事件注册区域
 // =================================================================
 const village_underground_house_content = [
     [village_underground_base_crops, 1, 1],
-    [village_underground_dish, 3, 4],
-    [village_underground_essential_wealth_equipment, 4, 4],
+    [village_underground_dish, 1, 1],
+    [village_underground_essential_wealth_equipment, 1, 1],
+    [common_cooking_equipment, 1, 1],
     [village_underground_drinks, 1, 2],
+    [village_underground_crate_of_hardtack, 1, 1],
 ];
 
 const loot_village_underground_house = [

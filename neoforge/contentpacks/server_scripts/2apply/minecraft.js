@@ -9,7 +9,7 @@ const minecraftLootTable = {
     "minecraft:chests/buried_treasure":                 loot_buried_treasure,
     "minecraft:chests/desert_pyramid":                  loot_desert_pyramid,
     // "minecraft:chests/end_city_treasure":            loot_end_city_treasure,
-    "minecraft:chests/igloo_chest":                     loot_village_temple,
+    "minecraft:chests/igloo_chest":                     loot_igloo,
     "minecraft:chests/jungle_temple":                   loot_jungle_temple,
     // "minecraft:chests/jungle_temple_dispenser":      loot_jungle_temple_dispenser,
     // "minecraft:chests/nether_bridge":                loot_nether_bridge,

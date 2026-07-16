@@ -40,7 +40,7 @@ $G.createLootTableConst_1_21_1 = function(tableId, entriesArray) {
 
     LootJS.lootTables(event => {
         entriesArray.forEach(([products, min, max, conditionCallback]) => {
-            $G.addCustomLoot_1_21_1(event, tableId, products, min, max, conditionCallback);
+            addCustomLoot(event, tableId, products, min, max, conditionCallback);
         });
     });
 };
@@ -61,7 +61,7 @@ $G.createLootTableConst_1_20_1 = function(tableId, entriesArray) {
             let independentLoot = event.addLootTableModifier(tableId);
             
             // 将独立的句柄传进去，这样条件就会各自独立隔离
-            $G.addCustomLoot_1_20_1(independentLoot, products, min, max, conditionCallback);
+            addCustomLoot(independentLoot, products, min, max, conditionCallback);
         });
     });
 };

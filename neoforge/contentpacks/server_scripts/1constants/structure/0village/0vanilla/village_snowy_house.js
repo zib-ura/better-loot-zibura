@@ -59,7 +59,9 @@ const village_snowy_essential_wealth_equipment = [
             { id: 'minecraft:charcoal', ratio: 10 },
             { id: 'minecraft:glass_bottle', ratio: 10 },
             { id: 'minecraft:bowl', ratio: 10 },
-
+            { id: 'supplementaries:sack', ratio: 10 },       
+            { id: 'farmersdelight:wooden_basket', ratio: 10 },       
+            { id: 'kaleidoscope_cookery:fruit_basket', ratio: 10 },      
         ]
     },
 
@@ -73,28 +75,6 @@ const village_snowy_essential_wealth_equipment = [
         ]
     },
 
-
-    {
-        groupName: "Equipment",
-        groupWeight: 30,
-        min: 1, max: 1,
-        items: [
-
-            { id: 'supplementaries:sack', ratio: 10 },       
-            { id: 'farmersdelight:wooden_basket', ratio: 10 },       
-            { id: 'kaleidoscope_cookery:fruit_basket', ratio: 10 },       
-
-            { id: 'kaleidoscope_cookery:stockpot', ratio: 10 }, 
-            { id: 'kaleidoscope_cookery:pot', ratio: 10 }, 
-            { id: 'kaleidoscope_cookery:stockpot_lid', ratio: 10 }, 
-            { id: 'kaleidoscope_cookery:kitchen_shovel', ratio: 10 }, 
-            { id: 'kaleidoscope_cookery:teapot', ratio: 10 }, 
-
-            { id: 'farmersdelight:cooking_pot', ratio: 10 }, 
-            { id: 'farmersdelight:skillet', ratio: 10 },    
-            { id: 'farmersdelight:iron_knife', ratio: 10, max: 1, enchantChance: 0.0, damage: [0.7, 0.8]},
-        ]
-    },
 ]
 
 const village_snowy_dish = [
@@ -190,8 +170,9 @@ const village_snowy_drinks = [
 // =================================================================
 const village_snowy_house_content = [
     [village_snowy_crops, 2, 2],
-    [village_snowy_dish, 3, 4],
-    [village_snowy_essential_wealth_equipment, 4, 4],
+    [village_snowy_dish, 1, 1],
+    [village_snowy_essential_wealth_equipment, 1, 1],
+    [common_cooking_equipment, 1, 1],
     [village_snowy_drinks, 1, 2],
 ];
 

@@ -274,6 +274,52 @@ const shipwreck_treasure_pottery_sherd = [
     },
 ];
 
+const shipwreck_treasure_enchanted_book = [
+    {
+        groupName: "underwater_ruin",
+        groupWeight: 50,
+        min: 1, max: 1,
+        items: [
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:aqua_affinity"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:depth_strider"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:luck_of_the_sea"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:lure"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:respiration"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:channeling"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:impaling"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:loyalty"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:riptide"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["kattersstructures:ocean_heart"] },
+
+        ]
+    },
+    {
+        groupName: "empty",
+        groupWeight: 50,
+        items: [
+            { "id": "empty" },
+        ]
+    },
+];
+
+const shipwreck_treasure_conduit = [
+    {
+        groupName: "conduit",
+        groupWeight: 50,  
+        min: 1, max: 1,
+        items: [
+            { id: "minecraft:conduit", ratio: 10 },
+        ]
+    },
+
+    {
+        groupName: "empty",
+        groupWeight: 50,
+        items: [
+            { "id": "empty" },
+        ]
+    },
+];
 // =================================================================
 // 事件注册区域
 // =================================================================
@@ -284,7 +330,9 @@ const shipwreck_treasure_content = [
     [shipwreck_treasure_smithing_templates_common, 2, 2],
     [shipwreck_treasure_smithing_templates_exclusive, 1, 1],
     [shipwreck_treasure_pottery_sherd, 2, 2],
-    [seagrass, 8, 9],
+    [shipwreck_treasure_enchanted_book, 1, 1],
+    [shipwreck_treasure_conduit, 1, 1],
+    [seagrass, 4, 5],
 ];
 
 const loot_shipwreck_treasure = [

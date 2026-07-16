@@ -79,7 +79,7 @@ const village_cartographer_content = [
     [village_cartographer_office_decorations, 1, 1], 
     [village_cartographer_marking_materials, 2, 3], 
     [village_chess, 1, 1],
-    [paper, 8, 10],
+    [paper, 4, 5],
 ];
 
 const loot_village_cartographer = [

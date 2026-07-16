@@ -38,6 +38,9 @@ const village_badlands_essential_wealth_equipment = [
             // --- Household Utilities ---
             { id: 'minecraft:glass_bottle', ratio: 10 },
             { id: 'minecraft:bowl', ratio: 10 },
+            { id: 'minecraft:bundle', ratio: 10 },       
+            // { id: 'farmersdelight:wooden_basket', ratio: 10 },       
+            // { id: 'kaleidoscope_cookery:fruit_basket', ratio: 10 },       
         ]
     },
 
@@ -47,28 +50,7 @@ const village_badlands_essential_wealth_equipment = [
         min: 3, max: 4,
         items: [
             { id: 'minecraft:emerald', ratio: 20 },
-        ]
-    },
 
-
-    {
-        groupName: "Equipment",
-        groupWeight: 30,
-        min: 1, max: 1,
-        items: [
-
-            { id: 'minecraft:bundle', ratio: 10 },       
-            // { id: 'farmersdelight:wooden_basket', ratio: 10 },       
-            // { id: 'kaleidoscope_cookery:fruit_basket', ratio: 10 },       
-
-            { id: 'kaleidoscope_cookery:stockpot', ratio: 10 }, 
-            { id: 'kaleidoscope_cookery:pot', ratio: 10 }, 
-            { id: 'kaleidoscope_cookery:stockpot_lid', ratio: 10 }, 
-            { id: 'kaleidoscope_cookery:kitchen_shovel', ratio: 10 }, 
-
-            { id: 'farmersdelight:cooking_pot', ratio: 10 }, 
-            { id: 'farmersdelight:skillet', ratio: 10 },    
-            { id: 'farmersdelight:iron_knife', ratio: 10, max: 1, enchantChance: 0.0, damage: [0.7, 0.8]},
         ]
     },
 ]
@@ -142,8 +124,9 @@ const village_badlands_drinks = [
 // =================================================================
 const village_badlands_house_content = [
     [village_badlands_base_crops, 1, 1],
-    [village_badlands_dish, 3, 4],
-    [village_badlands_essential_wealth_equipment, 4, 4],
+    [village_badlands_dish, 1, 1],
+    [village_badlands_essential_wealth_equipment, 1, 1],
+    [common_cooking_equipment, 1, 1],
     [village_badlands_drinks, 1, 2],
 
 ];

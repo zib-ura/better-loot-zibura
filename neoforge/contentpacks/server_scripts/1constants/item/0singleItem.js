@@ -1,3 +1,33 @@
+// const singleItem = {};
+
+// // 1. 使用你验证成功的 Item.getList() 获取所有物品
+// // 2. 遍历每个 item 对象，提取它的 id
+// Item.getList().forEach(item => {
+//     let fullId = item.id;
+    
+//     // 过滤空气或无效物品
+//     if (!fullId || fullId === 'minecraft:air') return;
+
+//     // 转换为合法的 JS 属性名（如 'supplementaries:ash' -> 'supplementaries_ash'）
+//     const uniqueKey = fullId.replace(':', '_'); 
+    
+//     // 提取纯物品名作为配置里的 groupName（按冒号切分）
+//     const groupName = fullId.split(':')[1]; 
+
+//     // 自动拼装结构
+//     singleItem[uniqueKey] = [
+//         {        
+//             groupName: groupName,
+//             groupWeight: 20, 
+//             min: 1, max: 1,
+//             items: [
+//                 { id: fullId, ratio: 10 }
+//             ]
+//         }
+//     ];
+// });
+
+
 const paper = [
     {        
         groupName: "paper",
@@ -32,7 +62,7 @@ const mushroom = [
     },
 ]
 
-const Vine = [
+const vine = [
     {
         groupName: "Vine",
         groupWeight: 50,
@@ -43,7 +73,7 @@ const Vine = [
     }
 ];
 
-const Sand = [
+const sand = [
     {
         groupName: "Sand",
         groupWeight: 50,
@@ -98,34 +128,13 @@ const netherrack = [
     },
 ]
 
-// const treasure_map = [
-//     {
-//         groupName: "treasure_map",
-//         groupWeight: 15,
-//         min: 1, max: 1,
-//         items: [
-//             { 
-//                 id: 'minecraft:map', ratio: 10, jsonFunction:         
-//                 {
-//                     "function": "minecraft:sequence",
-//                     "functions": [
-//                         {
-//                             "destination": "minecraft:buried_treasure", // ⭐ 1.21+ 必须明确指定寻找的结构目标
-//                             "decoration": "minecraft:red_x",
-//                             "function": "minecraft:exploration_map",
-//                             "skip_existing_chunks": false,
-//                             "zoom": 1
-//                         },
-//                         {
-//                             "function": "minecraft:set_name",
-//                             "name": {
-//                                 "translate": "filled_map.buried_treasure"
-//                             },
-//                             "target": "item_name"
-//                         }
-//                     ]
-//                 }
-//             },
-//         ]
-//     },
-// ]
+const name_tag = [
+    {
+        groupName: "name_tag",
+        groupWeight: 15,
+        min: 1, max: 1,
+        items: [
+            { id: 'minecraft:name_tag', ratio: 10 }
+        ]
+    },
+]

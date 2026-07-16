@@ -6,7 +6,7 @@ const shipwreck_map_content = [
     [village_cartographer_cartography_tools, 1, 2], 
     [village_cartographer_records_and_ink, 2, 3], 
     [village_cartographer_office_decorations, 1, 1], 
-    [paper, 8, 10],
+    // [paper, 4, 5],
     [seagrass, 4, 5],
     // [treasure_map, 1, 1],
 ];

@@ -41,11 +41,11 @@ const village_weaponsmith_products = [
 // 事件注册区域
 // =================================================================
 const village_weaponsmith_content = [
-    [village_weaponsmith_products, 2, 4],
-    [village_smith_common_products, 2, 4],
+    [village_weaponsmith_products, 1, 2],
+    [village_smith_common_products, 1, 2],
     [village_smith_materials, 2, 4],
-    [iron_nugget, 10, 18],
-    [village_smith_nametag, 1, 1],
+    [iron_nugget, 3, 4],
+    [name_tag,    1, 1],
 ];
 
 const loot_village_weaponsmith = [

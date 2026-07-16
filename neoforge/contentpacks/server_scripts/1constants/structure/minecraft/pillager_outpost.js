@@ -61,7 +61,6 @@ const pillager_outpost_Supplies = [
             { id: 'rationcraft:glowberry_gum', ratio: 10 },
             { id: 'rationcraft:dummy', ratio: 10 },
             { id: 'rationcraft:dry_sausage', ratio: 10 },
-            // { id: 'rationcraft:crate_of_hardtack', ratio: 10 },
             { id: 'rationcraft:covfefe', ratio: 10 },
             { id: 'rationcraft:corned_beef', ratio: 10 },
             { id: 'rationcraft:citrus_drink', ratio: 10 },
@@ -145,6 +144,50 @@ const pillager_outpost_Arrow = [
     }
 ];
 
+const pillager_outpost_crate_of_hardtack = [
+    {
+        groupName: "crate_of_hardtack",
+        groupWeight: 50,
+        min: 1, max: 1,
+        items: [
+            { id: 'rationcraft:rate_of_hardtack', ratio: 10 }
+        ]
+    },
+    {
+        groupName: "empty",
+        groupWeight: 50,
+        items: [
+            { "id": "empty" },
+        ]
+    },
+]
+
+const pillager_outpost_enchanted_book = [
+    {
+        groupName: "pillager",
+        groupWeight: 20,
+        min: 1, max: 1,
+        items: [
+
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:unbreaking"] }, 
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:mending"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:quick_charge"] }, 
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:piercing"] }, 
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:multishot"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["kaleidoscope_end:void_shot"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["nova_structures:ghasted"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["nova_structures:gravity"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["nova_structures:power"] },
+        ]
+    },
+    {
+        groupName: "empty",
+        groupWeight: 80,
+        items: [
+            { "id": "empty" },
+        ]
+    },
+];
 // =================================================================
 // 事件注册区域
 // =================================================================
@@ -152,6 +195,8 @@ const pillager_outpost_content = [
     [pillager_outpost_Treasure, 1, 2],
     [pillager_outpost_Special, 4, 4],
     [pillager_outpost_Supplies, 3, 4],
+    [pillager_outpost_crate_of_hardtack, 1, 1],
+    [pillager_outpost_enchanted_book, 1, 1],
 ];
 
 const loot_pillager_outpost = [

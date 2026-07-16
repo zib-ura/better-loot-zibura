@@ -20,8 +20,8 @@ const woodland_mansion_weapon = [
 const woodland_mansion_Treasure = [
     {
         groupName: "treasure",
-        groupWeight: 30,
-        min: 1, max: 2,
+        groupWeight: 20,
+        min: 1, max: 1,
         items: [
             { id: 'minecraft:totem_of_undying', ratio: 5 },
             { id: 'minecraft:enchanted_golden_apple', ratio: 5 },
@@ -37,7 +37,7 @@ const woodland_mansion_Treasure = [
     {
         groupName: "diamond_equipment_armors",
         groupWeight: 20,
-        min: 1, max: 1,
+        min: 1, max: 1, enchantChance: 1, enchantLevels: [40, 40], damage: [0.8, 0.9],
         items: [
             { id: 'minecraft:diamond_helmet', ratio: 5 },
             { id: 'minecraft:diamond_chestplate', ratio: 5 },
@@ -55,12 +55,12 @@ const woodland_mansion_ore = [
         min: 2,
         max: 3,
         items: [
-            { reference: 'lootjs:iron_ingot_and_iron_ingot_block', ratio: 10 },
-            { reference: 'lootjs:copper_ingot_and_copper_ingot_block', ratio: 10 },
+            // { reference: 'lootjs:iron_ingot_and_iron_ingot_block', ratio: 10 },
+            // { reference: 'lootjs:copper_ingot_and_copper_ingot_block', ratio: 10 },
             { reference: 'lootjs:gold_ingot_and_gold_ingot_block', ratio: 10 },
-            { reference: 'lootjs:redstone_and_redstone_block', ratio: 10 },
-            { reference: 'lootjs:lapis_and_lapis_block', ratio: 10 },
-            { reference: 'lootjs:diamond_and_diamond_block', ratio: 5 },
+            // { reference: 'lootjs:redstone_and_redstone_block', ratio: 10 },
+            // { reference: 'lootjs:lapis_and_lapis_block', ratio: 10 },
+            { reference: 'lootjs:diamond_and_diamond_block', ratio: 10 },
             { reference: 'lootjs:emerald_and_emerald_block', ratio: 10 },
             { reference: 'lootjs:quartz_and_quartz_block', ratio: 10 },
         ]
@@ -79,21 +79,11 @@ const woodland_mansion_music = [
             { id: 'minecraft:jukebox', ratio: 10 },
         ]
     },
-    {
-        groupName: "noteblock",
-        groupWeight: 50,
-        min: 1,
-        max: 1,
-        items: [
-            { "id": "minecraft:note_block" },
-        ]
-    },
-];
 
-const woodland_mansion_music_discs = [
+
     {
         groupName: "Music Discs",
-        groupWeight: 25,
+        groupWeight: 50,
         min: 1, max: 1,
         items: [
             // { "id": "minecraft:music_disc_pigstep", "ratio": 1},
@@ -123,11 +113,75 @@ const woodland_mansion_music_discs = [
     },
 ];
 
+const woodland_mansion_decorations = [
+    {
+        groupName: "office_decorations",
+        groupWeight: 10,
+        min: 1, max: 1,
+        items: [
+            { id: 'minecraft:clock', ratio: 10 },        
+            { id: 'minecraft:painting', ratio: 10 },     
+            { id: 'minecraft:item_frame', ratio: 10 },     
+            { id: 'minecraft:lantern', ratio: 10 },      
+            { id: 'minecraft:bookshelf', ratio: 10 },      // 书架
+            { id: 'minecraft:flower_pot', ratio: 10 },     // 花盆
+        ]
+    }
+];
+
+const woodland_mansion_plants = [
+    {
+        groupName: "overworld_saplings",
+        groupWeight: 50,
+        min: 1, max: 1,
+        items: [
+            { id: 'minecraft:oak_sapling', ratio: 10 },
+            { id: 'minecraft:spruce_sapling', ratio: 10 },
+            { id: 'minecraft:birch_sapling', ratio: 10 },
+            { id: 'minecraft:jungle_sapling', ratio: 10 },
+            { id: 'minecraft:acacia_sapling', ratio: 10 },
+            { id: 'minecraft:dark_oak_sapling', ratio: 10 },
+            { id: 'minecraft:mangrove_propagule', ratio: 10 }, // 红树胎生苗
+            { id: 'minecraft:cherry_sapling', ratio: 10 },     // 樱花树苗
+            { id: 'minecraft:pale_oak_sapling', ratio: 10 }    // 苍白橡木树苗
+        ]
+    },
+    {
+        groupName: "overworld_flowers",
+        groupWeight: 50,
+        min: 1, max: 1,
+        items: [
+            // 单格花卉
+            { id: 'minecraft:dandelion', ratio: 10 },          // 蒲公英
+            { id: 'minecraft:poppy', ratio: 10 },              // 虞美人
+            { id: 'minecraft:blue_orchid', ratio: 10 },        // 兰花
+            { id: 'minecraft:allium', ratio: 10 },            // 绒球葱
+            { id: 'minecraft:azure_bluet', ratio: 10 },        // 美青兰
+            { id: 'minecraft:red_tulip', ratio: 10 },          // 红色郁金香
+            { id: 'minecraft:orange_tulip', ratio: 10 },       // 橙色郁金香
+            { id: 'minecraft:white_tulip', ratio: 10 },        // 白色郁金香
+            { id: 'minecraft:pink_tulip', ratio: 10 },         // 粉色郁金香
+            { id: 'minecraft:oxeye_daisy', ratio: 10 },        // 滨菊
+            { id: 'minecraft:cornflower', ratio: 10 },         // 矢车菊
+            { id: 'minecraft:lily_of_the_valley', ratio: 10 }, // 谷中百合
+            { id: 'minecraft:torchflower', ratio: 10 },        // 火把花 (古生物)
+
+            // 双格高花卉
+            { id: 'minecraft:sunflower', ratio: 10 },          // 向日葵
+            { id: 'minecraft:lilac', ratio: 10 },              // 丁香
+            { id: 'minecraft:rose_bush', ratio: 10 },          // 玫瑰丛
+            { id: 'minecraft:peony', ratio: 10 },              // 牡丹
+            { id: 'minecraft:pitcher_plant', ratio: 10 }       // 猪笼草 (古生物)
+        ]
+    }
+];
+
+
 const woodland_mansion_wools_and_dyes = [
     {
         groupName: "wools",
         groupWeight: 50,
-        min: 3, max: 5,
+        min: 2, max: 3,
         items: [
             { id: 'minecraft:white_wool', ratio: 5 },
             { id: 'minecraft:orange_wool', ratio: 5 },
@@ -151,7 +205,7 @@ const woodland_mansion_wools_and_dyes = [
     {
         groupName: "dyes",
         groupWeight: 50,
-        min: 3, max: 5,
+        min: 2, max: 3,
         items: [
             { id: 'minecraft:white_dye', ratio: 5 },
             { id: 'minecraft:orange_dye', ratio: 5 },
@@ -193,7 +247,7 @@ const woodland_mansion_alcohol = [
         min: 1, max: 1,
         items: [
             { id: "brewinandchewin:dread_nog", "ratio": 1 },
-            { id: "kaleidoscope_tavern:rum", "ratio": 1 },
+            // { id: "kaleidoscope_tavern:rum", "ratio": 1, jsonFunction:{"function": "kaleidoscope_tavern:brew_level=6"} },
             { id: 'minecraft:ominous_bottle', "ratio": 1 },
 
         ]
@@ -204,31 +258,31 @@ const all_village_house_special_dish = [
     {
         groupName: "desert_house",
         groupWeight: 10, 
-        min: 2, max: 3,
+        min: 1, max: 1,
         items: village_desert_dish.find(group => group.groupName === "special").items
     },
     {
         groupName: "plains_house_europe",
         groupWeight: 10, 
-        min: 2, max: 3,
+        min: 1, max: 1,
         items: village_plains_dish.find(group => group.groupName === "special europe").items
     },
     {
         groupName: "plains_house_asia",
         groupWeight: 10, 
-        min: 2, max: 3,
+        min: 1, max: 1,
         items: village_plains_dish.find(group => group.groupName === "special asia").items
     },
     {
         groupName: "savanna_house",
         groupWeight: 10, 
-        min: 2, max: 3,
+        min: 1, max: 1,
         items: village_savanna_dish.find(group => group.groupName === "special").items
     },
     {
         groupName: "snowy_house",
         groupWeight: 10, 
-        min: 2, max: 3,
+        min: 1, max: 1,
         items: village_snowy_dish.find(group => group.groupName === "special").items
     },
     // {
@@ -269,44 +323,67 @@ const all_village_house_special_dish = [
     // }
 ];
 
-
+const woodland_mansion_enchanted_book = [
+    {
+        groupName: "pillager",
+        groupWeight: 50,
+        min: 1, max: 1,
+        items: [
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:unbreaking"] }, 
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:mending"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:sharpness"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:knockback"] }, 
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:fire_aspect"] }, 
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:looting"] }, 
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:sweeping_edge"] }, 
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["enchantencore:weaving_aspect"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["farmersdelight:backstabbing"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["kattersstructures:heavy"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["kattersstructures:blunt"] },
+        ]
+    }
+];
 // =================================================================
 // 事件注册区域
 // =================================================================
 
 // 1. weapon
 const woodland_mansion_weapon_content = [
-    [woodland_mansion_weapon, 16, 20],
+    [woodland_mansion_weapon, 6, 7],
+    [iron_nugget, 3, 4],
+
 ];
 
 // 2. treasure
 const woodland_mansion_treasure_content = [
-    [woodland_mansion_Treasure, 2, 4],
+    [woodland_mansion_Treasure, 4, 4],
     [woodland_mansion_ore, 3, 4],
+    [woodland_mansion_enchanted_book, 1, 1],
 ];
 
-// 3. music
-const woodland_mansion_music_content = [
-    [woodland_mansion_music, 4, 6],
-    [woodland_mansion_music_discs, 3, 5],
+// 3. decoration
+const woodland_mansion_decoration_content = [
+    [woodland_mansion_music, 2, 3],
+    [woodland_mansion_decorations, 2, 3],
+    [woodland_mansion_plants, 2, 3]
 ];
 
 // 4. wools_and_dyes
 const woodland_mansion_wools_and_dyes_content = [
-    [woodland_mansion_wools_and_dyes, 7, 8],
+    [woodland_mansion_wools_and_dyes, 5, 6],
 ];
 
 // 5. cuisine
 const woodland_mansion_cuisine_content = [
-    [all_village_house_special_dish, 6, 7],
+    [all_village_house_special_dish, 3, 4],
     [woodland_mansion_alcohol, 2, 3],
 ];
 
 const loot_woodland_mansion = [
     [woodland_mansion_weapon_content, 1],
     [woodland_mansion_treasure_content, 1], 
-    [woodland_mansion_music_content, 1],
+    [woodland_mansion_decoration_content, 1],
     [woodland_mansion_wools_and_dyes_content, 1],
     [woodland_mansion_cuisine_content, 1],
-    [food_supply_content, 1]
+    [food_supply_content, 1],
 ];

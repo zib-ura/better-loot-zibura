@@ -2,26 +2,32 @@ const village_fisher_fish = [
     {
         groupName: "raw fish",
         groupWeight: 20,
-        min: 2, max: 3,
+        min: 1, max: 1,
         items: [
-            { id: 'minecraft:cod', ratio: 10 },
-            { id: 'farmersdelight:cod_slice', ratio: 10 },
-            { id: 'minecraft:salmon', ratio: 10 },
-            { id: 'farmersdelight:salmon_slice', ratio: 10 },
-            { id: 'minecraft:pufferfish', ratio: 10 },
-            { id: 'cratedelight:cod_crate', ratio: 1, max: 2},
-            { id: 'cratedelight:salmon_crate', ratio: 1, max: 2},
-            { id: 'youkaisfeasts:raw_lamprey', ratio: 10 },
-            { id: 'youkaisfeasts:raw_lamprey_fillet', ratio: 10 },
-            { id: 'youkaisfeasts:roe', ratio: 2 },
-            { id: 'kaleidoscope_chinesefood:yellow_croaker', ratio: 5 },
-            { id: 'minecraft:ink_sac', ratio: 10 },
-            { id: 'kaleidoscope_cookery:sashimi', ratio: 10 },
-            { reference: 'lootjs:calamari', ratio: 10 },
+            { reference: 'lootjs:cod_and_cod_block', ratio: 25 },
+            { reference: 'lootjs:salmon_and_salmon_block', ratio: 25 },
+            { reference: 'lootjs:tropical_fish_and_tropical_fish_block', ratio: 25 },
+            { reference: 'lootjs:pufferfish_and_pufferfish_block', ratio: 25 },
 
+            { id: 'youkaisfeasts:raw_lamprey', ratio: 25 },
+            { id: 'youkaisfeasts:raw_lamprey_fillet', ratio: 25 },
+            { id: 'youkaisfeasts:roe', ratio: 5 },
+            { id: 'kaleidoscope_chinesefood:yellow_croaker', ratio: 25 },
 
+            { id: 'minecraft:ink_sac', ratio: 25 },
+            { reference: 'lootjs:calamari', ratio: 25 },
+
+            { id: 'minecraft:kelp', ratio: 25 },
+
+            { id: 'minecraft:pufferfish_bucket', ratio: 25 },
+            { id: 'minecraft:cod_bucket', ratio: 25 },
+            { id: 'minecraft:salmon_bucket', ratio: 25 },
+            { id: 'minecraft:tropical_fish_bucket', ratio: 25 },
+            { id: 'youkaishomecoming:lamprey_bucket', ratio: 25 },
+            { id: 'minecraft:bucket', ratio: 25 },
+            { id: 'minecraft:water_bucket', ratio: 25 },
         ]
-    }
+    },
 ];
 
 const village_fisher_products = [
@@ -36,7 +42,7 @@ const village_fisher_products = [
             { id: 'vintagedelight:surstromming', ratio: 10 },
 
         ]
-    }
+    },
 ];
 
 const village_fisher_equipement = [
@@ -57,8 +63,8 @@ const village_fisher_equipement = [
 // =================================================================
 const village_fisher_content = [
     [village_fisher_fish, 3, 4],
-    [village_fisher_equipement, 2, 4],
-    [village_fisher_products, 3, 4],
+    [village_fisher_equipement, 1, 1],
+    [village_fisher_products, 2, 3],
 
 ];
 

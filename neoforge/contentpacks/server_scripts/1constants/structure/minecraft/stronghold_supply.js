@@ -39,7 +39,7 @@ const stronghold_supply_resources = [
     {
         groupName: "basic_building_blocks",
         groupWeight: 50,
-        min: 4, max: 5,
+        min: 2, max: 3,
         items: [
             { id: "minecraft:oak_log" },
             { id: "minecraft:stone_bricks" },
@@ -78,13 +78,24 @@ const stronghold_supply_resources = [
     // }
 ]
 
+const stronghold_supply_lighting = [
+    {
+        groupWeight: 50, 
+        min: 2, max: 3,
+        items: [
+            { id: 'minecraft:torch', ratio: 10 },
+        ]
+    },
+]
+
 // =================================================================
 // 事件注册区域
 // =================================================================
 
 const stronghold_supply_content = [
-    [stronghold_supply_food, 3, 4],              
+    [stronghold_supply_food, 1, 1],              
     [stronghold_supply_resources, 3, 4],    
+    [stronghold_supply_lighting, 2, 3],
 ];
 
 const loot_stronghold_supply = [

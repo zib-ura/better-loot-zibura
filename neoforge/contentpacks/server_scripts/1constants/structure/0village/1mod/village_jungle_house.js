@@ -15,8 +15,8 @@ const village_jungle_base_crops = [
             { reference: 'lootjs:melon_seeds', ratio: 5 },
             { reference: 'lootjs:melon_slice_and_melon_slice_block', ratio: 20 },
 
-            { reference: 'lootjs:pumpkin_seeds', ratio: 5 },
-            { reference: 'lootjs:pumpkin_slice_and_pumpkin_slice_block', ratio: 20 },
+            // { reference: 'lootjs:pumpkin_seeds', ratio: 5 },
+            // { reference: 'lootjs:pumpkin_slice_and_pumpkin_slice_block', ratio: 20 },
 
             { reference: 'lootjs:cocoabeans_and_cocoabeans_block', ratio: 25 },
 
@@ -77,6 +77,10 @@ const village_jungle_essential_wealth_equipment = [
             { id: 'minecraft:charcoal', ratio: 10 },
             { id: 'minecraft:glass_bottle', ratio: 10 },
             { id: 'minecraft:bowl', ratio: 10 },
+            { id: 'farm_and_charm:rope', ratio: 10 },    
+            { id: 'supplementaries:sack', ratio: 10 },       
+            { id: 'farmersdelight:wooden_basket', ratio: 10 },       
+            { id: 'kaleidoscope_cookery:fruit_basket', ratio: 10 },       
         ]
     },
 
@@ -87,28 +91,6 @@ const village_jungle_essential_wealth_equipment = [
         items: [
             { id: 'minecraft:emerald', ratio: 20 },
 
-        ]
-    },
-
-    {
-        groupName: "Equipment",
-        groupWeight: 30,
-        min: 1, max: 1,
-        items: [
-            { id: 'farm_and_charm:rope', ratio: 10 },    
-
-            { id: 'supplementaries:sack', ratio: 10 },       
-            { id: 'farmersdelight:wooden_basket', ratio: 10 },       
-            { id: 'kaleidoscope_cookery:fruit_basket', ratio: 10 },       
-
-            { id: 'kaleidoscope_cookery:stockpot', ratio: 10 }, 
-            { id: 'kaleidoscope_cookery:pot', ratio: 10 }, 
-            { id: 'kaleidoscope_cookery:stockpot_lid', ratio: 10 }, 
-            { id: 'kaleidoscope_cookery:kitchen_shovel', ratio: 10 }, 
-
-            { id: 'farmersdelight:cooking_pot', ratio: 10 }, 
-            { id: 'farmersdelight:skillet', ratio: 10 },    
-            { id: 'farmersdelight:iron_knife', ratio: 10, max: 1, enchantChance: 0.0, damage: [0.7, 0.8]},
         ]
     },
 ]
@@ -149,9 +131,9 @@ const village_jungle_dish = [
 
             { id: 'youkaisfeasts:kaguya_hime', ratio: 10 },
 
-            { id: 'farmersdelight:stuffed_pumpkin', ratio: 10 },
-            { id: 'kaleidoscope_chinesefood:pumpkin_porridge', ratio: 10 },
-            { id: 'farmersdelight:pumpkin_soup', ratio: 10 },
+            // { id: 'farmersdelight:stuffed_pumpkin', ratio: 10 },
+            // { id: 'kaleidoscope_chinesefood:pumpkin_porridge', ratio: 10 },
+            // { id: 'farmersdelight:pumpkin_soup', ratio: 10 },
             { id: 'fruitsdelight:lychee_chicken', ratio: 10 },
         ]
     },
@@ -297,15 +279,16 @@ const village_jungle_bakery_baking_material = [
 // =================================================================
 const village_jungle_house_content = [
     [village_jungle_base_crops, 2, 2],
-    [village_jungle_dish, 3, 4],
-    [village_jungle_essential_wealth_equipment, 4, 4],
+    [village_jungle_dish, 1, 1],
+    [village_jungle_essential_wealth_equipment, 1, 1],
+    [common_cooking_equipment, 1, 1],
     [village_jungle_drinks, 1, 2],
 ];
 
 const village_jungle_bakery_content = [
 
-    [village_jungle_bakery_products, 8, 8],
-    [village_jungle_bakery_baking_material, 5, 5],
+    [village_jungle_bakery_products, 2, 2],
+    [village_jungle_bakery_baking_material, 3, 3],
     [village_smith_small_iron_knife, 1, 1],
 
 ];

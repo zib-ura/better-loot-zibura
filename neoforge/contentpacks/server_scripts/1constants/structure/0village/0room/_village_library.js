@@ -106,17 +106,25 @@ const village_chess = [
     },
 ]
 
-
+const village_library_enchanted_book = [
+    {   
+        groupName: "Book",
+        groupWeight: 50, 
+        min: 2, max: 3,
+        items: all_Available_Enchant_books
+    },
+];
 // =================================================================
 // 事件注册区域
 // =================================================================
 const village_library_content = [
     [village_library_records_and_ink, 2, 3],
-    [village_library_decorations, 2, 3],
+    [village_library_decorations, 1, 1],
     [village_library_drinks, 1, 2],
     [village_library_special_books, 1, 1],
     [paper, 4, 5],
     [village_chess, 1, 1],
+    [village_library_enchanted_book, 1, 1],
 ];
 
 

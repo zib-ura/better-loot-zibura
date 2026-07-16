@@ -20,7 +20,13 @@ const kattersstructures_ocean_random_fish = [
 
             { id: 'minecraft:kelp', ratio: 25 },
       
-
+            { id: 'minecraft:pufferfish_bucket', ratio: 25 },
+            { id: 'minecraft:cod_bucket', ratio: 25 },
+            { id: 'minecraft:salmon_bucket', ratio: 25 },
+            { id: 'minecraft:tropical_fish_bucket', ratio: 25 },
+            { id: 'youkaishomecoming:lamprey_bucket', ratio: 25 },
+            { id: 'minecraft:bucket', ratio: 25 },
+            { id: 'minecraft:water_bucket', ratio: 25 },
         ]
     }
 ];
@@ -94,13 +100,13 @@ const kattersstructures_ocean_random_material = [
 ]
 
 const kattersstructures_ocean_random_fish_content = [
-    [kattersstructures_ocean_random_fish, 3, 4],
-    [kattersstructures_ocean_random_products, 3, 4],
+    [kattersstructures_ocean_random_fish, 2, 3],
+    [kattersstructures_ocean_random_products, 1, 2],
 ];
 
 const kattersstructures_ocean_random_equipment_content = [
-    [kattersstructures_ocean_random_fishing_rod, 3, 4],
-    [kattersstructures_ocean_random_ship_bucket, 7, 8],
+    [kattersstructures_ocean_random_fishing_rod, 1, 2],
+    [kattersstructures_ocean_random_ship_bucket, 3, 4],
     [kattersstructures_ocean_random_material, 3, 4],
 
 
@@ -108,7 +114,7 @@ const kattersstructures_ocean_random_equipment_content = [
 ];
 
 const loot_kattersstructures_ocean_random = [
-    [kattersstructures_ocean_random_fish_content, 9],
+    [kattersstructures_ocean_random_fish_content, 4],
     [kattersstructures_ocean_random_equipment_content, 1],
 
 ];

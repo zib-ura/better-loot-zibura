@@ -7,7 +7,6 @@ const village_mason_stone = [
             { id: 'minecraft:furnace', ratio: 10 },
             { id: 'minecraft:armor_stand', ratio: 10 },
             { id: 'supplementaries:hat_stand', ratio: 10 },
-            { id: 'kaleidoscope_cookery:stove', ratio: 10 },
             { id: 'minecraft:grindstone', ratio: 10 },
             { id: 'kaleidoscope_cookery:millstone', ratio: 10 },
             { id: 'stonechest:chest_stone', ratio: 10 },
@@ -84,7 +83,6 @@ const village_mason_brick = [
             { id: 'bakery:baker_station', ratio: 10 }, 
             { id: 'farm_and_charm:stove', ratio: 10 }, 
             { id: 'bakery:brick_counter', ratio: 10 }, 
-            { id: 'farmersdelight:stove', ratio: 10 }, 
             { id: 'bakery:kitchen_sink', ratio: 10 },
             { id: 'trailandtales_delight:pottery_cooking_pot', ratio: 10 },
             { id: 'kaleidoscope_chinesefood:pickle_jar', ratio: 10 },
@@ -312,21 +310,64 @@ const village_mason_fuel = [
     },
 ]
 
+const village_mason_stove = [
+    {        
+        groupName: "materials",
+        groupWeight: 20,
+        min: 1, max: 1,
+        items: [
+            { id: 'kaleidoscope_cookery:stove', ratio: 10 },
+            { id: 'farmersdelight:stove', ratio: 10 }, 
+        ]
+    },
+]
+
+const village_mason_flint_and_steel = [
+    {        
+        groupName: "flint_and_steel",
+        groupWeight: 20,
+        min: 1, max: 1,
+        items: [
+            { id: 'minecraft:flint_and_steel', ratio: 10, damage: [0.7, 0.8]},
+        ]
+    },
+]
+
+const village_mason_scarecrow = [
+    {        
+        groupName: "scarecrow",
+        groupWeight: 20,
+        min: 1, max: 1,
+        items: [
+            { id: 'touhou_little_maid:scarecrow', ratio: 10 },
+        ]
+    },
+    {
+        groupName: "empty",
+        groupWeight: 80,
+        items: [
+            { "id": "empty" },
+        ]
+    },
+]
 // =================================================================
 // 事件注册区域
 // =================================================================
 const village_mason_content = [
-    [village_mason_brick, 3, 3, { matchBiome: '#minecraft:has_structure/village_plains' }],
+    [village_mason_brick, 1, 1, { matchBiome: '#minecraft:has_structure/village_plains' }],
     [village_mason_stone, 3, 3, /* { matchBiome: '#kubejs:not_desert_badland' } */],
-    [village_mason_other_material, 2, 2, { matchBiome: '#kubejs:mason/other' }],
+    [village_mason_other_material, 1, 1, { matchBiome: '#kubejs:mason/other' }],
 
-    [village_desert_sandstone_glass, 5, 5, { matchBiome: '#minecraft:has_structure/village_desert' }],
-    [village_badlands_terracotta, 5, 5, { matchBiome: '#minecraft:is_badlands' }],
-    [village_beach_salt, 5, 5, { matchBiome: '#minecraft:is_beach' }],
+    [village_desert_sandstone_glass, 2, 2, { matchBiome: '#minecraft:has_structure/village_desert' }],
+    [village_badlands_terracotta, 2, 2, { matchBiome: '#minecraft:is_badlands' }],
+    [village_beach_salt, 2, 2, { matchBiome: '#minecraft:is_beach' }],
 
 
 
     [village_mason_fuel, 2, 2],
+    [village_mason_stove, 1, 1],
+    [village_mason_flint_and_steel, 1, 1],
+    [village_mason_scarecrow, 1, 1],
 ];
 
 const loot_village_mason = [

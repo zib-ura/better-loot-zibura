@@ -85,14 +85,40 @@ const ruined_portal_supply = [
         ]
     },
 ];
+
+const ruined_portal_enchanted_book = [
+    {
+        groupName: "ruined_portal",
+        groupWeight: 20,
+        min: 1, max: 1,
+        items: [
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:protection"] }, 
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:projectile_protection"] }, 
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:fire_protection"] }, 
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:blast_protection"] },  
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["kaleidoscope_nether:lava_walker"] },
+        
+
+        ]
+    },
+    {
+        groupName: "empty",
+        groupWeight: 80,
+        items: [
+            { "id": "empty" },
+        ]
+    },
+]
+
 // =================================================================
 // 事件注册区域
 // =================================================================
 const ruined_portal_content = [
-    [ruined_portal_nether_materials, 6, 7],
-    [netherrack, 14, 15],
+    [ruined_portal_nether_materials, 2, 3],
+    [netherrack, 4, 5],
     [ruined_portal_gold_armor, 1, 1],
     [ruined_portal_supply, 1, 1],
+    [ruined_portal_enchanted_book, 1, 1],
 ];
 
 const loot_ruined_portal = [
