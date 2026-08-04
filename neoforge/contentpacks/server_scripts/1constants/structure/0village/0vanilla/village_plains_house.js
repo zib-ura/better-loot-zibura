@@ -9,41 +9,40 @@ const village_plains_base_crops = [
         items: [
 
             { reference: 'lootjs:wheat_seeds', ratio: 5 },
-            { reference: 'lootjs:wheat_and_wheat_block', ratio: 20 },
+            { reference: 'lootjs:wheat', ratio: 10 },
+            { reference: 'lootjs:wheat_and_wheat_block', ratio: 10 },
 
-            { reference: 'lootjs:carrot_and_carrot_block', ratio: 25 },
+            { reference: 'lootjs:carrot', ratio: 15 },
+            { reference: 'lootjs:carrot_and_carrot_block', ratio: 10 },
 
-            { reference: 'lootjs:potato_and_potato_block', ratio: 25 },
-
-            { reference: 'lootjs:beetroot_seeds', ratio: 5 },
-            { reference: 'lootjs:beetroot_and_beetroot_block', ratio: 20 },
+            { reference: 'lootjs:potato', ratio: 15 },
+            { reference: 'lootjs:potato_and_potato_block', ratio: 10 },
 
             { reference: 'lootjs:pumpkin_seeds', ratio: 5 },
-            { reference: 'lootjs:pumpkin_slice_and_pumpkin_slice_block', ratio: 20 },
-
-            { reference: 'lootjs:apple_and_apple_block', ratio: 25 },
+            { reference: 'lootjs:pumpkin_slice', ratio: 10 },
+            { reference: 'lootjs:pumpkin_slice_and_pumpkin_slice_block', ratio: 10 },
 
             { reference: 'lootjs:tomato_seeds', ratio: 5 },
-            { reference: 'lootjs:tomato_and_tomato_block', ratio: 20 },
+            { reference: 'lootjs:tomato', ratio: 10 },
+            { reference: 'lootjs:tomato_and_tomato_block', ratio: 10 },
 
-            { reference: 'lootjs:onion_and_onion_block', ratio: 25 },
+            { reference: 'lootjs:onion', ratio: 15 },
+            { reference: 'lootjs:onion_and_onion_block', ratio: 10 },
 
             { reference: 'lootjs:cabbage_seeds', ratio: 5 },
-            { reference: 'lootjs:cabbage_and_cabbage_block', ratio: 20 },
+            { reference: 'lootjs:cabbage', ratio: 10 },
+            { reference: 'lootjs:cabbage_and_cabbage_block', ratio: 10 },
 
             { reference: 'lootjs:lettuce_seeds', ratio: 5 },
-            { reference: 'lootjs:lettuce_and_lettuce_block', ratio: 20 },
+            { reference: 'lootjs:lettuce', ratio: 10 },
+            { reference: 'lootjs:lettuce_and_lettuce_block', ratio: 10 },
 
-            { reference: 'lootjs:rice_and_rice_block', ratio: 25 },
-
-            { reference: 'lootjs:egg_and_egg_block', ratio: 25 },
+            { reference: 'lootjs:rice', ratio: 15 },
+            { reference: 'lootjs:rice_and_rice_block', ratio: 10 },
 
             { reference: 'lootjs:pepper_seeds', ratio: 5 },
-            { reference: 'lootjs:pepper_and_pepper_block', ratio: 20 },
-
-            { id: 'youkaisfeasts:tea_seeds', ratio: 5 },
-            { id: 'youkaisfeasts:green_tea_leaves', ratio: 10 }, 
-            { id: 'youkaisfeasts:white_tea_leaves', ratio: 10 },
+            { reference: 'lootjs:pepper', ratio: 10 },
+            { reference: 'lootjs:pepper_and_pepper_block', ratio: 10 },
 
         ]
     },
@@ -56,83 +55,50 @@ const village_plains_other_crops = [
         groupWeight: 50, 
         min: 2, max: 3,
         items: [
-            { reference: 'lootjs:black_grape_seeds', ratio: 5 },
-            { reference: 'lootjs:black_grape', ratio: 20 },
 
-            { reference: 'lootjs:white_grape_seeds', ratio: 5 },
-            { reference: 'lootjs:white_grape', ratio: 20 },
-
-            { reference: 'lootjs:red_grape_seeds', ratio: 5 },
-            { reference: 'lootjs:red_grape', ratio: 20 },
-
-            { id: "kaleidoscope_tavern:grape", ratio: 25 },
-
-            { id: "kaleidoscope_tavern:green_grape", ratio: 25 },
-
-            { id: "kaleidoscope_tavern:grapevine", ratio: 25 },
-
-            // --- Farm & Charm: Crops ---
-            // 1. 草莓系列 (有种子，有作物，有Crate)
-            { reference: 'lootjs:strawberry_seeds', ratio: 5 },
-            { reference: 'lootjs:strawberry', ratio: 20 }, 
-
-            // 2. 大麦系列 (无Crate注册，直接拉满)
             { reference: 'lootjs:barley_seeds', ratio: 5 },
-            { reference: 'lootjs:barley', ratio: 20 }, // 凑满总额 25
+            { reference: 'lootjs:barley', ratio: 20 },
 
-            // --- Youkais Feasts (妖怪茶会) ---
-            // 3. 黄瓜系列 (有种子，有作物，有Crate)
             { reference: 'lootjs:cucumber_seeds', ratio: 5 },
             { reference: 'lootjs:cucumber', ratio: 20 },
 
-            // 4. 燕麦系列 (有种子，有作物，有Crate；注意：原版有配置合并，用 reference)
             { reference: 'lootjs:oat_seeds', ratio: 5 },
             { reference: 'lootjs:oat', ratio: 20 },
 
-            // 5. 大豆系列 (无种子，大豆兼任，有Crate)
             { reference: 'lootjs:soybean', ratio: 25 },
 
-            // 6. 红豆系列 (无种子，红豆兼任，有Crate)
             { reference: 'lootjs:redbean', ratio: 25 },
 
-            // // 7. 茶叶/茶树系列 (无Crate，属于直接25类型)
-            // { id: 'youkaisfeasts:tea_seeds', ratio: 5 },
-            // { id: 'youkaisfeasts:green_tea_leaves', ratio: 10 }, 
-            // { id: 'youkaisfeasts:white_tea_leaves', ratio: 10 },
-
-            // --- Dumplings Delight (饺子乐事) ---
-            // 8. 大白菜系列 (有种子，有作物，有Crate)
             { reference: 'lootjs:chinese_cabbage_seeds', ratio: 5 },
             { reference: 'lootjs:chinese_cabbage', ratio: 20 },
 
-            // 9. 茴香系列 (有种子，有作物，有Crate)
-            { reference: 'lootjs:fennel_seeds', ratio: 5 },
-            { reference: 'lootjs:fennel', ratio: 20 },
-
-            // 10. 大蒜系列 (蒜瓣充当种子，有作物，有Crate)
             { reference: 'lootjs:garlic_clove', ratio: 5 },  
             { reference: 'lootjs:garlic', ratio: 20 },
 
-            // 11. 韭菜系列 (有种子，有作物，有Crate)
-            { reference: 'lootjs:garlic_chive_seeds', ratio: 5 },
-            { reference: 'lootjs:garlic_chive', ratio: 20 },
-
-            // 12. 小葱系列 (无单独种子，有Crate)
-            { reference: 'lootjs:greenonion', ratio: 25 },
-
-            // 15. 花生系列 (无单独种子，花生兼任，有Crate)
             { reference: 'lootjs:peanut', ratio: 25 },
-
 
             { reference: 'lootjs:eggplant_seeds', ratio: 5 },
             { reference: 'lootjs:eggplant', ratio: 20 },
-        
-            { reference: 'lootjs:oat_seeds', ratio: 5 },
-            { reference: 'lootjs:oat', ratio: 20 },
 
-            { id: 'kaleidoscope_chinesefood:chinese_sauerkraut', ratio: 25 },
+            { reference: 'lootjs:bell_pepper_seeds', ratio: 5 },           
+            { reference: 'lootjs:bell_pepper_yellow', ratio: 7 },
+            { reference: 'lootjs:bell_pepper_red', ratio: 7 },
+            { reference: 'lootjs:bell_pepper_green', ratio: 6 },
+
+            { reference: 'lootjs:broccoli_seeds', ratio: 5 },
+            { reference: 'lootjs:broccoli', ratio: 20 },
+
+            { reference: 'lootjs:turnip_seeds', ratio: 5 },
+            { reference: 'lootjs:turnip', ratio: 20 },
+
+            { reference: 'lootjs:sweet_potato', ratio: 25 },
+            
+            { reference: 'lootjs:corn_seeds', ratio: 5 },
+            { reference: 'lootjs:corn', ratio: 20 },
 
 
+            { reference: 'lootjs:zucchini_seeds', ratio: 5 },
+            { reference: 'lootjs:zucchini', ratio: 20 },
         ]
     },
 
@@ -144,38 +110,149 @@ const village_plains_other_crops = [
 
             { reference: 'lootjs:apple_sapling', ratio: 5 },
             { reference: 'lootjs:apple', ratio: 20 },
+
             { reference: 'lootjs:fig_sapling', ratio: 5 },
             { reference: 'lootjs:fig', ratio: 20 },
+
             { reference: 'lootjs:kiwi_sapling', ratio: 5 },
             { reference: 'lootjs:kiwi', ratio: 20 },
+
             { reference: 'lootjs:orange_sapling', ratio: 5 },
             { reference: 'lootjs:orange', ratio: 20 },
+
             { reference: 'lootjs:lemon_seeds', ratio: 5 },
             { reference: 'lootjs:lemon', ratio: 20 },
+
             { reference: 'lootjs:pear_sapling', ratio: 5 },
             { reference: 'lootjs:pear', ratio: 20 },
 
-            { reference: 'lootjs:black_grape_seeds', ratio: 5 },
-            { reference: 'lootjs:black_grape', ratio: 20 },
-            { reference: 'lootjs:white_grape_seeds', ratio: 5 },
-            { reference: 'lootjs:white_grape', ratio: 20 },
-            { reference: 'lootjs:red_grape_seeds', ratio: 5 },
-            { reference: 'lootjs:red_grape', ratio: 20 },
-            
-            { id: "kaleidoscope_tavern:grape", ratio: 25 },
-            { id: "kaleidoscope_tavern:green_grape", ratio: 25 },
-            { id: "kaleidoscope_tavern:grapevine", ratio: 25 },
+            { reference: 'lootjs:black_grape_seeds', ratio: 2 },
+            { reference: 'lootjs:black_grape', ratio: 6 },
+
+            { reference: 'lootjs:white_grape_seeds', ratio: 2 },
+            { reference: 'lootjs:white_grape', ratio: 6 },
+
+            { reference: 'lootjs:red_grape_seeds', ratio: 2 },
+            { reference: 'lootjs:red_grape', ratio: 7 },
+
+            { id: "kaleidoscope_tavern:grape", ratio: 20 },
+
+            { id: "kaleidoscope_tavern:green_grape", ratio: 5 },
+
+            { id: "kaleidoscope_tavern:grapevine", ratio: 10 },
 
             { reference: 'lootjs:strawberry_seeds', ratio: 5 },
             { reference: 'lootjs:strawberry', ratio: 20 }, 
             
             { reference: 'lootjs:lime_sapling', ratio: 5 }, 
-            { reference: 'lootjs:lime', ratio: 20 }
+            { reference: 'lootjs:lime', ratio: 20 },
+
 
         ]
     },
+    {
+        groupName: "special",
+        groupWeight: 50, 
+        min: 2, max: 3,
+        items: [
+            { reference: 'lootjs:tea_seeds', ratio: 5 },
+            { id: 'youkaisfeasts:green_tea_leaves', ratio: 10 }, 
+            { id: 'youkaisfeasts:white_tea_leaves', ratio: 10 },
+
+            { reference: 'lootjs:flax_seeds', ratio: 5 },
+            { reference: 'lootjs:flax', ratio: 20 },
+
+            { reference: 'lootjs:fennel_seeds', ratio: 5 },
+            { reference: 'lootjs:fennel', ratio: 20 },
+
+            { reference: 'lootjs:garlic_chive_seeds', ratio: 5 },
+            { reference: 'lootjs:garlic_chive', ratio: 20 },
+
+            { reference: 'lootjs:greenonion', ratio: 25 },
+
+            // { id: 'kaleidoscope_chinesefood:chinese_sauerkraut', ratio: 25 },
+
+            { reference: 'lootjs:egg', ratio: 15 },
+            { reference: 'lootjs:egg_and_egg_block', ratio: 10 },
+
+            { reference: 'lootjs:parsley_seeds', ratio: 5 },
+            { reference: 'lootjs:parsley', ratio: 20 },
+
+            { reference: 'lootjs:cotton_seeds', ratio: 5 },
+            { reference: 'lootjs:cotton', ratio: 20 },
+        ]
+    }
 ];
 
+const plains_seed_type = [
+    // Vanilla & Farmer's Delight Crops
+    'wheat_seeds',
+    'carrot',
+    'potato',
+    'pumpkin_seeds',
+    'tomato_seeds',
+    'onion',
+    'cabbage_seeds',
+    'lettuce_seeds',
+    'rice',
+    'pepper_seeds',
+
+    // vegetable
+    'barley_seeds',
+    'cucumber_seeds',
+    'oat_seeds',
+    'soybean',
+    'redbean',
+    'chinese_cabbage_seeds',
+    'garlic_clove',
+    'peanut',
+    'eggplant_seeds',
+    'bell_pepper_seeds',
+    'broccoli_seeds',
+    'turnip_seeds',
+    'sweet_potato',
+    'corn_seeds',
+    'zucchini_seeds',
+
+    // fruit
+    'apple_sapling',
+    'fig_sapling',
+    'kiwi_sapling',
+    'orange_sapling',
+    'lemon_seeds',
+    'pear_sapling',
+    'black_grape_seeds',
+    'white_grape_seeds',
+    'red_grape_seeds',
+    'grapevine',
+    'strawberry_seeds',
+    'lime_sapling',
+
+    // special
+    'tea_seeds',
+    'flax_seeds',
+    'fennel_seeds',
+    'garlic_chive_seeds',
+    'greenonion',
+    'parsley_seeds',
+    'cotton_seeds',
+];
+
+const village_plains_seed_bag = [
+    {
+        groupName: "bundle",
+        groupWeight: 50, 
+        min: 1, max: 1,
+        items: getSeedBagConfig('minecraft:bundle', plains_seed_type, 2)
+    },
+    {
+        groupName: "empty",
+        groupWeight: 50,
+        items: [
+            { id: "empty" },
+        ]
+    },
+];
 // // 3. 花卉、稻草与相关方块
 // const flowers_and_straw = [
 //     // =================================================================
@@ -249,16 +326,18 @@ const village_plains_dish = [
     {
         groupName: "common europe",
         groupWeight: 35,
-        min: 2, max: 3,
+        min: 1, max: 2,
         items: [
             { id: 'minecraft:bread', ratio: 10 },
 
-            { id: 'moredelight:chicken_salad', ratio: 10 },
-            { id: 'moredelight:potato_salad', ratio: 10 },
+
 
             { id: 'farmersdelight:cabbage_rolls', ratio: 10 },
             { id: 'farmersdelight:mixed_salad', ratio: 10 },
 
+            { id: 'moredelight:chicken_salad', ratio: 10 },
+            { id: 'moredelight:potato_salad', ratio: 10 },
+            
             { id: 'kitchenkarrot:cooked_vegan_pork', ratio: 10 },
             { id: 'kitchenkarrot:cooked_vegan_beef', ratio: 10 },
             { id: 'kitchenkarrot:flower_cake', ratio: 10 },
@@ -287,10 +366,10 @@ const village_plains_dish = [
             { id: 'brewery:potato_salad', ratio: 10 },
             { id: 'brewery:mashed_potatoes', ratio: 10 },
             { id: 'brewery:sausage', ratio: 10 },
-            { id: 'brewery:half_chicken', ratio: 10 },
-            { id: 'brewery:dumplings', ratio: 10 },
-            { id: 'brewery:fried_chicken', ratio: 10 },
-            { id: 'brewery:pork_knuckle', ratio: 10 },
+            // { id: 'brewery:half_chicken', ratio: 10 },
+            // { id: 'brewery:dumplings', ratio: 10 },
+            // { id: 'brewery:fried_chicken', ratio: 10 },
+            // { id: 'brewery:pork_knuckle', ratio: 10 },
 
             { id: 'vintagedelight:cheese_pasta', ratio: 10 },
             { id: 'vintagedelight:roasted_peanut', ratio: 10 },
@@ -302,15 +381,44 @@ const village_plains_dish = [
             { id: 'culturaldelights:hearty_salad', ratio: 10 },
 
             { id: 'rusticdelight:potato_salad', ratio: 10 },
-                        
+            { id: 'rusticdelight:stuffed_bell_pepper_yellow', ratio: 10 },
+            { id: 'rusticdelight:stuffed_bell_pepper_red', ratio: 10 },
+            { id: 'rusticdelight:stuffed_bell_pepper_orange', ratio: 10 },
+
             { id: 'casualnessdelight:yorkshire_pudding', ratio: 10 },
 
+            { id: 'mynethersdelight:egg_soup', ratio: 10 },
+
+            { id: 'veggiesdelight:broccoli_salad', ratio: 10 },
+            { id: 'veggiesdelight:cooked_vegetarian_patty', ratio: 10 },
+            { id: 'veggiesdelight:cesar_salad', ratio: 10 },
+            { id: 'veggiesdelight:coleslaw', ratio: 10 },
+            { id: 'veggiesdelight:turnip_salad', ratio: 10 },
+            { id: 'veggiesdelight:garlic_stuffed_mushrooms', ratio: 10 },
+
+            { id: 'veggiesdelight:stuffed_zucchini_boat', ratio: 10 },
+            { id: 'veggiesdelight:pasta_with_broccoli', ratio: 10 },
+            { id: 'veggiesdelight:garlic_rice_with_cauliflower', ratio: 10 },
+            { id: 'veggiesdelight:stuffed_bellpepper', ratio: 10 },
+            { id: 'veggiesdelight:broccoli_soup', ratio: 10 },
+            { id: 'veggiesdelight:cauliflower_soup', ratio: 10 },
+            { id: 'veggiesdelight:mashed_potatoes', ratio: 10 },
+            { id: 'veggiesdelight:dandelion_and_eggs', ratio: 10 },
+
+            { id: 'farm_and_charm:lamb_with_corn', ratio: 10 },     
+            { id: 'corn_delight:creamed_corn', ratio: 10 },
+            { id: 'culturaldelights:creamed_corn', ratio: 10 },
+
+            { id: 'farm_and_charm:cooked_cod', ratio: 10 },
+            { id: 'farm_and_charm:chicken_wrapped_in_bacon', ratio: 10 },
+            { id: 'farm_and_charm:baked_lamb_ham', ratio: 10 },
+            { id: 'farm_and_charm:cooked_salmon', ratio: 10 },
         ]
     },
     {
         groupName: "common asia",
         groupWeight: 35,
-        min: 2, max: 3,
+        min: 1, max: 2,
         items: [
             { id: 'casualnessdelight:potato_bobo_chicken', ratio: 10 },
             { id: 'casualnessdelight:cabbage_bobo_chicken', ratio: 10 },
@@ -329,15 +437,27 @@ const village_plains_dish = [
             { id: 'kaleidoscope_chinesefood:century_egg', ratio: 10 },
             { id: 'kaleidoscope_chinesefood:tomato_egg_drop_soup', ratio: 10 },
             { id: 'kaleidoscope_chinesefood:century_egg_congee', ratio: 10 },
+            { id: 'kaleidoscope_chinesefood:twice_cooked_pork', ratio: 10 },
+            { id: 'kaleidoscope_chinesefood:stir_fried_yellow_beef', ratio: 10 },
+            { id: 'kaleidoscope_chinesefood:beef_with_scrambled_eggs', ratio: 10 },
+            { id: 'kaleidoscope_chinesefood:stir_fried_three_fresh_vegetables', ratio: 10 },
 
             { id: 'kaleidoscope_cookery:country_style_mixed_vegetables', ratio: 10 },
             { id: 'kaleidoscope_cookery:tomato_beef_brisket_soup', ratio: 10 },
             { id: 'kaleidoscope_cookery:shengjian_mantou', ratio: 10 },
-            { id: 'kaleidoscope_cookery:zongzi', ratio: 10 },
+            // { id: 'kaleidoscope_cookery:zongzi', ratio: 10 },
             { id: 'kaleidoscope_cookery:dumpling', ratio: 10 },
             { id: 'kaleidoscope_cookery:baozi', ratio: 10 },
             { id: 'kaleidoscope_cookery:mantou', ratio: 10 },
             { id: 'kaleidoscope_cookery:cooked_meatball', ratio: 10 },
+
+            { id: 'kaleidoscope_cookery:cooked_rice', ratio: 10 },
+            { id: 'kaleidoscope_cookery:egg_fried_rice', ratio: 10 },
+            { id: 'kaleidoscope_cookery:scramble_egg_with_tomatoes', ratio: 10 },
+            { id: 'kaleidoscope_cookery:braised_beef', ratio: 10 },
+            { id: 'kaleidoscope_cookery:stir_fried_pork_with_peppers', ratio: 10 },
+            { reference: 'lootjs:cooked_egg', ratio: 10 },
+
             { id: 'youkaisfeasts:tofu', ratio: 10 },
             { id: 'youkaisfeasts:bun', ratio: 10 },
             { id: 'youkaisfeasts:pork_rice_ball', ratio: 10 },
@@ -357,12 +477,20 @@ const village_plains_dish = [
             { id: 'casualnessdelight:bowl_of_paper_wrapped_fish', ratio: 10 },
 
             { id: 'fruitsdelight:pear_with_rock_sugar', ratio: 10 },
+
+
+
+
+
+
+
+
         ]
     },
     {
         groupName: "special europe",
         groupWeight: 15,
-        min: 2, max: 3,
+        min: 1, max: 2,
         items: [
             { id: 'minecraft:pumpkin_pie', ratio: 10 },
 
@@ -387,18 +515,36 @@ const village_plains_dish = [
 
             { id: 'casualnessdelight:quiche_lorraine', ratio: 10 },
 
+            { id: 'rusticdelight:bell_pepper_pasta', ratio: 10 },
+            { id: 'rusticdelight:bell_pepper_medley', ratio: 10 }, 
 
             { id: 'brewinandchewin:pizza', ratio: 10 },
             { id: 'kitchenkarrot:feast_pizza', ratio: 10 },
             { id: 'vanillacookbook:pizza', ratio: 10 },
             { id: 'vintagedelight:cheese_pizza', ratio: 10 },
             { id: 'vintagedelight:meat_pizza', ratio: 10 },
+
+
+            { id: 'veggiesdelight:vegan_pizza', ratio: 10 },
+            { id: 'veggiesdelight:zucchini_quiche', ratio: 10 },
+            { id: 'veggiesdelight:garlic_chicken_stew', ratio: 10 },
+            { id: 'veggiesdelight:roasted_vegetables', ratio: 10 },
+            { id: 'veggiesdelight:stuffed_bellpeppers_block', ratio: 10 },
+
+            { id: 'corn_delight:cornbread_stuffing', ratio: 10 },    
+            { id: 'corn_delight:corn_soup', ratio: 10 },
+
+            { id: 'veggiesdelight:cacciatore', ratio: 10 },
+            { id: 'veggiesdelight:lasagna_pan', ratio: 10 },
+            { id: 'veggiesdelight:lasagna_slice', ratio: 10 },
+            { id: 'veggiesdelight:garlic_baked_cod', ratio: 10 },
+            { id: 'veggiesdelight:turnip_beef_stew', ratio: 10 },
         ]
     },
     {
         groupName: "special asia",
         groupWeight: 15,
-        min: 2, max: 3,
+        min: 1, max: 2,
         items: [
 
             { id: 'casualnessdelight:bobo_chicken', ratio: 10 },
@@ -419,8 +565,9 @@ const village_plains_dish = [
             { id: 'kaleidoscope_chinesefood:sichuan_wonton', ratio: 10 },
             { id: 'kaleidoscope_chinesefood:sichuan_boiled_fish', ratio: 10 },
             { id: 'kaleidoscope_chinesefood:sichuan_boiled_pork_slices', ratio: 10 },
-
-
+            { id: 'kaleidoscope_chinesefood:stuffed_eggplant', ratio: 10 },
+            { id: 'kaleidoscope_chinesefood:yellow_croaker_soup', ratio: 10 },
+            { id: 'kaleidoscope_chinesefood:yellow_croaker_tofu_soup', ratio: 10 },
 
             { id: 'kaleidoscope_cookery:spicy_blood_stew', ratio: 10 },
             { id: 'kaleidoscope_cookery:spicy_rabbit_head', ratio: 10 },
@@ -437,6 +584,19 @@ const village_plains_dish = [
             { id: 'kaleidoscope_cookery:udon_noodle', ratio: 10 },
             { id: 'kaleidoscope_cookery:sweet_and_sour_pork_rice_bowl', ratio: 10 },
             { id: 'kaleidoscope_cookery:scramble_egg_with_tomatoes_rice_bowl', ratio: 10 },
+
+            { id: 'kaleidoscope_cookery:cold_cut_ham_slices', ratio: 10 },
+            { id: 'kaleidoscope_cookery:candied_potato', ratio: 10 },
+            { id: 'kaleidoscope_cookery:braised_pork_ribs', ratio: 10 },
+            { id: 'kaleidoscope_cookery:cold_roasted_meat', ratio: 10 },
+            { id: 'kaleidoscope_cookery:hot_dry_noodles', ratio: 10 },
+
+            { id: 'kaleidoscope_cookery:oil_splashed_fish', ratio: 10 },
+            { id: 'kaleidoscope_cookery:braised_fish_rice_bowl', ratio: 10 },
+
+            { id: 'kaleidoscope_cookery:buddha_jumps_over_the_wall', ratio: 10 },
+
+            { id: 'kaleidoscope_nether:corn_carrot_pork_rib_soup', ratio: 10 },
 
             { id: 'kaleidoscope_nether:luosifen', ratio: 10 },
             { id: 'kaleidoscope_nether:chongqing_noodles', ratio: 10 },
@@ -462,6 +622,10 @@ const village_plains_dish = [
             { id: 'fruitsdelight:orange_chicken', ratio: 10 },
             { id: 'fruitsdelight:fig_chicken_stew', ratio: 10 },
             { id: 'fruitsdelight:orange_marinated_pork', ratio: 10 },
+
+            { id: 'veggiesdelight:potato_noodles', ratio: 10 },
+            { id: 'veggiesdelight:turnip_cake', ratio: 10 },
+            { id: 'veggiesdelight:rice_and_vegetables', ratio: 10 },
         ]
     },
 ]
@@ -469,8 +633,8 @@ const village_plains_dish = [
 const village_plains_drinks = [
     {
         groupName: "tea",
-        groupWeight: 5,
-        min: 1, max: 2,
+        groupWeight: 16,
+        min: 1, max: 1,
         items: [
 
             { id: 'minecraft:potion', ratio: 10 , potion: "minecraft:water" }, 
@@ -496,8 +660,8 @@ const village_plains_drinks = [
 
     // {
     //     groupName: "condiments",
-    //     groupWeight: 5,
-    //     min: 1, max: 2,
+    //     groupWeight: 50,
+    //     min: 1, max: 1,
     //     items: [
     //         { id: 'rusticdelight:cooking_oil', ratio: 10 },
     //         { id: 'youkaisfeasts:soy_sauce_bottle', ratio: 10 },
@@ -506,8 +670,8 @@ const village_plains_drinks = [
     
     {
         groupName: "wine",
-        groupWeight: 5,
-        min: 1, max: 2,
+        groupWeight: 16,
+        min: 1, max: 1,
         items: [
             { id: 'youkaisfeasts:mio', ratio: 10 },
             // { id: 'youkaisfeasts:red_wine_bottle', ratio: 10 },
@@ -523,8 +687,8 @@ const village_plains_drinks = [
 
     {
         groupName: "juice",
-        groupWeight: 5,
-        min: 1, max: 2,
+        groupWeight: 16,
+        min: 1, max: 1,
         items: [
             { id: 'vanillacookbook:apple_juice', ratio: 10 },
             { id: 'farmersdelight:apple_cider', ratio: 10 },
@@ -534,6 +698,13 @@ const village_plains_drinks = [
             { id: 'fruitsdelight:orange_juice', ratio: 10 },
             { id: 'fruitsdelight:lemon_juice', ratio: 10 },
             { id: 'fruitsdelight:pear_juice', ratio: 10 }
+        ]
+    },
+    {   
+        groupName: "empty",
+        groupWeight: 50, 
+        items: [
+            { id: 'empty'},
         ]
     },
 ]
@@ -551,9 +722,17 @@ const village_plains_bakery_products = [
             { id: 'vanillacookbook:cheesecake', ratio: 10 },
             { id: 'vanillacookbook:ice_cream_cake', ratio: 10 },
 
+            // Veggies Delight Cakes
+            { id: 'veggiesdelight:carrot_cake', ratio: 10 },
+
             { id: 'rusticdelight:pancakes', ratio: 10 },
             { id: 'rusticdelight:vegetable_pancakes', ratio: 10 },
             { id: 'rusticdelight:pumpkin_pancakes', ratio: 10 },
+            // Veggies Delight Pancakes
+            { id: 'veggiesdelight:sweet_potato_pancakes', ratio: 10 },
+            
+            { id: 'neapolitan:vanilla_cake', ratio: 10 },
+            { id: 'neapolitan:strawberry_cake', ratio: 10 },
         ]
     },
 
@@ -570,7 +749,7 @@ const village_plains_bakery_products = [
             { id: 'kitchenkarrot:egg_tart', ratio: 10 },
             { id: 'seeddelight:seed_tart', ratio: 10 },
             { id: 'youkaishomecoming:tarte_lune', ratio: 10 },
-
+            { id: 'rusticdelight:syrup_cheesecake', ratio: 10 },
             { id: 'bakery:apple_pie', ratio: 10 },
             { id: 'farmersdelight:apple_pie', ratio: 10 },
             { id: 'kaleidoscope_cookery:fondant_pie', ratio: 10 },
@@ -579,6 +758,8 @@ const village_plains_bakery_products = [
             { id: 'minecraft:pumpkin_pie', ratio: 10 },
             { id: 'vanillacookbook:apple_pie', ratio: 10 },
 
+            // Veggies Delight Trays & Pies
+            { id: 'veggiesdelight:sweet_potato_pie', ratio: 10 },
         ]
     },
 
@@ -598,13 +779,16 @@ const village_plains_bakery_products = [
             { id: 'vanillacookbook:ice_cream', ratio: 10 },
             { id: 'vanillacookbook:pumpsicle', ratio: 10 },
             { id: 'kaleidoscope_twilight:frozen_bun', ratio: 10 },
+
+            { id: 'veggiesdelight:beetroot_brownie_tray', ratio: 10 },
+
         ]
     },
 
     {
         groupName: "plains_dessert_teatime_treats_slices",
         groupWeight: 15,
-        min: 3, max: 4,
+        min: 2, max: 3, 
         items: [
             // 小点心类
             { id: 'bakery:cornet', ratio: 10 },               
@@ -623,7 +807,10 @@ const village_plains_bakery_products = [
 
             { id: 'bakery:apple_cupcake', ratio: 10 },
             { id: 'bakery:strawberry_cupcake', ratio: 10 },
+            // Veggies Delight Cupcake
+            { id: 'veggiesdelight:sweet_potato_cupcake', ratio: 10 },
 
+            // 切片/单品类
             { id: 'bakery:bundt_cake_slice', ratio: 10 },
             { id: 'bakery:strawberry_cake_slice', ratio: 10 },
             { id: 'farmersdelight:cake_slice', ratio: 10 },
@@ -637,17 +824,28 @@ const village_plains_bakery_products = [
             { id: 'bakery:pudding_slice', ratio: 10 },
             { id: 'fruitsdelight:fig_pudding_slice', ratio: 10 },
 
+            // Veggies Delight Slices & Individual Treats
+            { id: 'veggiesdelight:beetroot_brownie', ratio: 10 },
+            { id: 'veggiesdelight:carrot_cake_slice', ratio: 10 },
+            { id: 'veggiesdelight:sweet_potato_pie_slice', ratio: 10 },
+
             { id: 'rusticdelight:fruit_beignet', ratio: 10 },
             { id: 'rusticdelight:pancake', ratio: 10 },
             { id: 'rusticdelight:vegetable_pancake', ratio: 10 },
             { id: 'rusticdelight:pumpkin_pancake', ratio: 10 },
+            { id: 'rusticdelight:syrup_cheesecake_slice', ratio: 10 },
+
+
+            { id: 'neapolitan:strawberry_scones', ratio: 10 },
+            { id: 'neapolitan:adzuki_bun', ratio: 10 },
+
         ]
     },
 
     {
         groupName: "plains_bread",
         groupWeight: 15,
-        min: 3, max: 4,
+        min: 2, max: 3,
         items: [
             { id: 'minecraft:bread', ratio: 10 },
             { id: 'bakery:bread_with_jam', ratio: 10 },
@@ -661,8 +859,9 @@ const village_plains_bakery_products = [
             { id: 'bakery:crusty_bread', ratio: 10 },
             { id: 'bakery:croissant', ratio: 10 },
 
+            { id: 'corn_delight:cornbread', ratio: 10 },
 
-
+            { id: 'neapolitan:vanilla_fudge', ratio: 10 },
         ]
     },
 
@@ -672,7 +871,7 @@ const village_plains_bakery_baking_material = [
     {
         groupName: "baking_material",
         groupWeight: 15,
-        min: 3, max: 4,
+        min: 2, max: 3,
         items: basic_baking_material
     },
 
@@ -689,22 +888,13 @@ const village_plains_bakery_baking_material = [
             { id: 'fruitsdelight:lemon_jam', ratio: 10 },
             { id: 'fruitsdelight:orange_jam', ratio: 10 },
             { id: 'fruitsdelight:pear_jam', ratio: 10 },
+            { id: 'rusticdelight:syrup', ratio: 10 },
 
         ]
     },
 
 ]
 
-const village_plains_enchanted_book = [
-    {
-        groupName: "plains",
-        groupWeight: 50,
-        min: 1, max: 1,
-        items: [
-    { id: "minecraft:book", ratio: 10, enchantRandomly: ["farmersdelight:backstabbing"] },
-        ]
-    }
-];
 // =================================================================
 // 事件注册区域
 // =================================================================
@@ -712,18 +902,18 @@ const village_plains_enchanted_book = [
 const village_plains_bakery_content = [
 
     [village_plains_bakery_products, 2, 2],
-    [village_plains_bakery_baking_material, 3, 3],
+    [village_plains_bakery_baking_material, 2, 3],
     [village_smith_small_iron_knife, 1, 1],
 ];
 
 const village_plains_house_content = [
     [village_plains_base_crops, 1, 1],
+    [village_plains_seed_bag, 1, 1],
     [village_plains_other_crops, 1, 1],
     [village_plains_dish, 1, 1],
     [village_plains_essential_wealth_equipment, 1, 1],  
-    [common_cooking_equipment, 1, 1],
-    [village_plains_drinks, 1, 2],
-    [village_plains_enchanted_book, 1, 1],
+    [village_cooking_equipment_more, 1, 1],
+    [village_plains_drinks, 1, 1],
 ];
 
 const loot_village_plains_house = [

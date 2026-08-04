@@ -2,8 +2,7 @@ const lighthouse = [
     {
         groupName: "common Cargo",
         groupWeight: 50,
-        min: 2,
-        max: 3,
+        min: 2, max: 3,
         items: [
             { id: 'minecraft:redstone', ratio: 10 },
             { id: 'minecraft:redstone_torch', ratio: 10 },
@@ -21,8 +20,7 @@ const lighthouse = [
     {
         groupName: "rare Cargo",
         groupWeight: 10,
-        min: 1,
-        max: 2,
+        min: 1, max: 2,
         items: [
             { id: 'minecraft:glowstone', ratio: 10 },
             { id: 'minecraft:quartz', ratio: 10 },

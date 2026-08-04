@@ -8,8 +8,9 @@ const village_underground_base_crops = [
         groupWeight: 80, 
         min: 2, max: 3,
         items: [
-            { reference: 'lootjs:glowberry_and_glowberry_block', ratio: 20 },
             { reference: 'lootjs:glowberry_seeds', ratio: 5 },
+            { reference: 'lootjs:glowberry', ratio: 10 },
+            { reference: 'lootjs:glowberry_and_glowberry_block', ratio: 10 },
 
 
         ]
@@ -19,17 +20,17 @@ const village_underground_base_crops = [
         groupWeight: 20, 
         min: 2, max: 3,
         items: [
-            { reference: 'lootjs:wheat_and_wheat_block', ratio: 20 },
+            { reference: 'lootjs:wheat', ratio: 20 },
             { reference: 'lootjs:wheat_seeds', ratio: 5 },
-            { reference: 'lootjs:potato_and_potato_block', ratio: 25 },
-            { reference: 'lootjs:carrot_and_carrot_block', ratio: 25 },
-            { reference: 'lootjs:beetroot_and_beetroot_block', ratio: 20 },
+            { reference: 'lootjs:potato', ratio: 25 },
+            { reference: 'lootjs:carrot', ratio: 25 },
+            { reference: 'lootjs:beetroot', ratio: 20 },
             { reference: 'lootjs:beetroot_seeds', ratio: 5 },
-            { reference: 'lootjs:onion_and_onion_block', ratio: 25 },
+            { reference: 'lootjs:onion', ratio: 25 },
             { reference: 'lootjs:cabbage_seeds', ratio: 5 },
-            { reference: 'lootjs:cabbage_and_cabbage_block', ratio: 20 },
+            { reference: 'lootjs:cabbage', ratio: 20 },
             { reference: 'lootjs:lettuce_seeds', ratio: 5 },
-            { reference: 'lootjs:lettuce_and_lettuce_block', ratio: 20 },
+            { reference: 'lootjs:lettuce', ratio: 20 },
         ]
     },
 ]
@@ -84,7 +85,7 @@ const village_underground_dish = [
     {
         groupName: "common",
         groupWeight: 70,
-        min: 2, max: 3,
+        min: 1, max: 2,
         items: [
             { id: 'minecraft:bread', ratio: 10 },
             { id: 'minecraft:baked_potato', ratio: 10 }, 
@@ -102,7 +103,7 @@ const village_underground_dish = [
     {
         groupName: "special",
         groupWeight: 30, 
-        min: 2, max: 3,
+        min: 1, max: 2,
         items: [
             { id: 'kitchenkarrot:shiny_pizza_slice', ratio: 5 },
             { id: 'farmersdelight:onion_soup', ratio: 10 },
@@ -115,11 +116,18 @@ const village_underground_dish = [
 const village_underground_drinks = [
     {
         groupName: "drinks",
-        groupWeight: 5,
-        min: 1, max: 2,
+        groupWeight: 50,
+        min: 1, max: 1,
         items: [
             { id: 'minecraft:potion', ratio: 15, potion: "minecraft:water" }, 
 
+        ]
+    },
+    {   
+        groupName: "empty",
+        groupWeight: 50, 
+        items: [
+            { id: 'empty'},
         ]
     },
 ]
@@ -130,14 +138,14 @@ const village_underground_crate_of_hardtack = [
         groupWeight: 50,
         min: 1, max: 1,
         items: [
-            { id: 'rationcraft:rate_of_hardtack', ratio: 10 }
+            { id: 'rationcraft:crate_of_hardtack', ratio: 10 }
         ]
     },
     {
         groupName: "empty",
         groupWeight: 50,
         items: [
-            { "id": "empty" },
+            { id: "empty" },
         ]
     },
 ]
@@ -148,8 +156,8 @@ const village_underground_house_content = [
     [village_underground_base_crops, 1, 1],
     [village_underground_dish, 1, 1],
     [village_underground_essential_wealth_equipment, 1, 1],
-    [common_cooking_equipment, 1, 1],
-    [village_underground_drinks, 1, 2],
+    [village_cooking_equipment_less, 1, 1],
+    [village_underground_drinks, 1, 1],
     [village_underground_crate_of_hardtack, 1, 1],
 ];
 

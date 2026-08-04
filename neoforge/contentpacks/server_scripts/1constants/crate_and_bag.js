@@ -4,9 +4,18 @@ let DUPLICATE_ITEMS_CONFIG = [
     // === 1. 蔬菜类 (Vegetables) ===
     { result: "lootjs:beetroot",                    candidates: ["minecraft:beetroot"] },
     { result: "lootjs:beetroot_seeds",              candidates: ["minecraft:beetroot_seeds"] },
+    { result: "lootjs:bell_pepper_seeds",           candidates: ["rusticdelight:bell_pepper_seeds", 'veggiesdelight:bellpepper_seeds'] },
+    { result: "lootjs:pale_bell_pepper_seeds",      candidates: ["rusticdelight:pale_bell_pepper_seeds"] },
+    { result: "lootjs:dark_bell_pepper_seeds",      candidates: ["rusticdelight:dark_bell_pepper_seeds"] },
     { result: "lootjs:bell_pepper_green",           candidates: ["rusticdelight:bell_pepper_green"] },
     { result: "lootjs:bell_pepper_red",             candidates: ["rusticdelight:bell_pepper_red"] },
-    { result: "lootjs:bell_pepper_yellow",          candidates: ["rusticdelight:bell_pepper_yellow"] },
+    { result: "lootjs:bell_pepper_yellow",          candidates: ["rusticdelight:bell_pepper_yellow", 'veggiesdelight:bellpepper'] },
+    { result: "lootjs:bell_pepper_pink",            candidates: ["rusticdelight:bell_pepper_pink"] },
+    { result: "lootjs:bell_pepper_orange",          candidates: ["rusticdelight:bell_pepper_orange"] },
+    { result: "lootjs:bell_pepper_white",           candidates: ["rusticdelight:bell_pepper_white"] },
+    { result: "lootjs:bell_pepper_blue",            candidates: ["rusticdelight:bell_pepper_blue"] },
+    { result: "lootjs:bell_pepper_purple",          candidates: ["rusticdelight:bell_pepper_purple"] },
+    { result: "lootjs:bell_pepper_black",           candidates: ["rusticdelight:bell_pepper_black"] },
     { result: "lootjs:cabbage",                     candidates: ["farmersdelight:cabbage"] },
     { result: "lootjs:cabbage_seeds",               candidates: ["farmersdelight:cabbage_seeds"] },
     { result: "lootjs:carrot",                      candidates: ["minecraft:carrot"] },
@@ -20,9 +29,10 @@ let DUPLICATE_ITEMS_CONFIG = [
     { result: "lootjs:eggplant_seeds",              candidates: ["dumplings_delight:eggplant_seeds", "culturaldelights:eggplant_seeds"] },
     { result: "lootjs:fennel",                      candidates: ["dumplings_delight:fennel"] },
     { result: "lootjs:fennel_seeds",                candidates: ["dumplings_delight:fennel_seeds"] },
-    { result: "lootjs:garlic",                      candidates: ["dumplings_delight:garlic"] },
-    { result: "lootjs:garlic_clove",                candidates: ["dumplings_delight:garlic_clove"] },
+    { result: "lootjs:garlic",                      candidates: ["dumplings_delight:garlic", "veggiesdelight:garlic"] },
+    { result: "lootjs:garlic_clove",                candidates: ["dumplings_delight:garlic_clove", "veggiesdelight:garlic_clove"] },
     { result: "lootjs:garlic_chive",                candidates: ["dumplings_delight:garlic_chive"] },
+    { result: "lootjs:garlic_chive_seeds",          candidates: ["dumplings_delight:garlic_chive_seeds"] },
     { result: "lootjs:greenonion",                  candidates: ["dumplings_delight:greenonion"] },
     { result: "lootjs:hops",                        candidates: ["brewery:hops"] },
     { result: "lootjs:kelp",                        candidates: ["minecraft:kelp"] },
@@ -43,8 +53,25 @@ let DUPLICATE_ITEMS_CONFIG = [
     { result: "lootjs:tomato",                      candidates: ["kaleidoscope_cookery:tomato", "farmersdelight:tomato", "farm_and_charm:tomato", "bakeries:tomato"] },
     { result: "lootjs:tomato_seeds",                candidates: ["kaleidoscope_cookery:tomato_seed", "farmersdelight:tomato_seeds", "farm_and_charm:tomato_seeds"] },
     { result: "lootjs:white_eggplant",              candidates: ["culturaldelights:white_eggplant"] },
+    { result: "lootjs:broccoli",                    candidates: ["veggiesdelight:broccoli"] },
+    { result: "lootjs:broccoli_seeds",              candidates: ["veggiesdelight:broccoli_seeds"] },
+    { result: "lootjs:cauliflower",                 candidates: ["veggiesdelight:cauliflower"] },
+    { result: "lootjs:cauliflower_seeds",           candidates: ["veggiesdelight:cauliflower_seeds"] },
+    { result: "lootjs:turnip",                      candidates: ["veggiesdelight:turnip"] },
+    { result: "lootjs:turnip_seeds",                candidates: ["veggiesdelight:turnip_seeds"] },
+    { result: "lootjs:zucchini",                    candidates: ["veggiesdelight:zucchini"] },
+    { result: "lootjs:zucchini_seeds",              candidates: ["veggiesdelight:zucchini_seeds"] },
+    { result: "lootjs:chickpea",                    candidates: ["ramadandelight:chickpea"] },
+    { result: "lootjs:parsley",                     candidates: ["ramadandelight:parsley"] },
+    { result: "lootjs:parsley_seeds",               candidates: ["ramadandelight:parsley_seeds"] },
+    { result: "lootjs:mint_leaves",                 candidates: ["neapolitan:mint_leaves"] },
+    { result: "lootjs:mint_sprout",                 candidates: ["neapolitan:mint_sprout"] },
+    { result: "lootjs:adzuki_beans",                candidates: ["neapolitan:adzuki_beans"] },
+    { result: "lootjs:vanilla_pods",                candidates: ["neapolitan:vanilla_pods"] },
 
     // === 2. 水果类 (Fruits & Berries) ===
+    { result: "lootjs:banana",                      candidates: ["neapolitan:banana"] },
+    { result: "lootjs:banana_frond",                candidates: ["neapolitan:banana_frond"] },
     { result: "lootjs:apple",                       candidates: ["minecraft:apple"] },
     { result: "lootjs:apple_sapling",               candidates: ["fruitsdelight:apple_sapling"] },
     { result: "lootjs:avocado",                     candidates: ["culturaldelights:avocado"] },
@@ -59,13 +86,13 @@ let DUPLICATE_ITEMS_CONFIG = [
     { result: "lootjs:cranberry",                   candidates: ["fruitsdelight:cranberry"] },
     { result: "lootjs:durian_sapling",              candidates: ["fruitsdelight:durian_sapling"] },
     { result: "lootjs:durian_flesh",                candidates: ["fruitsdelight:durian_flesh"] },
-    { result: "lootjs:durian",                      candidates: ["fruitsdelight:durian"] },
+    { result: "lootjs:durian_block",                candidates: ["fruitsdelight:durian"] },
     { result: "lootjs:fig",                         candidates: ["fruitsdelight:fig"] },
     { result: "lootjs:fig_sapling",                 candidates: ["fruitsdelight:fig_sapling"] },
     { result: "lootjs:gearo_berry",                 candidates: ["vintagedelight:gearo_berry"] },
     { result: "lootjs:glowberry",                   candidates: ["minecraft:glow_berries"] },
     { result: "lootjs:glowberry_seeds",             candidates: ["berry_good:glow_berry_pips"] },
-    { result: "lootjs:hamimelon",                   candidates: ["fruitsdelight:hamimelon"] },
+    { result: "lootjs:hamimelon_block",             candidates: ["fruitsdelight:hamimelon"] },
     { result: "lootjs:hamimelon_slice",             candidates: ["fruitsdelight:hamimelon_slice"] },
     { result: "lootjs:hamimelon_seeds",             candidates: ["fruitsdelight:hamimelon_seeds"] },
     { result: "lootjs:hawberry",                    candidates: ["fruitsdelight:hawberry"] },
@@ -82,7 +109,7 @@ let DUPLICATE_ITEMS_CONFIG = [
     { result: "lootjs:mango_sapling",               candidates: ["fruitsdelight:mango_sapling"] },
     { result: "lootjs:mangosteen",                  candidates: ["fruitsdelight:mangosteen"] },
     { result: "lootjs:mangosteen_sapling",          candidates: ["fruitsdelight:mangosteen_sapling"] },
-    { result: "lootjs:melon",                       candidates: ["minecraft:melon"] },
+    { result: "lootjs:melon_block",                 candidates: ["minecraft:melon"] },
     { result: "lootjs:melon_slice",                 candidates: ["minecraft:melon_slice"] },
     { result: "lootjs:melon_seeds",                 candidates: ["minecraft:melon_seeds"] },
     { result: "lootjs:orange",                      candidates: ["fruitsdelight:orange"] },
@@ -100,13 +127,15 @@ let DUPLICATE_ITEMS_CONFIG = [
     { result: "lootjs:red_grape",                   candidates: ["youkaishomecoming:red_grape", "youkaisfeasts:red_grape"] },
     { result: "lootjs:red_grape_seeds",             candidates: ["youkaishomecoming:red_grape_seeds", "youkaisfeasts:red_grape_seeds"] },
     { result: "lootjs:rosehip",                     candidates: ["seeddelight:rosehip"] },
-    { result: "lootjs:strawberry",                  candidates: ["farm_and_charm:strawberry"] },
-    { result: "lootjs:strawberry_seeds",            candidates: ["farm_and_charm:strawberry_seeds"] },
+    { result: "lootjs:strawberry",                  candidates: ["farm_and_charm:strawberry", "neapolitan:strawberries"] },
+    { result: "lootjs:strawberry_seeds",            candidates: ["farm_and_charm:strawberry_seeds", "neapolitan:strawberry_pips"] },
     { result: "lootjs:sweetberry",                  candidates: ["minecraft:sweet_berries"] },
     { result: "lootjs:sweetberry_pips",             candidates: ["berry_good:sweet_berry_pips"] },
     { result: "lootjs:white_grape",                 candidates: ["youkaishomecoming:white_grape", "youkaisfeasts:white_grape"] },
     { result: "lootjs:white_grape_seeds",           candidates: ["youkaishomecoming:white_grape_seeds", "youkaisfeasts:white_grape_seeds"] },
-
+    { result: "lootjs:date",                        candidates: ["ramadandelight:date"] },
+    { result: "lootjs:date_sapling",                candidates: ["ramadandelight:palm_sapling"] },
+    
     { result: "lootjs:apple_jam",                   candidates: ['fruitsdelight:apple_jam', 'vintagedelight:apple_sauce_mason_jar', 'brewinandchewin:apple_jelly', 'bakery:apple_jam'] },
     { result: "lootjs:glowberry_jam",               candidates: ['fruitsdelight:glowberry_jam', 'vintagedelight:glow_berry_mason_jar', 'brewinandchewin:glow_berry_marmalade', 'bakery:glowberry_jam'] },    
     { result: "lootjs:sweetberry_jam",              candidates: ['fruitsdelight:sweetberry_jam', 'vintagedelight:sweet_berry_mason_jar', 'brewinandchewin:sweet_berry_jam', 'bakery:sweetberry_jam'] },
@@ -114,24 +143,87 @@ let DUPLICATE_ITEMS_CONFIG = [
     { result: "lootjs:golden_apple",                candidates: ["minecraft:golden_apple"] },
 
     // === 3. 肉类与海鲜 (Meats & Seafood) ===
+
     { result: "lootjs:bacon",                       candidates: ["farmersdelight:bacon", "farm_and_charm:bacon", "kaleidoscope_cookery:raw_pork_belly"] },
-    { result: "lootjs:calamari",                    candidates: ["rusticdelight:calamari", "culturaldelights:raw_calamari", "dumplings_delight:calamari"] },
-    { result: "lootjs:cooked_calamari",             candidates: ["rusticdelight:cooked_calamari", "culturaldelights:cooked_calamari"] },
-    { result: "lootjs:chicken_cuts",                candidates: ["farmersdelight:chicken_cuts", "farm_and_charm:chicken_parts", "kaleidoscope_cookery:raw_cut_small_meats"] },
-    { result: "lootjs:cod",                         candidates: ["minecraft:cod"] },
     { result: "lootjs:cooked_bacon",                candidates: ["farmersdelight:cooked_bacon", "kaleidoscope_cookery:cooked_pork_belly"] },
-    { result: "lootjs:cooked_chicken_cuts",         candidates: ["farmersdelight:cooked_chicken_cuts", "kaleidoscope_cookery:cooked_cut_small_meats"] },
-    { result: "lootjs:cooked_ham",                  candidates: ["farmersdelight:smoked_ham"] },
-    { result: "lootjs:cooked_lamb_chops",           candidates: ["kaleidoscope_cookery:cooked_lamb_chops", "farmersdelight:cooked_mutton_chops"] },
-    { result: "lootjs:cooked_minced_beef",          candidates: ["farmersdelight:beef_patty", "kaleidoscope_cookery:cooked_cow_offal"] },
-    { result: "lootjs:egg",                         candidates: ["minecraft:egg"] },
     { result: "lootjs:ham",                         candidates: ["farmersdelight:ham"] },
+    { result: "lootjs:cooked_ham",                  candidates: ["farmersdelight:smoked_ham"] },
     { result: "lootjs:ham_slice",                   candidates: ["kaleidoscope_nether:ham_slice"] },
+
+    { result: "lootjs:chicken_cuts",                candidates: ["farmersdelight:chicken_cuts", "farm_and_charm:chicken_parts", "kaleidoscope_cookery:raw_cut_small_meats"] },
+    { result: "lootjs:cooked_chicken_cuts",         candidates: ["farmersdelight:cooked_chicken_cuts", "kaleidoscope_cookery:cooked_cut_small_meats"] },
+
     { result: "lootjs:minced_beef",                 candidates: ["farmersdelight:minced_beef", "farm_and_charm:minced_beef", "kaleidoscope_cookery:raw_cow_offal"] },
+    { result: "lootjs:cooked_minced_beef",          candidates: ["farmersdelight:beef_patty", "kaleidoscope_cookery:cooked_cow_offal"] },
+
     { result: "lootjs:raw_lamb_chops",              candidates: ["kaleidoscope_cookery:raw_lamb_chops", "farmersdelight:mutton_chops", "farm_and_charm:lamb_ham"] },
+    { result: "lootjs:cooked_lamb_chops",           candidates: ["kaleidoscope_cookery:cooked_lamb_chops", "farmersdelight:cooked_mutton_chops"] },
+
+    { result: "lootjs:calamari",                    candidates: ["rusticdelight:calamari", "culturaldelights:raw_calamari", "dumplings_delight:calamari", 'crabbersdelight:raw_squid_tentacles'] },
+    { result: "lootjs:cooked_calamari",             candidates: ["rusticdelight:cooked_calamari", "culturaldelights:cooked_calamari", 'crabbersdelight:cooked_squid_tentacles'] },
+
+    // { result: "lootjs:crab",                        candidates: ["crabbersdelight:crab", 'youkaishomecoming:crab'] },
+    // { result: "lootjs:cooked_crab",                 candidates: ["crabbersdelight:cooked_crab", 'youkaishomecoming:steamed_crab'] },
+    // { result: "lootjs:crab_roe",                    candidates: ['youkaishomecoming:crab_roe'] },
+    // { result: "lootjs:clawster",                    candidates: ["crabbersdelight:clawster"] },
+    // { result: "lootjs:cooked_clawster",             candidates: ["crabbersdelight:cooked_clawster"] },
+    // { result: "lootjs:shrimp",                      candidates: ["crabbersdelight:shrimp"] },
+    // { result: "lootjs:cooked_shrimp",               candidates: ["crabbersdelight:cooked_shrimp"] },
+    // { result: "lootjs:clam",                        candidates: ["crabbersdelight:clam"] },
+    // { result: "lootjs:cooked_clam",                 candidates: ["crabbersdelight:cooked_clam"] },
+
+    // { result: "lootjs:cod",                         candidates: ["minecraft:cod"] },
+    // { result: "lootjs:cooked_cod",                  candidates: ["minecraft:cooked_cod"] },
+    // { result: "lootjs:salmon",                      candidates: ["minecraft:salmon"] },
+    // { result: "lootjs:cooked_salmon",               candidates: ["minecraft:cooked_salmon"] },
+    // { result: "lootjs:pufferfish",                  candidates: ["minecraft:pufferfish"] },
+    // { result: "lootjs:tropical_fish",               candidates: ["minecraft:tropical_fish"] },
+    // { result: "lootjs:egg",                         candidates: ["minecraft:egg"] },
+    // { result: "lootjs:cooked_egg",                  candidates: ['vanillacookbook:cooked_egg', 'mynethersdelight:boiled_egg', 'kaleidoscope_cookery:fried_egg'] },
+
+
+    // ===== 蟹/海鲜类 =====
+    { result: "lootjs:crab",                        candidates: ["crabbersdelight:crab", 'youkaishomecoming:crab'] },
+    { result: "lootjs:cooked_crab",                 candidates: ["crabbersdelight:cooked_crab", 'youkaishomecoming:cooked_crab'] },
+    { result: "lootjs:crab_roe",                    candidates: ['youkaishomecoming:crab_roe'] },
+    { result: "lootjs:cooked_crab_roe",             candidates: ['youkaishomecoming:cooked_crab_roe'] },
+    { result: "lootjs:crab_claw",                   candidates: ["crabbersdelight:crab_claw"] },     
+    { result: "lootjs:crab_legs",                   candidates: ["crabbersdelight:crab_legs"] },     
+    { result: "lootjs:clawster",                    candidates: ["crabbersdelight:clawster"] },
+    { result: "lootjs:cooked_clawster",             candidates: ["crabbersdelight:cooked_clawster"] },
+    { result: "lootjs:shrimp",                      candidates: ["crabbersdelight:shrimp"] },
+    { result: "lootjs:cooked_shrimp",               candidates: ["crabbersdelight:cooked_shrimp"] },
+    { result: "lootjs:clam",                        candidates: ["crabbersdelight:clam"] },
+    { result: "lootjs:raw_clam_meat",               candidates: ["crabbersdelight:raw_clam_meat"] }, 
+    { result: "lootjs:cooked_clam_meat",            candidates: ["crabbersdelight:cooked_clam_meat"] },
+
+    // ===== 鱼类 =====
+    { result: "lootjs:cod",                         candidates: ["minecraft:cod"] },
+    { result: "lootjs:cooked_cod",                  candidates: ["minecraft:cooked_cod"] },
+    { result: "lootjs:cod_slice",                   candidates: ["farmersdelight:cod_slice"] },
+    { result: "lootjs:cooked_cod_slice",            candidates: ["farmersdelight:cooked_cod_slice"] },  
+
     { result: "lootjs:salmon",                      candidates: ["minecraft:salmon"] },
+    { result: "lootjs:cooked_salmon",               candidates: ["minecraft:cooked_salmon"] },
+    { result: "lootjs:salmon_slice",                candidates: ["farmersdelight:salmon_slice"] },
+    { result: "lootjs:cooked_salmon_slice",         candidates: ["farmersdelight:cooked_salmon_slice"] }, 
+
     { result: "lootjs:pufferfish",                  candidates: ["minecraft:pufferfish"] },
+    { result: "lootjs:pufferfish_slice",            candidates: ["crabbersdelight:pufferfish_slice"] },
+    { result: "lootjs:cooked_pufferfish_slice",     candidates: ["crabbersdelight:cooked_pufferfish_slice"] }, 
+
     { result: "lootjs:tropical_fish",               candidates: ["minecraft:tropical_fish"] },
+    { result: "lootjs:tropical_fish_slice",         candidates: ["crabbersdelight:tropical_fish_slice"] },
+    { result: "lootjs:cooked_tropical_fish_slice",  candidates: ["crabbersdelight:cooked_tropical_fish_slice"] },
+    { result: "lootjs:cooked_tropical_fish",        candidates: ["crabbersdelight:cooked_tropical_fish"] },
+
+    { result: "lootjs:roe",                         candidates: ["youkaishomecoming:roe"] },         
+    { result: "lootjs:raw_lamprey_fillet",          candidates: ["youkaishomecoming:raw_lamprey_fillet"] },
+    { result: "lootjs:yellow_croaker",              candidates: ["kaleidoscope_chinesefood:yellow_croaker"] },
+
+    // ===== 蛋类 =====
+    { result: "lootjs:egg",                         candidates: ["minecraft:egg"] },
+    { result: "lootjs:cooked_egg",                  candidates: ['vanillacookbook:cooked_egg', 'mynethersdelight:boiled_egg', 'kaleidoscope_cookery:fried_egg'] },
 
     // === 4. 谷物、豆类与基础食材 (Grains, Beans & Ingredients) ===
     { result: "lootjs:barley",                      candidates: ["farm_and_charm:barley"] },
@@ -139,7 +231,7 @@ let DUPLICATE_ITEMS_CONFIG = [
     { result: "lootjs:bread",                       candidates: ["minecraft:bread"] },
     { result: "lootjs:cookie",                      candidates: ["minecraft:cookie"] },
     { result: "lootjs:raw_cheese_wheel",            candidates: ['casualnessdelight:raw_cheese_wheel', 'brewinandchewin:unripe_flaxen_cheese_wheel', 'trailandtales_delight:curd_block'] },
-    { result: "lootjs:cheese_wheel",                candidates: ['casualnessdelight:cheese_wheel', 'brewinandchewin:flaxen_cheese_wheel', 'vintagedelight:cheese_wheel', 'trailandtales_delight:cheese_wheel', 'kitchenkarrot:cheese_wheel'] },
+    { result: "lootjs:cheese_block",                candidates: ['casualnessdelight:cheese_wheel', 'brewinandchewin:flaxen_cheese_wheel', 'vintagedelight:cheese_wheel', 'trailandtales_delight:cheese_wheel', 'kitchenkarrot:cheese_wheel'] },
     { result: "lootjs:cheese_slice",                candidates: ['casualnessdelight:cheese_wheel_slice', 'brewinandchewin:flaxen_cheese_wedge', 'vintagedelight:cheese_slice', 'trailandtales_delight:cheese_slice', 'kitchenkarrot:cheese_slice'] },
     { result: "lootjs:cocoabeans",                  candidates: ["minecraft:cocoa_beans"] },
     { result: "lootjs:raw_coffee_beans",            candidates: ['youkaishomecoming:green_coffee_bean', "youkaisfeasts:green_coffee_bean", "rusticdelight:coffee_beans", "bakeries:raw_coffee_bean"] },
@@ -147,29 +239,31 @@ let DUPLICATE_ITEMS_CONFIG = [
     { result: "lootjs:coffee_powder",               candidates: ['youkaishomecoming:coffee_powder', "youkaisfeasts:coffee_powder", "bakeries:ground_coffee"] },
     { result: "lootjs:cooked_rice",                 candidates: ["kaleidoscope_cookery:cooked_rice", "farmersdelight:cooked_rice"] },
     { result: "lootjs:flour",                       candidates: ["kaleidoscope_cookery:flour", "farm_and_charm:flour", "create:wheat_flour", "bakeries:whole_wheat_flour"] },
-    { result: "lootjs:honey_bottle",                candidates: ["minecraft:honey_bottle"] },
+    { result: "lootjs:honey",                       candidates: ["minecraft:honey_bottle"] },
     
     { result: "lootjs:oat",                         candidates: ["farm_and_charm:oat", "vintagedelight:oat"] },
     { result: "lootjs:oat_seeds",                   candidates: ["farm_and_charm:oat_seeds", "vintagedelight:oat_seeds"] },
     { result: "lootjs:peanut",                      candidates: ["vintagedelight:peanut"] },
     { result: "lootjs:pods",                        candidates: ["youkaishomecoming:pods", "youkaisfeasts:pods"] },
     { result: "lootjs:redbean",                     candidates: ["youkaishomecoming:redbean", "youkaisfeasts:redbean"] },
-    // { result: "lootjs:redbean_seeds",             candidates: ["youkaishomecoming:redbean_seeds", "youkaisfeasts:redbean_seeds"] },
     { result: "lootjs:rice",                        candidates: ["kaleidoscope_cookery:rice", "farmersdelight:rice"] },
-    { result: "lootjs:roasted_coffee",              candidates: ["rusticdelight:roasted_coffee_beans"] },
     { result: "lootjs:salt",                        candidates: ["kaleidoscope_chinesefood:salt", "voidlessframework:salt", "bakeries:salt", "vintagedelight:salt_dust"] },
     { result: "lootjs:soybean",                     candidates: ["youkaishomecoming:soybean", "youkaisfeasts:soybean"] },
     { result: "lootjs:soybean_seeds",               candidates: ["youkaishomecoming:soybean_seeds", "youkaisfeasts:soybean_seeds"] }, 
     { result: "lootjs:sugar",                       candidates: ["minecraft:sugar"] },
+    { result: "lootjs:sweet_potato",                candidates: ["veggiesdelight:sweet_potato"] },
     { result: "lootjs:wheat",                       candidates: ["minecraft:wheat"] },
     { result: "lootjs:wheat_seeds",                 candidates: ["minecraft:wheat_seeds"] },
 
     // === 5. 林业与经济作物 (Forestry & Textiles) ===
     { result: "lootjs:acorn",                       candidates: ["seeddelight:acorn"] },
     { result: "lootjs:cotton",                      candidates: ["rusticdelight:cotton_boll"] },
+    { result: "lootjs:cotton_seeds",                candidates: ["rusticdelight:cotton_seeds"] },
     { result: "lootjs:pinecone",                    candidates: ["seeddelight:pinecone"] },
     { result: "lootjs:sugar_cane",                  candidates: ["seeddelight:sugar_cane"] },
-    
+    { result: "lootjs:tea_seeds",                   candidates: ["youkaishomecoming:tea_seeds", "youkaisfeasts:tea_seeds"] },
+    { result: "lootjs:flax",                         candidates: ["supplementaries:flax"] },
+    { result: "lootjs:flax_seeds",                   candidates: ["supplementaries:flax_seeds"] },
 
     // === 6. 矿物与金属材料 (Minerals & Materials) ===
     { result: "lootjs:amethyst",                    candidates: ["minecraft:amethyst_shard"] },
@@ -197,8 +291,12 @@ let DUPLICATE_ITEMS_CONFIG = [
 ];
 
 // ==================== 2. 逻辑处理 ====================
-mergeDuplicateItems (DUPLICATE_ITEMS_CONFIG) 
-duplicateItemConversion(DUPLICATE_ITEMS_CONFIG);
+if ( config.createDuplicateItemSwapRecipe === true) {
+    createDuplicateItemSwapRecipe (DUPLICATE_ITEMS_CONFIG) 
+}
+if ( config.createDuplicateItemPreviewLootTable === true) {
+    createDuplicateItemPreviewLootTable (DUPLICATE_ITEMS_CONFIG);
+}
 
 let crateAndBagRegistry = [
 // === 1. 蔬菜箱 (Vegetable Crates & Bags) ===
@@ -206,7 +304,7 @@ let crateAndBagRegistry = [
     { name: "beetroot_seeds_block",         ids: ["cratedelight:beetroot_seeds_bag"] },
     { name: "bell_pepper_green_block",      ids: ["rusticdelight:bell_pepper_green_crate"] },
     { name: "bell_pepper_red_block",        ids: ["rusticdelight:bell_pepper_red_crate"] },
-    { name: "bell_pepper_yellow_block",     ids: ["rusticdelight:bell_pepper_yellow_crate"] },
+    { name: "bell_pepper_yellow_block",     ids: ["rusticdelight:bell_pepper_yellow_crate", "veggiesdelight:bellpepper_crate"] },
     { name: "cabbage_block",                ids: ["farmersdelight:cabbage_crate"] },
     { name: "carrot_block",                 ids: ["farmersdelight:carrot_crate", "farm_and_charm:carrot_bag"] },
     { name: "chinese_cabbage_block",        ids: ["dumplings_delight:chinese_cabbage_crate"] },
@@ -216,7 +314,7 @@ let crateAndBagRegistry = [
     { name: "eggplant_block",               ids: ["dumplings_delight:eggplant_crate", "culturaldelights:eggplant_crate"] },
     { name: "fennel_block",                 ids: ["dumplings_delight:fennel_crate"] },
     { name: "garlic_chive_block",           ids: ["dumplings_delight:garlic_chive_crate"] },
-    { name: "garlic_block",                 ids: ["dumplings_delight:garlic_crate"] },
+    { name: "garlic_block",                 ids: ["dumplings_delight:garlic_crate", "veggiesdelight:garlic_crate"] },
     { name: "greenonion_block",             ids: ["dumplings_delight:greenonion_crate"] },
     { name: "dried_kelp_block",             ids: ["minecraft:dried_kelp_block"] },
     { name: "lettuce_block",                ids: ["farm_and_charm:lettuce_bag"] },
@@ -231,8 +329,19 @@ let crateAndBagRegistry = [
     { name: "tomato_block",                 ids: ["farmersdelight:tomato_crate", "farm_and_charm:tomato_bag"] },
     { name: "white_eggplant_block",         ids: ["culturaldelights:white_eggplant_crate"] },
     { name: "golden_carrot_block",          ids: ["cratedelight:golden_carrot_crate"] },
+    { name: "broccoli_block",               ids: ["veggiesdelight:broccoli_crate"] },
+    { name: "cauliflower_block",            ids: ["veggiesdelight:cauliflower_crate"] },
+    { name: "turnip_block",                 ids: ["veggiesdelight:turnip_crate"] },
+    { name: "zucchini_block",               ids: ["veggiesdelight:zucchini_crate"] },
+    { name: "chickpea_block",               ids: ["ramadandelight:chickpea_bag"] },
+    { name: "parsley_block",                ids: ["ramadandelight:parsley_bag"] },
+    { name: "mint_leaves_block",            ids: ["neapolitan:mint_basket"] },
+    { name: "adzuki_beans_block",           ids: ["neapolitan:adzuki_crate", "neapolitan:adzuki_bag"] },
+    { name: "vanilla_pods_block",           ids: ["neapolitan:vanilla_pod_block"] },
 
-    // === 2. 水果箱 (Fruit & Berry Crates) ===
+    // === 2. 水果箱 (Fruit Crates) ===
+    { name: "banana_block",                 ids: ["neapolitan:banana_crate"] },
+    { name: "date_block",                   ids: ["ramadandelight:date_crate"] },
     { name: "apple_block",                  ids: ["cratedelight:apple_crate", "fruitsdelight:apple_crate"] },
     { name: "avocado_block",                ids: ["culturaldelights:avocado_crate"] },
     { name: "bayberry_block",               ids: ["fruitsdelight:bayberry_crate"] },
@@ -260,7 +369,7 @@ let crateAndBagRegistry = [
     { name: "pineapple_block",              ids: ["fruitsdelight:pineapple_crate", "pineapple_delight:pineapple_crate"] },
     { name: "red_grape_block",              ids: ["youkaisfeasts:red_grape_crate", "youkaishomecoming:red_grape_crate"] },
     { name: "rosehip_block",                ids: ["seeddelight:rosehip_crate"] },
-    { name: "strawberry_block",             ids: ["farm_and_charm:strawberry_bag"] },
+    { name: "strawberry_block",             ids: ["farm_and_charm:strawberry_bag", "neapolitan:strawberry_basket"] },
     { name: "white_grape_block",            ids: ["youkaisfeasts:white_grape_crate", "youkaishomecoming:white_grape_crate"] },
     { name: "golden_apple_block",           ids: ["cratedelight:golden_apple_crate"] },
 
@@ -270,6 +379,11 @@ let crateAndBagRegistry = [
     { name: "salmon_block",                 ids: ["cratedelight:salmon_crate"] },
     { name: "pufferfish_block",             ids: ["cratedelight:pufferfish_crate"] },
     { name: "tropical_fish_block",          ids: ["cratedelight:tropical_fish_crate"] },
+    { name: "crab_block",                   ids: ["crabbersdelight:crab_barrel"] },
+    { name: "clawster_block",               ids: ["crabbersdelight:clawster_barrel"] },
+    { name: "shrimp_block",                 ids: ["crabbersdelight:shrimp_barrel"] },
+    // { name: "calamari_block",               ids: ["crabbersdelight:squid_barrel"] },
+    { name: "clam_block",                   ids: ["crabbersdelight:clam_barrel"] },
 
     // === 4. 谷物、豆类与基础食物袋 (Grains, Beans & Food Bags) ===
     { name: "bread_block",                  ids: ["cratedelight:bread_bag"] },
@@ -279,24 +393,49 @@ let crateAndBagRegistry = [
     { name: "cookie_block",                 ids: ["cratedelight:cookie_bag"] },
     { name: "flour_block",                  ids: ["farm_and_charm:flour_bag", "bakeries:wheat_flour_bag"] },
     { name: "honey_block",                  ids: ["minecraft:honey_block"] },
-    { name: "oat_bale",                     ids: ["farm_and_charm:oat_ball", "vintagedelight:oat_bag"] }, // 注：原名本身为bale/ball，已按要求保留
+    { name: "oat_block",                    ids: ["farm_and_charm:oat_ball", "vintagedelight:oat_bag"] }, // 注：原名本身为bale/ball，已按要求保留
     { name: "peanut_block",                 ids: ["vintagedelight:peanut_crate"] },
     { name: "pod_block",                    ids: ["youkaisfeasts:pod_crate", "youkaishomecoming:pod_crate"] },
     { name: "redbean_block",                ids: ["youkaisfeasts:redbean_bag", "youkaishomecoming:redbean_bag"] },
     { name: "rice_block",                   ids: ["farmersdelight:rice_bag"] },
     { name: "rice_panicle_block",           ids: ["farmersdelight:rice_panicle_bag", "farmersdelight:rice_bale"] },
-    { name: "roasted_coffee_block",         ids: ["rusticdelight:roasted_coffee_beans_bag"] },
     { name: "soybean_block",                ids: ["youkaisfeasts:soybean_bag", "youkaishomecoming:soybean_bag"] },
     { name: "sugar_block",                  ids: ["cratedelight:sugar_bag"] },
+    { name: "sweet_potato_block",           ids: ["veggiesdelight:sweet_potato_crate"] },
     { name: "wheat_block",                  ids: ["minecraft:hay_block"] },
     { name: "wheat_seeds_block",            ids: ["cratedelight:wheat_seeds_bag"] },
-    { name: "gunpowder_block",              ids: ["cratedelight:gunpowder_bag"] },
  
 
     // === 5. 林业与经济作物袋 (Forestry & Textile Bags) ===
     { name: "acorn_block",                  ids: ["seeddelight:acorn_bag"] },
     { name: "cotton_block",                 ids: ["rusticdelight:cotton_boll_crate"] },
-    { name: "pinecone_block",               ids: ["seeddelight:pinecone_bag"] }
+    { name: "pinecone_block",               ids: ["seeddelight:pinecone_bag"] },
+    { name: "flax_block",                   ids: ["supplementaries:flax_block"] },
+
+
+    // === 6. 矿物与金属箱 (Minerals & Materials Crates & Blocks) ===
+    { name: "amethyst_block",               ids: ["minecraft:amethyst_block"] },
+    { name: "coal_block",                   ids: ["minecraft:coal_block"] },
+    { name: "copper_block",                 ids: ["minecraft:copper_block"] },
+    { name: "diamond_block",                ids: ["minecraft:diamond_block"] },
+    { name: "emerald_block",                ids: ["minecraft:emerald_block"] },
+    { name: "gold_block",                   ids: ["minecraft:gold_block"] },
+    { name: "iron_block",                   ids: ["minecraft:iron_block"] },
+    { name: "lapis_block",                  ids: ["minecraft:lapis_block"] },
+    { name: "netherite_block",              ids: ["minecraft:netherite_block"] },
+    { name: "quartz_block",                 ids: ["minecraft:quartz_block"] },
+    { name: "raw_copper_block",             ids: ["minecraft:raw_copper_block"] },
+    { name: "raw_gold_block",               ids: ["minecraft:raw_gold_block"] },
+    { name: "raw_iron_block",               ids: ["minecraft:raw_iron_block"] },
+    { name: "raw_zinc_block",               ids: ["create:raw_zinc_block"] },
+    { name: "redstone_block",               ids: ["minecraft:redstone_block"] },
+    { name: "zinc_block",                   ids: ["create:zinc_block"] },
+
+    { name: "gunpowder_block",              ids: ["cratedelight:gunpowder_bag"] },
+
+
+    { name: "rope",                         ids: ['farmersdelight:rope', 'supplementaries:rope', 'farm_and_charm:rope', 'beautify:rope'] },
+
 ];
 
 // 映射转换并直接覆盖原数组名
@@ -305,131 +444,13 @@ crateAndBagRegistry = crateAndBagRegistry.map(item => ({
             candidates: item.ids
 }));
 
-mergeDuplicateItems(crateAndBagRegistry);
+// if (config.createDuplicateItemPreviewLootTable === true) {
+//     createDuplicateItemPreviewLootTable(crateAndBagRegistry);
+// }
 
 const mergeItem = DUPLICATE_ITEMS_CONFIG.concat(crateAndBagRegistry);
 
-let finalFoodSupplyRegistry = [
-    // === 1. 蔬菜类 (Vegetables) ===
-    { name: "beetroot",                  singles: ["lootjs:beetroot"],                     crates: ["lootjs:beetroot_block"] },
-    { name: "beetroot_seeds",            singles: ["lootjs:beetroot_seeds"],               crates: ["lootjs:beetroot_seeds_block"] },
-    { name: "bell_pepper_green",         singles: ["lootjs:bell_pepper_green"],            crates: ["lootjs:bell_pepper_green_block"] },
-    { name: "bell_pepper_red",           singles: ["lootjs:bell_pepper_red"],              crates: ["lootjs:bell_pepper_red_block"] },
-    { name: "bell_pepper_yellow",        singles: ["lootjs:bell_pepper_yellow"],           crates: ["lootjs:bell_pepper_yellow_block"] },
-    { name: "cabbage",                   singles: ["lootjs:cabbage"],                      crates: ["lootjs:cabbage_block"] },
-    { name: "carrot",                    singles: ["lootjs:carrot"],                       crates: ["lootjs:carrot_block"] },
-    { name: "chinese_cabbage",           singles: ["lootjs:chinese_cabbage"],              crates: ["lootjs:chinese_cabbage_block"] },
-    { name: "corn",                      singles: ["lootjs:corn"],                         crates: ["lootjs:corn_block"] },
-    { name: "corn_seeds",                singles: ["lootjs:corn_seeds"],                   crates: ["lootjs:corn_seeds_block"] },
-    { name: "cucumber",                  singles: ["lootjs:cucumber"],                     crates: ["lootjs:cucumber_block"] },
-    { name: "eggplant",                  singles: ["lootjs:eggplant"],                     crates: ["lootjs:eggplant_block"] },
-    { name: "fennel",                    singles: ["lootjs:fennel"],                       crates: ["lootjs:fennel_block"] },
-    { name: "garlic",                    singles: ["lootjs:garlic"],                       crates: ["lootjs:garlic_block"] },
-    { name: "garlic_chive",              singles: ["lootjs:garlic_chive"],                 crates: ["lootjs:garlic_chive_block"] },
-    { name: "greenonion",                singles: ["lootjs:greenonion"],                   crates: ["lootjs:greenonion_block"] },
-    { name: "kelp",                      singles: ["lootjs:kelp"],                         crates: ["lootjs:dried_kelp_block"] },
-    { name: "lettuce",                   singles: ["lootjs:lettuce"],                      crates: ["lootjs:lettuce_block"] },
-    { name: "brown_mushroom",            singles: ["lootjs:brown_mushroom"],               crates: ["lootjs:brown_mushroom_block"] },
-    { name: "red_mushroom",              singles: ["lootjs:red_mushroom"],                 crates: ["lootjs:red_mushroom_block"] },
-    { name: "onion",                     singles: ["lootjs:onion"],                        crates: ["lootjs:onion_block"] },
-    { name: "pepper",                    singles: ["lootjs:pepper"],                       crates: ["lootjs:pepper_block"] },
-    { name: "poisonous_potato",          singles: ["lootjs:poisonous_potato"],             crates: ["lootjs:poisonous_potato_block"] },
-    { name: "potato",                    singles: ["lootjs:potato"],                       crates: ["lootjs:potato_block"] },
-    { name: "pumpkin_slice",             singles: ["lootjs:pumpkin_slice"],                crates: ["lootjs:pumpkin_slice_block"] },
-    { name: "pumpkin_seeds",             singles: ["lootjs:pumpkin_seeds"],                crates: ["lootjs:pumpkin_seeds_block"] },
-    { name: "tomato",                    singles: ["lootjs:tomato"],                       crates: ["lootjs:tomato_block"] },
-    { name: "white_eggplant",            singles: ["lootjs:white_eggplant"],               crates: ["lootjs:white_eggplant_block"] },
-    { name: "golden_carrot",             singles: ["lootjs:golden_carrot"],                crates: ["lootjs:golden_carrot_block"] },
-
-    // === 2. 水果类 (Fruits & Berries) ===
-    { name: "apple",                     singles: ["lootjs:apple"],                        crates: ["lootjs:apple_block"] },
-    { name: "avocado",                   singles: ["lootjs:avocado"],                      crates: ["lootjs:avocado_block"] },
-    { name: "bayberry",                  singles: ["lootjs:bayberry"],                     crates: ["lootjs:bayberry_block"] },
-    { name: "berry",                     singles: ["lootjs:berry"],                        crates: ["lootjs:berry_block"] },
-    { name: "black_grape",               singles: ["lootjs:black_grape"],                  crates: ["lootjs:black_grape_block"] },
-    { name: "blueberry",                 singles: ["lootjs:blueberry"],                    crates: ["lootjs:blueberry_block"] },
-    { name: "cherry",                    singles: ["lootjs:cherry"],                       crates: ["lootjs:cherry_block"] },
-    { name: "cranberry",                 singles: ["lootjs:cranberry"],                    crates: ["lootjs:cranberry_block"] },
-    { name: "durian_flesh",              singles: ["lootjs:durian_flesh"],                 crates: ["lootjs:durian_block"] },
-    { name: "fig",                       singles: ["lootjs:fig"],                          crates: ["lootjs:fig_block"] },
-    { name: "gearo_berry",               singles: ["lootjs:gearo_berry"],                  crates: ["lootjs:gearo_berry_block"] },
-    { name: "glowberry",                 singles: ["lootjs:glowberry"],                    crates: ["lootjs:glowberry_block"] },
-    { name: "hamimelon_slice",           singles: ["lootjs:hamimelon_slice"],              crates: ["lootjs:hamimelon_block"] },
-    { name: "hawberry",                  singles: ["lootjs:hawberry"],                     crates: ["lootjs:hawberry_block"] },
-    { name: "kiwi",                      singles: ["lootjs:kiwi"],                         crates: ["lootjs:kiwi_block"] },
-    { name: "lemon",                     singles: ["lootjs:lemon"],                        crates: ["lootjs:lemon_block"] },
-    { name: "lime",                      singles: ["lootjs:lime"],                         crates: ["lootjs:lime_block"] },
-    { name: "lychee",                    singles: ["lootjs:lychee"],                       crates: ["lootjs:lychee_block"] },
-    { name: "mango",                     singles: ["lootjs:mango"],                        crates: ["lootjs:mango_block"] },
-    { name: "mangosteen",                singles: ["lootjs:mangosteen"],                   crates: ["lootjs:mangosteen_block"] },
-    { name: "melon_slice",               singles: ["lootjs:melon_slice"],                  crates: ["lootjs:melon_block"] },
-    { name: "melon_seeds",               singles: ["lootjs:melon_seeds"],                  crates: ["lootjs:melon_seeds_block"] },
-    { name: "orange",                    singles: ["lootjs:orange"],                       crates: ["lootjs:orange_block"] },
-    { name: "papaya",                    singles: ["lootjs:papaya"],                       crates: ["lootjs:papaya_block"] },
-    { name: "peach",                     singles: ["lootjs:peach"],                        crates: ["lootjs:peach_block"] },
-    { name: "pear",                      singles: ["lootjs:pear"],                         crates: ["lootjs:pear_block"] },
-    { name: "persimmon",                 singles: ["lootjs:persimmon"],                    crates: ["lootjs:persimmon_block"] },
-    { name: "pineapple_slice",           singles: ["lootjs:pineapple_slice"],              crates: ["lootjs:pineapple"] },
-    { name: "pineapple",                 singles: ["lootjs:pineapple"],                    crates: ["lootjs:pineapple_block"] },
-    { name: "red_grape",                 singles: ["lootjs:red_grape"],                    crates: ["lootjs:red_grape_block"] },
-    { name: "rosehip",                   singles: ["lootjs:rosehip"],                      crates: ["lootjs:rosehip_block"] },
-    { name: "strawberry",                singles: ["lootjs:strawberry"],                   crates: ["lootjs:strawberry_block"] },
-    { name: "white_grape",               singles: ["lootjs:white_grape"],                  crates: ["lootjs:white_grape_block"] },
-    { name: "golden_apple",              singles: ["lootjs:golden_apple"],                 crates: ["lootjs:golden_apple_block"] },
-
-    // === 3. 肉类与海鲜 (Meats & Seafood) ===
-    { name: "cod",                       singles: ["lootjs:cod"],                          crates: ["lootjs:cod_block"] },
-    { name: "egg",                       singles: ["lootjs:egg"],                          crates: ["lootjs:egg_block"] },
-    { name: "salmon",                    singles: ["lootjs:salmon"],                       crates: ["lootjs:salmon_block"] },
-    { name: "pufferfish",                singles: ["lootjs:pufferfish"],                   crates: ["lootjs:pufferfish_block"] },
-    { name: "tropical_fish",             singles: ["lootjs:tropical_fish"],                crates: ["lootjs:tropical_fish_block"] },
-
-    // === 4. 谷物、豆类与基础食材 (Grains, Beans & Ingredients) ===
-    { name: "bread",                     singles: ["lootjs:bread"],                        crates: ["lootjs:bread_block"] },
-    { name: "cookie",                    singles: ["lootjs:cookie"],                       crates: ["lootjs:cookie_block"] },
-    { name: "cheese_slice",              singles: ["lootjs:cheese_slice"],                 crates: ["lootjs:cheese_block"] },
-    { name: "cocoabeans",                singles: ["lootjs:cocoabeans"],                   crates: ["lootjs:cocoabeans_block"] },
-    { name: "raw_coffee_beans",          singles: ["lootjs:raw_coffee_beans"],             crates: ["lootjs:raw_coffee_beans_block"] },
-    { name: "roasted_coffee_beans",      singles: ["lootjs:roasted_coffee_beans"],         crates: ["lootjs:roasted_coffee_beans_block"] },
-    { name: "flour",                     singles: ["lootjs:flour"],                        crates: ["lootjs:flour_block"] },
-    { name: "honey_bottle",              singles: ["lootjs:honey_bottle"],                 crates: ["lootjs:honey_block"] },
-    { name: "oat",                       singles: ["lootjs:oat"],                          crates: ["lootjs:oat_block"] },
-    { name: "peanut",                    singles: ["lootjs:peanut"],                       crates: ["lootjs:peanut_block"] },
-    { name: "pods",                      singles: ["lootjs:pods"],                         crates: ["lootjs:pod_block"] },
-    { name: "redbean",                   singles: ["lootjs:redbean"],                      crates: ["lootjs:redbean_block"] },
-    { name: "rice",                      singles: ["lootjs:rice"],                         crates: ["lootjs:rice_block"] },
-    { name: "roasted_coffee",            singles: ["lootjs:roasted_coffee"],               crates: ["lootjs:roasted_coffee_block"] },
-    { name: "soybean",                   singles: ["lootjs:soybean"],                      crates: ["lootjs:soybean_block"] },
-    { name: "sugar",                     singles: ["lootjs:sugar"],                        crates: ["lootjs:sugar_block"] },
-    { name: "wheat",                     singles: ["lootjs:wheat"],                        crates: ["lootjs:wheat_block"] },
-    { name: "wheat_seeds",               singles: ["lootjs:wheat_seeds"],                  crates: ["lootjs:wheat_seeds_block"] },
-
-    // === 5. 林业与经济作物 (Forestry & Textiles) ===
-    { name: "acorn",                     singles: ["lootjs:acorn"],                        crates: ["lootjs:acorn_bag"] },
-    { name: "cotton",                    singles: ["lootjs:cotton"],                       crates: ["lootjs:cotton_crate"] },
-    { name: "pinecone",                  singles: ["lootjs:pinecone"],                     crates: ["lootjs:pinecone_bag"] },
-
-    // === 6. 矿物与金属材料 (Minerals & Materials) ===
-    { name: "amethyst",                  singles: ["lootjs:amethyst"],                     crates: ["minecraft:amethyst_block"] },
-    { name: "coal",                      singles: ["lootjs:coal"],                         crates: ["minecraft:coal_block"] },
-    { name: "copper_ingot",              singles: ["lootjs:copper_ingot"],                 crates: ["minecraft:copper_block"] },
-    { name: "diamond",                   singles: ["lootjs:diamond"],                      crates: ["minecraft:diamond_block"] },
-    { name: "emerald",                   singles: ["lootjs:emerald"],                      crates: ["minecraft:emerald_block"] },
-    { name: "gold_ingot",                singles: ["lootjs:gold_ingot"],                   crates: ["minecraft:gold_block"] },
-    { name: "iron_ingot",                singles: ["lootjs:iron_ingot"],                   crates: ["minecraft:iron_block"] },
-    { name: "lapis",                     singles: ["lootjs:lapis"],                        crates: ["minecraft:lapis_block"] },
-    { name: "netherite",                 singles: ["lootjs:netherite"],                    crates: ["minecraft:netherite_block"] },
-    { name: "quartz",                    singles: ["lootjs:quartz"],                       crates: ["minecraft:quartz_block"] },
-    { name: "raw_copper",                singles: ["lootjs:raw_copper"],                   crates: ["minecraft:raw_copper_block"] },
-    { name: "raw_gold",                  singles: ["lootjs:raw_gold"],                     crates: ["minecraft:raw_gold_block"] },
-    { name: "raw_iron",                  singles: ["lootjs:raw_iron"],                     crates: ["minecraft:raw_iron_block"] },
-    { name: "raw_zinc",                  singles: ["lootjs:raw_zinc"],                     crates: ["create:raw_zinc_block"] },
-    { name: "redstone",                  singles: ["lootjs:redstone"],                     crates: ["minecraft:redstone_block"] },
-    { name: "zinc_ingot",                singles: ["lootjs:zinc_ingot"],                   crates: ["create:zinc_block"] },
-    { name: "gunpowder",                 singles: ["lootjs:gunpowder"],                    crates: ["lootjs:gunpowder_block"] }
-];
-
-// =================================================================
-// 第二步：将单个食物与之前打包好的箱/袋战利品表进行最终关联
-// =================================================================
-createLootTable2Pool(finalFoodSupplyRegistry);
+const configMap = {};
+if (typeof mergeItem !== 'undefined' && Array.isArray(mergeItem)) {
+    mergeItem.forEach(entry => { configMap[entry.result] = entry.candidates; });
+}

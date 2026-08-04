@@ -9,8 +9,9 @@ const village_badlands_base_crops = [
         groupWeight: 80, 
         min: 2, max: 3,
         items: [
-            { reference: 'lootjs:wheat_seeds', ratio: 10 },
-            { reference: 'lootjs:wheat_and_wheat_block', ratio: 40 },
+            { reference: 'lootjs:wheat_seeds', ratio: 5 },
+            { reference: 'lootjs:wheat', ratio: 10 },
+            { reference: 'lootjs:wheat_and_wheat_block', ratio: 10 },
 
         ]
     },
@@ -59,7 +60,7 @@ const village_badlands_dish = [
     {
         groupName: "common",
         groupWeight: 70,
-        min: 2, max: 3,
+        min: 1, max: 2,
         items: [
             { id: 'minecraft:bread', ratio: 10 },
 
@@ -86,7 +87,7 @@ const village_badlands_dish = [
     {
         groupName: "special",
         groupWeight: 30, 
-        min: 2, max: 3,
+        min: 1, max: 2,
         items: [
 
             { id: 'rationcraft:canned_pork', ratio: 10 },
@@ -107,14 +108,20 @@ const village_badlands_dish = [
 const village_badlands_drinks = [
     {
         groupName: "drinks",
-        groupWeight: 5,
-        min: 1, max: 2,
+        groupWeight: 50,
+        min: 1, max: 1,
         items: [
             { id: 'minecraft:potion', ratio: 10 , potion: "minecraft:water" }, 
 
         ]
     },
-
+    {   
+        groupName: "empty",
+        groupWeight: 50, 
+        items: [
+            { id: 'empty'},
+        ]
+    },
 
 ]
 
@@ -126,8 +133,8 @@ const village_badlands_house_content = [
     [village_badlands_base_crops, 1, 1],
     [village_badlands_dish, 1, 1],
     [village_badlands_essential_wealth_equipment, 1, 1],
-    [common_cooking_equipment, 1, 1],
-    [village_badlands_drinks, 1, 2],
+    [village_cooking_equipment_less, 1, 1],
+    [village_badlands_drinks, 1, 1],
 
 ];
 

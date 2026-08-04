@@ -43,8 +43,7 @@ const stronghold_corridor_armors_and_weapons = [
     {
         groupName: "rare_armors",
         groupWeight: 20,
-        min: 1, 
-        max: 1, 
+        min: 1,  max: 1, 
         enchantChance: 1, 
         enchantLevels: [40, 40], 
         damage: [0.1, 0.1],
@@ -64,8 +63,7 @@ const stronghold_corridor_armors_and_weapons = [
     {
         groupName: "common_weapons",
         groupWeight: 80,
-        min: 1, 
-        max: 1, 
+        min: 1,  max: 1, 
         enchantChance: 1, 
         enchantLevels: [40, 40], 
         damage: [0.1, 0.1],
@@ -80,8 +78,7 @@ const stronghold_corridor_armors_and_weapons = [
     {
         groupName: "rare_weapons", 
         groupWeight: 20,
-        min: 1, 
-        max: 1, 
+        min: 1,  max: 1, 
         enchantChance: 1, 
         enchantLevels: [40, 40], 
         damage: [0.1, 0.1],
@@ -224,11 +221,11 @@ const stronghold_corridor_content = [
     [stronghold_corridor_armors_and_weapons, 1, 1],              
     [stronghold_corridor_passed_people, 3, 4],    
     [stronghold_corridor_ender_eyes, 1, 2],                     
-    [stronghold_corridor_villager_and_treasure, 1, 1],   
+    // [stronghold_corridor_villager_and_treasure, 1, 1],   
     [stronghold_corridor_name_tag, 1, 1],
     [stronghold_corridor_stone_bricks, 2, 2],   
     [stronghold_corridor_eye_armor_trim_smithing_template, 1, 1],
-    [stronghold_corridor_lighting, 2, 3],
+    [stronghold_corridor_lighting, 1, 1],
 ];
 
 const loot_stronghold_corridor = [

@@ -6,13 +6,14 @@ const village_dark_forest_base_crops = [
     {
         groupName: "base_crops",
         groupWeight: 80, 
-        min: 2, 
-        max: 3,
+        min: 2,  max: 3,
         items: [
             { reference: 'lootjs:wheat_seeds', ratio: 5 },
-            { reference: 'lootjs:wheat_and_wheat_block', ratio: 20 },
-        
-            { reference: 'lootjs:potato_and_potato_block', ratio: 25 },
+            { reference: 'lootjs:wheat', ratio: 10 },
+            { reference: 'lootjs:wheat_and_wheat_block', ratio: 10 },
+
+            { reference: 'lootjs:potato', ratio: 15 },
+            { reference: 'lootjs:potato_and_potato_block', ratio: 10 },
 
         ]
     }
@@ -22,8 +23,7 @@ const village_dark_forest_other_crops = [
     {
         groupName: "common",
         groupWeight: 80, 
-        min: 2, 
-        max: 3,
+        min: 2,  max: 3,
         items: [
             { reference: 'lootjs:apple', ratio: 15 },
             { reference: 'lootjs:apple_and_apple_block', ratio: 10 },
@@ -44,8 +44,7 @@ const village_dark_forest_other_crops = [
     {
         groupName: "rare",
         groupWeight: 20, 
-        min: 2, 
-        max: 3,
+        min: 2,  max: 3,
         items: [
             // --- 胡萝卜 Carrot 系列 (仅作物，总权重 25) ---
             { reference: 'lootjs:carrot', ratio: 25 },
@@ -103,7 +102,7 @@ const village_dark_forest_dish = [
     {
         groupName: "common",
         groupWeight: 70,
-        min: 2, max: 3,
+        min: 1, max: 2,
         items: [
 
             { id: 'minecraft:bread', ratio: 10 },
@@ -125,7 +124,7 @@ const village_dark_forest_dish = [
     {
         groupName: "special",
         groupWeight: 30, 
-        min: 2, max: 3,
+        min: 1, max: 2,
         items: [
             { id: 'minecraft:mushroom_stew', ratio: 1 },
 
@@ -138,13 +137,20 @@ const village_dark_forest_dish = [
 const village_dark_forest_drinks = [
     {
         groupName: "juice",
-        groupWeight: 5,
-        min: 1, max: 2,
+        groupWeight: 50,
+        min: 1, max: 1,
         items: [
             { id: 'minecraft:potion', ratio: 10 , potion: "minecraft:water" }, 
 
             { id: 'vanillacookbook:apple_juice', ratio: 10 },
             { id: 'farmersdelight:apple_cider', ratio: 10 },
+        ]
+    },
+    {   
+        groupName: "empty",
+        groupWeight: 50, 
+        items: [
+            { id: 'empty'},
         ]
     },
 ]
@@ -180,7 +186,7 @@ const village_dark_forest_bakery_products = [
     {
         groupName: "dark_forest_dessert_teatime_treats_slices",
         groupWeight: 15,
-        min: 3, max: 4,
+        min: 2, max: 3,
         items: [
             { id: 'bakery:apple_pie_slice', ratio: 10 },
             { id: 'farmersdelight:apple_pie_slice', ratio: 10 },
@@ -197,7 +203,7 @@ const village_dark_forest_bakery_products = [
     {
         groupName: "dark_forest_bread",
         groupWeight: 15,
-        min: 3, max: 4,
+        min: 2, max: 3,
         items: [
             { id: 'minecraft:bread', ratio: 10 },
         ]
@@ -208,7 +214,7 @@ const village_dark_forest_bakery_baking_material = [
     {
         groupName: "baking_material",
         groupWeight: 15,
-        min: 3, max: 4,
+        min: 2, max: 3,
         items: basic_baking_material 
     },
 
@@ -232,13 +238,13 @@ const village_dark_forest_house_content = [
     [village_dark_forest_other_crops, 1, 1],
     [village_dark_forest_dish, 1, 1],
     [village_dark_forest_essential_wealth_equipment, 1, 1],
-    [common_cooking_equipment, 1, 1],
-    [village_dark_forest_drinks, 1, 2],
+    [village_cooking_equipment_less, 1, 1],
+    [village_dark_forest_drinks, 1, 1],
 ];
 
 const village_dark_forest_bakery_content = [
     [village_dark_forest_bakery_products, 2, 2],
-    [village_dark_forest_bakery_baking_material, 3, 3],
+    [village_dark_forest_bakery_baking_material, 2, 3],
     [village_smith_small_iron_knife, 1, 1],
 
 ];

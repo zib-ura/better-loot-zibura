@@ -4,35 +4,72 @@ const stronghold_supply_food = [
         groupWeight: 85,
         min: 2, max: 3,
         items: [
-            { reference: "lootjs:pumpkin_slice_and_pumpkin_slice_block" },
-            { reference: "lootjs:melon_slice_and_melon_slice_block" },
-            { reference: "lootjs:corn_and_corn_block" },
-            { reference: "lootjs:apple_and_apple_block" },
-            { reference: "lootjs:beetroot_and_beetroot_block" },
-            { reference: "lootjs:brown_mushroom_and_brown_mushroom_block" },
-            { reference: "lootjs:red_mushroom_and_red_mushroom_block" },
-            { reference: "lootjs:carrot_and_carrot_block" },
-            { reference: "lootjs:potato_and_potato_block" },
-            { reference: "lootjs:cabbage_and_cabbage_block" },
-            { reference: "lootjs:lettuce_and_lettuce_block" },
-            { reference: "lootjs:onion_and_onion_block" },
-            { reference: "lootjs:tomato_and_tomato_block" },
-            { reference: "lootjs:rice_and_rice_block" },
-            { reference: "lootjs:wheat_and_wheat_block" }, 
-            { reference: "lootjs:cookie_and_cookie_crate" },
-            { reference: "lootjs:sugar_and_sugar_crate" },
-            { reference: "lootjs:bread_and_bread_crate" },
-            { reference: "lootjs:egg_and_egg_crate" },
+            // { reference: 'lootjs:pumpkin_slice_and_pumpkin_block', ratio: 5 },
+            // { reference: 'lootjs:pumpkin_slice', ratio: 20 },
+
+            // { reference: 'lootjs:melon_slice_and_melon_block', ratio: 5 },
+            // { reference: 'lootjs:melon_slice', ratio: 20 },
+
+            // { reference: 'lootjs:corn_and_corn_block', ratio: 5 },
+            // { reference: 'lootjs:corn', ratio: 20 },
+
+            // { reference: 'lootjs:apple_and_apple_block', ratio: 5 },
+            // { reference: 'lootjs:apple', ratio: 20 },
+
+            { reference: 'lootjs:beetroot_and_beetroot_block', ratio: 5 },
+            { reference: 'lootjs:beetroot', ratio: 20 },
+
+            // { reference: 'lootjs:brown_mushroom_and_brown_mushroom_block', ratio: 5 },
+            // { reference: 'lootjs:brown_mushroom', ratio: 20 },
+
+            // { reference: 'lootjs:red_mushroom_and_red_mushroom_block', ratio: 5 },
+            // { reference: 'lootjs:red_mushroom', ratio: 20 },
+
+            // { reference: 'lootjs:carrot_and_carrot_block', ratio: 5 },
+            // { reference: 'lootjs:carrot', ratio: 20 },
+
+            { reference: 'lootjs:potato_and_potato_block', ratio: 5 },
+            { reference: 'lootjs:potato', ratio: 20 },
+
+            // { reference: 'lootjs:cabbage_and_cabbage_block', ratio: 5 },
+            // { reference: 'lootjs:cabbage', ratio: 20 },
+
+            // { reference: 'lootjs:lettuce_and_lettuce_block', ratio: 5 },
+            // { reference: 'lootjs:lettuce', ratio: 20 },
+
+            // { reference: 'lootjs:onion_and_onion_block', ratio: 5 },
+            // { reference: 'lootjs:onion', ratio: 20 },
+
+            // { reference: 'lootjs:tomato_and_tomato_block', ratio: 5 },
+            // { reference: 'lootjs:tomato', ratio: 20 },
+
+            // { reference: 'lootjs:rice_and_rice_block', ratio: 5 },
+            // { reference: 'lootjs:rice', ratio: 20 },
+
+            { reference: 'lootjs:wheat_and_wheat_block', ratio: 5 },
+            { reference: 'lootjs:wheat', ratio: 20 },
+
+            // { reference: 'lootjs:cookie_and_cookie_crate', ratio: 5 },
+            // { reference: 'lootjs:cookie', ratio: 20 },
+
+            // { reference: 'lootjs:sugar_and_sugar_crate', ratio: 5 },
+            // { reference: 'lootjs:sugar', ratio: 20 },
+
+            { reference: 'lootjs:bread_and_bread_crate', ratio: 5 },
+            { reference: 'lootjs:bread', ratio: 20 },
+
+            // { reference: 'lootjs:egg_and_egg_crate', ratio: 5 },
+            // { reference: 'lootjs:egg', ratio: 20 },
         ]
     },
-    {
-        groupName: "rare_food",
-        groupWeight: 15, 
-        min: 1, max: 2,
-        items: [
-            { id: "minecraft:enchanted_golden_apple" },
-        ]
-    }
+    // {
+    //     groupName: "rare_food",
+    //     groupWeight: 15, 
+    //     min: 1, max: 2,
+    //     items: [
+    //         { id: "minecraft:enchanted_golden_apple" },
+    //     ]
+    // }
 ]
 
 const stronghold_supply_resources = [

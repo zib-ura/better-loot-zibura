@@ -5,9 +5,9 @@ const kattersstructures_underground_random_materials = [
         "min": 2, 
         "max": 3,
         "items": [
-            { "id": "minecraft:oak_log", "ratio": 15 },
-            { "id": "minecraft:oak_planks", "ratio": 20 },
-            { "id": "minecraft:oak_fence", "ratio": 10 }
+            { id: "minecraft:oak_log", ratio: 15 },
+            { id: "minecraft:oak_planks", ratio: 20 },
+            { id: "minecraft:oak_fence", ratio: 10 }
         ]
     },
     {
@@ -16,11 +16,11 @@ const kattersstructures_underground_random_materials = [
         "min": 2, 
         "max": 3,
         "items": [
-            { "id": "minecraft:stone", "ratio": 15 },
-            { "id": "minecraft:cobblestone", "ratio": 20 },
-            { "id": "minecraft:andesite", "ratio": 10 },
-            { "id": "minecraft:diorite", "ratio": 10 },
-            { "id": "minecraft:granite", "ratio": 10 }
+            { id: "minecraft:stone", ratio: 15 },
+            { id: "minecraft:cobblestone", ratio: 20 },
+            { id: "minecraft:andesite", ratio: 10 },
+            { id: "minecraft:diorite", ratio: 10 },
+            { id: "minecraft:granite", ratio: 10 }
         ]
     }
 ];
@@ -74,8 +74,8 @@ const kattersstructures_underground_random_utility_and_tools = [
         groupName: "tools_common",
         groupWeight: 75,
         min: 1, max: 1, 
-        enchantChance: 0.15,      
-        enchantLevels: [10, 20],   
+        // enchantChance: 0.15,      
+        // enchantLevels: [10, 20],   
         damage: [0.4, 0.5],        
         items: [
             { id: 'minecraft:iron_pickaxe', ratio: 25 },
@@ -101,13 +101,13 @@ const kattersstructures_underground_random_utility_and_tools = [
 ];
 
 const kattersstructures_underground_resource_content = [
-    [kattersstructures_underground_random_materials, 3, 5],
+    [kattersstructures_underground_random_materials, 2, 3],
     [kattersstructures_underground_random_ores, 2, 3],
 ];
 
 const kattersstructures_underground_gear_content = [
-    [kattersstructures_underground_random_utility_and_tools, 4, 5],
-    [kattersstructures_underground_random_lighting, 4, 5],
+    [kattersstructures_underground_random_utility_and_tools, 2, 3],
+    [kattersstructures_underground_random_lighting, 2, 3],
 ];
 
 

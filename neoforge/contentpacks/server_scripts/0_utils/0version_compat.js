@@ -37,15 +37,15 @@ const methodsToDefine = [
     'replaceLootTable',
     'removeGlobalModifiersBatch',
     'createLootTable',
-    'mergeDuplicateItems',
+    'createDuplicateItemPreviewLootTable',
     'createLootTable2Pool',
     'createLootTableReference',
     'createLootTableConst',
     'generateEnchantmentLootTables',
     'LootReferencesToItem',
     'cleanEnchantments',
-    'crateLootReferencesToItems'
-
+    'crateLootReferencesToItems',
+    'getSeedBagConfig',
 ];
 
 methodsToDefine.forEach(function(methodName) {

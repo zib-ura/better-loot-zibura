@@ -1,4 +1,4 @@
-const trekLootTable = {
+Object.assign(allLootTables, {
     "trek:village/village_cherry_house":    loot_village_cherry_house,
     "trek:village/village_library":         loot_village_library,
     "trek:village/village_library_secret":  loot_trek_village_library_secret,
@@ -49,6 +49,4 @@ const trekLootTable = {
     // "trek:overworld/rare/wooden_manor/default_loot":           loot_wooden_manor_default_loot
 
     
-}
-
-registerLootTables(trekLootTable);
+})

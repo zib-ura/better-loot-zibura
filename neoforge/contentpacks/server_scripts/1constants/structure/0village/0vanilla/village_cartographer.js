@@ -2,7 +2,7 @@ const village_cartographer_maps_and_guides = [
     {
         groupName: "maps_and_guides",
         groupWeight: 20,
-        min: 1, max: 2,
+        min: 1, max: 1,
         items: [
             { id: 'minecraft:map', ratio: 10 },
             { id: 'supplementaries:slice_map', ratio: 10 },
@@ -73,11 +73,11 @@ const village_cartographer_marking_materials = [
 // =================================================================
 
 const village_cartographer_content = [
-    [village_cartographer_maps_and_guides, 2, 3],
+    [village_cartographer_maps_and_guides, 1, 2],
     [village_cartographer_cartography_tools, 1, 2], 
     [village_cartographer_records_and_ink, 2, 3], 
     [village_cartographer_office_decorations, 1, 1], 
-    [village_cartographer_marking_materials, 2, 3], 
+    [village_cartographer_marking_materials, 1, 2], 
     [village_chess, 1, 1],
     [paper, 4, 5],
 ];

@@ -37,7 +37,7 @@ const village_library_special_books = [
         ]
     },
     {   
-        groupName: "Special Book",
+        groupName: "empty",
         groupWeight: 70, 
         items: [
             { id: 'empty'},
@@ -101,7 +101,7 @@ const village_chess = [
         groupName: "empty",
         groupWeight: 50,
         items: [
-            { "id": "empty" },
+            { id: "empty" },
         ]
     },
 ]
@@ -110,7 +110,7 @@ const village_library_enchanted_book = [
     {   
         groupName: "Book",
         groupWeight: 50, 
-        min: 2, max: 3,
+        min: 1, max: 1,
         items: all_Available_Enchant_books
     },
 ];

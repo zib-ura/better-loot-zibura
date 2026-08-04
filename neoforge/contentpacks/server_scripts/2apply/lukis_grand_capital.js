@@ -1,4 +1,4 @@
-const lukis_grand_capital_LootTable = {
+Object.assign(allLootTables, {
     "revampedvillages:professions/armorer":                loot_village_armorer,
     "revampedvillages:professions/butcher":                loot_village_butcher,
     "revampedvillages:professions/cartographer_librarian": loot_village_library,
@@ -20,6 +20,4 @@ const lukis_grand_capital_LootTable = {
     "revampedvillages:pillager_treasure":                  loot_pillager_outpost,
     "revampedvillages:treasure":                           loot_village_treasure,
 
-}
-
-registerLootTables(lukis_grand_capital_LootTable);
+})

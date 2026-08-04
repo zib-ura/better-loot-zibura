@@ -16,7 +16,7 @@ const village_fletcher_products = [
     {
         groupName: "arrow_and_rope",
         groupWeight: 50,
-        min: 4, max: 8,
+        min: 2, max: 3,
         items: [
             { id: 'minecraft:arrow', ratio: 10 },
             { id: 'supplementaries:rope', ratio: 10 },
@@ -30,7 +30,7 @@ const village_fletcher_materials = [
     {        
         groupName: "materials",
         groupWeight: 20,
-        min: 4, max: 8,
+        min: 2, max: 3,
         items: [
             { id: 'minecraft:flint', ratio: 10 },
             { id: 'minecraft:stick', ratio: 10 },

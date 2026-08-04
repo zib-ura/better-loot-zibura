@@ -1,8 +1,8 @@
 const ruined_portal_nether_materials = [
     {
         groupName: "Nether Resources",
-        groupWeight: 99,
-        min: 1, max: 1,
+        groupWeight: 29,
+        min: 1, max: 2,
         items: [
 
             { id: 'minecraft:obsidian', ratio: 20 },
@@ -28,7 +28,15 @@ const ruined_portal_nether_materials = [
 
         ]
     },
+    {
+        groupName: "netherrack",
+        groupWeight: 70,
+        min: 2, max: 3,
+        items: [
 
+            { id: 'minecraft:netherrack', ratio: 20 },
+        ]
+    },
     {
         groupName: "Rare Valuables",
         groupWeight: 1,
@@ -37,7 +45,7 @@ const ruined_portal_nether_materials = [
             // { id: 'minecraft:diamond', ratio: 8 },
             { id: 'minecraft:ancient_debris', ratio: 1 },
             { id: 'minecraft:netherite_scrap', ratio: 1 },
-            { id: 'minecraft:nether_star', ratio: 1 },
+            // { id: 'minecraft:nether_star', ratio: 1 },
             { id: 'minecraft:ghast_tear', ratio: 1 },
 
         ]
@@ -70,7 +78,7 @@ const ruined_portal_gold_armor = [
 const ruined_portal_supply = [
     {
         groupName: "fire_charge",
-        groupWeight: 50,
+        groupWeight: 30,
         min: 1, max: 1,
         items: [
             { id: 'minecraft:potion', ratio: 10 , potion: "minecraft:fire_resistance" }, 
@@ -79,9 +87,9 @@ const ruined_portal_supply = [
     },
     {
         groupName: "empty",
-        groupWeight: 50,
+        groupWeight: 70,
         items: [
-            { id: 'empty', ratio: 10 }, 
+            { id: 'empty' }, 
         ]
     },
 ];
@@ -105,7 +113,7 @@ const ruined_portal_enchanted_book = [
         groupName: "empty",
         groupWeight: 80,
         items: [
-            { "id": "empty" },
+            { id: "empty" },
         ]
     },
 ]
@@ -114,8 +122,8 @@ const ruined_portal_enchanted_book = [
 // 事件注册区域
 // =================================================================
 const ruined_portal_content = [
-    [ruined_portal_nether_materials, 2, 3],
-    [netherrack, 4, 5],
+    [ruined_portal_nether_materials, 3, 5],
+    // [netherrack, 4, 5],
     [ruined_portal_gold_armor, 1, 1],
     [ruined_portal_supply, 1, 1],
     [ruined_portal_enchanted_book, 1, 1],

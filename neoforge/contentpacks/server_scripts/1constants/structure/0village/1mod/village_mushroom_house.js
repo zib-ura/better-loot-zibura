@@ -6,13 +6,14 @@ const village_mushroom_base_crops = [
     {
         groupName: "base_crops",
         groupWeight: 80, 
-        min: 2, 
-        max: 3,
+        min: 2,  max: 3,
         items: [
             { reference: 'lootjs:wheat_seeds', ratio: 5 },
-            { reference: 'lootjs:wheat_and_wheat_block', ratio: 20 },
-        
-            { reference: 'lootjs:potato_and_potato_block', ratio: 25 },
+            { reference: 'lootjs:wheat', ratio: 10 },
+            { reference: 'lootjs:wheat_and_wheat_block', ratio: 10 },
+
+            { reference: 'lootjs:potato', ratio: 15 },
+            { reference: 'lootjs:potato_and_potato_block', ratio: 10 },
 
         ]
     }
@@ -20,10 +21,9 @@ const village_mushroom_base_crops = [
 
 const village_mushroom_other_crops = [
     {
-        groupName: "other",
+        groupName: "common",
         groupWeight: 80, 
-        min: 2, 
-        max: 3,
+        min: 2,  max: 3,
         items: [
             // --- 红蘑菇 Red Mushroom 系列 (有作物、箱子，无种子) ---
             { reference: 'lootjs:red_mushroom', ratio: 15 },
@@ -36,10 +36,9 @@ const village_mushroom_other_crops = [
     },
 
     {
-        groupName: "other",
+        groupName: "rare",
         groupWeight: 20, 
-        min: 2, 
-        max: 3,
+        min: 2,  max: 3,
         items: [
             // --- 胡萝卜 Carrot 系列 (仅作物，总权重 25) ---
             { reference: 'lootjs:carrot', ratio: 25 },
@@ -96,7 +95,7 @@ const village_mushroom_dish = [
     {
         groupName: "common",
         groupWeight: 35,
-        min: 2, max: 3,
+        min: 1, max: 2,
         items: [
             { id: 'minecraft:mushroom_stew', ratio: 10 },
             { id: 'barbequesdelight:grilled_mushroom_skewer', ratio: 10 },
@@ -112,7 +111,7 @@ const village_mushroom_dish = [
     {
         groupName: "special",
         groupWeight: 15, 
-        min: 2, max: 3,
+        min: 1, max: 2,
         items: [
             { id: 'rusticdelight:fried_mushrooms', ratio: 10 },            
             { id: 'farmersdelight:mushroom_rice', ratio: 10 },            
@@ -126,14 +125,20 @@ const village_mushroom_dish = [
 const village_mushroom_drinks = [
     {
         groupName: "drinks",
-        groupWeight: 5,
+        groupWeight: 50,
         min: 1, max: 2,
         items: [
             { id: 'minecraft:potion', ratio: 10 , potion: "minecraft:water" }, 
 
         ]
     },
-
+    {   
+        groupName: "empty",
+        groupWeight: 50, 
+        items: [
+            { id: 'empty'},
+        ]
+    },
 
 ]
 // =================================================================
@@ -144,7 +149,7 @@ const village_mushroom_house_content = [
     [village_mushroom_other_crops, 1, 1],
     [village_mushroom_dish, 1, 1],
     [village_mushroom_essential_wealth_equipment, 1, 1],
-    [common_cooking_equipment, 1, 1],
+    [village_cooking_equipment_less, 1, 1],
     [village_mushroom_drinks, 1, 1],
 
 ];

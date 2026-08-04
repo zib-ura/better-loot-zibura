@@ -1,5 +1,7 @@
+//#region 模块主入口: 1.20.1 自定义战利品表生成函数
 $G.addCustomLoot_1_20_1 = function(lootTable, config, minRolls, maxRolls, conditionJson) {
 
+    //#region 映射与常量定义
     const CONDITION_MAP = {
         'matchTool': { api: 'matchMainHand', type: 'normal' }, 
         'matchMainHand': { api: 'matchMainHand', type: 'normal' },
@@ -31,35 +33,33 @@ $G.addCustomLoot_1_20_1 = function(lootTable, config, minRolls, maxRolls, condit
         'matchCustomCondition': { api: 'customCondition', type: 'normal' }
     };
     const CONDITION_KEYS = Object.keys(CONDITION_MAP);
+    //#endregion
 
-    // =================================================================
-    // 辅助函数：通过模组是否存在检测附魔有效性
-    // =================================================================
+    //#region 辅助函数: 验证逻辑 (模组/附魔/药水检测)
     function isEnchantmentValid(enchantId) {
         if (!enchantId) return false;
         let parts = enchantId.split(':');
         if (parts.length < 2) return false;
         let modId = parts[0];
-        // 如果是原版，直接保留，否则检测模组是否加载
         if (modId === 'minecraft') {
             return allAvailableEnchantments.includes(enchantId);
         }
         return Platform.isLoaded(modId);
     }
+
     function isPotionValid(potionId) {
         if (!potionId) return false;
         let parts = potionId.split(':');
         if (parts.length < 2) return false;
         let modId = parts[0];
         if (modId === 'minecraft') {
-            // 这里替换成你全局存储的可用药水/效果列表，例如 allAvailablePotions
             return allAvailablePotions.includes(potionId);
         }
         return Platform.isLoaded(modId);
     }
-    // =================================================================
-    // 动态解析 1.21 风格的顶层条件到 modifier 上
-    // =================================================================
+    //#endregion
+
+    //#region 第一阶段: 绑定战利品表顶层生成条件 (LootTable Level Modifier)
     if (conditionJson && typeof conditionJson === 'object') {
         Object.keys(conditionJson).forEach(key => {
             if (CONDITION_MAP[key]) {
@@ -109,20 +109,17 @@ $G.addCustomLoot_1_20_1 = function(lootTable, config, minRolls, maxRolls, condit
     if (typeof conditionJson === 'function') {
         conditionJson(lootTable);
     }
+    //#endregion
 
-    // =================================================================
-    // 配置预清洗与有效性过滤合并
-    // =================================================================
+    //#region 第二阶段: 构建 Pool 与配置预清洗
     lootTable.pool(pool => { 
         pool.rolls([minRolls, maxRolls]);
         
         let cleanConfig = [];
-
-        // 建立去重引用映射表
-        const configMap = {};
-        if (typeof mergeItem !== 'undefined' && Array.isArray(mergeItem)) {
-            mergeItem.forEach(entry => { configMap[entry.result] = entry.candidates; });
-        }
+        // const configMap = {};
+        // if (typeof mergeItem !== 'undefined' && Array.isArray(mergeItem)) {
+        //     mergeItem.forEach(entry => { configMap[entry.result] = entry.candidates; });
+        // }
         const resolvedCache = {};
 
         config.forEach(group => {
@@ -151,65 +148,47 @@ $G.addCustomLoot_1_20_1 = function(lootTable, config, minRolls, maxRolls, condit
                 group.items.forEach(rawItem => {
                     let item = Object.assign({}, rawItem);
 
-                    // --- 步骤 1: 特殊 crateLootReferencesToItems 解析 ---
+                    //#region 2.1 特殊模板引用的解析 (Crate / Single 字符串拼接解析)
                     if (item.reference) {
                         let match = item.reference.match(/^lootjs:([a-zA-Z0-9_]+)_and_\1_block$/);
                         if (match) {
                             let baseName = match[1];
-                            let registryEntry = (typeof finalFoodSupplyRegistry !== 'undefined') ? finalFoodSupplyRegistry.find(r => r.name === baseName) : null;
+                            // 1. 优先拼接 _block (如 lootjs:apple_block) 查找方块/箱子
+                            let crateRef = `lootjs:${baseName}_block`;
+                            // 2. 备用直接拼接 (如 lootjs:apple) 查找单个物品
+                            let singleRef = `lootjs:${baseName}`;
+
+                            // 获取对应的候选物品数组
+                            let candidates = configMap[crateRef] || configMap[singleRef];
                             let finalId = null;
 
-                            if (registryEntry) {
-                                if (registryEntry.crates && registryEntry.crates.length > 0) {
-                                    let targetCrateResult = registryEntry.crates[0];
-                                    if (targetCrateResult.startsWith("lootjs:")) {
-                                        let crateConfig = mergeItem.find(m => m.result === targetCrateResult);
-                                        if (crateConfig && crateConfig.candidates) {
-                                            for (let i = 0; i < crateConfig.candidates.length; i++) {
-                                                if (!Item.of(crateConfig.candidates[i]).isEmpty()) {
-                                                    finalId = crateConfig.candidates[i];
-                                                    break; 
-                                                }
-                                            }
-                                        }
-                                    } else if (!Item.of(targetCrateResult).isEmpty()) {
-                                        finalId = targetCrateResult;
-                                    }
-                                }
-                                if (!finalId && registryEntry.singles && registryEntry.singles.length > 0) {
-                                    let targetSingle = registryEntry.singles[0];
-                                    if (targetSingle.startsWith("lootjs:")) {
-                                        let singleConfig = mergeItem.find(m => m.result === targetSingle);
-                                        if (singleConfig && singleConfig.candidates) {
-                                            for (let i = 0; i < singleConfig.candidates.length; i++) {
-                                                if (!Item.of(singleConfig.candidates[i]).isEmpty()) {
-                                                    finalId = singleConfig.candidates[i];
-                                                    break;
-                                                }
-                                            }
-                                        }
-                                    } else if (!Item.of(targetSingle).isEmpty()) {
-                                        finalId = targetSingle;
+                            if (candidates && candidates.length > 0) {
+                                for (let candidate of candidates) {
+                                    if (Item.exists(candidate)) { // 1.20.1下如需兼容可用 !Item.of(candidate).isEmpty() 或 Item.exists
+                                        finalId = candidate;
+                                        break;
                                     }
                                 }
                             }
+
                             if (finalId) {
                                 item.id = finalId;
                                 delete item.reference;
                             } else {
-                                item = null; 
+                                item = null; // 无有效候选，标记废弃
                             }
                         }
                     }
 
                     if (!item) return;
-
-                    // --- 步骤 2: 妖怪之山兼容 ---
+                    //#endregion
+                    
+                    // 妖怪之山兼容
                     if (Platform.isLoaded('youkaishomecoming') && item.id && item.id.startsWith('youkaisfeasts:')) {
                         item.id = item.id.replace('youkaisfeasts:', 'youkaishomecoming:');
                     }
 
-                    // --- 步骤 3: 解析一般物品引用 LootReferencesToItem ---
+                    //#region 2.2 通用暗号引用解析 (Reference Map)
                     if (item.reference) {
                         let refId = item.reference;
                         if (configMap[refId]) {
@@ -219,60 +198,60 @@ $G.addCustomLoot_1_20_1 = function(lootTable, config, minRolls, maxRolls, condit
                             } else {
                                 let candidates = configMap[refId];
                                 let foundValidId = null;
+
                                 for (let candidate of candidates) {
-                                    if (Item.of(candidate).isEmpty() === false) {
+                                    if (Item.exists(candidate)) {
                                         foundValidId = candidate;
                                         break;
                                     }
                                 }
+
                                 if (foundValidId) {
                                     item.id = foundValidId;
                                     resolvedCache[refId] = foundValidId;
                                     delete item.reference;
+                                } else {
+                                    return;
                                 }
                             }
-                        }
-                    }
-
-                    // --- 步骤 4: 过滤并清理附魔列表 (Core Logic) ---
-                    let finalEnchantRandomly = item.enchantRandomly ?? group.enchantRandomly;
-                    if (finalEnchantRandomly && Array.isArray(finalEnchantRandomly)) {
-                        // 清理不存在的附魔
-                        let filteredEnchants = finalEnchantRandomly.filter(e => isEnchantmentValid(e));
-                        if (filteredEnchants.length === 0) {
-                            // 如果过滤完没有可用魔咒，直接抛弃此物品项
+                        } else {
                             return;
                         }
+                    }
+                    //#endregion
+
+                    //#region 2.3 属性清洗 (附魔 / 药水 / 特殊书籍转换)
+                    // 1. 清理附魔
+                    let finalEnchantRandomly = item.enchantRandomly ?? group.enchantRandomly;
+                    if (finalEnchantRandomly && Array.isArray(finalEnchantRandomly)) {
+                        let filteredEnchants = finalEnchantRandomly.filter(e => isEnchantmentValid(e));
+                        if (filteredEnchants.length === 0) return;
                         item.enchantRandomly = filteredEnchants;
                     }
 
-                    // --- 步骤 4 (药水版本): 过滤并清理药水列表 (兼容字符串与数组) ---
+                    // 2. 清理药水
                     let finalPotion = item.potion ?? group.potion;
                     if (finalPotion) {
                         if (Array.isArray(finalPotion)) {
                             let filteredPotion = finalPotion.filter(p => isPotionValid(p));
-                            if (filteredPotion.length === 0) {
-                                return; // 如果无可用药水，抛弃此项
-                            }
+                            if (filteredPotion.length === 0) return;
                             item.potion = filteredPotion;
                         } else if (typeof finalPotion === 'string') {
-                            // 如果是单个字符串，直接检测其有效性
-                            if (!isPotionValid(finalPotion)) {
-                                return; // 如果药水无效，直接抛弃此物品项（不再加入池子）
-                            }
+                            if (!isPotionValid(finalPotion)) return;
                             item.potion = finalPotion;
                         }
                     }
-                    // --- 步骤 5: 原书转远古书转换 (Core Logic) ---
+
+                    // 3. 单附魔书转远古书
                     if (item.id === "minecraft:book" && item.enchantRandomly && Array.isArray(item.enchantRandomly) && item.enchantRandomly.length === 1) {
                         if (Item.exists("immersiveenchanting:ancient_book")) {
                             item.id = "immersiveenchanting:ancient_book";
                         }
                     }
+                    //#endregion
 
-                    // --- 步骤 6: 判断物品/引用的有效性并推入配置组 ---
+                    //#region 2.4 合法性判定并压入 cleanGroup
                     let isValid = false;
-
                     if (item.id === 'empty' || item.type === 'empty' || item.empty === true) {
                         isValid = true;
                     } else if (item.reference || item.type === 'reference') {
@@ -286,9 +265,11 @@ $G.addCustomLoot_1_20_1 = function(lootTable, config, minRolls, maxRolls, condit
                     if (isValid) {
                         cleanGroup.items.push(item);
                     }
+                    //#endregion
                 });
             }
 
+            // 计算组内比率和
             let totalRatio = 0;
             cleanGroup.items.forEach(item => {
                 totalRatio += (item.ratio !== undefined ? item.ratio : 1);
@@ -299,24 +280,24 @@ $G.addCustomLoot_1_20_1 = function(lootTable, config, minRolls, maxRolls, condit
                 cleanConfig.push(cleanGroup);
             }
         });
+        //#endregion
 
-        // =================================================================
-        // 构建 1.20 战利品项（使用 cleanConfig）
-        // =================================================================
+        //#region 第三阶段: 构建 1.20 战利品项 (Weighted Loot Entries)
         let entries = [];
         let commonMultiplier = 100000;
 
         cleanConfig.forEach(group => {
             group.items.forEach(item => {
-                let isSpecial = item.id === 'empty' || item.type === 'empty' || item.empty === true || item.reference || item.type === 'reference';
                 let entry;
                 let isNormalItem = false;
                 let isReference = false;
 
+                // 计算加权比例
                 let itemWeight = (group.groupWeight * (item.ratio || 1) * commonMultiplier) / group._totalRatio;
 
+                //#region 3.1 创建 LootEntry
                 if (item.id === 'empty' || item.type === 'empty' || item.empty === true) {
-                    entry = LootEntry.withChance({ "type": "minecraft:empty" } , itemWeight);
+                    entry = LootEntry.withChance({ "type": "minecraft:empty" }, itemWeight);
                 } else if (item.reference || item.type === 'reference') {
                     entry = LootEntry.withChance({
                         "type": "minecraft:loot_table",
@@ -324,22 +305,12 @@ $G.addCustomLoot_1_20_1 = function(lootTable, config, minRolls, maxRolls, condit
                     }, itemWeight);
                     isReference = true;
                 } else {
-                    // // 如果该项目是“书 + 恰好1个随机附魔”且转为了远古书
-                    // if (item.id === "immersiveenchanting:ancient_book" && item.enchantRandomly && item.enchantRandomly.length === 1) {
-                    //     let targetEnchant = item.enchantRandomly[0];
-                    //     // 封装远古书，默认等级为 1
-                    //     entry = LootEntry.withChance(Item.of("immersiveenchanting:ancient_book").withNBT({ StoredEnchantments: [{ id: targetEnchant, lvl: 1 }] }), itemWeight);
-                    //     isNormalItem = true;
-                    //     // 清理此处的附魔标记避免二次注入
-                    //     delete item.enchantRandomly;
-                    // } else {
-                    //     entry = LootEntry.withChance(item.id, itemWeight);
-                    //     isNormalItem = true;
-                    // }
                     entry = LootEntry.withChance(item.id, itemWeight);
                     isNormalItem = true;
                 }
+                //#endregion
 
+                //#region 3.2 注入条目生成条件 (Item Level Conditions)
                 CONDITION_KEYS.forEach(key => {
                     let conditionValue = item[key] !== undefined ? item[key] : group.conditions[key];
                     if (conditionValue !== undefined) {
@@ -376,33 +347,48 @@ $G.addCustomLoot_1_20_1 = function(lootTable, config, minRolls, maxRolls, condit
                 if (item.randomChance !== undefined) {
                     entry.when((c) => c.randomChance(item.randomChance));
                 }
+                //#endregion
 
+                //#region 3.3 计算属性继承
                 let maxCount = item.max ?? group.max ?? 1;
                 let minCount = (item.max !== undefined && group.min !== undefined && item.max < group.min) ? 0 : (item.min ?? group.min ?? 1);
                 let finalDamage = item.damage ?? group.damage;
-                let finalEnchantChance = item.enchantChance ?? group.enchantChance ?? 0;
                 let finalEnchantLevels = item.enchantLevels ?? group.enchantLevels;
                 let finalExactEnchants = item.exactEnchants ?? group.exactEnchants;
                 let finalEnchantRandomly = item.enchantRandomly ?? group.enchantRandomly;
 
-                // 新增：补全 nbt、jsonFunction 和 potion 的合并逻辑
                 let finalNbt = item.nbt ?? group.nbt;
                 let finalJsonFunction = item.jsonFunction ?? group.jsonFunction;
                 let finalPotion = item.potion ?? group.potion;
+                //#endregion
 
+                //#region 3.4 写入 1.20.1 NBT 与物品逻辑
                 if (isNormalItem) {
                     entry.limitCount([minCount, maxCount]);
                     
                     if (finalNbt) entry.addNBT(finalNbt);
+                    // if (finalJsonFunction) {
+                    //     entry.functions(ItemFilter.ALWAYS_TRUE, (f) => {
+                    //         f.customFunction(finalJsonFunction);
+                    //     });
+                    // }
+                    // if (finalNbt) entry.setCustomData(finalNbt); 
                     if (finalJsonFunction) {
-                        entry.functions(ItemFilter.ALWAYS_TRUE, (f) => {
-                            f.customFunction(finalJsonFunction);
+                        // 如果传入的是单个对象，转为单元素数组；如果本身就是数组，保持不变
+                        let functionsArray = Array.isArray(finalJsonFunction) 
+                            ? finalJsonFunction 
+                            : [finalJsonFunction];
+
+                        functionsArray.forEach(fn => {
+                            entry.functions(ItemFilter.ALWAYS_TRUE, (f) => {
+                            // 遍历数组，依次注册每个 customFunction
+                                if (fn) {
+                                    f.customFunction(fn);
+                                }
+                            });
                         });
-                    }
+                    }  
                     if (finalPotion) entry.addPotion(finalPotion);
-                
-
-
                     if (finalDamage !== undefined) entry.damage(finalDamage);
                     
                     if (finalEnchantLevels !== undefined && finalEnchantLevels !== null) {
@@ -417,33 +403,14 @@ $G.addCustomLoot_1_20_1 = function(lootTable, config, minRolls, maxRolls, condit
                             }
                         });
                     }
-                    if (finalEnchantRandomly) {
 
-                        // if (Array.isArray(finalEnchantRandomly)) {
-                        //     // 原版物品或普通附魔书处理
-                        //     if (item.id === "minecraft:book" || item.id === "minecraft:enchanted_book") {
-                        //         // 拆分为有无等级进行构建
-                        //         let withLevels = finalEnchantRandomly.filter(e => enchantmentsWithLevels.includes(e));
-                        //         let withoutLevels = finalEnchantRandomly.filter(e => enchantmentsWithoutLevels.includes(e));
-                                
-                        //         // 此处若附魔混合，直接委托原版 enchantRandomly 分发
-                        //         entry.enchantRandomly(finalEnchantRandomly);
-                        //     } else {
-                        //         entry.enchantRandomly(finalEnchantRandomly);
-                        //     }
-                        // } else {
-                        //     entry.enchantRandomly(); 
-                        // }
-                        
-                    // ==========================================
-                    // 统一的有等级 / 无等级附魔注入模块 (1.20.1)
-                    // ==========================================
+                    //#region 有等级 / 无等级附魔处理 (1.20.1 专有结构)
                     if (finalEnchantRandomly) {
                         if (Array.isArray(finalEnchantRandomly)) {
                             let withLevels = finalEnchantRandomly.filter(e => enchantmentsWithLevels.includes(e));
                             let withoutLevels = finalEnchantRandomly.filter(e => enchantmentsWithoutLevels.includes(e));
 
-                            // 1. 如果是远古书 (包括被自动清洗的项)，直接写入 NBT
+                            // 1. 远古书直接写入 1.20.1 NBT 数据结构
                             if (item.id === "immersiveenchanting:ancient_book") {
                                 let storedEnchants = [];
                                 withLevels.forEach(e => storedEnchants.push({ id: e, lvl: 1 }));
@@ -453,25 +420,14 @@ $G.addCustomLoot_1_20_1 = function(lootTable, config, minRolls, maxRolls, condit
                                     entry.addNBT({ StoredEnchantments: storedEnchants });
                                 }
                             } 
-                            // 2. 统一处理其他所有物品（包括原版书和普通装备）
+                            // 2. 通用物品与书籍
                             else {
-                                // 有等级附魔：利用原版/LootJS的随机附魔
                                 if (withLevels.length > 0) {
                                     entry.enchantRandomly(withLevels);
                                 }
-                                // 无等级附魔：利用附魔构造器打上 1 级
                                 if (withoutLevels.length > 0) {
-                                    // let enchants = withoutLevels.map(e => ({ id: e, lvl: 1 }));
-                                    // if (item.id === "minecraft:book") {
-                                    //     entry.functions(ItemFilter.ALWAYS_TRUE, (f) => {
-                                    //         f.customFunction({ "enchantments": ["minecraft:sharpness"], "function": "minecraft:enchant_randomly"});
-                                    //     });
-                                    //     // entry.addJson({ "enchantments": ["minecraft:swift_sneak"],"function": "minecraft:enchant_randomly"});
-                                    // } else {
-                                    //     entry.addNBT({ Enchantments: enchants });
-                                    // }
                                     entry.functions(ItemFilter.ALWAYS_TRUE, (f) => {
-                                        f.customFunction({ "enchantments": withoutLevels, "function": "minecraft:enchant_randomly"});
+                                        f.customFunction({ "enchantments": withoutLevels, "function": "minecraft:enchant_randomly" });
                                     });
                                 }
                             }
@@ -479,20 +435,24 @@ $G.addCustomLoot_1_20_1 = function(lootTable, config, minRolls, maxRolls, condit
                             entry.enchantRandomly(); 
                         }
                     }
-                    }
-                    
+                    //#endregion
                 }
 
                 if (isReference) {
                     entry.limitCount([minCount, maxCount]);
                 }
+                //#endregion
                 
                 entries.push(entry);
             });
         });
 
+        // 最终将所有计算好的条目打包放入 Pool
         if (entries.length > 0) {
             pool.addWeightedLoot(entries);
         }
+        //#endregion
     });
+    //#endregion
 };
+//#endregion

@@ -10,18 +10,27 @@ const village_beach_base_crops = [
         min: 2, max: 3,
         items: [
             { reference: 'lootjs:wheat_seeds', ratio: 5 },
-            { reference: 'lootjs:wheat_and_wheat_block', ratio: 20 },
+            { reference: 'lootjs:wheat', ratio: 10 },
+            { reference: 'lootjs:wheat_and_wheat_block', ratio: 10 },
+
             { reference: 'lootjs:cabbage_seeds', ratio: 5 }, 
             { reference: 'lootjs:cabbage', ratio: 20 },
+
             { reference: 'lootjs:beetroot_seeds', ratio: 5 },
-            { reference: 'lootjs:beetroot_and_beetroot_block', ratio: 20 },
+            { reference: 'lootjs:beetroot', ratio: 10 },
+            { reference: 'lootjs:beetroot_and_beetroot_block', ratio: 10 },
+
             { reference: 'lootjs:pineapple_sapling', ratio: 5 }, 
-            { reference: 'lootjs:pineapple_and_pineapple_block', ratio: 20 },
+            { reference: 'lootjs:pineapple', ratio: 10 },
+            { reference: 'lootjs:pineapple_and_pineapple_block', ratio: 10 },
+
             { reference: 'lootjs:salt', ratio: 25 },
 
             { reference: 'lootjs:sugar_cane', ratio: 25 },
 
-            { reference: 'lootjs:egg', ratio: 25 },
+            { reference: 'lootjs:flax_seeds', ratio: 5 },
+            { reference: 'lootjs:flax', ratio: 10 },
+            { reference: 'lootjs:flax_and_flax_block', ratio: 10 },
         ]
     },
     
@@ -61,7 +70,7 @@ const village_beach_dish = [
     {
         groupName: "common_fish",
         groupWeight: 35,
-        min: 2, max: 3,
+        min: 1, max: 2,
         items: [
 
             { id: 'minecraft:cooked_cod', ratio: 10 },
@@ -99,7 +108,7 @@ const village_beach_dish = [
     {
         groupName: "common_vegetables_fruits",
         groupWeight: 35,
-        min: 2, max: 3,
+        min: 1, max: 2,
         items: [
 
             { id: 'minecraft:bread', ratio: 10 },
@@ -121,7 +130,7 @@ const village_beach_dish = [
     {
         groupName: "special",
         groupWeight: 30, 
-        min: 2, max: 3,
+        min: 1, max: 2,
         items: [
 
             { id: 'farmersdelight:fish_stew', ratio: 10 },  
@@ -147,7 +156,7 @@ const village_beach_dish = [
             { id: 'culturaldelights:chicken_roll', ratio: 10 },
             { id: 'culturaldelights:exotic_roll_medley', ratio: 10 },
 
-            { id: 'rustic_delight:fried_calamari', ratio: 10 },
+            { id: 'rusticdelight:fried_calamari', ratio: 10 },
 
         ]
     },
@@ -156,12 +165,19 @@ const village_beach_dish = [
 const village_beach_drinks = [
     {
         groupName: "drinks",
-        groupWeight: 5,
-        min: 1, max: 2,
+        groupWeight: 50,
+        min: 1, max: 1,
         items: [
             { id: 'minecraft:potion', ratio: 10 , potion: "minecraft:water" }, 
             { id: 'pineapple_delight:pineapple_juice', ratio: 10 },
             { id: 'pineapple_delight:pineapple_milk_shake', ratio: 10 },
+        ]
+    },
+    {   
+        groupName: "empty",
+        groupWeight: 50, 
+        items: [
+            { id: 'empty'},
         ]
     },
 ]
@@ -198,7 +214,7 @@ const village_beach_bakery_products = [
     {
         groupName: "beach_dessert_teatime_treats_slices",
         groupWeight: 15,
-        min: 3, max: 4,
+        min: 2, max: 3,
         items: [
             { id: 'pineapple_delight:pineapple_cake_slice', ratio: 10 },
             { id: 'pineapple_delight:pineapple_pie_side', ratio: 10 },
@@ -210,7 +226,7 @@ const village_beach_bakery_products = [
     {
         groupName: "beach_bread",
         groupWeight: 15,
-        min: 3, max: 4,
+        min: 2, max: 3,
         items: [
             { id: 'minecraft:bread', ratio: 10 },
 
@@ -223,7 +239,7 @@ const village_beach_bakery_baking_material = [
     {
         groupName: "baking_material",
         groupWeight: 15,
-        min: 3, max: 4,
+        min: 2, max: 3,
         items: basic_baking_material
     },
 
@@ -246,14 +262,15 @@ const village_beach_house_content = [
     [village_beach_base_crops, 1, 1],
     [village_beach_dish, 1, 1],
     [village_beach_essential_wealth_equipment, 1, 1],
-    [village_beach_drinks, 1, 2],
+    [village_cooking_equipment_less, 1, 1],
+    [village_beach_drinks, 1, 1],
 
 ];
 
 const village_beach_bakery_content = [
 
     [village_beach_bakery_products, 2, 2],
-    [village_beach_bakery_baking_material, 3, 3],
+    [village_beach_bakery_baking_material, 2, 3],
     [village_smith_small_iron_knife, 1, 1],
 ];
 

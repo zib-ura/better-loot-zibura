@@ -28,41 +28,30 @@ function createCarpenterBiomeGroup(biomeName, groupName, productTemplates, confi
 
     // 默认配置兜底
     const groupWeight = config.groupWeight !== undefined ? config.groupWeight : 20;
-    const min = config.min !== undefined ? config.min : 2;
+    const min = config.min !== undefined ? config.min : 1;
     const max = config.max !== undefined ? config.max : 3;
 
     // 遍历该群系拥有的每种木材类型
     woods.forEach(function(woodType) {
         productTemplates.forEach(function(template) {
+            // 1. 处理带 [WOOD] 的动态模板
             if (template.id.indexOf('[WOOD]') !== -1) {
                 let itemId = template.id.replace('[WOOD]', woodType);
                 
+                // 特殊木材名称修正
                 if (woodType === "bamboo") {
-                    itemId = itemId.replace('bamboo_log', 'bamboo_block'); 
+                    itemId = itemId.replace('bamboo_log', 'bamboo_block')
+                                   .replace('bamboo_sapling', 'bamboo'); 
+                } else if (woodType === "mangrove") {
+                    itemId = itemId.replace('mangrove_sapling', 'mangrove_propagule');
                 }
-                if (woodType === "mangrove") {
-                    itemId = itemId.replace('mangrove_sapling', 'mangrove_propagule'); // 红树林树苗叫胎生苗
-                }
-                const itemObject = {
-                    id: itemId,
-                    ratio: template.ratio
-                };
-                if (template.max !== undefined) {
-                    itemObject.max = template.max;
-                }
-                items.push(itemObject);
+
+                // 直接浅拷贝 template 继承所有属性（包括 min, max, damage 等），仅覆盖 id
+                items.push(Object.assign({}, template, { id: itemId }));
+            } else {
+                items.push(Object.assign({}, template));
             }
         });
-    });
-
-    // 处理不需要木材前缀的统一固定产物
-    productTemplates.forEach(function(template) {
-        if (template.id.indexOf('[WOOD]') === -1) {
-            if (woods.length > 0) {
-                const copy = Object.assign({}, template);
-                Array.prototype.push.apply(items, [copy]);
-            }
-        }
     });
     
 
@@ -83,7 +72,6 @@ function createCarpenterBiomeGroup(biomeName, groupName, productTemplates, confi
 // 1.1 功能方块模版
 const carpenterUtilityTemplates = [
     { id: 'minecraft:chest', ratio: 10 },
-    { id: 'minecraft:crafting_table', ratio: 10 },
     { id: 'lolmcv:[WOOD]_chest', ratio: 10 },
     { id: 'minecraft:crafting_table', ratio: 10 },
     { id: 'minecraft:barrel', ratio: 10 },
@@ -125,33 +113,57 @@ const carpenterFurnitureTemplates = [
     // { id: 'brewery:table', ratio: 10 },
     // { id: 'farm_and_charm:water_trough', ratio: 10 },
     // { id: 'bakery:breadbox', ratio: 10 },
-    { id: 'kaleidoscope_chinesefood:mooncake_mold', ratio: 10 },
+    // { id: 'kaleidoscope_chinesefood:mooncake_mold', ratio: 10 },
     { id: 'kaleidoscope_tavern:stepladder', ratio: 10 },
     { id: 'kaleidoscope_chinesefood:bowl_stack', ratio: 10 },
     { id: 'kaleidoscope_cookery:kitchenware_racks', ratio: 10 },
     { id: 'youkaisfeasts:[WOOD]_dining_table', ratio: 10 },
 
+    { id: 'storagedelight:[WOOD]_single_door_cabinet', ratio: 10 },
+    { id: 'storagedelight:[WOOD]_cabinet_with_glass_doors', ratio: 10 },
+    { id: 'storagedelight:glass_[WOOD]_cabinet', ratio: 10 },
+    { id: 'storagedelight:small_[WOOD]_drawers', ratio: 10 },
+    { id: 'storagedelight:[WOOD]_bookshelf_with_door', ratio: 10 },
+    { id: 'storagedelight:[WOOD]_drawer_with_books', ratio: 10 },
+    { id: 'storagedelight:[WOOD]_drawer_with_door', ratio: 10 },
+    { id: 'storagedelight:[WOOD]_drawer', ratio: 10 },
+
+    { id: 'handcrafted:[WOOD]_shelf', ratio: 10 },
+    { id: 'handcrafted:[WOOD]_table', ratio: 10 },
+    { id: 'handcrafted:[WOOD]_side_table', ratio: 10 },
+    { id: 'handcrafted:[WOOD]_bench', ratio: 10 },
+    { id: 'handcrafted:[WOOD]_drawer', ratio: 10 },
+    { id: 'handcrafted:[WOOD]_counter', ratio: 10 },
+    { id: 'handcrafted:[WOOD]_desk', ratio: 10 },
+    { id: 'handcrafted:[WOOD]_chair', ratio: 10 },
+    { id: 'handcrafted:[WOOD]_cupboard', ratio: 10 },
+    { id: 'handcrafted:[WOOD]_fancy_bed', ratio: 10 },
+    { id: 'handcrafted:[WOOD]_nightstand', ratio: 10 },
+    { id: 'handcrafted:[WOOD]_dining_bench', ratio: 10 },
+
+    { id: 'beautify:[WOOD]_blinds', ratio: 10 },
+    { id: 'beautify:[WOOD]_picture_frame', ratio: 10 },
 ];
 // 2. 基础原料模版
 const carpenterMaterialTemplates = [
     { id: 'minecraft:[WOOD]_log', ratio: 15 },
     { id: 'minecraft:[WOOD]_planks', ratio: 20 },
-    { id: 'minecraft:stick', ratio: 15 }
+    { id: 'minecraft:stick', ratio: 15 },
 ];
 
 // 3. 树苗模板
 const carpenterSaplingTemplates = [
-    { id: 'minecraft:[WOOD]_sapling', ratio: 10 }
+    { id: 'minecraft:[WOOD]_sapling', ratio: 10 },
 ];
 
 // 4. 公共池模板（不再需要单独作为独立数组声明）
 const carpenterAxesTemplates = [
     { id: 'minecraft:stone_axe', ratio: 30, damage: [0.3, 0.4] },
-    { id: 'minecraft:iron_axe', ratio: 10, damage: [0.5, 0.6] }
+    { id: 'minecraft:iron_axe', ratio: 10, damage: [0.5, 0.6] },
 ];
 
 const carpenterSawmillTemplates = [
-    { id: 'sawmill:sawmill', ratio: 10 }
+    { id: 'sawmill:sawmill', ratio: 10 },
 ];
 
 // =================================================================
@@ -166,23 +178,23 @@ const carpenterData = {};
  */
 function getCarpenterConfig(biomeName) {
     // 1. 动态生成群系专属池（传入自定义的权重与数量控制）
-    const utility   = createCarpenterBiomeGroup(biomeName, "utility",   carpenterUtilityTemplates, { groupWeight: 20, min: 1, max: 1 });
-    const furniture = createCarpenterBiomeGroup(biomeName, "furniture", carpenterFurnitureTemplates, { groupWeight: 20, min: 1, max: 1 });
-    const materials = createCarpenterBiomeGroup(biomeName, "materials", carpenterMaterialTemplates, { groupWeight: 20, min: 2, max: 3 });
-    const sapling   = createCarpenterBiomeGroup(biomeName, "sapling",   carpenterSaplingTemplates,   { groupWeight: 20, min: 1, max: 2 });
+    const utility   = createCarpenterBiomeGroup(biomeName, "utility",   carpenterUtilityTemplates, { groupWeight: 100, min: 1, max: 1 });
+    const furniture = createCarpenterBiomeGroup(biomeName, "furniture", carpenterFurnitureTemplates, { groupWeight: 100, min: 1, max: 1 });
+    const materials = createCarpenterBiomeGroup(biomeName, "materials", carpenterMaterialTemplates, { groupWeight: 100, min: 2, max: 3 });
+    const sapling   = createCarpenterBiomeGroup(biomeName, "sapling",   carpenterSaplingTemplates,   { groupWeight: 100, min: 1, max: 1 });
 
-    // 2. 直接用统一函数生成公共池（传入公共池特有的权重 15 和 10）
-    const axes      = createCarpenterBiomeGroup(biomeName, "axes",      carpenterAxesTemplates,      { groupWeight: 15, min: 1, max: 1 });
-    const sawmills  = createCarpenterBiomeGroup(biomeName, "sawmills",  carpenterSawmillTemplates,  { groupWeight: 10, min: 1, max: 1 });
+    // 2. 直接用统一函数生成公共池（组权重统一设为 100）
+    const axes      = createCarpenterBiomeGroup(biomeName, "axes",      carpenterAxesTemplates,      { groupWeight: 100, min: 1, max: 1 });
+    const sawmills  = createCarpenterBiomeGroup(biomeName, "sawmills",  carpenterSawmillTemplates,  { groupWeight: 100, min: 1, max: 1 });
 
     // 3. 返回组合结果
     return [
         [utility, 1, 2],
         [furniture, 1, 2],
-        [materials, 5, 5],
+        [materials, 2, 3],
         [sapling,   1, 2],
         [axes,      1, 2],
-        [sawmills,  1, 1]
+        [sawmills,  1, 1],
     ];
 }
 

@@ -2,26 +2,32 @@ const village_cherry_bakery_cooking_material = [
     {
         groupName: "cooking",
         groupWeight: 15,
-        min: 1, 
-        max: 2,
+        min: 1,  max: 2,
         items: basic_baking_material.concat([
-            { reference: 'lootjs:honey_bottle_and_honey_bottle_block', ratio: 10 },
+            { reference: 'lootjs:honey', ratio: 3 },
+            { reference: 'lootjs:honey_and_honey_bottle_block', ratio: 2 },
+
+            { reference: 'lootjs:redbean', ratio: 15 },
             { reference: 'lootjs:redbean_and_redbean_block', ratio: 10 },
+
+            { reference: 'lootjs:soybean', ratio: 15 },
             { reference: 'lootjs:soybean_and_soybean_block', ratio: 10 },
+
+            { reference: 'lootjs:rice', ratio: 15 },
             { reference: 'lootjs:rice_and_rice_block', ratio: 10 },
 
         ])
     },
 
-    {
-        groupName: "cherry_jam",
-        groupWeight: 15,
-        min: 1, max: 1,
-        items: [
-            { id: 'vintagedelight:honey_mason_jar', ratio: 10 },
+    // {
+    //     groupName: "cherry_jam",
+    //     groupWeight: 15,
+    //     min: 1, max: 1,
+    //     items: [
+    //         { id: 'vintagedelight:honey_mason_jar', ratio: 10 },
             
-        ]
-    },
+    //     ]
+    // },
 ];
 
 const village_cherry_essential_wealth_equipment = [
@@ -53,8 +59,8 @@ const village_cherry_essential_wealth_equipment = [
 const village_cherry_drinks = [
     {
         groupName: "tea",
-        groupWeight: 5,
-        min: 1, max: 2,
+        groupWeight: 25,
+        min: 1, max: 1,
         items: [
             { id: 'minecraft:potion', ratio: 10 , potion: "minecraft:water" }, 
 
@@ -67,8 +73,8 @@ const village_cherry_drinks = [
 
     {
         groupName: "wine",
-        groupWeight: 5,
-        min: 1, max: 2,
+        groupWeight: 25,
+        min: 1, max: 1,
         items: [
             { id: 'youkaisfeasts:suigei', ratio: 10 },
             { id: 'youkaisfeasts:kappa_village', ratio: 10 },
@@ -76,7 +82,13 @@ const village_cherry_drinks = [
             { id: 'youkaisfeasts:kiku', ratio: 10 },
         ]
     },
-
+    {   
+        groupName: "empty",
+        groupWeight: 50, 
+        items: [
+            { id: 'empty'},
+        ]
+    },
 ]
 
 
@@ -89,6 +101,7 @@ const village_cherry_bakery_products = [
             { id: 'rusticdelight:cherry_blossom_cheesecake', ratio: 10 },
             { id: 'rusticdelight:cherry_blossom_pancakes', ratio: 10 },
             { id: 'rusticdelight:honey_pancakes', ratio: 10 },
+            { id: 'neapolitan:adzuki_cake', ratio: 10 },
 
         ]
     },
@@ -114,14 +127,14 @@ const village_cherry_bakery_products = [
         min: 1, max: 1,
         items: [
             { id: 'youkaishomecoming:shaved_ice_over_rice', ratio: 10 },
-            { id: 'youkaishomecoming:big_popsicle', ratio: 10 },
+            // { id: 'youkaishomecoming:big_popsicle', ratio: 10 },
         ]
     },
 
     {
         groupName: "cherry_dessert_teatime_treats_slices",
         groupWeight: 15,
-        min: 3, max: 4,
+        min: 2, max: 3,
         items: [
             { id: 'rusticdelight:cherry_blossom_cookie', ratio: 10 },
             { id: 'rusticdelight:cherry_blossom_cheesecake_slice', ratio: 10 },
@@ -131,13 +144,13 @@ const village_cherry_bakery_products = [
             { id: 'rusticdelight:cherry_blossom_pancake', ratio: 10 },
 
 
-            { id: 'farmersdelight:honey_cookie', ratio: 10 },
-            { id: 'vanillacookbook:honey_cookie', ratio: 10 },
-            { id: 'vanillacookbook:honey_pancake', ratio: 10 },
-            { id: 'vanillacookbook:honey_candy', ratio: 10 },
-            { id: 'rusticdelight:honey_pancake', ratio: 10 },
+            { id: 'farmersdelight:honey_cookie', ratio: 2 },
+            { id: 'vanillacookbook:honey_cookie', ratio: 2 },
+            { id: 'vanillacookbook:honey_pancake', ratio: 2 },
+            { id: 'vanillacookbook:honey_candy', ratio: 2 },
+            { id: 'rusticdelight:honey_pancake', ratio: 2 },
 
-            { id: 'kitchenkarrot:honey_brulee', ratio: 10 }
+            { id: 'kitchenkarrot:honey_brulee', ratio: 2 },
 
         ]
     },
@@ -145,13 +158,13 @@ const village_cherry_bakery_products = [
     {
         groupName: "bread",
         groupWeight: 15,
-        min: 3, max: 4,
+        min: 2, max: 3,
         items: [
             { id: 'youkaisfeasts:mochi', ratio: 10 },
             { id: 'youkaisfeasts:yakumo_inari', ratio: 10 },
             { id: 'youkaisfeasts:sekibankiyaki', ratio: 10 },
             { id: 'youkaisfeasts:senbei', ratio: 10 },
-            { id: 'youkaisfeasts:onigiri', ratio: 10 },
+            { id: 'youkaisfeasts:onigili', ratio: 10 },
             { id: 'youkaisfeasts:yashouma_dango', ratio: 10 },
             { id: 'youkaisfeasts:matcha_mochi', ratio: 10 },
             { id: 'youkaisfeasts:tsukimi_dango', ratio: 10 },
@@ -167,10 +180,10 @@ const village_cherry_bakery_products = [
 // 事件注册区域
 // =================================================================
 const village_cherry_house_content = [
-    [village_cherry_bakery_cooking_material, 3, 3],
+    [village_cherry_bakery_cooking_material, 2, 3],
     [village_cherry_essential_wealth_equipment, 1, 1],
-    [common_cooking_equipment, 1, 1],
-    [village_cherry_drinks, 1, 2],
+    [village_cooking_equipment_less, 1, 1],
+    [village_cherry_drinks, 1, 1],
     [village_cherry_bakery_products, 2, 2],
 ];
 

@@ -31,33 +31,31 @@ const kattersstructures_ocean_random_fish = [
     }
 ];
 
-const kattersstructures_ocean_random_products = [
-    {
-        groupName: "products",
-        groupWeight: 20,
-        min: 2, max: 3,
-        items: [
-            
-            { id: 'vintagedelight:salted_cod', ratio: 10 },
-            { id: 'vintagedelight:salted_salmon', ratio: 10 },
-            { id: 'vintagedelight:surstromming', ratio: 10 },
 
-        ]
-    }
-];
+const kattersstructures_ocean_random_equipment = [
 
-const kattersstructures_ocean_random_fishing_rod = [
     {        
-        groupName: "fishing_rod",
-        groupWeight: 20,
-        min: 1, max: 1, enchantChance: 1, enchantLevels: [40, 50], damage: [0.8, 0.9],
+        groupName: "material",
+        groupWeight: 50,
+        min: 3, max: 4, 
         items: [
-            { id: 'minecraft:fishing_rod', ratio: 20 },
+            { id: 'minecraft:string', ratio: 10 },
+            { id: 'minecraft:stick', ratio: 10 },
+
         ]
     },
-]
 
-const kattersstructures_ocean_random_ship_bucket = [
+    {        
+        groupName: "fishing_rod",
+        groupWeight: 5,
+        min: 1, max: 1,
+        items: [
+            { id: 'minecraft:fishing_rod', ratio: 10, enchantChance: 1, enchantLevels: [10, 30], damage: [0.8, 0.9]},
+            { id: 'minecraft:fishing_rod', ratio: 10 },
+
+        ]
+    },
+
     {        
         groupName: "ship",
         groupWeight: 20,
@@ -69,16 +67,16 @@ const kattersstructures_ocean_random_ship_bucket = [
             { id: 'minecraft:jungle_boat', ratio: 10 },
             { id: 'minecraft:bamboo_raft', ratio: 10 }, 
 
-            // --- 运输船系列 (带箱子的船) ---
-            { id: 'minecraft:oak_chest_boat', ratio: 10 },
-            { id: 'minecraft:jungle_chest_boat', ratio: 10 },
-            { id: 'minecraft:bamboo_chest_raft', ratio: 10 }, 
+            // // --- 运输船系列 (带箱子的船) ---
+            // { id: 'minecraft:oak_chest_boat', ratio: 10 },
+            // { id: 'minecraft:jungle_chest_boat', ratio: 10 },
+            // { id: 'minecraft:bamboo_chest_raft', ratio: 10 }, 
         ]
     },
 
     {        
         groupName: "bucket",
-        groupWeight: 20,
+        groupWeight: 25,
         min: 1, max: 1, 
         items: [
             { id: 'minecraft:bucket', ratio: 10 },
@@ -86,35 +84,14 @@ const kattersstructures_ocean_random_ship_bucket = [
     },
 ]
 
-const kattersstructures_ocean_random_material = [
-    {        
-        groupName: "finshing_rod",
-        groupWeight: 20,
-        min: 3, max: 4, 
-        items: [
-            { id: 'minecraft:string', ratio: 10 },
-            { id: 'minecraft:stick', ratio: 10 },
-
-        ]
-    },
-]
-
 const kattersstructures_ocean_random_fish_content = [
-    [kattersstructures_ocean_random_fish, 2, 3],
-    [kattersstructures_ocean_random_products, 1, 2],
-];
-
-const kattersstructures_ocean_random_equipment_content = [
-    [kattersstructures_ocean_random_fishing_rod, 1, 2],
-    [kattersstructures_ocean_random_ship_bucket, 3, 4],
-    [kattersstructures_ocean_random_material, 3, 4],
+    [village_fisher_fish, 2, 3],
+    [kattersstructures_ocean_random_equipment, 1, 2],
 
 
 
 ];
 
 const loot_kattersstructures_ocean_random = [
-    [kattersstructures_ocean_random_fish_content, 4],
-    [kattersstructures_ocean_random_equipment_content, 1],
-
+    [kattersstructures_ocean_random_fish_content, 1],
 ];

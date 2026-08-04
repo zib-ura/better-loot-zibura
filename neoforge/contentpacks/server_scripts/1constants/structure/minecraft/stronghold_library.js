@@ -26,10 +26,10 @@ const stronghold_library_enchanted_book = [
 // 事件注册区域
 // =================================================================
 const stronghold_library_content = [
-    [stronghold_library_books_equipment, 4, 6],
+    [stronghold_library_books_equipment, 2, 3],
     [village_chess, 1, 1],
-    [ash, 4, 5],
-    [stronghold_library_enchanted_book, 2, 3],
+    [ash, 2, 3],
+    [stronghold_library_enchanted_book, 1, 2],
 ];
 
 const loot_stronghold_library = [

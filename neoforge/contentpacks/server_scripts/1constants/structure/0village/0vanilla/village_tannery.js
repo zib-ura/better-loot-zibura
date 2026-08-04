@@ -66,8 +66,8 @@ const desert_village_tannery_materials = [
 // =================================================================
 const village_tannery_content = [
     [village_tannery_products, 1, 2],
-    [village_tannery_materials, 3, 4, { matchBiome: '#kubejs:tannery/not_desert' }],
-    [desert_village_tannery_materials, 3, 4, { matchBiome: 'minecraft:desert' }],
+    [village_tannery_materials, 2, 3, { matchBiome: '#kubejs:tannery/not_desert' }],
+    [desert_village_tannery_materials, 2, 3, { matchBiome: 'minecraft:desert' }],
     [village_tannery_armors, 1, 2],
 ];
 

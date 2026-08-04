@@ -2,8 +2,7 @@ const village_armorer_products = [
     {
         groupName: "common_armor",
         groupWeight: 95,
-        min: 1, 
-        max: 1,
+        min: 1,  max: 1,
         enchantChance: 0.0, 
         damage: [0.7, 0.8],
         items: [
@@ -43,8 +42,7 @@ const village_armorer_products = [
     {
         groupName: "rare_armor",
         groupWeight: 5,
-        min: 1, 
-        max: 1,
+        min: 1,  max: 1,
         enchantChance: 0.0, 
         damage: [0.7, 0.8],
         items: [

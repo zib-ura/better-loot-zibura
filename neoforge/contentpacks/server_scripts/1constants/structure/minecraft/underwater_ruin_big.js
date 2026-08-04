@@ -21,7 +21,7 @@ const underwater_ruin_big_enchanted_book = [
         groupName: "empty",
         groupWeight: 50,
         items: [
-            { "id": "empty" },
+            { id: "empty" },
         ]
     },
 ];

@@ -11,8 +11,8 @@ const jungle_temple_treasure_equipment = [
             { id: 'minecraft:ender_pearl', ratio: 10 },
             { id: 'minecraft:emerald', ratio: 15 },
             { id: 'minecraft:golden_apple', ratio: 20 },
-            { id: 'minecraft:enchanted_golden_apple', ratio: 5 },
-            { id: 'minecraft:totem_of_undying', ratio: 5 },
+            { id: 'minecraft:enchanted_golden_apple', ratio: 1 },
+            { id: 'minecraft:totem_of_undying', ratio: 1 },
 
             { id: 'touhou_little_maid:projectile_protect_bauble', ratio: 10 },
         ]
@@ -24,8 +24,7 @@ const jungle_temple_smithing_templates = [
     {
         groupName: "Smithing Templates",
         groupWeight: 25,  
-        min: 1,
-        max: 1,
+        min: 1, max: 1,
         items: [
             { id: 'minecraft:wild_armor_trim_smithing_template', ratio: 10 },
         ]
@@ -35,7 +34,7 @@ const jungle_temple_smithing_templates = [
         groupName: "empty",
         groupWeight: 50,
         items: [
-            { "id": "empty" },
+            { id: "empty" },
         ]
     },
 ];
@@ -46,7 +45,8 @@ const jungle_temple_gold = [
         groupWeight: 50,
         min: 1, max: 1,
         items: [
-            { reference: 'lootjs:gold_ingot_and_gold_ingot_block', ratio: 10 },
+            { reference: 'lootjs:gold_ingot_and_gold_ingot_block', ratio: 20 },
+            { reference: 'lootjs:gold_ingot', ratio: 10 },        
         ]
     },
 ];

@@ -64,7 +64,7 @@ const village_mason_stone = [
     {        
         groupName: "stone_materials",
         groupWeight: 40,
-        min: 4, max: 4,
+        min: 2, max: 3,
         items: [
             { id: 'minecraft:cobblestone', ratio: 10 },
             { id: 'supplementaries:daub', ratio: 2 },
@@ -104,7 +104,7 @@ const village_mason_brick = [
     {        
         groupName: "brick_materials",
         groupWeight: 20,
-        min: 4, max: 4,
+        min: 2, max: 3,
         items: [
             { id: 'minecraft:brick', ratio: 10 },
         ]
@@ -135,7 +135,7 @@ const village_mason_other_material = [
     {        
         groupName: "other_materials",
         groupWeight: 20,
-        min: 4, max: 4,
+        min: 2, max: 3,
         items: [
             { id: 'minecraft:diorite', ratio: 10 },
             { id: 'minecraft:granite', ratio: 10 },
@@ -219,7 +219,7 @@ const village_badlands_terracotta = [
     {         
         groupName: "terracotta_materials",
         groupWeight: 20,
-        min: 4, max: 4,
+        min: 2, max: 3,
         items: [
             { id: 'minecraft:red_sand', ratio: 10 },
         ]
@@ -258,7 +258,7 @@ const village_beach_salt = [
     {         
         groupName: "salt_materials",
         groupWeight: 20,
-        min: 4, max: 4,
+        min: 2, max: 3,
         items: [
             { id: 'vintagedelight:salt_block', ratio: 10 }, 
         ]
@@ -291,7 +291,7 @@ const village_mangrove_mud = [
     {         
         groupName: "mud_materials",
         groupWeight: 20,
-        min: 4, max: 4,
+        min: 2, max: 3,
         items: [
             { id: 'minecraft:mud', ratio: 10 },
             { id: 'minecraft:packed_mud', ratio: 10 },
@@ -303,7 +303,7 @@ const village_mason_fuel = [
     {        
         groupName: "materials",
         groupWeight: 20,
-        min: 3, max: 4,
+        min: 2, max: 3,
         items: [
             { id: 'minecraft:coal', ratio: 5 },
         ]
@@ -346,7 +346,7 @@ const village_mason_scarecrow = [
         groupName: "empty",
         groupWeight: 80,
         items: [
-            { "id": "empty" },
+            { id: "empty" },
         ]
     },
 ]
@@ -355,7 +355,7 @@ const village_mason_scarecrow = [
 // =================================================================
 const village_mason_content = [
     [village_mason_brick, 1, 1, { matchBiome: '#minecraft:has_structure/village_plains' }],
-    [village_mason_stone, 3, 3, /* { matchBiome: '#kubejs:not_desert_badland' } */],
+    [village_mason_stone, 3, 3/* , { matchBiome: '#kubejs:not_desert_badland' } */],
     [village_mason_other_material, 1, 1, { matchBiome: '#kubejs:mason/other' }],
 
     [village_desert_sandstone_glass, 2, 2, { matchBiome: '#minecraft:has_structure/village_desert' }],

@@ -10,13 +10,35 @@ const village_ocean_base_crops = [
         min: 2, max: 3,
         items: [
             { reference: 'lootjs:wheat_seeds', ratio: 5 },
-            { reference: 'lootjs:wheat_and_wheat_block', ratio: 20 },
+            { reference: 'lootjs:wheat', ratio: 10 },
+            { reference: 'lootjs:wheat_and_wheat_block', ratio: 10 },
 
-            { reference: 'lootjs:kelp_and_kelp_block', ratio: 25 },
+            { reference: 'lootjs:kelp', ratio: 15 },
+            { reference: 'lootjs:kelp_and_kelp_block', ratio: 10 },
 
-            { reference: 'lootjs:cod_and_cod_block', ratio: 25 },
-            { reference: 'lootjs:salmon_and_salmon_block', ratio: 25 },
+            { reference: 'lootjs:cod', ratio: 15 },
+            { reference: 'lootjs:cod_and_cod_block', ratio: 10 },
 
+            { reference: 'lootjs:salmon', ratio: 15 },
+            { reference: 'lootjs:salmon_and_salmon_block', ratio: 10 },
+
+            { reference: 'lootjs:tropical_fish', ratio: 15 },
+            { reference: 'lootjs:tropical_fish_and_tropical_fish_block', ratio: 10 },
+
+            { reference: 'lootjs:pufferfish', ratio: 15 },
+            { reference: 'lootjs:pufferfish_and_pufferfish_block', ratio: 10 },
+
+            { reference: 'lootjs:crab', ratio: 15 },
+            { reference: 'lootjs:crab_and_crab_block', ratio: 10 },
+
+            { reference: 'lootjs:clawster', ratio: 15 },
+            { reference: 'lootjs:clawster_and_clawster_block', ratio: 10 },
+
+            { reference: 'lootjs:shrimp', ratio: 15 },
+            { reference: 'lootjs:shrimp_and_shrimp_block', ratio: 10 },
+
+            { reference: 'lootjs:clam', ratio: 15 },
+            { reference: 'lootjs:clam_and_clam_block', ratio: 10 },
         ]
     },
 
@@ -25,11 +47,11 @@ const village_ocean_base_crops = [
         groupWeight: 30, 
         min: 2, max: 3,
         items: [
-            { reference: 'lootjs:rice_and_rice_block', ratio: 25 },
+            { reference: 'lootjs:rice', ratio: 25 },
 
-            { reference: 'lootjs:potato_and_potato_block', ratio: 25 },
+            { reference: 'lootjs:potato', ratio: 25 },
 
-            { reference: 'lootjs:onion_and_onion_block', ratio: 25 },
+            { reference: 'lootjs:onion', ratio: 25 },
 
             { reference: 'lootjs:cabbage_seeds', ratio: 5 },
             { reference: 'lootjs:cabbage', ratio: 20 },
@@ -74,12 +96,17 @@ const village_ocean_dish = [
     {
         groupName: "common",
         groupWeight: 70,
-        min: 2, max: 3,
+        min: 1, max: 2,
         items: [
 
+            { reference: 'lootjs:cooked_cod', ratio: 10 },
+            { reference: 'lootjs:cooked_salmon', ratio: 10 },
 
-            { id: 'minecraft:cooked_cod', ratio: 10 },
-            { id: 'minecraft:cooked_salmon', ratio: 10 },
+            { reference: 'lootjs:cooked_crab', ratio: 10 },
+            { reference: 'lootjs:cooked_clawster', ratio: 10 },
+            { reference: 'lootjs:cooked_shrimp', ratio: 10 },
+            { reference: 'lootjs:cooked_clam_meat', ratio: 10 },
+            { reference: 'lootjs:cooked_calamari', ratio: 10 },
 
             { id: 'vanillacookbook:fish_stew', ratio: 10 },
 
@@ -94,8 +121,6 @@ const village_ocean_dish = [
             { id: 'kaleidoscope_cookery:pufferfish_soup', ratio: 10 },
             { id: 'kaleidoscope_cookery:seafood_miso_soup', ratio: 10 },            
             
-
-
 
             { id: 'vanillacookbook:kelp_salad', ratio: 10 },          
             { id: 'kitchenkarrot:crispy_bread_with_kelp', ratio: 10 },           
@@ -123,13 +148,27 @@ const village_ocean_dish = [
             { id: 'vintagedelight:pickled_beetroot', ratio: 10 },
             { id: 'vintagedelight:pickle', ratio: 10 },
             { id: 'vintagedelight:pickled_egg', ratio: 10 },
+
+            { id: 'crabbersdelight:jar_of_pickles', ratio: 10 },
+            { id: 'crabbersdelight:kelp_shake', ratio: 10 },
+            { id: 'crabbersdelight:sea_pickle_juice', ratio: 10 },
+
+            { id: 'crabbersdelight:shrimp_skewer', ratio: 10 },
+            { id: 'crabbersdelight:fish_stick', ratio: 10 },
+            { id: 'crabbersdelight:crab_cakes', ratio: 10 },
+            { id: 'crabbersdelight:squid_kebab', ratio: 10 },
+            { id: 'crabbersdelight:cooked_pufferfish_slice', ratio: 10 },
+            { id: 'crabbersdelight:cooked_tropical_fish_slice', ratio: 10 },
+            { id: 'crabbersdelight:bisque', ratio: 10 },
+            { id: 'crabbersdelight:clam_chowder', ratio: 10 },
+            { id: 'crabbersdelight:shrimp_fried_rice', ratio: 10 },
         ]
     },
 
     {
         groupName: "special",
         groupWeight: 30, 
-        min: 2, max: 3,
+        min: 1, max: 2,
         items: [
             { id: 'farmersdelight:fish_stew', ratio: 10 },  
             { id: 'farmersdelight:baked_cod_stew', ratio: 10 },  
@@ -156,6 +195,9 @@ const village_ocean_dish = [
 
             { id: 'rustic_delight:fried_calamari', ratio: 10 },
 
+            { id: 'crabbersdelight:clam_bake', ratio: 10 },
+            { id: 'crabbersdelight:seafood_gumbo', ratio: 10 },
+            { id: 'crabbersdelight:surf_and_turf', ratio: 10 },
         ]
     },
 ]
@@ -163,14 +205,20 @@ const village_ocean_dish = [
 const village_ocean_drinks = [
     {
         groupName: "drinks",
-        groupWeight: 5,
-        min: 1, max: 2,
+        groupWeight: 50,
+        min: 1, max: 1,
         items: [
             { id: 'minecraft:potion', ratio: 10 , potion: "minecraft:water" }, 
 
         ]
     },
-
+    {   
+        groupName: "empty",
+        groupWeight: 50, 
+        items: [
+            { id: 'empty'},
+        ]
+    },
 
 ]
 
@@ -182,6 +230,8 @@ const village_ocean_house_content = [
     [village_ocean_wealth_equipment, 1, 1],
     [village_ocean_dish, 1, 1],
     [village_ocean_drinks, 1, 1],
+    [village_cooking_equipment_less, 1, 1],
+
 
 ];
 

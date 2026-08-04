@@ -17,7 +17,7 @@ const woodland_mansion_weapon = [
 ];
 
 
-const woodland_mansion_Treasure = [
+const woodland_mansion_treasure = [
     {
         groupName: "treasure",
         groupWeight: 20,
@@ -52,17 +52,34 @@ const woodland_mansion_ore = [
     {
         groupName: "ingot_block",
         groupWeight: 25,  
-        min: 2,
-        max: 3,
+        min: 2, max: 3,
         items: [
-            // { reference: 'lootjs:iron_ingot_and_iron_ingot_block', ratio: 10 },
-            // { reference: 'lootjs:copper_ingot_and_copper_ingot_block', ratio: 10 },
-            { reference: 'lootjs:gold_ingot_and_gold_ingot_block', ratio: 10 },
-            // { reference: 'lootjs:redstone_and_redstone_block', ratio: 10 },
-            // { reference: 'lootjs:lapis_and_lapis_block', ratio: 10 },
-            { reference: 'lootjs:diamond_and_diamond_block', ratio: 10 },
-            { reference: 'lootjs:emerald_and_emerald_block', ratio: 10 },
-            { reference: 'lootjs:quartz_and_quartz_block', ratio: 10 },
+            // { reference: 'lootjs:iron_ingot_and_iron_ingot_block', ratio: 5 },
+            // { reference: 'lootjs:iron_ingot', ratio: 20 },
+
+            // { reference: 'lootjs:copper_ingot_and_copper_ingot_block', ratio: 5 },
+            // { reference: 'lootjs:copper_ingot', ratio: 20 },
+
+            { reference: 'lootjs:gold_ingot_and_gold_ingot_block', ratio: 5 },
+            { reference: 'lootjs:gold_ingot', ratio: 20 },
+
+            // { reference: 'lootjs:redstone_and_redstone_block', ratio: 5 },
+            // { reference: 'lootjs:redstone', ratio: 20 },
+
+            // { reference: 'lootjs:lapis_and_lapis_block', ratio: 5 },
+            // { reference: 'lootjs:lapis', ratio: 20 },
+
+            { reference: 'lootjs:emerald_and_emerald_block', ratio: 5 },
+            { reference: 'lootjs:emerald', ratio: 20 },
+
+            { reference: 'lootjs:quartz_and_quartz_block', ratio: 5 },
+            { reference: 'lootjs:quartz', ratio: 20 },
+
+            { reference: 'lootjs:raw_zinc_and_raw_zinc_block', ratio: 5 },
+            { reference: 'lootjs:raw_zinc', ratio: 20 },
+
+            { reference: 'lootjs:diamond_and_diamond_block', ratio: 1 },
+            { reference: 'lootjs:diamond', ratio: 4 },
         ]
     },
 
@@ -73,8 +90,7 @@ const woodland_mansion_music = [
     {
         groupName: "jukebox",
         groupWeight: 25,  
-        min: 1,
-        max: 1,
+        min: 1, max: 1,
         items: [
             { id: 'minecraft:jukebox', ratio: 10 },
         ]
@@ -86,29 +102,20 @@ const woodland_mansion_music = [
         groupWeight: 50,
         min: 1, max: 1,
         items: [
-            // { "id": "minecraft:music_disc_pigstep", "ratio": 1},
-            { "id": "minecraft:music_disc_chirp", "ratio": 1},
-            { "id": "minecraft:music_disc_cat", "ratio": 1},
-            { "id": "minecraft:music_disc_mellohi", "ratio": 1},
-            { "id": "minecraft:music_disc_far", "ratio": 1},
-            { "id": "minecraft:music_disc_blocks", "ratio": 1},
-            { "id": "minecraft:music_disc_relic", "ratio": 1},
-            { "id": "minecraft:music_disc_strad", "ratio": 1},
-            { "id": "minecraft:music_disc_otherside", "ratio": 1},
-            { "id": "minecraft:music_disc_stal", "ratio": 1},
-            { "id": "minecraft:music_disc_mall", "ratio": 1},
-            { "id": "minecraft:music_disc_13", "ratio": 1},
-            { "id": "minecraft:music_disc_11", "ratio": 1},
-            { "id": "minecraft:music_disc_ward", "ratio": 1},
-            { "id": "minecraft:music_disc_wait", "ratio": 1},
-            { "id": "minecraft:music_disc_5", "ratio": 1},
-
-            { "id": "supplementaries:music_disc_heave_ho", "ratio": 1},
-            { "id": "takesapillage:music_disc_bastille_blues", "ratio": 1},
-            { "id": "berry_good:music_disc_fox", "ratio": 1},
-            { "id": "aeronautics:music_disc_cloud_skipper", "ratio": 1},
-            { "id": "immersiveenchanting:music_disc_biblioclasm", "ratio": 1},
-            { "id": "immersiveenchanting:music_disc_arcane_memories", "ratio": 1},
+            { id: "minecraft:music_disc_13", ratio: 10 },
+            { id: "minecraft:music_disc_cat", ratio: 10 },
+            { id: "minecraft:music_disc_blocks", ratio: 10 },
+            { id: "minecraft:music_disc_chirp", ratio: 10 },
+            { id: "minecraft:music_disc_far", ratio: 10 },
+            { id: "minecraft:music_disc_mall", ratio: 10 },
+            { id: "minecraft:music_disc_mellohi", ratio: 10 },
+            { id: "minecraft:music_disc_stal", ratio: 10 },
+            { id: "minecraft:music_disc_strad", ratio: 10 },
+            { id: "minecraft:music_disc_ward", ratio: 10 },
+            { id: "minecraft:music_disc_11", ratio: 10 },
+            { id: "minecraft:music_disc_wait", ratio: 10 },
+            { id: "minecraft:music_disc_otherside", ratio: 10 },
+            
         ]
     },
 ];
@@ -246,15 +253,15 @@ const woodland_mansion_alcohol = [
         groupWeight: 25,
         min: 1, max: 1,
         items: [
-            { id: "brewinandchewin:dread_nog", "ratio": 1 },
-            // { id: "kaleidoscope_tavern:rum", "ratio": 1, jsonFunction:{"function": "kaleidoscope_tavern:brew_level=6"} },
-            { id: 'minecraft:ominous_bottle', "ratio": 1 },
+            { id: "brewinandchewin:dread_nog", ratio: 1 },
+            // { id: "kaleidoscope_tavern:rum", ratio: 1, jsonFunction:{"function": "kaleidoscope_tavern:brew_level=6"} },
+            { id: 'minecraft:ominous_bottle', ratio: 1 },
 
         ]
     },
 ];
 
-const all_village_house_special_dish = [
+const woodland_mansion_all_village_house_special_dish = [
     {
         groupName: "desert_house",
         groupWeight: 10, 
@@ -323,6 +330,75 @@ const all_village_house_special_dish = [
     // }
 ];
 
+const woodland_mansion_all_village_house_common_dish = [
+    {
+        groupName: "desert_house",
+        groupWeight: 10, 
+        min: 2, max: 3,
+        items: village_desert_dish.find(group => group.groupName === "common").items
+    },
+    {
+        groupName: "plains_house_europe",
+        groupWeight: 10, 
+        min: 2, max: 3,
+        items: village_plains_dish.find(group => group.groupName === "common europe").items
+    },
+    {
+        groupName: "plains_house_asia",
+        groupWeight: 10, 
+        min: 2, max: 3,
+        items: village_plains_dish.find(group => group.groupName === "common asia").items
+    },
+    {
+        groupName: "savanna_house",
+        groupWeight: 10, 
+        min: 2, max: 3,
+        items: village_savanna_dish.find(group => group.groupName === "common").items
+    },
+    {
+        groupName: "snowy_house",
+        groupWeight: 10, 
+        min: 2, max: 3,
+        items: village_snowy_dish.find(group => group.groupName === "common").items
+    },
+    // {
+    //     groupName: "taiga_house",
+    //     groupWeight: 10, 
+    //     min: 2, max: 3,
+    //     items: village_taiga_dish.find(group => group.groupName === "common").items
+    // },
+    // {
+    //     groupName: "dark_forest_house",
+    //     groupWeight: 10, 
+    //     min: 2, max: 3,
+    //     items: village_dark_forest_dish.find(group => group.groupName === "common").items
+    // },
+    // {
+    //     groupName: "mushroom_house",
+    //     groupWeight: 15, 
+    //     min: 2, max: 3,
+    //     items: village_mushroom_dish.find(group => group.groupName === "common").items
+    // },
+    // {
+    //     groupName: "swamp_house",
+    //     groupWeight: 10, 
+    //     min: 2, max: 3,
+    //     items: village_swamp_dish.find(group => group.groupName === "common").items
+    // },
+    // {
+    //     groupName: "jungle_house",
+    //     groupWeight: 10, 
+    //     min: 2, max: 3,
+    //     items: village_jungle_dish.find(group => group.groupName === "common").items
+    // },
+    // {
+    //     groupName: "ocean_house",
+    //     groupWeight: 10, 
+    //     min: 2, max: 3,
+    //     items: village_ocean_dish.find(group => group.groupName === "common").items
+    // }
+];
+
 const woodland_mansion_enchanted_book = [
     {
         groupName: "pillager",
@@ -356,8 +432,8 @@ const woodland_mansion_weapon_content = [
 
 // 2. treasure
 const woodland_mansion_treasure_content = [
-    [woodland_mansion_Treasure, 4, 4],
-    [woodland_mansion_ore, 3, 4],
+    [woodland_mansion_treasure, 2, 3],
+    [woodland_mansion_ore, 2, 3],
     [woodland_mansion_enchanted_book, 1, 1],
 ];
 
@@ -375,8 +451,10 @@ const woodland_mansion_wools_and_dyes_content = [
 
 // 5. cuisine
 const woodland_mansion_cuisine_content = [
-    [all_village_house_special_dish, 3, 4],
-    [woodland_mansion_alcohol, 2, 3],
+    [woodland_mansion_all_village_house_special_dish, 2, 3],
+    [woodland_mansion_all_village_house_common_dish, 2, 3],
+    [woodland_mansion_alcohol, 0, 1],
+    [common_cooking_equipment, 1, 1],
 ];
 
 const loot_woodland_mansion = [

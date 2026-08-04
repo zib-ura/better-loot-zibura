@@ -10,33 +10,55 @@ const village_jungle_base_crops = [
         min: 2, max: 3,
         items: [
             { reference: 'lootjs:wheat_seeds', ratio: 5 },
-            { reference: 'lootjs:wheat_and_wheat_block', ratio: 20 },
+            { reference: 'lootjs:wheat', ratio: 10 },
+            { reference: 'lootjs:wheat_and_wheat_block', ratio: 10 },
 
             { reference: 'lootjs:melon_seeds', ratio: 5 },
-            { reference: 'lootjs:melon_slice_and_melon_slice_block', ratio: 20 },
+            { reference: 'lootjs:melon_slice', ratio: 10 },
+            { reference: 'lootjs:melon_slice_and_melon_slice_block', ratio: 10 },
 
             // { reference: 'lootjs:pumpkin_seeds', ratio: 5 },
-            // { reference: 'lootjs:pumpkin_slice_and_pumpkin_slice_block', ratio: 20 },
+            // { reference: 'lootjs:pumpkin_slice', ratio: 10 },
+            // { reference: 'lootjs:pumpkin_slice_and_pumpkin_slice_block', ratio: 10 },
 
-            { reference: 'lootjs:cocoabeans_and_cocoabeans_block', ratio: 25 },
+            { reference: 'lootjs:cocoabeans', ratio: 15 },
+            { reference: 'lootjs:cocoabeans_and_cocoabeans_block', ratio: 10 },
 
-            { reference: 'lootjs:raw_coffee_beans_and_raw_coffee_beans_block', ratio: 25 },
-            // { reference: 'lootjs:roasted_coffee_beans_and_roasted_coffee_beans_block', ratio: 25 },
+            { reference: 'lootjs:raw_coffee_beans', ratio: 15 },
+            { reference: 'lootjs:raw_coffee_beans_and_raw_coffee_beans_block', ratio: 10 },
+            // { reference: 'lootjs:roasted_coffee_beans', ratio: 15 },
+            // { reference: 'lootjs:roasted_coffee_beans_and_roasted_coffee_beans_block', ratio: 10 },
 
-            { reference: 'lootjs:avocado_and_avocado_block', ratio: 20 },
             { reference: 'lootjs:avocado_sapling', ratio: 5 },
+            { reference: 'lootjs:avocado', ratio: 10 },
+            { reference: 'lootjs:avocado_and_avocado_block', ratio: 10 },
 
-            { reference: 'lootjs:cranberry_and_cranberry_block', ratio: 25 },
+            { reference: 'lootjs:cranberry', ratio: 15 },
+            { reference: 'lootjs:cranberry_and_cranberry_block', ratio: 10 },
+
             { reference: 'lootjs:durian_sapling', ratio: 5 },
-            { reference: 'lootjs:durian_flesh_and_durian_flesh_block', ratio: 20 },
+            { reference: 'lootjs:durian_flesh', ratio: 10 },
+            { reference: 'lootjs:durian_flesh_and_durian_flesh_block', ratio: 10 },
+
             { reference: 'lootjs:lychee_sapling', ratio: 5 },
-            { reference: 'lootjs:lychee_and_lychee_block', ratio: 20 },
+            { reference: 'lootjs:lychee', ratio: 10 },
+            { reference: 'lootjs:lychee_and_lychee_block', ratio: 10 },
+
             { reference: 'lootjs:mango_sapling', ratio: 5 },
-            { reference: 'lootjs:mango_and_mango_block', ratio: 20 },
+            { reference: 'lootjs:mango', ratio: 10 },
+            { reference: 'lootjs:mango_and_mango_block', ratio: 10 },
+
             { reference: 'lootjs:mangosteen_sapling', ratio: 5 },
-            { reference: 'lootjs:mangosteen_and_mangosteen_block', ratio: 20 },
+            { reference: 'lootjs:mangosteen', ratio: 10 },
+            { reference: 'lootjs:mangosteen_and_mangosteen_block', ratio: 10 },
+
             { reference: 'lootjs:peach_sapling', ratio: 5 },
-            { reference: 'lootjs:peach_and_peach_block', ratio: 20 },
+            { reference: 'lootjs:peach', ratio: 10 },
+            { reference: 'lootjs:peach_and_peach_block', ratio: 10 },
+
+            { reference: 'lootjs:banana_frond', ratio: 5 },
+            { reference: 'lootjs:banana', ratio: 10 },
+            { reference: 'lootjs:banana_and_banana_block', ratio: 10 },
         ]
     },
 
@@ -61,11 +83,52 @@ const village_jungle_base_crops = [
             { reference: 'lootjs:lettuce_seeds', ratio: 5 },
             { reference: 'lootjs:lettuce', ratio: 20 },
 
-            { reference: 'lootjs:egg', ratio: 25 },
         ]
     },
 ]
 
+// jungle crops
+const jungle_seed_type = [
+// common
+    'wheat_seeds',
+    'melon_seeds',
+    'cocoabeans',
+    'raw_coffee_beans',
+    'avocado_sapling',
+    'cranberry',
+    'durian_sapling',
+    'lychee_sapling',
+    'mango_sapling',
+    'mangosteen_sapling',
+    'peach_sapling',
+    'banana_frond',
+
+// special
+    'rice',
+    'tomato_seeds',
+    'potato',
+    'onion',
+    'cabbage_seeds',
+    'lettuce_seeds',
+    'pale_bell_pepper_seeds',
+    'dark_bell_pepper_seeds',
+];
+
+const village_jungle_seed_bag = [
+    {
+        groupName: "bundle",
+        groupWeight: 50, 
+        min: 1, max: 1,
+        items: getSeedBagConfig('minecraft:bundle', jungle_seed_type, 2)
+    },
+    {
+        groupName: "empty",
+        groupWeight: 50,
+        items: [
+            { id: "empty" },
+        ]
+    },
+];
 
 const village_jungle_essential_wealth_equipment = [
     {
@@ -99,7 +162,7 @@ const village_jungle_dish = [
     {
         groupName: "common",
         groupWeight: 70,
-        min: 2, max: 3,
+        min: 1, max: 2,
         items: [
             { id: 'minecraft:bread', ratio: 10 },
 
@@ -126,7 +189,7 @@ const village_jungle_dish = [
     {
         groupName: "special",
         groupWeight: 30, 
-        min: 2, max: 3,
+        min: 1, max: 2,
         items: [
 
             { id: 'youkaisfeasts:kaguya_hime', ratio: 10 },
@@ -143,8 +206,8 @@ const village_jungle_dish = [
 const village_jungle_drinks = [
     {
         groupName: "juice",
-        groupWeight: 5,
-        min: 1, max: 2,
+        groupWeight: 50,
+        min: 1, max: 1,
         items: [
             { id: 'minecraft:potion', ratio: 10 , potion: "minecraft:water" }, 
 
@@ -163,6 +226,13 @@ const village_jungle_drinks = [
 
         ]
     },
+    {   
+        groupName: "empty",
+        groupWeight: 50, 
+        items: [
+            { id: 'empty'},
+        ]
+    },
 ]
 
 // =================================================================
@@ -176,10 +246,16 @@ const village_jungle_bakery_products = [
         min: 1, max: 1,
         items: [
             { id: 'vanillacookbook:chocolate_cake', ratio: 10 },
+            { id: 'neapolitan:chocolate_cake', ratio: 10 },
             { id: 'bakery:chocolate_cake', ratio: 10 },
             { id: 'vanillacookbook:cheesecake', ratio: 10 },
             { id: 'vanillacookbook:ice_cream_cake', ratio: 10 },
             { id: 'rusticdelight:chocolate_pancakes', ratio: 10 },
+
+            { id: 'neapolitan:banana_cake', ratio: 10 },
+
+
+            
         ]
     },
 
@@ -213,10 +289,11 @@ const village_jungle_bakery_products = [
     {
         groupName: "jungle_dessert_teatime_treats_slices",
         groupWeight: 15,
-        min: 3, max: 4,
+        min: 2, max: 3,
         items: [
             { id: 'minecraft:cookie'},
             { id: 'vanillacookbook:chocolate', ratio: 10 },
+            { id: 'neapolitan:chocolate_bar', ratio: 10 },
             { id: 'bakery:chocolate_truffle', ratio: 10 },   
             { id: 'brewinandchewin:cocoa_fudge', ratio: 10 }, 
             { id: 'vanillacookbook:brownie', ratio: 10 },
@@ -234,13 +311,14 @@ const village_jungle_bakery_products = [
             { id: 'rusticdelight:chocolate_pancake', ratio: 10 },
 
             { id: 'rusticdelight:fruit_beignet', ratio: 10 },
+            { id: 'neapolitan:cocoa_fudge', ratio: 10 },
         ]
     },
 
     {
         groupName: "jungle_bread",
         groupWeight: 15,
-        min: 3, max: 4,
+        min: 2, max: 3,
         items: [
             { id: 'minecraft:bread', ratio: 10 },
             { id: 'kitchenkarrot:chocolate_croissant', ratio: 10 },
@@ -253,7 +331,7 @@ const village_jungle_bakery_baking_material = [
     {
         groupName: "baking_material",
         groupWeight: 15,
-        min: 3, max: 4,
+        min: 2, max: 3,
         items: basic_baking_material
         
     },
@@ -279,16 +357,17 @@ const village_jungle_bakery_baking_material = [
 // =================================================================
 const village_jungle_house_content = [
     [village_jungle_base_crops, 2, 2],
+    [village_jungle_seed_bag, 1, 1],
     [village_jungle_dish, 1, 1],
     [village_jungle_essential_wealth_equipment, 1, 1],
-    [common_cooking_equipment, 1, 1],
-    [village_jungle_drinks, 1, 2],
+    [village_cooking_equipment_less, 1, 1],
+    [village_jungle_drinks, 1, 1],
 ];
 
 const village_jungle_bakery_content = [
 
     [village_jungle_bakery_products, 2, 2],
-    [village_jungle_bakery_baking_material, 3, 3],
+    [village_jungle_bakery_baking_material, 2, 3],
     [village_smith_small_iron_knife, 1, 1],
 
 ];

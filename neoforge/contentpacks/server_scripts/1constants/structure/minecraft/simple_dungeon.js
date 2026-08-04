@@ -42,11 +42,7 @@ const simple_dungeon_equipment = [
     {
         groupName: "rare_armors",
         groupWeight: 20,
-        min: 1, 
-        max: 1, 
-        enchantChance: 0.7, 
-        enchantLevels: [20, 30], 
-        damage: [0.2, 0.3],
+        min: 1, max: 1, enchantChance: 0.7, enchantLevels: [20, 30], damage: [0.2, 0.3],
         items: [
             { id: 'immersive_armors:divine_helmet', ratio: 1.5 },
             { id: 'immersive_armors:divine_chestplate', ratio: 1.5 },
@@ -56,39 +52,31 @@ const simple_dungeon_equipment = [
             { id: 'minecraft:diamond_helmet', ratio: 1.5 },
             { id: 'minecraft:diamond_chestplate', ratio: 1.5 },
             { id: 'minecraft:diamond_leggings', ratio: 1.5 },
-            { id: 'minecraft:diamond_boots', ratio: 1.5 }
+            { id: 'minecraft:diamond_boots', ratio: 1.5 },
         ]
     },
 
     {
         groupName: "common_weapons",
         groupWeight: 80,
-        min: 1, 
-        max: 1, 
-        enchantChance: 0.5, 
-        enchantLevels: [10, 15], 
-        damage: [0.7, 0.8],
+        min: 1, max: 1, enchantChance: 0.5, enchantLevels: [10, 15], damage: [0.7, 0.8],
         items: [
             { id: 'minecraft:iron_sword', ratio: 2 },
             { id: 'minecraft:iron_axe', ratio: 2 },
             { id: 'minecraft:stone_sword', ratio: 2 },
-            { id: 'minecraft:stone_axe', ratio: 2 }
+            { id: 'minecraft:stone_axe', ratio: 2 },
         ]
     },
 
     {
         groupName: "rare_weapons", 
         groupWeight: 20,
-        min: 1, 
-        max: 1, 
-        enchantChance: 0.7, 
-        enchantLevels: [20, 30], 
-        damage: [0.2, 0.3],
+        min: 1, max: 1, enchantChance: 0.7, enchantLevels: [20, 30], damage: [0.2, 0.3],
         items: [
             { id: 'minecraft:diamond_sword', ratio: 1.5 },
-            { id: 'minecraft:diamond_axe', ratio: 1.5 }
+            { id: 'minecraft:diamond_axe', ratio: 1.5 },
         ]
-    }
+    },
 ];
 
 const simple_dungeon_resources_treasure = [
@@ -110,7 +98,7 @@ const simple_dungeon_resources_treasure = [
     {
         groupName: "drops",
         groupWeight: 90,
-        min: 3, max: 4,
+        min: 2, max: 3,
         items: [
             { id: 'minecraft:bone', ratio: 10 },
             { id: 'minecraft:gunpowder', ratio: 10 },
@@ -134,7 +122,7 @@ const simple_dungeon_resources_treasure = [
             
             { id: 'minecraft:golden_apple', ratio: 5 },
             { id: 'trailandtales_delight:golden_lantern_fruit', ratio: 5 },
-            { id: 'minecraft:enchanted_golden_apple', ratio: 5 },
+            { id: 'minecraft:enchanted_golden_apple', ratio: 1 },
             { id: 'mynethersdelight:enchanted_golden_egg', ratio: 5 },
 
 
@@ -143,25 +131,18 @@ const simple_dungeon_resources_treasure = [
 ];
 
 const simple_dungeon_supply = [
-    // {
-    //     groupName: "ore",
-    //     groupWeight: 40,
-    //     min: 2, max: 4, 
+    // {   
+    //     groupName: "empty",
+    //     groupWeight: 50, 
     //     items: [
-    //         { id: 'minecraft:iron_ingot', ratio: 10 },
-    //         { id: 'minecraft:coal', ratio: 15 },
-    //         { id: 'minecraft:copper_ingot', ratio: 10 },
-    //         { id: 'minecraft:lapis_lazuli', ratio: 10 },
-    //         { id: 'minecraft:redstone', ratio: 10 },
-    //         { id: 'create:zinc_ingot', ratio: 10 },
-
+    //         { id: 'empty'},
     //     ]
     // },
 
     {
         groupName: "supply",
         groupWeight: 50,
-        min: 3, max: 4,
+        min: 2, max: 3,
         items: [
             { id: 'minecraft:torch', ratio: 10 },
             { id: 'minecraft:stick', ratio: 10 },
@@ -173,225 +154,15 @@ const simple_dungeon_potion = [
 
     {   
         groupName: "potion_positive",
-        groupWeight: 50, 
+        groupWeight: 80, 
         min: 1, max: 1,
-        items: [
-            // 瞬间治疗
-            { id: 'minecraft:potion', ratio: 10, potion: "minecraft:healing" },
-            { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:healing" },
-            { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:healing" },
-            // 瞬间治疗 II
-            { id: 'minecraft:potion', ratio: 10, potion: "minecraft:strong_healing" },
-            { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:strong_healing" },
-            { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:strong_healing" },
-            // // 再生
-            // { id: 'minecraft:potion', ratio: 10, potion: "minecraft:regeneration" },
-            // { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:regeneration" },
-            // { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:regeneration" },
-            // // 再生 (延长)
-            // { id: 'minecraft:potion', ratio: 10, potion: "minecraft:long_regeneration" },
-            // { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:long_regeneration" },
-            // { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:long_regeneration" },
-            // // 再生 II
-            // { id: 'minecraft:potion', ratio: 10, potion: "minecraft:strong_regeneration" },
-            // { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:strong_regeneration" },
-            // { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:strong_regeneration" },
-            // 力量
-            { id: 'minecraft:potion', ratio: 10, potion: "minecraft:strength" },
-            { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:strength" },
-            { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:strength" },
-            // 力量 (延长)
-            { id: 'minecraft:potion', ratio: 10, potion: "minecraft:long_strength" },
-            { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:long_strength" },
-            { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:long_strength" },
-            // 力量 II
-            { id: 'minecraft:potion', ratio: 10, potion: "minecraft:strong_strength" },
-            { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:strong_strength" },
-            { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:strong_strength" },
-            // 迅捷
-            { id: 'minecraft:potion', ratio: 10, potion: "minecraft:swiftness" },
-            { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:swiftness" },
-            { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:swiftness" },
-            // 迅捷 (延长)
-            { id: 'minecraft:potion', ratio: 10, potion: "minecraft:long_swiftness" },
-            { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:long_swiftness" },
-            { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:long_swiftness" },
-            // 迅捷 II
-            { id: 'minecraft:potion', ratio: 10, potion: "minecraft:strong_swiftness" },
-            { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:strong_swiftness" },
-            { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:strong_swiftness" },
-            // 抗火
-            { id: 'minecraft:potion', ratio: 10, potion: "minecraft:fire_resistance" },
-            { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:fire_resistance" },
-            { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:fire_resistance" },
-            // 抗火 (延长)
-            { id: 'minecraft:potion', ratio: 10, potion: "minecraft:long_fire_resistance" },
-            { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:long_fire_resistance" },
-            { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:long_fire_resistance" },
-            // 夜视
-            { id: 'minecraft:potion', ratio: 10, potion: "minecraft:night_vision" },
-            { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:night_vision" },
-            { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:night_vision" },
-            // 夜视 (延长)
-            { id: 'minecraft:potion', ratio: 10, potion: "minecraft:long_night_vision" },
-            { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:long_night_vision" },
-            { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:long_night_vision" },
-            // 隐形
-            { id: 'minecraft:potion', ratio: 10, potion: "minecraft:invisibility" },
-            { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:invisibility" },
-            { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:invisibility" },
-            // 隐形 (延长)
-            { id: 'minecraft:potion', ratio: 10, potion: "minecraft:long_invisibility" },
-            { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:long_invisibility" },
-            { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:long_invisibility" },
-            // 水下呼吸
-            { id: 'minecraft:potion', ratio: 10, potion: "minecraft:water_breathing" },
-            { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:water_breathing" },
-            { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:water_breathing" },
-            // 水下呼吸 (延长)
-            { id: 'minecraft:potion', ratio: 10, potion: "minecraft:long_water_breathing" },
-            { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:long_water_breathing" },
-            { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:long_water_breathing" },
-            // 跳跃提升
-            { id: 'minecraft:potion', ratio: 10, potion: "minecraft:leaping" },
-            { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:leaping" },
-            { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:leaping" },
-            // 跳跃提升 (延长)
-            { id: 'minecraft:potion', ratio: 10, potion: "minecraft:long_leaping" },
-            { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:long_leaping" },
-            { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:long_leaping" },
-            // 跳跃提升 II
-            { id: 'minecraft:potion', ratio: 10, potion: "minecraft:strong_leaping" },
-            { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:strong_leaping" },
-            { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:strong_leaping" },
-            // 缓降
-            { id: 'minecraft:potion', ratio: 10, potion: "minecraft:slow_falling" },
-            { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:slow_falling" },
-            { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:slow_falling" },
-            // 缓降 (延长)
-            { id: 'minecraft:potion', ratio: 10, potion: "minecraft:long_slow_falling" },
-            { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:long_slow_falling" },
-            { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:long_slow_falling" },
-            // 幸运
-            { id: 'minecraft:potion', ratio: 10, potion: "minecraft:luck" },
-            { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:luck" },
-            { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:luck" }
-        ]
+        items: all_positive_potion_item
     },
-
-
     {   
         groupName: "potion_negative",
-        groupWeight: 50, 
+        groupWeight: 20, 
         min: 1, max: 1,
-        items: [
-            // 瞬间伤害
-            { id: 'minecraft:potion', ratio: 10, potion: "minecraft:harming" },
-            { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:harming" },
-            { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:harming" },
-            // 瞬间伤害 II
-            { id: 'minecraft:potion', ratio: 10, potion: "minecraft:strong_harming" },
-            { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:strong_harming" },
-            { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:strong_harming" },
-            // 中毒
-            { id: 'minecraft:potion', ratio: 10, potion: "minecraft:poison" },
-            { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:poison" },
-            { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:poison" },
-            // 中毒 (延长)
-            { id: 'minecraft:potion', ratio: 10, potion: "minecraft:long_poison" },
-            { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:long_poison" },
-            { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:long_poison" },
-            // 中毒 II
-            { id: 'minecraft:potion', ratio: 10, potion: "minecraft:strong_poison" },
-            { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:strong_poison" },
-            { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:strong_poison" },
-            // 缓慢
-            { id: 'minecraft:potion', ratio: 10, potion: "minecraft:slowness" },
-            { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:slowness" },
-            { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:slowness" },
-            // 缓慢 (延长)
-            { id: 'minecraft:potion', ratio: 10, potion: "minecraft:long_slowness" },
-            { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:long_slowness" },
-            { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:long_slowness" },
-            // 缓慢 II
-            { id: 'minecraft:potion', ratio: 10, potion: "minecraft:strong_slowness" },
-            { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:strong_slowness" },
-            { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:strong_slowness" },
-            // 虚弱
-            { id: 'minecraft:potion', ratio: 10, potion: "minecraft:weakness" },
-            { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:weakness" },
-            { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:weakness" },
-            // 虚弱 (延长)
-            { id: 'minecraft:potion', ratio: 10, potion: "minecraft:long_weakness" },
-            { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:long_weakness" },
-            { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:long_weakness" },
-            // 神龟药水
-            { id: 'minecraft:potion', ratio: 10, potion: "minecraft:turtle_master" },
-            { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:turtle_master" },
-            { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:turtle_master" },
-            // 神龟药水 (延长)
-            { id: 'minecraft:potion', ratio: 10, potion: "minecraft:long_turtle_master" },
-            { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:long_turtle_master" },
-            { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:long_turtle_master" },
-            // 神龟药水 II
-            { id: 'minecraft:potion', ratio: 10, potion: "minecraft:strong_turtle_master" },
-            { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:strong_turtle_master" },
-            { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:strong_turtle_master" },
-            // // 渗粘 (1.21+)
-            // { id: 'minecraft:potion', ratio: 10, potion: "minecraft:oozing" },
-            // { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:oozing" },
-            // { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:oozing" },
-            // // 异虫 (1.21+)
-            // { id: 'minecraft:potion', ratio: 10, potion: "minecraft:infested" },
-            // { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:infested" },
-            // { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:infested" },
-            // // 织网 (1.21+)
-            // { id: 'minecraft:potion', ratio: 10, potion: "minecraft:weaving" },
-            // { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:weaving" },
-            // { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:weaving" },
-            // // 风袭 (1.21+)
-            // { id: 'minecraft:potion', ratio: 10, potion: "minecraft:wind_charged" },
-            // { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:wind_charged" },
-            // { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:wind_charged" },
-
-            // // 📥 模组负面药水组
-            // // crabbersdelight:inky_potion
-            // { id: 'minecraft:potion', ratio: 10, potion: "crabbersdelight:inky_potion" },
-            // { id: 'minecraft:splash_potion', ratio: 10, potion: "crabbersdelight:inky_potion" },
-            // { id: 'minecraft:lingering_potion', ratio: 10, potion: "crabbersdelight:inky_potion" },
-            // // rationcraft:im_very_hungry
-            // { id: 'minecraft:potion', ratio: 10, potion: "rationcraft:im_very_hungry" },
-            // { id: 'minecraft:splash_potion', ratio: 10, potion: "rationcraft:im_very_hungry" },
-            // { id: 'minecraft:lingering_potion', ratio: 10, potion: "rationcraft:im_very_hungry" },
-            // // youkaishomecoming:aphrodisiac
-            // { id: 'minecraft:potion', ratio: 10, potion: "youkaishomecoming:aphrodisiac" },
-            // { id: 'minecraft:splash_potion', ratio: 10, potion: "youkaishomecoming:aphrodisiac" },
-            // { id: 'minecraft:lingering_potion', ratio: 10, potion: "youkaishomecoming:aphrodisiac" },
-            // // vintagedelight:dehydrated
-            // { id: 'minecraft:potion', ratio: 10, potion: "vintagedelight:dehydrated" },
-            // { id: 'minecraft:splash_potion', ratio: 10, potion: "vintagedelight:dehydrated" },
-            // { id: 'minecraft:lingering_potion', ratio: 10, potion: "vintagedelight:dehydrated" },
-            // // youkaishomecoming:hypnosis
-            // { id: 'minecraft:potion', ratio: 10, potion: "youkaishomecoming:hypnosis" },
-            // { id: 'minecraft:splash_potion', ratio: 10, potion: "youkaishomecoming:hypnosis" },
-            // { id: 'minecraft:lingering_potion', ratio: 10, potion: "youkaishomecoming:hypnosis" },
-            // // youkaishomecoming:long_hypnosis
-            // { id: 'minecraft:potion', ratio: 10, potion: "youkaishomecoming:long_hypnosis" },
-            // { id: 'minecraft:splash_potion', ratio: 10, potion: "youkaishomecoming:long_hypnosis" },
-            // { id: 'minecraft:lingering_potion', ratio: 10, potion: "youkaishomecoming:long_hypnosis" },
-            // // youkaishomecoming:long_aphrodisiac
-            // { id: 'minecraft:potion', ratio: 10, potion: "youkaishomecoming:long_aphrodisiac" },
-            // { id: 'minecraft:splash_potion', ratio: 10, potion: "youkaishomecoming:long_aphrodisiac" },
-            // { id: 'minecraft:lingering_potion', ratio: 10, potion: "youkaishomecoming:long_aphrodisiac" },
-            // // vintagedelight:long_dehydrated
-            // { id: 'minecraft:potion', ratio: 10, potion: "vintagedelight:long_dehydrated" },
-            // { id: 'minecraft:splash_potion', ratio: 10, potion: "vintagedelight:long_dehydrated" },
-            // { id: 'minecraft:lingering_potion', ratio: 10, potion: "vintagedelight:long_dehydrated" },
-            // // vintagedelight:strong_dehydrated
-            // { id: 'minecraft:potion', ratio: 10, potion: "vintagedelight:strong_dehydrated" },
-            // { id: 'minecraft:splash_potion', ratio: 10, potion: "vintagedelight:strong_dehydrated" },
-            // { id: 'minecraft:lingering_potion', ratio: 10, potion: "vintagedelight:strong_dehydrated" }
-        ]
+        items: all_negative_potion_item
     },
     {   
         groupName: "empty",
@@ -459,7 +230,66 @@ const simple_dungeon_enchanted_book = [
         groupName: "empty",
         groupWeight: 50,
         items: [
-            { "id": "empty" },
+            { id: "empty" },
+        ]
+    },
+];
+
+
+const simple_dungeon_smithing_templates_common = [
+    {
+        groupName: "Smithing Templates",
+        groupWeight: 25,  
+        min: 1, max: 1,
+        items: [
+            { id: 'minecraft:host_armor_trim_smithing_template', ratio: 10 },
+            { id: 'minecraft:raiser_armor_trim_smithing_template', ratio: 10 },
+            { id: 'minecraft:sentry_armor_trim_smithing_template', ratio: 10 },
+            { id: 'minecraft:shaper_armor_trim_smithing_template', ratio: 10 },
+            { id: 'minecraft:wayfinder_armor_trim_smithing_template', ratio: 10 },
+            { id: 'minecraft:wild_armor_trim_smithing_template', ratio: 10 },
+            { id: 'supplementaries:blast_armor_trim_smithing_template', ratio: 10 },
+        ]
+    },
+
+    {
+        groupName: "empty",
+        groupWeight: 50,
+        items: [
+            { id: "empty" },
+        ]
+    },
+];
+
+const simple_dungeon_music_discs = [
+    {
+        groupName: "Music Discs",
+        groupWeight: 25,
+        min: 1, max: 1,
+        items: [
+            { id: "minecraft:music_disc_13", ratio: 10 },
+            { id: "minecraft:music_disc_cat", ratio: 10 },
+            { id: "minecraft:music_disc_blocks", ratio: 10 },
+            { id: "minecraft:music_disc_chirp", ratio: 10 },
+            { id: "minecraft:music_disc_far", ratio: 10 },
+            { id: "minecraft:music_disc_mall", ratio: 10 },
+            { id: "minecraft:music_disc_mellohi", ratio: 10 },
+            { id: "minecraft:music_disc_stal", ratio: 10 },
+            { id: "minecraft:music_disc_strad", ratio: 10 },
+            { id: "minecraft:music_disc_ward", ratio: 10 },
+            { id: "minecraft:music_disc_11", ratio: 10 },
+            { id: "minecraft:music_disc_wait", ratio: 10 },
+            { id: "minecraft:music_disc_otherside", ratio: 10 },
+
+
+        ]
+    },
+
+    {
+        groupName: "empty",
+        groupWeight: 50,
+        items: [
+            { id: "empty" },
         ]
     },
 ];
@@ -467,11 +297,11 @@ const simple_dungeon_enchanted_book = [
 // 事件注册区域
 // =================================================================
 const simple_dungeon_content = [
-    [simple_dungeon_equipment, 1, 2],
-    [simple_dungeon_resources_treasure, 3, 4],
-    [shipwreck_treasure_music_discs, 1, 1],
-    [shipwreck_treasure_smithing_templates_common, 1, 1],
-    [simple_dungeon_supply, 3, 4],
+    [simple_dungeon_equipment, 1, 1],
+    [simple_dungeon_resources_treasure, 2, 3],
+    [simple_dungeon_music_discs, 1, 1],
+    [simple_dungeon_smithing_templates_common, 1, 1],
+    [simple_dungeon_supply, 1, 2],
     [simple_dungeon_potion, 1, 1],
     [simple_dungeon_enchanted_book, 1, 1],
 ];

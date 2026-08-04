@@ -1,4 +1,4 @@
-const t_And_T_LootTable = {
+Object.assign(allLootTables, {
     // === 村庄特殊地形房屋 (Village Houses) ===
     "kaisyn:village/village_badlands_house":          loot_village_badlands_house,
     "kaisyn:village/village_jungle_house":            loot_village_jungle_house,
@@ -20,6 +20,4 @@ const t_And_T_LootTable = {
     "kaisyn:outpost/exclusives/outpost_beach_barrel":         loot_village_beach_house,
     // "kaisyn:outpost/exclusives/outpost_mediterranean_barrel": loot_village_plains_house,
     // "kaisyn:outpost/exclusives/outpost_rustic_barrel":        loot_village_plains_house,
-}
-
-registerLootTables(t_And_T_LootTable);
+})

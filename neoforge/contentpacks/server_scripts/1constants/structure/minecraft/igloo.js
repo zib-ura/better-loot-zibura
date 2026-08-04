@@ -65,18 +65,18 @@ const igloo_product = [
             { id: 'minecraft:potion', ratio: 10, potion: "minecraft:strong_healing" },
             { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:strong_healing" },
             { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:strong_healing" },
-            // // 再生
-            // { id: 'minecraft:potion', ratio: 10, potion: "minecraft:regeneration" },
-            // { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:regeneration" },
-            // { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:regeneration" },
-            // // 再生 (延长)
-            // { id: 'minecraft:potion', ratio: 10, potion: "minecraft:long_regeneration" },
-            // { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:long_regeneration" },
-            // { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:long_regeneration" },
-            // // 再生 II
-            // { id: 'minecraft:potion', ratio: 10, potion: "minecraft:strong_regeneration" },
-            // { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:strong_regeneration" },
-            // { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:strong_regeneration" },
+            // 再生
+            { id: 'minecraft:potion', ratio: 10, potion: "minecraft:regeneration" },
+            { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:regeneration" },
+            { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:regeneration" },
+            // 再生 (延长)
+            { id: 'minecraft:potion', ratio: 10, potion: "minecraft:long_regeneration" },
+            { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:long_regeneration" },
+            { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:long_regeneration" },
+            // 再生 II
+            { id: 'minecraft:potion', ratio: 10, potion: "minecraft:strong_regeneration" },
+            { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:strong_regeneration" },
+            { id: 'minecraft:lingering_potion', ratio: 10, potion: "minecraft:strong_regeneration" },
             // 力量
             { id: 'minecraft:potion', ratio: 10, potion: "minecraft:strength" },
             { id: 'minecraft:splash_potion', ratio: 10, potion: "minecraft:strength" },

@@ -2,8 +2,7 @@ const buried_treasure_valuables = [
     {
         groupName: "Valuable Cargo",
         groupWeight: 25,
-        min: 1,
-        max: 1,
+        min: 1, max: 1,
         items: [
             { id: 'minecraft:sea_lantern', ratio: 5 },
             { id: 'minecraft:heart_of_the_sea', ratio: 5 },
@@ -17,8 +16,7 @@ const gold_and_diamond_products = [
     {
         groupName: "Gold Products",
         groupWeight: 50,
-        min: 1,
-        max: 1,        
+        min: 1, max: 1,        
         enchantChance: 0.7, 
         enchantLevels: [20, 30], 
         items: [
@@ -43,15 +41,13 @@ const gold_and_diamond_products = [
             { id: 'minecraft:golden_apple', ratio: 10 },        // 金苹果
             { id: 'minecraft:enchanted_golden_apple', ratio: 10 }, // 附魔金苹果
             { id: 'trailandtales_delight:golden_lantern_fruit', ratio: 10 },
-            { id: 'minecraft:enchanted_golden_apple', ratio: 10 },
             { id: 'mynethersdelight:enchanted_golden_egg', ratio: 10 },
         ]
     },
     {
         groupName: "Diamond Products",
         groupWeight: 10,
-        min: 1,
-        max: 1,        
+        min: 1, max: 1,        
         enchantChance: 0.7, 
         enchantLevels: [20, 30], 
         items: [
@@ -78,10 +74,12 @@ const buried_treasure_emerald = [
     {
         groupName: "ingot",
         groupWeight: 25,  
-        min: 1,
-        max: 1,
+        min: 1, max: 1,
         items: [
             { reference: 'lootjs:emerald_and_emerald_block', ratio: 10 },
+            { reference: 'lootjs:emerald', ratio: 10 },
+            { reference: 'lootjs:gold_ingot_and_gold_ingot_block', ratio: 10 },
+            { reference: 'lootjs:gold_ingot', ratio: 10 },
 
         ]
     },
@@ -91,8 +89,7 @@ const buried_treasure_smithing_templates_exclusive = [
     {
         groupName: "Smithing Templates",
         groupWeight: 50,  
-        min: 1,
-        max: 1,
+        min: 1, max: 1,
         items: [
             { id: 'minecraft:coast_armor_trim_smithing_template', ratio: 10 },
             { id: 'minecraft:tide_armor_trim_smithing_template', ratio: 10 },
@@ -103,7 +100,7 @@ const buried_treasure_smithing_templates_exclusive = [
         groupName: "empty",
         groupWeight: 25,
         items: [
-            { "id": "empty" },
+            { id: "empty" },
         ]
     },
 ];
@@ -129,7 +126,7 @@ const buried_treasure_enchanted_book = [
         groupName: "empty",
         groupWeight: 50,
         items: [
-            { "id": "empty" },
+            { id: "empty" },
         ]
     },
 ];

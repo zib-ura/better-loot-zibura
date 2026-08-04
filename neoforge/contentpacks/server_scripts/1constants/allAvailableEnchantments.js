@@ -44,6 +44,7 @@ let enchantmentsWithLevels = [
 
     "kaleidoscope_end:void_assault", 
     "kaleidoscope_end:void_echo",
+    "kaleidoscope_end:void_shot",
 
     "kattersstructures:heavy",
     "kattersstructures:light",

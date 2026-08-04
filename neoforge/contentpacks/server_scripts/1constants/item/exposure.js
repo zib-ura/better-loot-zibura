@@ -10,7 +10,7 @@
 //             {
 //                 id: 'exposure:aged_photograph',
 //                 ratio: 100,
-//                 jsonfunction: {
+//                 jsonFunction: {
 //                     "function": "minecraft:set_components",
 //                     "components": {
 //                         "exposure:photograph_frame": {
@@ -25,7 +25,7 @@
 //             {
 //                 id: 'exposure:aged_photograph',
 //                 ratio: 1,
-//                 jsonfunction: {
+//                 jsonFunction: {
 //                     "function": "minecraft:set_components",
 //                     "components": {
 //                         "exposure:photograph_frame": {
@@ -39,7 +39,7 @@
 //             {
 //                 id: 'exposure:aged_photograph',
 //                 ratio: 1,
-//                 jsonfunction: {
+//                 jsonFunction: {
 //                     "function": "minecraft:set_components",
 //                     "components": {
 //                         "exposure:photograph_frame": {
@@ -53,7 +53,7 @@
 //             {
 //                 id: 'exposure:aged_photograph',
 //                 ratio: 1,
-//                 jsonfunction: {
+//                 jsonFunction: {
 //                     "function": "minecraft:set_components",
 //                     "components": {
 //                         "exposure:photograph_frame": {
@@ -67,7 +67,7 @@
 //             {
 //                 id: 'exposure:aged_photograph',
 //                 ratio: 1,
-//                 jsonfunction: {
+//                 jsonFunction: {
 //                     "function": "minecraft:set_components",
 //                     "components": {
 //                         "exposure:photograph_frame": {
@@ -81,7 +81,7 @@
 //             {
 //                 id: 'exposure:aged_photograph',
 //                 ratio: 1,
-//                 jsonfunction: {
+//                 jsonFunction: {
 //                     "function": "minecraft:set_components",
 //                     "components": {
 //                         "exposure:photograph_frame": {

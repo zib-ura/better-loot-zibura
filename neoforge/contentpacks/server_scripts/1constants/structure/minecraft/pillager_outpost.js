@@ -2,11 +2,10 @@ const pillager_outpost_Special = [
     {
         groupName: "Combat Gear",
         groupWeight: 30,
-        min: 1, max: 1,
+        min: 1, max: 1, enchantChance: 0.0,  damage: [0.2, 0.4],
         items: [
-            { id: 'minecraft:goat_horn', ratio: 10 }, 
-            { id: 'minecraft:crossbow', ratio: 10 , enchantChance: 0.0,  damage: [0.2, 0.8] },
-            { id: 'minecraft:iron_axe', ratio: 10 , enchantChance: 0.0,  damage: [0.2, 0.8] },
+            { id: 'minecraft:crossbow', ratio: 10 },
+            { id: 'minecraft:iron_axe', ratio: 10 },
         ]
     },
 ];
@@ -50,18 +49,18 @@ const pillager_outpost_Supplies = [
             // { id: 'rationcraft:open_breaded_fish', ratio: 10 },
             // { id: 'rationcraft:open_borscht', ratio: 10 },
             { id: 'rationcraft:milk_scho_ka_kola', ratio: 10 },
-            { id: 'rationcraft:iron_cup', ratio: 10 },
+            // { id: 'rationcraft:iron_cup', ratio: 10 },
             { id: 'rationcraft:instant_coffee', ratio: 10 },
-            { id: 'rationcraft:iced_tea', ratio: 10 },
-            { id: 'rationcraft:hot_water_cup', ratio: 10 },
-            { id: 'rationcraft:hot_tea', ratio: 10 },
+            // { id: 'rationcraft:iced_tea', ratio: 10 },
+            // { id: 'rationcraft:hot_water_cup', ratio: 10 },
+            // { id: 'rationcraft:hot_tea', ratio: 10 },
             { id: 'rationcraft:hot_chocolate_mix', ratio: 10 },
-            { id: 'rationcraft:hot_chocolate', ratio: 10 },
+            // { id: 'rationcraft:hot_chocolate', ratio: 10 },
             { id: 'rationcraft:hardtack', ratio: 10 },
             { id: 'rationcraft:glowberry_gum', ratio: 10 },
             { id: 'rationcraft:dummy', ratio: 10 },
             { id: 'rationcraft:dry_sausage', ratio: 10 },
-            { id: 'rationcraft:covfefe', ratio: 10 },
+            // { id: 'rationcraft:covfefe', ratio: 10 },
             { id: 'rationcraft:corned_beef', ratio: 10 },
             { id: 'rationcraft:citrus_drink', ratio: 10 },
             { id: 'rationcraft:citrus_beverage_base', ratio: 10 },
@@ -94,6 +93,7 @@ const pillager_outpost_Supplies = [
             { id: 'kitchenkarrot:canned_beef_potato', ratio: 10 },
             
             { id: 'youkaisfeasts:canned_flesh', ratio: 10 },
+            { id: 'kitchenkarrot:pillager_pie', ratio: 10 },
 
         ]
     },
@@ -126,8 +126,8 @@ const pillager_outpost_Treasure = [
         groupWeight: 30,
         min: 2, max: 3,
         items: [
-            { id: 'minecraft:emerald', ratio: 20 },
-            { id: 'minecraft:gold_ingot', ratio: 15 },
+            { id: 'minecraft:emerald', ratio: 60 },
+            { id: 'minecraft:gold_ingot', ratio: 30 },
             { id: 'minecraft:diamond', ratio: 10 },
         ]
     }
@@ -150,14 +150,14 @@ const pillager_outpost_crate_of_hardtack = [
         groupWeight: 50,
         min: 1, max: 1,
         items: [
-            { id: 'rationcraft:rate_of_hardtack', ratio: 10 }
+            { id: 'rationcraft:crate_of_hardtack', ratio: 10 }
         ]
     },
     {
         groupName: "empty",
         groupWeight: 50,
         items: [
-            { "id": "empty" },
+            { id: "empty" },
         ]
     },
 ]
@@ -184,7 +184,50 @@ const pillager_outpost_enchanted_book = [
         groupName: "empty",
         groupWeight: 80,
         items: [
-            { "id": "empty" },
+            { id: "empty" },
+        ]
+    },
+];
+
+const pillager_outpost_camera = [
+    {
+        groupName: "camera",
+        groupWeight: 50,
+        min: 1, max: 1, damage: [0.9, 0.9],
+        items: [
+            { id: 'touhou_little_maid:camera', ratio: 10 }, 
+        ]
+    },
+    {
+        groupName: "empty",
+        groupWeight: 50,
+        items: [
+            { id: "empty" },
+        ]
+    },
+];
+
+const pillager_outpost_goat_horn = [
+    {
+        groupName: "goat_horn",
+        groupWeight: 50,
+        min: 1, max: 1,
+        // items: [
+        //     { id: 'minecraft:goat_horn', ratio: 10, jsonFunction: { "function": "minecraft:set_components", "components": { "minecraft:instrument": "minecraft:ponder_goat_horn" } } },
+        //     { id: 'minecraft:goat_horn', ratio: 10, jsonFunction: { "function": "minecraft:set_components", "components": { "minecraft:instrument": "minecraft:sing_goat_horn" } } },
+        //     { id: 'minecraft:goat_horn', ratio: 10, jsonFunction: { "function": "minecraft:set_components", "components": { "minecraft:instrument": "minecraft:seek_goat_horn" } } },
+        //     { id: 'minecraft:goat_horn', ratio: 10, jsonFunction: { "function": "minecraft:set_components", "components": { "minecraft:instrument": "minecraft:feel_goat_horn" } } },
+        // ]
+
+        items: [
+            { id: 'minecraft:goat_horn', ratio: 10, jsonFunction: { "function": "minecraft:set_instrument", "options": "#minecraft:regular_goat_horns" } },
+        ]
+    },
+    {
+        groupName: "empty",
+        groupWeight: 50,
+        items: [
+            { id: "empty" },
         ]
     },
 ];
@@ -192,11 +235,14 @@ const pillager_outpost_enchanted_book = [
 // 事件注册区域
 // =================================================================
 const pillager_outpost_content = [
-    [pillager_outpost_Treasure, 1, 2],
-    [pillager_outpost_Special, 4, 4],
-    [pillager_outpost_Supplies, 3, 4],
+    [pillager_outpost_Treasure, 0, 1],
+    [pillager_outpost_Special, 2, 3],
+    [pillager_outpost_Supplies, 2, 3],
     [pillager_outpost_crate_of_hardtack, 1, 1],
     [pillager_outpost_enchanted_book, 1, 1],
+    [pillager_outpost_camera, 1, 1],
+    [food_supply, 1, 1],
+    [pillager_outpost_goat_horn, 1, 1],
 ];
 
 const loot_pillager_outpost = [

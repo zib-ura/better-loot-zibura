@@ -24,10 +24,10 @@ $G.createLootTableReference_1_21_1 = function(tableId, lootArray, mode) {
     //     }
     // });
 
-    // 2. 自动化清空原表
-    if (mode === "REPLACE") {
-        clearLootTable([tableId]);
-    }
+    // // 2. 自动化清空原表
+    // if (mode === "REPLACE" && tableId.split(':')[0] !== 'minecraft' && tableId.split(':')[0] !== 'repurposed_structures') {
+    //     clearLootTable([tableId]);
+    // }
     
     LootJS.lootTables(event => {
         // 1. 先计算总权重（决定时间轴的总长度）[cite: 1]
@@ -90,10 +90,10 @@ $G.createLootTableReference_1_20_1 = function(tableId, lootArray, mode) {
     //     }
     // });
 
-    // 2. 自动化清空原表
-    if (mode === "REPLACE") {
-        clearLootTable([tableId]);
-    }
+    // // 2. 自动化清空原表
+    // if (mode === "REPLACE" && tableId.split(':')[0] !== 'minecraft' && tableId.split(':')[0] !== 'repurposed_structures') {
+    //     clearLootTable([tableId]);
+    // }
     
     LootJS.modifiers(event => {
         // 1. 先计算总权重（决定时间轴的总长度）

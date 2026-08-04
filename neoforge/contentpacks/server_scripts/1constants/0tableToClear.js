@@ -23,8 +23,8 @@ const tableToClear = [
         "dumplings_delight:chests/ed_village_taiga_house",
 
         "farmersdelight:chests/fd_abandoned_mineshaft",
-        "farmersdelight:chests/fd_bastion_hoglin_stable",
-        "farmersdelight:chests/fd_bastion_treasure",
+        // "farmersdelight:chests/fd_bastion_hoglin_stable",
+        // "farmersdelight:chests/fd_bastion_treasure",
         "farmersdelight:chests/fd_end_city_treasure",
         "farmersdelight:chests/fd_pillager_outpost",
         "farmersdelight:chests/fd_ruined_portal",
@@ -88,7 +88,7 @@ const tableToClear = [
         "sawmill:chests/village_carpenter_plains",
         "sawmill:chests/village_carpenter_taiga",
 
-
+        "repurposed_structures:chests/lucky_pool",
     ];
 
 clearLootTable(tableToClear);

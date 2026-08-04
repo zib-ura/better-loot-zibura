@@ -18,11 +18,12 @@ const desert_pyramid_ore = [
     {
         groupName: "ore",
         groupWeight: 25,  
-        min: 1,
-        max: 1,
+        min: 1, max: 1,
         items: [
             { reference: 'lootjs:gold_ingot_and_gold_ingot_block', ratio: 10 },
+            { reference: 'lootjs:gold_ingot', ratio: 5 },
             { reference: 'lootjs:emerald_and_emerald_block', ratio: 10 },
+            { reference: 'lootjs:emerald', ratio: 5 },
             { id: 'minecraft:diamond', ratio: 10 },
 
         ]
@@ -33,8 +34,7 @@ const desert_pyramid_smithing_templates = [
     {
         groupName: "Smithing Templates",
         groupWeight: 25,  
-        min: 1,
-        max: 1,
+        min: 1, max: 1,
         items: [
             { id: 'minecraft:dune_armor_trim_smithing_template', ratio: 10 },
         ]
@@ -44,7 +44,7 @@ const desert_pyramid_smithing_templates = [
         groupName: "empty",
         groupWeight: 50,
         items: [
-            { "id": "empty" },
+            { id: "empty" },
         ]
     },
 ];
@@ -103,8 +103,7 @@ const desert_pyramid_gold_nugget = [
     {
         groupName: "gold nugget",
         groupWeight: 25,  
-        min: 1,
-        max: 1,
+        min: 1, max: 1,
         items: [
             { id: 'minecraft:gold_nugget', ratio: 10 },
         ]
@@ -115,8 +114,7 @@ const desert_pyramid_gold_and_diamond_products = [
     {
         groupName: "Gold Products",
         groupWeight: 50,
-        min: 1,
-        max: 1,        
+        min: 1, max: 1,        
         enchantChance: 0.7, 
         enchantLevels: [20, 40], 
         items: [
@@ -137,8 +135,7 @@ const desert_pyramid_gold_and_diamond_products = [
     {
         groupName: "Diamond Products",
         groupWeight: 50,
-        min: 1,
-        max: 1,        
+        min: 1, max: 1,        
         enchantChance: 0.7, 
         enchantLevels: [20, 40], 
         items: [
@@ -164,8 +161,7 @@ const desert_pyramid_gold_and_diamond_repair = [
     {
         groupName: "Gold",
         groupWeight: 50,
-        min: 1,
-        max: 1,        
+        min: 1, max: 1,        
         items: [
             { id: 'minecraft:gold_ingot', ratio: 10 },        // 金锭
         ]
@@ -173,8 +169,7 @@ const desert_pyramid_gold_and_diamond_repair = [
     {
         groupName: "Diamond",
         groupWeight: 50,
-        min: 1,
-        max: 1,        
+        min: 1, max: 1,        
         items: [
             { id: 'minecraft:diamond', ratio: 10 },             // 钻石
         ]
@@ -185,8 +180,7 @@ const desert_pyramid_anvil = [
     {
         groupName: "anvil",
         groupWeight: 50,
-        min: 1,
-        max: 1,        
+        min: 1, max: 1,        
         items: [
             { id: 'minecraft:anvil', ratio: 10 },        // 金锭
         ]
@@ -195,7 +189,7 @@ const desert_pyramid_anvil = [
         groupName: "empty",
         groupWeight: 50,
         items: [
-            { "id": "empty" },
+            { id: "empty" },
         ]
     },
 ];

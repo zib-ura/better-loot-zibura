@@ -1,4 +1,4 @@
-const kattersstructuresLootTable = {
+Object.assign(allLootTables, {
 
     "kattersstructures:chests/birch/armorer":       loot_village_armorer,
     "kattersstructures:chests/birch/cartographer":  loot_village_cartographer,
@@ -104,6 +104,7 @@ const kattersstructuresLootTable = {
     "kattersstructures:chests/underground/toolsmith":     loot_village_toolsmith,
     "kattersstructures:chests/underground/treasures":     loot_village_treasure,
     "kattersstructures:chests/underground/weaponsmith":   loot_village_weaponsmith,
-}
 
-registerLootTables(kattersstructuresLootTable);
+    "kattersstructures:chests/windmill/windmill":   loot_village_farm,
+
+})
