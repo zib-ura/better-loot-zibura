@@ -8,12 +8,12 @@
 //import net.minecraft.resources.ResourceLocation;
 //import net.minecraft.world.level.storage.loot.Deserializers;
 //import net.minecraft.world.level.storage.loot.LootTable;
-//import net.minecraftforge.event.LootTableLoadEvent;
-//import net.minecraftforge.eventbus.api.EventPriority;
-//import net.minecraftforge.eventbus.api.SubscribeEvent;
-//import net.minecraftforge.fml.ModList;
-//import net.minecraftforge.fml.common.Mod;
-//import net.minecraftforge.forgespi.language.IModFileInfo;
+//import net.neoforged.neoforge.event.LootTableLoadEvent;
+//import net.neoforged.neoforge.eventbus.api.EventPriority;
+//import net.neoforged.neoforge.eventbus.api.SubscribeEvent;
+//import net.neoforged.fml.ModList;
+//import net.neoforged.fml.common.Mod;
+//import net.neoforged.neoforge.forgespi.language.IModFileInfo;
 //import org.slf4j.Logger;
 //
 //import java.io.InputStream;

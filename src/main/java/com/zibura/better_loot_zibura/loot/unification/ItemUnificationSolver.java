@@ -4,7 +4,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraft.core.registries.BuiltInRegistries;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -114,7 +114,7 @@ public final class ItemUnificationSolver {
         if (candidates == null) return null;
         for (String id : candidates) {
             ResourceLocation rl = ResourceLocation.tryParse(id);
-            if (rl != null && ForgeRegistries.ITEMS.containsKey(rl)) {
+            if (rl != null && BuiltInRegistries.ITEM.containsKey(rl)) {
                 return id;
             }
         }

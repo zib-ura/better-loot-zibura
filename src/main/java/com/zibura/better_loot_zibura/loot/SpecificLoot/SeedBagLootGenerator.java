@@ -5,7 +5,7 @@
 //import com.zibura.better_loot_zibura.loot.model.AllLevelModel.ItemDTO;
 //import com.google.gson.*;
 //import net.minecraft.resources.ResourceLocation;
-//import net.minecraftforge.registries.ForgeRegistries;
+//import net.neoforged.neoforge.registries.NeoForgeRegistries;
 //
 //import java.util.*;
 //
@@ -59,7 +59,7 @@
 //        List<ItemDTO> bundleList = new ArrayList<>();
 //
 //        ResourceLocation bagLoc = ResourceLocation.tryParse(bagType);
-//        if (bagLoc == null || !ForgeRegistries.ITEMS.containsKey(bagLoc)) {
+//        if (bagLoc == null || !NeoForgeRegistries.ITEMS.containsKey(bagLoc)) {
 //            return bundleList;
 //        }
 //

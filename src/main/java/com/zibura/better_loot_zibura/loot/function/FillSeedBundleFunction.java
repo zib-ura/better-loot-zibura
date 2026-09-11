@@ -1,30 +1,51 @@
 package com.zibura.better_loot_zibura.loot.function;
 
-import com.google.gson.*;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonPrimitive;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.zibura.better_loot_zibura.event.CommonEvents;
 import com.zibura.better_loot_zibura.loot.unification.ItemUnificationSolver;
 import com.zibura.better_loot_zibura.loot.util.LootEvaluationContext;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
-import net.minecraft.util.GsonHelper;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.component.BundleContents;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.functions.LootItemConditionalFunction;
 import net.minecraft.world.level.storage.loot.functions.LootItemFunctionType;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
 
 public class FillSeedBundleFunction extends LootItemConditionalFunction {
 
-    private final String seedTypeKey; // 传入 context key，例如 "plains_seed_type"
-    private final double poolDivisor; // 原 x: 种子池大小的折算比例因子
-    private final int maxDistinctTypes; // 原 y: 允许抽取的最大种子种类上限
+    public static final MapCodec<FillSeedBundleFunction> CODEC = RecordCodecBuilder.mapCodec(instance ->
+            commonFields(instance).and(
+                    instance.group(
+                            Codec.STRING.fieldOf("seed_type_key").forGetter(fn -> fn.seedTypeKey),
+                            Codec.DOUBLE.optionalFieldOf("pool_divisor", 1.0).forGetter(fn -> fn.poolDivisor),
+                            Codec.INT.optionalFieldOf("max_distinct_types", 3).forGetter(fn -> fn.maxDistinctTypes),
+                            Codec.INT.optionalFieldOf("min_count", 1).forGetter(fn -> fn.minCount),
+                            Codec.INT.optionalFieldOf("max_count", 2).forGetter(fn -> fn.maxCount)
+                    )
+            ).apply(instance, FillSeedBundleFunction::new)
+    );
+
+    private final String seedTypeKey;
+    private final double poolDivisor;
+    private final int maxDistinctTypes;
     private final int minCount;
     private final int maxCount;
 
-    protected FillSeedBundleFunction(LootItemCondition[] conditions, String seedTypeKey, double poolDivisor, int maxDistinctTypes, int minCount, int maxCount) {
+    protected FillSeedBundleFunction(List<LootItemCondition> conditions, String seedTypeKey, double poolDivisor, int maxDistinctTypes, int minCount, int maxCount) {
         super(conditions);
         this.seedTypeKey = seedTypeKey;
         this.poolDivisor = poolDivisor;
@@ -34,8 +55,8 @@ public class FillSeedBundleFunction extends LootItemConditionalFunction {
     }
 
     @Override
-    public LootItemFunctionType getType() {
-        return CommonEvents.ModBusEvents.FILL_SEED_BUNDLE;
+    public LootItemFunctionType<FillSeedBundleFunction> getType() {
+        return CommonEvents.ModLootFunctions.FILL_SEED_BUNDLE;
     }
 
     @Override
@@ -57,36 +78,33 @@ public class FillSeedBundleFunction extends LootItemConditionalFunction {
 
         RandomSource random = context.getRandom();
 
-        // 计算最大种类数：min(maxDistinctTypes, floor(size / poolDivisor))
         int calculatedMax = (int) Math.floor((double) validSeeds.size() / this.poolDivisor);
         int maxKinds = Math.min(this.maxDistinctTypes, calculatedMax);
-        maxKinds = Math.max(1, maxKinds); // 防止小于 1
+        maxKinds = Math.max(1, maxKinds);
 
-        // 随机抽取种类数 [1, maxKinds]
         int targetKinds = 1 + random.nextInt(maxKinds);
         targetKinds = Math.min(targetKinds, validSeeds.size());
 
-        // 打乱并选取 targetKinds 个不重复种子
         Collections.shuffle(validSeeds, new Random(random.nextLong()));
         List<String> selectedSeeds = validSeeds.subList(0, targetKinds);
 
-        // 写入 Bundle 的 Items NBT
-        CompoundTag tag = stack.getOrCreateTag();
-        ListTag itemsTag = new ListTag();
+        // 1.21.1 Data Components: 构建收纳袋物品列表
+        List<ItemStack> bundleItems = new ArrayList<>();
 
         for (String seedId : selectedSeeds) {
-            CompoundTag itemTag = new CompoundTag();
-            itemTag.putString("id", seedId);
-
-            // 数量在 [minCount, maxCount] 之间随机
-            int countRange = Math.max(1, this.maxCount - this.minCount + 1);
-            int count = this.minCount + random.nextInt(countRange);
-            itemTag.putByte("Count", (byte) count);
-
-            itemsTag.add(itemTag);
+            ResourceLocation itemLoc = ResourceLocation.tryParse(seedId);
+            if (itemLoc != null) {
+                Item item = BuiltInRegistries.ITEM.get(itemLoc);
+                if (item != null && item != BuiltInRegistries.ITEM.get(BuiltInRegistries.ITEM.getDefaultKey())) {
+                    int countRange = Math.max(1, this.maxCount - this.minCount + 1);
+                    int count = this.minCount + random.nextInt(countRange);
+                    bundleItems.add(new ItemStack(item, count));
+                }
+            }
         }
 
-        tag.put("Items", itemsTag);
+        // 写入收纳袋组件
+        stack.set(DataComponents.BUNDLE_CONTENTS, new BundleContents(bundleItems));
         return stack;
     }
 
@@ -101,33 +119,5 @@ public class FillSeedBundleFunction extends LootItemConditionalFunction {
             }
         } catch (Exception ignored) {}
         return result;
-    }
-
-    public static class Serializer extends LootItemConditionalFunction.Serializer<FillSeedBundleFunction> {
-        @Override
-        public void serialize(JsonObject json, FillSeedBundleFunction func, JsonSerializationContext context) {
-            super.serialize(json, func, context);
-            json.addProperty("seed_type_key", func.seedTypeKey);
-            json.addProperty("pool_divisor", func.poolDivisor);
-            json.addProperty("max_distinct_types", func.maxDistinctTypes);
-            json.addProperty("min_count", func.minCount);
-            json.addProperty("max_count", func.maxCount);
-        }
-
-        @Override
-        public FillSeedBundleFunction deserialize(JsonObject json, JsonDeserializationContext context, LootItemCondition[] conditions) {
-            String key = GsonHelper.getAsString(json, "seed_type_key");
-            // 兼容旧键名 "x" 与新键名 "pool_divisor"
-            double poolDivisor = json.has("pool_divisor")
-                    ? GsonHelper.getAsDouble(json, "pool_divisor")
-                    : GsonHelper.getAsDouble(json, "x", 1.0);
-            // 兼容旧键名 "y" 与新键名 "max_distinct_types"
-            int maxDistinctTypes = json.has("max_distinct_types")
-                    ? GsonHelper.getAsInt(json, "max_distinct_types")
-                    : GsonHelper.getAsInt(json, "y", 3);
-            int minCount = GsonHelper.getAsInt(json, "min_count", 1);
-            int maxCount = GsonHelper.getAsInt(json, "max_count", 2);
-            return new FillSeedBundleFunction(conditions, key, poolDivisor, maxDistinctTypes, minCount, maxCount);
-        }
     }
 }

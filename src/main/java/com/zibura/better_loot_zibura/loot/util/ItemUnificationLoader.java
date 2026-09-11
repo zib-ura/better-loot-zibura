@@ -8,9 +8,9 @@
 //import net.minecraft.server.packs.resources.ResourceManager;
 //import net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener;
 //import net.minecraft.util.profiling.ProfilerFiller;
-//import net.minecraftforge.event.AddReloadListenerEvent;
-//import net.minecraftforge.eventbus.api.SubscribeEvent;
-//import net.minecraftforge.fml.common.Mod;
+//import net.neoforged.neoforge.event.AddReloadListenerEvent;
+//import net.neoforged.neoforge.eventbus.api.SubscribeEvent;
+//import net.neoforged.fml.common.Mod;
 //
 //import java.util.Map;
 //

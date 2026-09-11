@@ -5,12 +5,11 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.mojang.logging.LogUtils;
 import com.zibura.better_loot_zibura.loot.SpecificLoot.CarpenterLootGenerator;
-//import com.zibura.better_loot_zibura.loot.SpecificLoot.SeedBagLootGenerator;
 import com.zibura.better_loot_zibura.loot.SpecificLoot.ShepherdLootGenerator;
 import com.zibura.better_loot_zibura.loot.unification.ConvertibleLootTableGenerator;
 import com.zibura.better_loot_zibura.loot.unification.ItemUnificationSolver;
-import net.minecraftforge.fml.ModList;
-import net.minecraftforge.forgespi.language.IModFileInfo;
+import net.neoforged.fml.ModList;
+import net.neoforged.neoforgespi.language.IModFileInfo;
 import org.slf4j.Logger;
 
 import java.io.InputStream;
@@ -52,13 +51,11 @@ public final class AllDataLoader {
 
         CarpenterLootGenerator.initCarpenterTemplates();
         ShepherdLootGenerator.initShepherdTemplates();
-//        SeedBagLootGenerator.initSeedBagTemplates();
 
-// 清理缓存后先全部收集（后加载覆盖同名 target），最后统一提交生效
+        // 清理缓存后先全部收集（后加载覆盖同名 target），最后统一提交生效
         LootBindingLoader.clear();
         loadJsonsFromAllMods("better_loot_zibura/loot_bindings", LootBindingLoader::collectBindings);
         LootBindingLoader.commitAllBindings();
-//        loadJsonsFromAllMods("better_loot_zibura/loot_bindings", LootBindingLoader::LoadAllBindings);
     }
 
     public static void loadUnifications(String subFolder, BiConsumer<String, JsonObject> consumer) {
@@ -81,7 +78,7 @@ public final class AllDataLoader {
     private static void scanJsonFiles(String subFolder, BiConsumer<Path, JsonElement> fileProcessor) {
         for (IModFileInfo modInfo : ModList.get().getModFiles()) {
             Path dir = modInfo.getFile().findResource("data", MOD_ID, subFolder);
-            if (!Files.exists(dir) || !Files.isDirectory(dir)) continue;
+            if (dir == null || !Files.exists(dir) || !Files.isDirectory(dir)) continue;
 
             try (var stream = Files.walk(dir)) {
                 stream.filter(p -> p.toString().endsWith(".json")).forEach(jsonPath -> {

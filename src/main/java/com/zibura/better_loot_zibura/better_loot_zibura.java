@@ -1,16 +1,17 @@
 package com.zibura.better_loot_zibura;
 
 import com.zibura.better_loot_zibura.config.BetterLootConfig;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.common.Mod;
 
 @Mod(better_loot_zibura.MOD_ID)
-@Mod.EventBusSubscriber(modid = better_loot_zibura.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class better_loot_zibura {
     public static final String MOD_ID = "better_loot_zibura";
 
-    public better_loot_zibura() {
-        // ✅ 必须在此处注册配置
-        BetterLootConfig.register();
+    // NeoForge 会自动注入 IEventBus 与 ModContainer
+    public better_loot_zibura(IEventBus modEventBus, ModContainer modContainer) {
+        // 注册配置
+        BetterLootConfig.register(modContainer);
     }
-
 }

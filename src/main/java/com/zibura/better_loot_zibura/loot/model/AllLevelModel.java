@@ -41,8 +41,8 @@ public final class AllLevelModel {
         public int maxRolls;
         public JsonObject conditionJson;
 
-        public SubTableEntry(List<GroupDTO> Pools, int minRolls, int maxRolls, JsonObject conditionJson) {
-            this.itemArray = Pools;
+        public SubTableEntry(List<GroupDTO> pools, int minRolls, int maxRolls, JsonObject conditionJson) {
+            this.itemArray = pools;
             this.minRolls = minRolls;
             this.maxRolls = maxRolls;
             this.conditionJson = conditionJson;
@@ -55,14 +55,17 @@ public final class AllLevelModel {
         public Integer min;
         public Integer max;
         public JsonElement damage;
-        //        public Double damage;
         public double enchantChance = 0.0;
         public List<Integer> enchantLevels;
         public Map<String, Integer> exactEnchants;
         public List<String> enchantRandomly;
         public JsonElement jsonFunction;
         public String potion;
+
+        // 兼容旧版 NBT 与 1.21.1 Data Components
         public JsonObject nbt;
+        public JsonObject components;
+
         public Map<String, Object> conditions = new HashMap<>();
         public List<ItemDTO> items = new ArrayList<>();
     }
@@ -76,14 +79,17 @@ public final class AllLevelModel {
         public Integer min;
         public Integer max;
         public JsonElement damage;
-        //        public Double damage;
         public Double randomChance;
         public List<Integer> enchantLevels;
         public Map<String, Integer> exactEnchants;
         public List<String> enchantRandomly;
         public JsonElement jsonFunction;
         public String potion;
+
+        // 兼容旧版 NBT 与 1.21.1 Data Components
         public JsonObject nbt;
+        public JsonObject components;
+
         public Map<String, Object> conditions = new HashMap<>();
     }
 }

@@ -1,49 +1,16 @@
-//package com.zibura.better_loot_zibura.config;
-//
-//import net.minecraftforge.common.ForgeConfigSpec;
-//import net.minecraftforge.fml.ModLoadingContext;
-//import net.minecraftforge.fml.config.ModConfig;
-//
-//public class BetterLootConfig {
-//    public static final ForgeConfigSpec COMMON_SPEC;
-//    public static final ForgeConfigSpec.BooleanValue ENABLE_CONVERTIBLE_RECIPES;
-//    public static final ForgeConfigSpec.BooleanValue ENABLE_CONVERTIBLE_LOOT_TABLES;
-//
-//    static {
-//        ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
-//
-//        builder.push("convertible_unification");
-//        ENABLE_CONVERTIBLE_RECIPES = builder
-//                .comment("是否为 convertible 中的同类物品注册互相转换的配方 (1对1无序配方)")
-//                .define("enableRecipes", true);
-//
-//        ENABLE_CONVERTIBLE_LOOT_TABLES = builder
-//                .comment("是否为 convertible 中的每一类物品注册一个统合战利品表")
-//                .define("enableLootTables", true);
-//        builder.pop();
-//
-//        COMMON_SPEC = builder.build();
-//    }
-//
-//    public static void register() {
-//        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, COMMON_SPEC);
-//    }
-//}
-
-
 package com.zibura.better_loot_zibura.config;
 
-import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.config.ModConfig;
+import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.config.ModConfig;
+import net.neoforged.neoforge.common.ModConfigSpec;
 
 public class BetterLootConfig {
-    public static final ForgeConfigSpec COMMON_SPEC;
-    public static final ForgeConfigSpec.BooleanValue ENABLE_CONVERTIBLE_RECIPES;
-    public static final ForgeConfigSpec.BooleanValue ENABLE_CONVERTIBLE_LOOT_TABLES;
+    public static final ModConfigSpec COMMON_SPEC;
+    public static final ModConfigSpec.BooleanValue ENABLE_CONVERTIBLE_RECIPES;
+    public static final ModConfigSpec.BooleanValue ENABLE_CONVERTIBLE_LOOT_TABLES;
 
     static {
-        ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
+        ModConfigSpec.Builder builder = new ModConfigSpec.Builder();
 
         builder.push("convertible_unification");
         ENABLE_CONVERTIBLE_RECIPES = builder
@@ -64,7 +31,7 @@ public class BetterLootConfig {
         COMMON_SPEC = builder.build();
     }
 
-    public static void register() {
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, COMMON_SPEC);
+    public static void register(ModContainer modContainer) {
+        modContainer.registerConfig(ModConfig.Type.COMMON, COMMON_SPEC);
     }
 }

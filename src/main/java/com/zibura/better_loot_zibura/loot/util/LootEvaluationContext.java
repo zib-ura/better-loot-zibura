@@ -122,7 +122,6 @@ public class LootEvaluationContext {
                     group.conditions = GSON.fromJson(obj.get("conditions"), new com.google.gson.reflect.TypeToken<Map<String, Object>>(){}.getType());
                 }
 
-                
 
                 // items 字段传递给 resolveItemList 处理
                 if (obj.has("items")) {
