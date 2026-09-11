@@ -1,0 +1,87 @@
+箱子长蘑菇，蜘蛛网，沙子，藤蔓，灰烬，可可豆，石头，纸张，铁粒，海草，草
+
+垃圾 
+遗迹 
+监狱 
+地窖
+流浪商人 拴绳冰块花树苗 交易,药水
+卧室：钱币武器盔甲食物装备，饰品，背包
+探险家：地球仪，海拔，时钟，旅人菜
+女巫 谜之炖菜
+墓地 命名牌
+蔬菜乐事仓库
+船队 照片
+
+kitchenkarrot油
+
+马鞍
+lucky衣服，50概率一件
+Fishermen"s Trap [Neo/Fabric]
+HangGlider
+Comforts
+Sleeping Bags
+TorchBowMod
+supplementaries的弹弓也可以射火把
+群青
+书堆
+Amethyst Equipment
+MrCrayfish"s Furniture Mod: Refurbished
+Camerapture
+Display Case
+装饰乐事  |  Decoration Delight: Refurbished
+Spelunkery
+锤子合集JustHammers
+建筑手杖
+foodsupply不止食物
+匠魂貌似自带function
+concoction
+沙滩派对
+衣服
+遗物
+蒸汽朋克靴子
+Slavic delight
+expanded delight
+
+
+wiki
+试炼密室百科
+百科提一句兼容性
+外网介绍改成info
+森罗物语末地的附魔改一下
+配方转换也写介绍
+
+技术
+神秘遗物删皮革食物，glm
+龙虾 蟹农乐事切出虾头虾尾alex
+
+
+
+时间控制，高级概率增加。100年700000000刻
+1.20.1不要禁止昼夜更替
+不兼容luki
+if里面不要const
+支持include
+Array.prototype.push.apply(items, [copy]);就是items.push(copy);
+没有展开表达式
+不要item.of
+1.20.1个数不超过堆叠上限
+兼容：每一个const都读json，如果存在并且版本标签正确，或者标记了不管版本，就直接使用，否则覆盖或者新建。apply里面的放的是战利品id和文件路径
+每一个content都需要开json，loot需要读取文件路径
+或者用资源包
+需要配置项，管理哪些需要改，同时管理数据包和cleartble
+
+用户旧的配置文件放在一个文件夹里不要删掉
+betterloot zibura Put vanilla and mod items where they belong, and make loot tables more diverse, rewarding, and reasonable.
+检查文件名
+id:"lootjs
+
+ingot的名称错误
+
+写wiki
+data的设计思路，自动生成程序
+数据包程序（检测类型，根据每一个pool的总weight生成empty）
+战利品表的层级
+各api的写法汇总
+reference解释
+apply解释
+共享解释

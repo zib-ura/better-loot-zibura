@@ -1,0 +1,101 @@
+# --- 1.21 Trial Chambers ---
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/trial_chambers/corridor"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/trial_chambers/entrance"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/trial_chambers/intersection"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/trial_chambers/intersection_barrel"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/trial_chambers/reward"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/trial_chambers/reward_ominous"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/trial_chambers/supply"}
+
+# --- Deep Dark & Archeology (1.19 - 1.20) ---
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/ancient_city"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/ancient_city_ice_box"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/trail_ruins/archeology_common"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/trail_ruins/archeology_rare"}
+
+# --- Nether Structures ---
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/bastion_other"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/bastion_bridge"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/bastion_hoglin_stable"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/bastion_treasure"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/nether_bridge"}
+
+# --- Villages ---
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/village/village_weaponsmith"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/village/village_toolsmith"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/village/village_armorer"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/village/village_cartographer"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/village/village_mason"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/village/village_butcher"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/village/village_fletcher"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/village/village_fisher"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/village/village_tannery"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/village/village_temple"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/village/village_shepherd"}
+
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/village/village_desert_house"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/village/village_plains_house"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/village/village_taiga_house"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/village/village_snowy_house"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/village/village_savanna_house"}
+
+# --- End & Ocean Monuments ---
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/end_city_treasure"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/underwater_ruin_big"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/underwater_ruin_small"}
+
+# --- Overworld Structures ---
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/abandoned_mineshaft"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/buried_treasure"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/desert_pyramid"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/igloo_chest"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/jungle_temple"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/jungle_temple_dispenser"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/pillager_outpost"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/ruined_portal"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/shipwreck_map"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/shipwreck_supply"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/shipwreck_treasure"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/simple_dungeon"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/stronghold_corridor"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/stronghold_crossing"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/stronghold_library"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"minecraft:chests/woodland_mansion"}
+
+
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"ctov:chests/village/village_beach_house"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"ctov:chests/village/village_dark_forest_house"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"ctov:chests/village/village_farm"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"ctov:chests/village/village_forager"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"ctov:chests/village/village_jungle_house"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"ctov:chests/village/village_library"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"ctov:chests/village/village_mountain_house"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"ctov:chests/village/village_mushroom_house"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"ctov:chests/village/village_smith"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"ctov:chests/village/village_swamp_house"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"ctov:chests/village/village_badlands_house"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"ctov:chests/village/village_bakery"}
+
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"kattersstructures:chests/ocean/random"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"kattersstructures:chests/cherry/house"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"kattersstructures:chests/ocean/house"}
+
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"kattersstructures:chests/mesa/house"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"kattersstructures:chests/underground/house"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"kaisyn:outpost/common/food"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"trek:overworld/rare/island_village_1/top_barrels"}
+
+/loot give @a loot trek:overworld/rare/island_village_1/top_barrels
+/loot give @a loot nova_structures:chests/food_supply
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"nova_structures:chests/food_supply"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"roadweaver:chests/maid_house"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"repurposed_structures:chests/mineshafts/desert"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"ctov:chests/village/village_library"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"ctov:chests/village/village_mountain_house"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"ctov:chests/village/village_mushroom_house"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"ctov:chests/village/village_smith"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"ctov:chests/village/village_swamp_house"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"ctov:chests/village/village_badlands_house"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"ctov:chests/village/village_bakery"}
+
+/loot give @a loot repurposed_structures:chests/mineshafts/desert
