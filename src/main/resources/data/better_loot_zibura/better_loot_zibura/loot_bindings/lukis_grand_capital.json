@@ -1,0 +1,70 @@
+[
+  {
+    "target": "revampedvillages:professions/armorer",
+    "config": "loot_village_armorer"
+  },
+  {
+    "target": "revampedvillages:professions/butcher",
+    "config": "loot_village_butcher"
+  },
+  {
+    "target": "revampedvillages:professions/cartographer_librarian",
+    "config": "loot_village_library"
+  },
+  {
+    "target": "revampedvillages:professions/fisherman",
+    "config": "loot_village_fisher"
+  },
+  {
+    "target": "revampedvillages:professions/fletcher",
+    "config": "loot_village_fletcher"
+  },
+  {
+    "target": "revampedvillages:professions/leatherworker",
+    "config": "loot_village_tannery"
+  },
+  {
+    "target": "revampedvillages:professions/mason",
+    "config": "loot_village_mason"
+  },
+  {
+    "target": "revampedvillages:professions/shepherd",
+    "config": "loot_village_shepherd"
+  },
+  {
+    "target": "revampedvillages:professions/toolsmith",
+    "config": "loot_village_toolsmith"
+  },
+  {
+    "target": "revampedvillages:professions/weaponsmith",
+    "config": "loot_village_weaponsmith"
+  },
+  {
+    "target": "revampedvillages:desert_house",
+    "config": "loot_village_desert_house"
+  },
+  {
+    "target": "revampedvillages:plains_house",
+    "config": "loot_village_plains_house"
+  },
+  {
+    "target": "revampedvillages:savanna_house",
+    "config": "loot_village_savanna_house"
+  },
+  {
+    "target": "revampedvillages:snowy_house",
+    "config": "loot_village_snowy_house"
+  },
+  {
+    "target": "revampedvillages:taiga_house",
+    "config": "loot_village_taiga_house"
+  },
+  {
+    "target": "revampedvillages:pillager_treasure",
+    "config": "loot_pillager_outpost"
+  },
+  {
+    "target": "revampedvillages:treasure",
+    "config": "loot_village_treasure"
+  }
+]

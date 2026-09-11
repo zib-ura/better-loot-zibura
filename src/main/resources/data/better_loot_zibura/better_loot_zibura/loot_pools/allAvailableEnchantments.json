@@ -1,0 +1,592 @@
+{
+  "enchantmentsWithLevels": [
+    "minecraft:smite",
+    "minecraft:soul_speed",
+    "minecraft:sweeping_edge",
+    "minecraft:swift_sneak",
+    "minecraft:thorns",
+    "minecraft:unbreaking",
+    "minecraft:wind_burst",
+    "minecraft:bane_of_arthropods",
+    "minecraft:blast_protection",
+    "minecraft:breach",
+    "minecraft:density",
+    "minecraft:depth_strider",
+    "minecraft:efficiency",
+    "minecraft:feather_falling",
+    "minecraft:fire_aspect",
+    "minecraft:fire_protection",
+    "minecraft:fortune",
+    "minecraft:frost_walker",
+    "minecraft:impaling",
+    "minecraft:knockback",
+    "minecraft:looting",
+    "minecraft:loyalty",
+    "minecraft:luck_of_the_sea",
+    "minecraft:lure",
+    "minecraft:piercing",
+    "minecraft:power",
+    "minecraft:projectile_protection",
+    "minecraft:protection",
+    "minecraft:punch",
+    "minecraft:quick_charge",
+    "minecraft:respiration",
+    "minecraft:riptide",
+    "minecraft:sharpness",
+    "enchantencore:weaving_aspect",
+    "farmersdelight:backstabbing",
+    "create:capacity",
+    "create:potato_recovery",
+    "kaleidoscope_end:void_assault",
+    "kaleidoscope_end:void_echo",
+    "kaleidoscope_end:void_shot",
+    "kattersstructures:heavy",
+    "kattersstructures:light",
+    "nova_structures:ghasted",
+    "nova_structures:gravity",
+    "nova_structures:illagers_bane",
+    "nova_structures:outreach",
+    "nova_structures:piercing",
+    "nova_structures:power",
+    "nova_structures:traveler",
+    "touhou_little_maid:impeding",
+    "touhou_little_maid:speedy"
+  ],
+  "enchantmentsWithoutLevels": [
+    "kaleidoscope_end:void_walker",
+    "kaleidoscope_nether:lava_walker",
+    "kattersstructures:blunt",
+    "kattersstructures:enlightning",
+    "kattersstructures:ocean_heart",
+    "kattersstructures:web_walker",
+    "minecraft:aqua_affinity",
+    "minecraft:channeling",
+    "minecraft:flame",
+    "minecraft:infinity",
+    "minecraft:mending",
+    "minecraft:multishot",
+    "minecraft:silk_touch",
+    "mynethersdelight:poaching",
+    "nova_structures:antidote",
+    "nova_structures:multishot",
+    "nova_structures:photosynthesis",
+    "nova_structures:wax_wings",
+    "nova_structures:wither_coated",
+    "supplementaries:stasis",
+    "touhou_little_maid:enders_ender"
+  ],
+  "allAvailableEnchantments": null,
+  "all_Available_Enchant_books": [
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:unbreaking"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:mending"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "nova_structures:conductivity_curse"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "nova_structures:photosynthesis"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:protection"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:projectile_protection"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:fire_protection"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:blast_protection"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:thorns"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:respiration"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:aqua_affinity"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "kattersstructures:alchemy_curse"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "kattersstructures:light"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "kattersstructures:ocean_heart"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "nova_structures:outreach"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "nova_structures:antidote"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:swift_sneak"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:feather_falling"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:depth_strider"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:frost_walker"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:soul_speed"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "kaleidoscope_end:void_walker"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "kaleidoscope_nether:lava_walker"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "kattersstructures:web_walker"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "nova_structures:traveler"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "nova_structures:wax_wings"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:sharpness"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:smite"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:bane_of_arthropods"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:knockback"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:fire_aspect"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:looting"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:sweeping_edge"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "enchantencore:weaving_aspect"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "farmersdelight:backstabbing"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "kaleidoscope_end:void_assault"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "kaleidoscope_end:void_echo"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "kattersstructures:heavy"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "kattersstructures:blunt"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "kattersstructures:crystal_curse"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "nova_structures:illagers_bane"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "mynethersdelight:poaching"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:wind_burst"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:breach"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:density"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:power"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:punch"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:flame"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:infinity"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "nova_structures:piercing"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "nova_structures:multishot"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:quick_charge"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:piercing"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:multishot"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "kaleidoscope_end:void_shot"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "nova_structures:ghasted"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "nova_structures:gravity"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "nova_structures:power"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:impaling"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:loyalty"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:riptide"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:channeling"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:efficiency"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:fortune"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:silk_touch"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:luck_of_the_sea"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "minecraft:lure"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "create:capacity"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "create:potato_recovery"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "supplementaries:stasis"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "touhou_little_maid:impeding"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "touhou_little_maid:speedy"
+      ]
+    },
+    {
+      "id": "minecraft:book",
+      "ratio": 10,
+      "enchantRandomly": [
+        "touhou_little_maid:enders_ender"
+      ]
+    }
+  ]
+}

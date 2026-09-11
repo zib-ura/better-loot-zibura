@@ -1,0 +1,358 @@
+[
+  {
+    "target": "kattersstructures:chests/birch/armorer",
+    "config": "loot_village_armorer"
+  },
+  {
+    "target": "kattersstructures:chests/birch/cartographer",
+    "config": "loot_village_cartographer"
+  },
+  {
+    "target": "kattersstructures:chests/birch/fisherman",
+    "config": "loot_village_fisher"
+  },
+  {
+    "target": "kattersstructures:chests/birch/house",
+    "config": "loot_village_plains_house"
+  },
+  {
+    "target": "kattersstructures:chests/birch/leatherworker",
+    "config": "loot_village_tannery"
+  },
+  {
+    "target": "kattersstructures:chests/birch/shepherd",
+    "config": "loot_village_shepherd"
+  },
+  {
+    "target": "kattersstructures:chests/birch/toolsmith",
+    "config": "loot_village_toolsmith"
+  },
+  {
+    "target": "kattersstructures:chests/birch/weaponsmith",
+    "config": "loot_village_weaponsmith"
+  },
+  {
+    "target": "kattersstructures:chests/cherry/armorer",
+    "config": "loot_village_armorer"
+  },
+  {
+    "target": "kattersstructures:chests/cherry/butcher",
+    "config": "loot_village_butcher"
+  },
+  {
+    "target": "kattersstructures:chests/cherry/cartographer",
+    "config": "loot_village_cartographer"
+  },
+  {
+    "target": "kattersstructures:chests/cherry/cleric",
+    "config": "loot_village_temple"
+  },
+  {
+    "target": "kattersstructures:chests/cherry/fisherman",
+    "config": "loot_village_fisher"
+  },
+  {
+    "target": "kattersstructures:chests/cherry/fletcher",
+    "config": "loot_village_fletcher"
+  },
+  {
+    "target": "kattersstructures:chests/cherry/house",
+    "config": "loot_village_cherry_house"
+  },
+  {
+    "target": "kattersstructures:chests/cherry/leatherworker",
+    "config": "loot_village_tannery"
+  },
+  {
+    "target": "kattersstructures:chests/cherry/mason",
+    "config": "loot_village_mason"
+  },
+  {
+    "target": "kattersstructures:chests/cherry/shepherd",
+    "config": "loot_village_shepherd"
+  },
+  {
+    "target": "kattersstructures:chests/cherry/toolsmith",
+    "config": "loot_village_toolsmith"
+  },
+  {
+    "target": "kattersstructures:chests/cherry/weaponsmith",
+    "config": "loot_village_weaponsmith"
+  },
+  {
+    "target": "kattersstructures:chests/armorer",
+    "config": "loot_village_armorer"
+  },
+  {
+    "target": "kattersstructures:chests/butcher",
+    "config": "loot_village_butcher"
+  },
+  {
+    "target": "kattersstructures:chests/cartographer",
+    "config": "loot_village_cartographer"
+  },
+  {
+    "target": "kattersstructures:chests/cleric",
+    "config": "loot_village_temple"
+  },
+  {
+    "target": "kattersstructures:chests/fisherman",
+    "config": "loot_village_fisher"
+  },
+  {
+    "target": "kattersstructures:chests/fletcher",
+    "config": "loot_village_fletcher"
+  },
+  {
+    "target": "kattersstructures:chests/house",
+    "config": "loot_village_cherry_house"
+  },
+  {
+    "target": "kattersstructures:chests/leatherworker",
+    "config": "loot_village_tannery"
+  },
+  {
+    "target": "kattersstructures:chests/mason",
+    "config": "loot_village_mason"
+  },
+  {
+    "target": "kattersstructures:chests/shepherd",
+    "config": "loot_village_shepherd"
+  },
+  {
+    "target": "kattersstructures:chests/toolsmith",
+    "config": "loot_village_toolsmith"
+  },
+  {
+    "target": "kattersstructures:chests/weaponsmith",
+    "config": "loot_village_weaponsmith"
+  },
+  {
+    "target": "kattersstructures:chests/jungle/armorer",
+    "config": "loot_village_armorer"
+  },
+  {
+    "target": "kattersstructures:chests/jungle/butcher",
+    "config": "loot_village_butcher"
+  },
+  {
+    "target": "kattersstructures:chests/jungle/cartographer",
+    "config": "loot_village_cartographer"
+  },
+  {
+    "target": "kattersstructures:chests/jungle/cleric",
+    "config": "loot_village_temple"
+  },
+  {
+    "target": "kattersstructures:chests/jungle/fisherman",
+    "config": "loot_village_fisher"
+  },
+  {
+    "target": "kattersstructures:chests/jungle/fletcher",
+    "config": "loot_village_fletcher"
+  },
+  {
+    "target": "kattersstructures:chests/jungle/house",
+    "config": "loot_village_jungle_house"
+  },
+  {
+    "target": "kattersstructures:chests/jungle/leatherworker",
+    "config": "loot_village_tannery"
+  },
+  {
+    "target": "kattersstructures:chests/jungle/mason",
+    "config": "loot_village_mason"
+  },
+  {
+    "target": "kattersstructures:chests/jungle/shepherd",
+    "config": "loot_village_shepherd"
+  },
+  {
+    "target": "kattersstructures:chests/jungle/toolsmith",
+    "config": "loot_village_toolsmith"
+  },
+  {
+    "target": "kattersstructures:chests/jungle/weaponsmith",
+    "config": "loot_village_weaponsmith"
+  },
+  {
+    "target": "kattersstructures:chests/mesa/armorer",
+    "config": "loot_village_armorer"
+  },
+  {
+    "target": "kattersstructures:chests/mesa/cartographer",
+    "config": "loot_village_cartographer"
+  },
+  {
+    "target": "kattersstructures:chests/mesa/farmer",
+    "config": "loot_village_badlands_house"
+  },
+  {
+    "target": "kattersstructures:chests/mesa/fisherman",
+    "config": "loot_village_fisher"
+  },
+  {
+    "target": "kattersstructures:chests/mesa/fletcher",
+    "config": "loot_village_fletcher"
+  },
+  {
+    "target": "kattersstructures:chests/mesa/house",
+    "config": "loot_village_badlands_house"
+  },
+  {
+    "target": "kattersstructures:chests/mesa/toolsmith",
+    "config": "loot_village_toolsmith"
+  },
+  {
+    "target": "kattersstructures:chests/mesa/weaponsmith",
+    "config": "loot_village_weaponsmith"
+  },
+  {
+    "target": "kattersstructures:chests/ocean/armorer",
+    "config": "loot_village_armorer"
+  },
+  {
+    "target": "kattersstructures:chests/ocean/butcher",
+    "config": "loot_village_butcher"
+  },
+  {
+    "target": "kattersstructures:chests/ocean/cartographer",
+    "config": "loot_village_cartographer"
+  },
+  {
+    "target": "kattersstructures:chests/ocean/cleric",
+    "config": "loot_village_temple"
+  },
+  {
+    "target": "kattersstructures:chests/ocean/fletcher",
+    "config": "loot_village_fletcher"
+  },
+  {
+    "target": "kattersstructures:chests/ocean/house",
+    "config": "loot_village_ocean_house"
+  },
+  {
+    "target": "kattersstructures:chests/ocean/leatherworker",
+    "config": "loot_village_tannery"
+  },
+  {
+    "target": "kattersstructures:chests/ocean/lighthouse",
+    "config": "loot_lighthouse"
+  },
+  {
+    "target": "kattersstructures:chests/ocean/mason",
+    "config": "loot_village_mason"
+  },
+  {
+    "target": "kattersstructures:chests/ocean/random",
+    "config": "loot_kattersstructures_ocean_random"
+  },
+  {
+    "target": "kattersstructures:chests/ocean/shepherd",
+    "config": "loot_village_shepherd"
+  },
+  {
+    "target": "kattersstructures:chests/ocean/toolsmith",
+    "config": "loot_village_toolsmith"
+  },
+  {
+    "target": "kattersstructures:chests/ocean/weaponsmith",
+    "config": "loot_village_weaponsmith"
+  },
+  {
+    "target": "kattersstructures:chests/swamp/armorer",
+    "config": "loot_village_armorer"
+  },
+  {
+    "target": "kattersstructures:chests/swamp/butcher",
+    "config": "loot_village_butcher"
+  },
+  {
+    "target": "kattersstructures:chests/swamp/cartographer",
+    "config": "loot_village_cartographer"
+  },
+  {
+    "target": "kattersstructures:chests/swamp/cleric",
+    "config": "loot_village_temple"
+  },
+  {
+    "target": "kattersstructures:chests/swamp/fisherman",
+    "config": "loot_village_fisher"
+  },
+  {
+    "target": "kattersstructures:chests/swamp/fletcher",
+    "config": "loot_village_fletcher"
+  },
+  {
+    "target": "kattersstructures:chests/swamp/house",
+    "config": "loot_village_swamp_house"
+  },
+  {
+    "target": "kattersstructures:chests/swamp/leatherworker",
+    "config": "loot_village_tannery"
+  },
+  {
+    "target": "kattersstructures:chests/swamp/lighthouse",
+    "config": "loot_lighthouse"
+  },
+  {
+    "target": "kattersstructures:chests/swamp/mason",
+    "config": "loot_village_mason"
+  },
+  {
+    "target": "kattersstructures:chests/swamp/shepherd",
+    "config": "loot_village_shepherd"
+  },
+  {
+    "target": "kattersstructures:chests/swamp/toolsmith",
+    "config": "loot_village_toolsmith"
+  },
+  {
+    "target": "kattersstructures:chests/swamp/weaponsmith",
+    "config": "loot_village_weaponsmith"
+  },
+  {
+    "target": "kattersstructures:chests/underground/armorer",
+    "config": "loot_village_armorer"
+  },
+  {
+    "target": "kattersstructures:chests/underground/cleric",
+    "config": "loot_village_temple"
+  },
+  {
+    "target": "kattersstructures:chests/underground/fletcher",
+    "config": "loot_village_fletcher"
+  },
+  {
+    "target": "kattersstructures:chests/underground/house",
+    "config": "loot_village_underground_house"
+  },
+  {
+    "target": "kattersstructures:chests/underground/leatherworker",
+    "config": "loot_village_tannery"
+  },
+  {
+    "target": "kattersstructures:chests/underground/mason",
+    "config": "loot_village_mason"
+  },
+  {
+    "target": "kattersstructures:chests/underground/random",
+    "config": "loot_kattersstructures_underground_random"
+  },
+  {
+    "target": "kattersstructures:chests/underground/toolsmith",
+    "config": "loot_village_toolsmith"
+  },
+  {
+    "target": "kattersstructures:chests/underground/treasures",
+    "config": "loot_village_treasure"
+  },
+  {
+    "target": "kattersstructures:chests/underground/weaponsmith",
+    "config": "loot_village_weaponsmith"
+  },
+  {
+    "target": "kattersstructures:chests/windmill/windmill",
+    "config": "loot_village_farm"
+  }
+]

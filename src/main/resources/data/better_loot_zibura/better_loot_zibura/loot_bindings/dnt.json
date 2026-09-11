@@ -1,0 +1,14 @@
+[
+  {
+    "target": "minecraft:chests/village/village_jungle_house",
+    "config": "loot_village_jungle_house"
+  },
+  {
+    "target": "minecraft:chests/village/village_swamp_house",
+    "config": "loot_village_swamp_house"
+  },
+  {
+    "target": "nova_structures:chests/food_supply",
+    "config": "loot_food_supply"
+  }
+]

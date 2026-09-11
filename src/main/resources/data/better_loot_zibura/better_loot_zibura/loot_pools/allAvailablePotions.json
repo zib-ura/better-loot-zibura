@@ -1,0 +1,733 @@
+{
+  "COMMON_POSITIVE_POTIONS": [
+    {
+      "id": "minecraft:potion",
+      "ratio": 30,
+      "potion": "minecraft:healing"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 18,
+      "potion": "minecraft:healing"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 9,
+      "potion": "minecraft:healing"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 30,
+      "potion": "minecraft:regeneration"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 18,
+      "potion": "minecraft:regeneration"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 9,
+      "potion": "minecraft:regeneration"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 30,
+      "potion": "minecraft:strength"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 18,
+      "potion": "minecraft:strength"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 9,
+      "potion": "minecraft:strength"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 30,
+      "potion": "minecraft:swiftness"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 18,
+      "potion": "minecraft:swiftness"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 9,
+      "potion": "minecraft:swiftness"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 30,
+      "potion": "minecraft:fire_resistance"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 18,
+      "potion": "minecraft:fire_resistance"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 9,
+      "potion": "minecraft:fire_resistance"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 30,
+      "potion": "minecraft:night_vision"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 18,
+      "potion": "minecraft:night_vision"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 9,
+      "potion": "minecraft:night_vision"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 30,
+      "potion": "minecraft:water_breathing"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 18,
+      "potion": "minecraft:water_breathing"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 9,
+      "potion": "minecraft:water_breathing"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 30,
+      "potion": "minecraft:leaping"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 18,
+      "potion": "minecraft:leaping"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 9,
+      "potion": "minecraft:leaping"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 30,
+      "potion": "minecraft:slow_falling"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 18,
+      "potion": "minecraft:slow_falling"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 9,
+      "potion": "minecraft:slow_falling"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 30,
+      "potion": "minecraft:invisibility"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 18,
+      "potion": "minecraft:invisibility"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 9,
+      "potion": "minecraft:invisibility"
+    }
+  ],
+  "RARE_POSITIVE_POTIONS": [
+    {
+      "id": "minecraft:potion",
+      "ratio": 15,
+      "potion": "minecraft:strong_healing"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 9,
+      "potion": "minecraft:strong_healing"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 5,
+      "potion": "minecraft:strong_healing"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 15,
+      "potion": "minecraft:long_regeneration"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 9,
+      "potion": "minecraft:long_regeneration"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 5,
+      "potion": "minecraft:long_regeneration"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 15,
+      "potion": "minecraft:strong_regeneration"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 9,
+      "potion": "minecraft:strong_regeneration"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 5,
+      "potion": "minecraft:strong_regeneration"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 15,
+      "potion": "minecraft:long_strength"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 9,
+      "potion": "minecraft:long_strength"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 5,
+      "potion": "minecraft:long_strength"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 15,
+      "potion": "minecraft:strong_strength"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 9,
+      "potion": "minecraft:strong_strength"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 5,
+      "potion": "minecraft:strong_strength"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 15,
+      "potion": "minecraft:long_swiftness"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 9,
+      "potion": "minecraft:long_swiftness"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 5,
+      "potion": "minecraft:long_swiftness"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 15,
+      "potion": "minecraft:strong_swiftness"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 9,
+      "potion": "minecraft:strong_swiftness"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 5,
+      "potion": "minecraft:strong_swiftness"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 15,
+      "potion": "minecraft:long_fire_resistance"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 9,
+      "potion": "minecraft:long_fire_resistance"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 5,
+      "potion": "minecraft:long_fire_resistance"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 15,
+      "potion": "minecraft:long_night_vision"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 9,
+      "potion": "minecraft:long_night_vision"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 5,
+      "potion": "minecraft:long_night_vision"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 15,
+      "potion": "minecraft:long_invisibility"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 9,
+      "potion": "minecraft:long_invisibility"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 5,
+      "potion": "minecraft:long_invisibility"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 15,
+      "potion": "minecraft:long_water_breathing"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 9,
+      "potion": "minecraft:long_water_breathing"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 5,
+      "potion": "minecraft:long_water_breathing"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 15,
+      "potion": "minecraft:long_leaping"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 9,
+      "potion": "minecraft:long_leaping"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 5,
+      "potion": "minecraft:long_leaping"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 15,
+      "potion": "minecraft:strong_leaping"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 9,
+      "potion": "minecraft:strong_leaping"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 5,
+      "potion": "minecraft:strong_leaping"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 15,
+      "potion": "minecraft:long_slow_falling"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 9,
+      "potion": "minecraft:long_slow_falling"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 5,
+      "potion": "minecraft:long_slow_falling"
+    }
+  ],
+  "EPIC_POSITIVE_POTIONS": [
+    {
+      "id": "minecraft:potion",
+      "ratio": 6,
+      "potion": "minecraft:luck"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 3,
+      "potion": "minecraft:luck"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 1,
+      "potion": "minecraft:luck"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 6,
+      "potion": "minecraft:turtle_master"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 3,
+      "potion": "minecraft:turtle_master"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 1,
+      "potion": "minecraft:turtle_master"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 6,
+      "potion": "minecraft:long_turtle_master"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 3,
+      "potion": "minecraft:long_turtle_master"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 1,
+      "potion": "minecraft:long_turtle_master"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 6,
+      "potion": "minecraft:strong_turtle_master"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 3,
+      "potion": "minecraft:strong_turtle_master"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 1,
+      "potion": "minecraft:strong_turtle_master"
+    }
+  ],
+  "COMMON_NEGATIVE_POTIONS": [
+    {
+      "id": "minecraft:potion",
+      "ratio": 30,
+      "potion": "minecraft:harming"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 18,
+      "potion": "minecraft:harming"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 9,
+      "potion": "minecraft:harming"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 30,
+      "potion": "minecraft:poison"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 18,
+      "potion": "minecraft:poison"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 9,
+      "potion": "minecraft:poison"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 30,
+      "potion": "minecraft:slowness"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 18,
+      "potion": "minecraft:slowness"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 9,
+      "potion": "minecraft:slowness"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 30,
+      "potion": "minecraft:weakness"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 18,
+      "potion": "minecraft:weakness"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 9,
+      "potion": "minecraft:weakness"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 30,
+      "potion": "crabbersdelight:inky_potion"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 18,
+      "potion": "crabbersdelight:inky_potion"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 9,
+      "potion": "crabbersdelight:inky_potion"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 30,
+      "potion": "rationcraft:im_very_hungry"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 18,
+      "potion": "rationcraft:im_very_hungry"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 9,
+      "potion": "rationcraft:im_very_hungry"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 30,
+      "potion": "vintagedelight:dehydrated"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 18,
+      "potion": "vintagedelight:dehydrated"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 9,
+      "potion": "vintagedelight:dehydrated"
+    }
+  ],
+  "RARE_NEGATIVE_POTIONS": [
+    {
+      "id": "minecraft:potion",
+      "ratio": 15,
+      "potion": "minecraft:strong_harming"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 9,
+      "potion": "minecraft:strong_harming"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 5,
+      "potion": "minecraft:strong_harming"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 15,
+      "potion": "minecraft:long_poison"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 9,
+      "potion": "minecraft:long_poison"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 5,
+      "potion": "minecraft:long_poison"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 15,
+      "potion": "minecraft:strong_poison"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 9,
+      "potion": "minecraft:strong_poison"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 5,
+      "potion": "minecraft:strong_poison"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 15,
+      "potion": "minecraft:long_slowness"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 9,
+      "potion": "minecraft:long_slowness"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 5,
+      "potion": "minecraft:long_slowness"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 15,
+      "potion": "minecraft:strong_slowness"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 9,
+      "potion": "minecraft:strong_slowness"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 5,
+      "potion": "minecraft:strong_slowness"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 15,
+      "potion": "minecraft:long_weakness"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 9,
+      "potion": "minecraft:long_weakness"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 5,
+      "potion": "minecraft:long_weakness"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 15,
+      "potion": "vintagedelight:long_dehydrated"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 9,
+      "potion": "vintagedelight:long_dehydrated"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 5,
+      "potion": "vintagedelight:long_dehydrated"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 15,
+      "potion": "vintagedelight:strong_dehydrated"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 9,
+      "potion": "vintagedelight:strong_dehydrated"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 5,
+      "potion": "vintagedelight:strong_dehydrated"
+    }
+  ],
+  "EPIC_NEGATIVE_POTIONS": [
+    {
+      "id": "minecraft:potion",
+      "ratio": 6,
+      "potion": "minecraft:oozing"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 3,
+      "potion": "minecraft:oozing"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 1,
+      "potion": "minecraft:oozing"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 6,
+      "potion": "minecraft:infested"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 3,
+      "potion": "minecraft:infested"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 1,
+      "potion": "minecraft:infested"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 6,
+      "potion": "minecraft:weaving"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 3,
+      "potion": "minecraft:weaving"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 1,
+      "potion": "minecraft:weaving"
+    },
+    {
+      "id": "minecraft:potion",
+      "ratio": 6,
+      "potion": "minecraft:wind_charged"
+    },
+    {
+      "id": "minecraft:splash_potion",
+      "ratio": 3,
+      "potion": "minecraft:wind_charged"
+    },
+    {
+      "id": "minecraft:lingering_potion",
+      "ratio": 1,
+      "potion": "minecraft:wind_charged"
+    }
+  ],
+  "all_positive_potion_item": [
+    "COMMON_POSITIVE_POTIONS",
+    "RARE_POSITIVE_POTIONS",
+    "EPIC_POSITIVE_POTIONS"
+  ],
+  "all_negative_potion_item": [
+    "COMMON_NEGATIVE_POTIONS",
+    "RARE_NEGATIVE_POTIONS",
+    "EPIC_NEGATIVE_POTIONS"
+  ],
+  "all_rare_or_epic_positive_potion_item": [
+    "RARE_POSITIVE_POTIONS",
+    "EPIC_POSITIVE_POTIONS"
+  ]
+}

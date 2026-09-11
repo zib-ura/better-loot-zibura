@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": 3.0,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:empty",
+          "weight": 60
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "function": "minecraft:reference",
+      "name": "nova_structures:loot_modifier"
+    }
+  ]
+}

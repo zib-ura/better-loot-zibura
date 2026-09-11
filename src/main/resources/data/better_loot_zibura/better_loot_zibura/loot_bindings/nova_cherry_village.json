@@ -1,0 +1,38 @@
+[
+  {
+    "target": "nova_cherry_village:village/village_weaponsmith",
+    "config": "loot_village_weaponsmith"
+  },
+  {
+    "target": "nova_cherry_village:village/village_cartographer",
+    "config": "loot_village_cartographer"
+  },
+  {
+    "target": "nova_cherry_village:village/village_cherry_house",
+    "config": "loot_village_cherry_house"
+  },
+  {
+    "target": "nova_cherry_village:village/village_fisher",
+    "config": "loot_village_fisher"
+  },
+  {
+    "target": "nova_cherry_village:village/village_fletcher",
+    "config": "loot_village_fletcher"
+  },
+  {
+    "target": "nova_cherry_village:village/village_mason",
+    "config": "loot_village_mason"
+  },
+  {
+    "target": "nova_cherry_village:village/village_sheperd",
+    "config": "loot_village_shepherd"
+  },
+  {
+    "target": "nova_cherry_village:village/village_temple",
+    "config": "loot_village_temple"
+  },
+  {
+    "target": "nova_cherry_village:village/village_toolsmith",
+    "config": "loot_village_toolsmith"
+  }
+]

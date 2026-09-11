@@ -1,0 +1,190 @@
+[
+  {
+    "target": "minecraft:chests/abandoned_mineshaft",
+    "config": "loot_abandoned_mineshaft"
+  },
+  {
+    "target": "minecraft:chests/buried_treasure",
+    "config": "loot_buried_treasure"
+  },
+  {
+    "target": "minecraft:chests/desert_pyramid",
+    "config": "loot_desert_pyramid"
+  },
+  {
+    "target": "minecraft:chests/end_city_treasure",
+    "config": "loot_end_city_treasure"
+  },
+  {
+    "target": "minecraft:chests/igloo_chest",
+    "config": "loot_igloo"
+  },
+  {
+    "target": "minecraft:chests/jungle_temple",
+    "config": "loot_jungle_temple"
+  },
+  {
+    "target": "minecraft:chests/nether_bridge",
+    "config": "loot_nether_bridge"
+  },
+  {
+    "target": "minecraft:chests/pillager_outpost",
+    "config": "loot_pillager_outpost"
+  },
+  {
+    "target": "minecraft:chests/ruined_portal",
+    "config": "loot_ruined_portal"
+  },
+  {
+    "target": "minecraft:chests/shipwreck_map",
+    "config": "loot_shipwreck_map"
+  },
+  {
+    "target": "minecraft:chests/shipwreck_supply",
+    "config": "loot_shipwreck_supply"
+  },
+  {
+    "target": "minecraft:chests/shipwreck_treasure",
+    "config": "loot_shipwreck_treasure"
+  },
+  {
+    "target": "minecraft:chests/simple_dungeon",
+    "config": "loot_simple_dungeon"
+  },
+  {
+    "target": "minecraft:chests/stronghold_corridor",
+    "config": "loot_stronghold_corridor"
+  },
+  {
+    "target": "minecraft:chests/stronghold_crossing",
+    "config": "loot_stronghold_supply"
+  },
+  {
+    "target": "minecraft:chests/stronghold_library",
+    "config": "loot_stronghold_library"
+  },
+  {
+    "target": "minecraft:chests/underwater_ruin_big",
+    "config": "loot_underwater_ruin_big"
+  },
+  {
+    "target": "minecraft:chests/underwater_ruin_small",
+    "config": "loot_underwater_ruin_small"
+  },
+  {
+    "target": "minecraft:chests/woodland_mansion",
+    "config": "loot_woodland_mansion"
+  },
+  {
+    "target": "minecraft:chests/village/village_armorer",
+    "config": "loot_village_armorer"
+  },
+  {
+    "target": "minecraft:chests/village/village_butcher",
+    "config": "loot_village_butcher"
+  },
+  {
+    "target": "minecraft:chests/village/village_cartographer",
+    "config": "loot_village_cartographer"
+  },
+  {
+    "target": "minecraft:chests/village/village_desert_house",
+    "config": "loot_village_desert_house"
+  },
+  {
+    "target": "minecraft:chests/village/village_fisher",
+    "config": "loot_village_fisher"
+  },
+  {
+    "target": "minecraft:chests/village/village_fletcher",
+    "config": "loot_village_fletcher"
+  },
+  {
+    "target": "minecraft:chests/village/village_mason",
+    "config": "loot_village_mason"
+  },
+  {
+    "target": "minecraft:chests/village/village_plains_house",
+    "config": "loot_village_plains_house"
+  },
+  {
+    "target": "minecraft:chests/village/village_savanna_house",
+    "config": "loot_village_savanna_house"
+  },
+  {
+    "target": "minecraft:chests/village/village_shepherd",
+    "config": "loot_village_shepherd"
+  },
+  {
+    "target": "minecraft:chests/village/village_snowy_house",
+    "config": "loot_village_snowy_house"
+  },
+  {
+    "target": "minecraft:chests/village/village_taiga_house",
+    "config": "loot_village_taiga_house"
+  },
+  {
+    "target": "minecraft:chests/village/village_tannery",
+    "config": "loot_village_tannery"
+  },
+  {
+    "target": "minecraft:chests/village/village_temple",
+    "config": "loot_village_temple"
+  },
+  {
+    "target": "minecraft:chests/village/village_toolsmith",
+    "config": "loot_village_toolsmith"
+  },
+  {
+    "target": "minecraft:chests/village/village_weaponsmith",
+    "config": "loot_village_weaponsmith"
+  },
+  {
+    "target": "minecraft:chests/trial_chambers/corridor",
+    "config": "loot_trial_chambers_supply_chest"
+  },
+  {
+    "target": "minecraft:chests/trial_chambers/entrance",
+    "config": "loot_trial_chambers_supply_chest"
+  },
+  {
+    "target": "minecraft:chests/trial_chambers/intersection",
+    "config": "loot_trial_chambers_supply_chest"
+  },
+  {
+    "target": "minecraft:chests/trial_chambers/intersection_barrel",
+    "config": "loot_trial_chambers_supply_chest"
+  },
+  {
+    "target": "minecraft:chests/trial_chambers/reward",
+    "config": "loot_trial_chambers_reward_common"
+  },
+  {
+    "target": "minecraft:chests/trial_chambers/reward_ominous",
+    "config": "loot_trial_chambers_reward_ominous"
+  },
+  {
+    "target": "minecraft:chests/trial_chambers/supply",
+    "config": "loot_trial_chambers_supply_chest"
+  },
+  {
+    "target": "minecraft:pots/trial_chambers/corridor",
+    "config": "loot_trial_chambers_pot"
+  },
+  {
+    "target": "minecraft:spawners/trial_chamber/consumables",
+    "config": "loot_trial_chambers_common_spawners"
+  },
+  {
+    "target": "minecraft:spawners/trial_chamber/key",
+    "config": "loot_trial_chambers_common_spawners"
+  },
+  {
+    "target": "minecraft:spawners/ominous/trial_chamber/key",
+    "config": "loot_trial_chambers_ominous_spawners"
+  },
+  {
+    "target": "minecraft:spawners/ominous/trial_chamber/consumables",
+    "config": "loot_trial_chambers_ominous_spawners"
+  }
+]
