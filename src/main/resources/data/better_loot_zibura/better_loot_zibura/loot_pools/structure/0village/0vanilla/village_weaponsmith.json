@@ -61,6 +61,10 @@
       ],
       "items": [
         {
+          "id": "minecraft:diamond",
+          "ratio": 60
+        },
+        {
           "id": "minecraft:diamond_sword",
           "ratio": 10
         },

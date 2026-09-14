@@ -60,6 +60,26 @@
     "config": "loot_village_taiga_house"
   },
   {
+    "target": "revampedvillages:desert_common",
+    "config": "loot_village_desert_house"
+  },
+  {
+    "target": "revampedvillages:plains_common",
+    "config": "loot_village_plains_house"
+  },
+  {
+    "target": "revampedvillages:savanna_common",
+    "config": "loot_village_savanna_house"
+  },
+  {
+    "target": "revampedvillages:snowy_common",
+    "config": "loot_village_snowy_house"
+  },
+  {
+    "target": "revampedvillages:taiga_common",
+    "config": "loot_village_taiga_house"
+  },
+  {
     "target": "revampedvillages:pillager_treasure",
     "config": "loot_pillager_outpost"
   },
