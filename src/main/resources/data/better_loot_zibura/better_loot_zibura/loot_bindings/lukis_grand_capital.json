@@ -85,6 +85,6 @@
   },
   {
     "target": "revampedvillages:treasure",
-    "config": "loot_village_treasure"
+    "config":  "loot_village_treasure"
   }
 ]
