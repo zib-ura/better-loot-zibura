@@ -99,19 +99,7 @@
       ],
       "items": [
         {
-          "id": "minecraft:diamond_helmet",
-          "ratio": 10
-        },
-        {
-          "id": "minecraft:diamond_chestplate",
-          "ratio": 10
-        },
-        {
-          "id": "minecraft:diamond_leggings",
-          "ratio": 10
-        },
-        {
-          "id": "minecraft:diamond_boots",
+          "id": "minecraft:diamond",
           "ratio": 10
         }
       ]

@@ -362,6 +362,28 @@
           "registry_key": "minecraft:swamp"
         }
       }
+    ],
+    [
+      "village_plains_dish",
+      1,
+      1,
+      {
+        "customCondition": {
+          "condition": "better_loot_zibura:match_biome_registry",
+          "registry_key": "#minecraft:is_forest"
+        }
+      }
+    ],
+    [
+      "village_plains_drinks",
+      1,
+      2,
+      {
+        "customCondition": {
+          "condition": "better_loot_zibura:match_biome_registry",
+          "registry_key": "#minecraft:is_forest"
+        }
+      }
     ]
   ],
   "loot_t_and_t_pillager_outpost_food_supply": [

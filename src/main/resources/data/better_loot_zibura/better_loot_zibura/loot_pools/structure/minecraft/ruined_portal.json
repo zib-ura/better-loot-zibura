@@ -1,78 +1,74 @@
 {
   "ruined_portal_nether_materials": [
     {
-      "groupName": "Nether Resources",
-      "groupWeight": 29,
-      "min": 1,
-      "max": 2,
+      "groupName": "Nether Resources - Common",
+      "groupWeight": 60,
+      "min": 2,
+      "max": 4,
       "items": [
         {
-          "id": "minecraft:obsidian",
-          "ratio": 20
-        },
-        {
-          "id": "minecraft:crying_obsidian",
-          "ratio": 10
-        },
-        {
-          "id": "minecraft:flint_and_steel",
-          "ratio": 10
-        },
-        {
-          "id": "minecraft:fire_charge",
-          "ratio": 5
-        },
-        {
-          "id": "minecraft:glowstone_dust",
-          "ratio": 10
-        },
-        {
-          "id": "minecraft:glowstone",
-          "ratio": 5
-        },
-        {
-          "id": "minecraft:quartz",
-          "ratio": 10
-        },
-        {
-          "id": "minecraft:nether_brick",
-          "ratio": 5
-        },
-        {
-          "id": "minecraft:magma_cream",
-          "ratio": 5
-        },
-        {
-          "id": "minecraft:nether_wart",
-          "ratio": 5
+          "id": "minecraft:netherrack",
+          "ratio": 30
         },
         {
           "id": "minecraft:soul_sand",
-          "ratio": 5
+          "ratio": 15
         },
         {
-          "id": "minecraft:gilded_blackstone",
-          "ratio": 5
+          "id": "minecraft:nether_brick",
+          "ratio": 15
         },
         {
-          "id": "minecraft:blaze_powder",
-          "ratio": 5
+          "id": "minecraft:quartz",
+          "ratio": 20
         },
         {
-          "id": "minecraft:blaze_rod",
-          "ratio": 5
+          "id": "minecraft:glowstone_dust",
+          "ratio": 20
         }
       ]
     },
     {
-      "groupName": "netherrack",
-      "groupWeight": 70,
-      "min": 2,
-      "max": 3,
+      "groupName": "Nether Resources - Uncommon",
+      "groupWeight": 30,
+      "min": 1,
+      "max": 2,
       "items": [
         {
-          "id": "minecraft:netherrack",
+          "id": "minecraft:glowstone",
           "ratio": 20
+        },
+        {
+          "id": "minecraft:obsidian",
+          "ratio": 25
+        },
+        {
+          "id": "minecraft:fire_charge",
+          "ratio": 20
+        },
+        {
+          "id": "minecraft:magma_cream",
+          "ratio": 15
+        }
+      ]
+    },
+    {
+      "groupName": "Nether Resources - Rare",
+      "groupWeight": 10,
+      "min": 1,
+      "max": 1,
+      "items": [
+        {
+          "id": "minecraft:blaze_powder",
+          "ratio": 25
+        },
+        {
+          "id": "minecraft:crying_obsidian",
+          "ratio": 25
+        },
+        {
+          "id": "minecraft:nether_wart",
+          "ratio": 25
         }
       ]
     },
@@ -97,10 +93,10 @@
       ]
     }
   ],
-  "ruined_portal_gold_armor": [
+  "ruined_portal_gear": [
     {
       "groupName": "Gold Armor Pieces",
-      "groupWeight": 85,
+      "groupWeight": 80,
       "min": 1,
       "max": 1,
       "damage": [
@@ -123,14 +119,16 @@
         {
           "id": "minecraft:golden_boots",
           "ratio": 25
+        },
+        {
+          "id": "minecraft:flint_and_steel",
+          "ratio": 25
         }
       ]
-    }
-  ],
-  "ruined_portal_supply": [
+    },
     {
-      "groupName": "fire_charge",
-      "groupWeight": 30,
+      "groupName": "protect",
+      "groupWeight": 20,
       "min": 1,
       "max": 1,
       "items": [
@@ -142,15 +140,6 @@
         {
           "id": "touhou_little_maid:fire_protect_bauble",
           "ratio": 10
-        }
-      ]
-    },
-    {
-      "groupName": "empty",
-      "groupWeight": 70,
-      "items": [
-        {
-          "id": "empty"
         }
       ]
     }
@@ -216,12 +205,7 @@
       5
     ],
     [
-      "ruined_portal_gold_armor",
-      1,
-      1
-    ],
-    [
-      "ruined_portal_supply",
+      "ruined_portal_gear",
       1,
       1
     ],

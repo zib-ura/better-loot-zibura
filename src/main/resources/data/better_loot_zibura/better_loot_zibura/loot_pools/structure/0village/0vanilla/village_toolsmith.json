@@ -70,6 +70,14 @@
         {
           "id": "kaleidoscope_cookery:sickle",
           "ratio": 10
+        },
+        {
+          "id": "touhou_little_maid:wireless_io",
+          "ratio": 5
+        },
+        {
+          "id": "minecraft:hopper",
+          "ratio": 5
         }
       ]
     },
@@ -84,6 +92,10 @@
         0.8
       ],
       "items": [
+        {
+          "id": "minecraft:diamond",
+          "ratio": 80
+        },
         {
           "id": "minecraft:diamond_pickaxe",
           "ratio": 10
