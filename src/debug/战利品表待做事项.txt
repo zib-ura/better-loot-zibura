@@ -12,7 +12,7 @@
 蔬菜乐事仓库
 船队 照片
 
-kitchenkarrot油
+探险家地图1.20.1没有前缀
 
 马鞍
 lucky衣服，50概率一件
@@ -41,14 +41,8 @@ concoction
 蒸汽朋克靴子
 Slavic delight
 expanded delight
-
-
-wiki
-试炼密室百科
-百科提一句兼容性
-外网介绍改成info
-森罗物语末地的附魔改一下
-配方转换也写介绍
+复制空json也可以读文件选择复制哪些
+有几个不是chest的查一下
 
 技术
 神秘遗物删皮革食物，glm

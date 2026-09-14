@@ -1,6 +1,6 @@
 const village_profession_item = [
     {
-        groupName: "shepherd",
+        groupName: "shepherd and tannery",
         groupWeight: 25, 
         min: 1,  max: 1,
         items: [
@@ -8,8 +8,10 @@ const village_profession_item = [
             { id: "minecraft:white_carpet", ratio: 10 },
             { id: "supplementaries:bunting_white", ratio: 10 },
             { id: "supplementaries:flag_white", ratio: 10 },
-            { id: "minecraft:white_bed", ratio: 10, max: 2 },
+            { id: "minecraft:white_bed", ratio: 10 },
             { id: "minecraft:painting", ratio: 10 },
+            { id: "minecraft:item_frame", ratio: 10 },
+
         ]
     },
 
@@ -46,9 +48,24 @@ const village_profession_item = [
 
         ]
     },
+
+    {        
+        groupName: "smith",
+        groupWeight: 25,
+        min: 1, max: 1,
+        items: [
+
+            { id: "minecraft:piston", ratio: 10 },
+            { id: "minecraft:lantern", ratio: 10 },
+            { id: "minecraft:bucket", ratio: 10 },
+            { id: "minecraft:lightning_rod", ratio: 10 },
+          
+        ]
+    },
+
     {
         groupName: "empty",
-        groupWeight: 75,
+        groupWeight: 100,
         items: [
             { id: "empty" },
         ]

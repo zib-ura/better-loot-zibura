@@ -17,6 +17,12 @@ Object.assign(allLootTables, {
     "revampedvillages:snowy_house":                       loot_village_snowy_house,
     "revampedvillages:taiga_house":                       loot_village_taiga_house,
 
+    "revampedvillages:desert_common":                      loot_village_desert_house,
+    "revampedvillages:plains_common":                      loot_village_plains_house,
+    "revampedvillages:savanna_common":                     loot_village_savanna_house,
+    "revampedvillages:snowy_common":                       loot_village_snowy_house,
+    "revampedvillages:taiga_common":                       loot_village_taiga_house,
+
     "revampedvillages:pillager_treasure":                  loot_pillager_outpost,
     "revampedvillages:treasure":                           loot_village_treasure,
 

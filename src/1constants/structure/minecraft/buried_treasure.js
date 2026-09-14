@@ -15,9 +15,9 @@ const buried_treasure_valuables = [
 const gold_and_diamond_products = [
     {
         groupName: "Gold Products",
-        groupWeight: 90,
+        groupWeight: 99,
         min: 1, max: 1,        
-        
+        damage: [0.5, 0.9],
         enchantLevels: [1, 20], 
         items: [
             // 金制工具与武器
@@ -46,9 +46,9 @@ const gold_and_diamond_products = [
     },
     {
         groupName: "Diamond Products Gold Treasure",
-        groupWeight: 10,
+        groupWeight: 1,
         min: 1, max: 1,        
-        
+        damage: [0.5, 0.9],
         enchantLevels: [1, 20], 
         items: [
             // 钻石制工具与武器
@@ -71,7 +71,7 @@ const gold_and_diamond_products = [
             { id: "minecraft:enchanted_golden_apple", ratio: 10 }, // 附魔金苹果
             { id: "mynethersdelight:enchanted_golden_egg", ratio: 10 },
         ]
-    }
+    },
 ];
 
 const buried_treasure_emerald = [
@@ -81,9 +81,9 @@ const buried_treasure_emerald = [
         min: 1, max: 1,
         items: [
             { reference: "lootjs:emerald_and_emerald_block", ratio: 10 },
-            { reference: "lootjs:emerald", ratio: 10 },
+            { reference: "lootjs:emerald", ratio: 40 },
             { reference: "lootjs:gold_ingot_and_gold_ingot_block", ratio: 10 },
-            { reference: "lootjs:gold_ingot", ratio: 10 },
+            { reference: "lootjs:gold_ingot", ratio: 40 },
 
         ]
     },
@@ -102,7 +102,7 @@ const buried_treasure_smithing_templates_exclusive = [
 
     {
         groupName: "empty",
-        groupWeight: 25,
+        groupWeight: 50,
         items: [
             { id: "empty" },
         ]

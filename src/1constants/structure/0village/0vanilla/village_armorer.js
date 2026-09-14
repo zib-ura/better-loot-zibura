@@ -46,10 +46,12 @@ const village_armorer_products = [
         
         damage: [0.7, 0.8],
         items: [
-            { id: "minecraft:diamond_helmet", ratio: 10 },
-            { id: "minecraft:diamond_chestplate", ratio: 10 },
-            { id: "minecraft:diamond_leggings", ratio: 10 },
-            { id: "minecraft:diamond_boots", ratio: 10 },
+            // { id: "minecraft:diamond_helmet", ratio: 10 },
+            // { id: "minecraft:diamond_chestplate", ratio: 10 },
+            // { id: "minecraft:diamond_leggings", ratio: 10 },
+            // { id: "minecraft:diamond_boots", ratio: 10 },
+            { id: "minecraft:diamond", ratio: 10 },
+          
         ]
     }
 ];

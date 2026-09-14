@@ -96,6 +96,8 @@
 /execute at @p run setblock ~ ~-1 ~ chest{LootTable:"ctov:chests/village/village_smith"}
 /execute at @p run setblock ~ ~-1 ~ chest{LootTable:"ctov:chests/village/village_swamp_house"}
 /execute at @p run setblock ~ ~-1 ~ chest{LootTable:"ctov:chests/village/village_badlands_house"}
-/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"ctov:chests/village/village_bakery"}
+/execute at @p run setblock ~ ~-1 ~ chest{LootTable:"revampedvillages:treasure"}
 
 /loot give @a loot repurposed_structures:chests/mineshafts/desert
+
+/loot give @a loot revampedvillages:treasure

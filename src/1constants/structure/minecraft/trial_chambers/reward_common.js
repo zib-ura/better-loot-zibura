@@ -128,9 +128,9 @@ const trial_chambers_reward_common_enchanted = [
     },
 ];
 
-const trial_chambers_reward_common_ornament = [
+const trial_chambers_reward_common_collectibles = [
     {
-        groupName: "ornament", 
+        groupName: "collectibles", 
         groupWeight: 10,
         min: 1, max: 1, 
         items: [
@@ -166,7 +166,7 @@ const trial_chambers_reward_common_content = [
     [trial_chambers_reward_common_ominous_bottle, 1, 1],
     [trial_chambers_reward_common_explore, 2, 3],
     [trial_chambers_reward_common_enchanted, 1, 1],
-    [trial_chambers_reward_common_ornament, 1, 1],
+    [trial_chambers_reward_common_collectibles, 1, 1],
 ];
 
 const loot_trial_chambers_reward_common = [

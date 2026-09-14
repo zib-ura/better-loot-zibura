@@ -1,4 +1,19 @@
-const village_temple_material = [
+const village_temple_equipment = [
+    {   
+        groupName: "equipment",
+        groupWeight: 50, 
+        min: 2, max: 3,
+        items: [
+            { id: "minecraft:book", ratio: 10 },
+            { id: "minecraft:writable_book", ratio: 10 },
+            { id: "minecraft:candle", ratio: 10 },            
+            { id: "supplementaries:candle_holder", ratio: 10 },           
+            { id: "minecraft:bread", ratio: 10 },
+         
+        ]
+    },
+]   
+const village_temple_wealth = [
     {   
         groupName: "ore",
         groupWeight: 50, 
@@ -14,64 +29,56 @@ const village_temple_material = [
             { id: "minecraft:amethyst_shard", ratio: 10 },
         ]
     },
+]
+const village_temple_material = [
+
 
     {   
-        groupName: "brewing",
-        groupWeight: 50, 
+        groupName: "common",
+        groupWeight: 90, 
         min: 2, max: 3,
         items: [
             { id: "minecraft:redstone", ratio: 10 },
             { id: "minecraft:sugar", ratio: 10 },
+            { id: "minecraft:glistering_melon_slice", ratio: 10 },
+            { id: "minecraft:golden_carrot", ratio: 10 },
+            { id: "minecraft:gunpowder", ratio: 10 },
+
+        ]
+    },
+
+    {   
+        groupName: "rare",
+        groupWeight: 10, 
+        min: 1, max: 2,
+        items: [
+
             { id: "minecraft:glowstone_dust", ratio: 10 },
             { id: "minecraft:magma_cream", ratio: 10 },
             { id: "minecraft:nether_wart", ratio: 20 },
-            { id: "minecraft:blaze_rod", ratio: 10 },
-            { id: "minecraft:glistering_melon_slice", ratio: 10 },
+            { id: "minecraft:blaze_powder", ratio: 10 },
             { id: "minecraft:phantom_membrane", ratio: 10 },
-            { id: "minecraft:golden_carrot", ratio: 10 },
-            { id: "minecraft:turtle_scute", ratio: 10 },
-            { id: "minecraft:gunpowder", ratio: 10 },
-            { id: "minecraft:pufferfish", ratio: 10 },
-
             { id: "minecraft:ender_pearl", ratio: 10 },
 
         ]
     },
+
+
+    // {   
+    //     groupName: "empty",
+    //     groupWeight: 90, 
+    //     items: [
+    //         { id: "empty"},
+    //     ]
+    // },
 ]
 
-const village_temple_equipment = [
-    {   
-        groupName: "equipment",
-        groupWeight: 50, 
-        min: 2, max: 3,
-        items: [
-            { id: "minecraft:potion", ratio: 10 , potion: "minecraft:water" , max: 3}, 
-            { id: "minecraft:book", ratio: 10 },
-            { id: "minecraft:writable_book", ratio: 10 },
-            { id: "minecraft:candle", ratio: 10 },            
-            { id: "supplementaries:candle_holder", ratio: 10 },            
-        ]
-    },
-]   
+
 
 const village_temple_product = [
     {   
-        groupName: "bauble",
-        groupWeight: 50, 
-        min: 1, max: 1,
-        items: [
-
-            { id: "touhou_little_maid:nimble_fabric", ratio: 10 },
-            { id: "touhou_little_maid:magic_protect_bauble", ratio: 10 },
-            { id: "touhou_little_maid:wireless_io", ratio: 10 },
-            { id: "touhou_little_maid:shrine", ratio: 1 },
-
-        ]
-    },
-
-    {   
-        groupName: "potion",
-        groupWeight: 50, 
+        groupName: "common",
+        groupWeight: 90, 
         min: 1, max: 1,
         items: [
             { id: "minecraft:potion", ratio: 10, potion: "minecraft:healing" },
@@ -79,16 +86,42 @@ const village_temple_product = [
             { id: "minecraft:potion", ratio: 10, potion: "minecraft:swiftness" },
             { id: "minecraft:potion", ratio: 10, potion: "minecraft:night_vision" },
             { id: "minecraft:potion", ratio: 10, potion: "minecraft:invisibility" },
+
+            { id: "touhou_little_maid:nimble_fabric", ratio: 10 },
+            { id: "touhou_little_maid:magic_protect_bauble", ratio: 10 },        
+        ]
+    },    
+    
+    {   
+        groupName: "rare",
+        groupWeight: 10, 
+        min: 1, max: 1,
+        items: [
+
+
+            { id: "touhou_little_maid:shrine", ratio: 10 },
+
+        ]
+    },
+
+    {   
+        groupName: "empty",
+        groupWeight: 200, 
+        items: [
+            { id: "empty"},
         ]
     },
 ]
+
+
 // =================================================================
 // 事件注册区域
 // =================================================================
 const village_temple_content = [
-    [village_temple_equipment, 1, 1],
-    [village_temple_material, 2, 3],
-    [village_temple_product, 2, 2],
+    [village_temple_equipment, 2, 3],
+    [village_temple_wealth, 1, 2],
+    [village_temple_material, 1, 2],
+    [village_temple_product, 1, 2],
 ];
 
 const loot_village_temple = [

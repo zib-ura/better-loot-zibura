@@ -79,7 +79,9 @@ const t_and_t_pillager_outpost_food_supply_content = [
     [village_swamp_dish, 1, 1, { matchBiome: "minecraft:swamp" } ],
     [village_swamp_drinks, 1, 2, { matchBiome: "minecraft:swamp" } ],
 
-    
+    // 森林 (Forest)
+    [village_plains_dish, 1, 1, { matchBiome: "#minecraft:is_forest" } ],
+    [village_plains_drinks, 1, 2, { matchBiome: "#minecraft:is_forest" } ],
 
 ];
 

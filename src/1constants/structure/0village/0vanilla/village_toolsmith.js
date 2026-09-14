@@ -22,7 +22,11 @@ const village_toolsmith_products = [
             { id: "minecraft:brush", ratio: 10 },
             { id: "minecraft:shears", ratio: 10 },
 
-            { id: "kaleidoscope_cookery:sickle", ratio: 10 }
+            { id: "kaleidoscope_cookery:sickle", ratio: 10 },
+
+            { id: "touhou_little_maid:wireless_io", ratio: 5 },
+            { id: "minecraft:hopper", ratio: 5 },
+
         ]
     },
 
@@ -33,12 +37,13 @@ const village_toolsmith_products = [
         enchantChance: 0.0,
         damage: [0.7, 0.8],
         items: [
+            { id: "minecraft:diamond", ratio: 80 }, 
             { id: "minecraft:diamond_pickaxe", ratio: 10 },
             { id: "minecraft:diamond_shovel", ratio: 10 },
             { id: "minecraft:diamond_axe", ratio: 10 },
-            { id: "minecraft:diamond_hoe", ratio: 10 }
+            { id: "minecraft:diamond_hoe", ratio: 10 },
         ]
-    }            
+    },
 ];
 
 // =================================================================

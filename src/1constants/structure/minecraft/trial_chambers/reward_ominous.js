@@ -132,9 +132,9 @@ const trial_chambers_reward_ominous_enchanted = [
     },
 ];
 
-const trial_chambers_reward_ominous_ornament = [
+const trial_chambers_reward_ominous_collectibles = [
     {
-        groupName: "ornament", 
+        groupName: "collectibles", 
         groupWeight: 50,
         min: 1, max: 1, 
         items: [
@@ -170,7 +170,7 @@ const trial_chambers_reward_ominous_content = [
     [trial_chambers_reward_ominous_heavy_core, 1, 1],
     [trial_chambers_reward_ominous_explore, 2, 3],
     [trial_chambers_reward_ominous_enchanted, 1, 1],
-    [trial_chambers_reward_ominous_ornament, 1, 1],
+    [trial_chambers_reward_ominous_collectibles, 1, 1],
 ];
 
 const loot_trial_chambers_reward_ominous = [

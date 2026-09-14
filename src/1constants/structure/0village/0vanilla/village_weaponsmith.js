@@ -27,6 +27,7 @@ const village_weaponsmith_products = [
         enchantChance: 0.0,
         damage: [0.7, 0.8],
         items: [
+            { id: "minecraft:diamond", ratio: 60 }, 
             { id: "minecraft:diamond_sword", ratio: 10 },
             { id: "farmersdelight:diamond_knife", ratio: 10 },
             { id: "kaleidoscope_cookery:diamond_kitchen_knife", ratio: 10 }
