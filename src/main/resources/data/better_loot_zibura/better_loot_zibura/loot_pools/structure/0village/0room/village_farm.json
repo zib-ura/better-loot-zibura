@@ -48,7 +48,7 @@
   "village_plains_farm_seed": [
     {
       "groupName": "common",
-      "groupWeight": 70,
+      "groupWeight": 30,
       "min": 2,
       "max": 3,
       "items": [
@@ -262,7 +262,7 @@
   "village_savanna_farm_seed": [
     {
       "groupName": "common",
-      "groupWeight": 80,
+      "groupWeight": 50,
       "min": 2,
       "max": 3,
       "items": [
@@ -294,7 +294,7 @@
     },
     {
       "groupName": "special",
-      "groupWeight": 20,
+      "groupWeight": 40,
       "min": 1,
       "max": 2,
       "items": [
@@ -316,7 +316,7 @@
   "village_snowy_farm_seed": [
     {
       "groupName": "common",
-      "groupWeight": 80,
+      "groupWeight": 50,
       "min": 2,
       "max": 3,
       "items": [
@@ -348,7 +348,7 @@
     },
     {
       "groupName": "special",
-      "groupWeight": 20,
+      "groupWeight": 50,
       "min": 1,
       "max": 2,
       "items": [
@@ -390,7 +390,7 @@
   "village_taiga_farm_seed": [
     {
       "groupName": "common",
-      "groupWeight": 80,
+      "groupWeight": 50,
       "min": 2,
       "max": 3,
       "items": [
@@ -430,7 +430,7 @@
     },
     {
       "groupName": "special",
-      "groupWeight": 20,
+      "groupWeight": 50,
       "min": 1,
       "max": 2,
       "items": [
@@ -615,26 +615,6 @@
           "ratio": 8
         }
       ]
-    },
-    {
-      "groupName": "special",
-      "groupWeight": 20,
-      "min": 1,
-      "max": 2,
-      "items": [
-        {
-          "reference": "lootjs:tomato_seeds",
-          "ratio": 10
-        },
-        {
-          "reference": "lootjs:cabbage_seeds",
-          "ratio": 10
-        },
-        {
-          "reference": "lootjs:lettuce_seeds",
-          "ratio": 10
-        }
-      ]
     }
   ],
   "village_beach_farm_seed": [
@@ -670,22 +650,6 @@
         },
         {
           "reference": "lootjs:flax_seeds",
-          "ratio": 10
-        }
-      ]
-    },
-    {
-      "groupName": "special",
-      "groupWeight": 20,
-      "min": 1,
-      "max": 2,
-      "items": [
-        {
-          "reference": "lootjs:tomato_seeds",
-          "ratio": 10
-        },
-        {
-          "reference": "lootjs:lettuce_seeds",
           "ratio": 10
         }
       ]
@@ -1024,7 +988,7 @@
   "village_swamp_farm_seed": [
     {
       "groupName": "common",
-      "groupWeight": 80,
+      "groupWeight": 70,
       "min": 2,
       "max": 3,
       "items": [
@@ -1044,7 +1008,7 @@
     },
     {
       "groupName": "special",
-      "groupWeight": 20,
+      "groupWeight": 30,
       "min": 1,
       "max": 2,
       "items": [

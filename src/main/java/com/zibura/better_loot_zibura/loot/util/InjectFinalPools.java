@@ -141,8 +141,13 @@ public final class InjectFinalPools {
             cleanGroup.damage = group.damage;
             cleanGroup.enchantChance = group.enchantChance;
             cleanGroup.enchantLevels = group.enchantLevels;
-            cleanGroup.exactEnchants = group.exactEnchants;
-            cleanGroup.enchantRandomly = group.enchantRandomly;
+
+            cleanGroup.exactEnchants =
+                    normalizeExactEnchants(group.exactEnchants);
+
+            cleanGroup.enchantRandomly =
+                    normalizeEnchantmentList(group.enchantRandomly);
+
             cleanGroup.potion = group.potion;
             cleanGroup.jsonFunction = group.jsonFunction;
             cleanGroup.conditions = group.conditions != null ? new HashMap<>(group.conditions) : new HashMap<>();
@@ -181,6 +186,13 @@ public final class InjectFinalPools {
                 // 模组兼容性 ID 纠正
                 item.id = normalizeItemId(item.id);
 
+                // 附魔 ID 跨版本兼容清洗
+                item.enchantRandomly =
+                        normalizeEnchantmentList(item.enchantRandomly);
+
+                item.exactEnchants =
+                        normalizeExactEnchants(item.exactEnchants);
+
 //                // 远古书转换兼容：单随机附魔书转为 immersiveenchanting:ancient_book
 //                if ("minecraft:book".equals(item.id) && item.enchantRandomly != null && item.enchantRandomly.size() == 1) {
 //                    if (ForgeRegistries.ITEMS.containsKey(ResourceLocation.parse("immersiveenchanting:ancient_book"))) {
@@ -189,7 +201,7 @@ public final class InjectFinalPools {
 //                }
 
                 // 附魔有效性过滤
-                List<String> enchantRandomly = item.enchantRandomly != null ? item.enchantRandomly : group.enchantRandomly;
+                List<String> enchantRandomly = item.enchantRandomly != null ? item.enchantRandomly : cleanGroup.enchantRandomly;
                 if (enchantRandomly != null && !enchantRandomly.isEmpty()) {
                     List<String> validEnchants = enchantRandomly.stream()
                             .filter(InjectFinalPools::isEnchantmentValid)
@@ -199,7 +211,7 @@ public final class InjectFinalPools {
                 }
 
                 // 药水有效性过滤
-                String potion = item.potion != null ? item.potion : group.potion;
+                String potion = item.potion != null ? item.potion : cleanGroup.potion;
                 if (potion != null && !potion.isEmpty()) {
                     if (!isPotionValid(potion)) {
                         continue;
@@ -663,6 +675,80 @@ public final class InjectFinalPools {
         copy.nbt = src.nbt;
         copy.conditions = src.conditions != null ? new HashMap<>(src.conditions) : new HashMap<>();
         return copy;
+    }
+
+    /**
+     * 附魔 ID 跨版本兼容清洗。
+     *
+     * 1.20.1 等旧版本：
+     *   minecraft:sweeping
+     *
+     * 1.20.5+：
+     *   minecraft:sweeping_edge
+     *
+     * 优先保留配置中原本的 ID；
+     * 如果原 ID 不存在，再尝试对应的兼容 ID。
+     */
+    private static String normalizeEnchantmentId(String id) {
+        if (id == null || id.isEmpty()) return id;
+
+        ResourceLocation original = ResourceLocation.tryParse(id);
+
+        // 原 ID 当前版本存在，则不做任何修改
+        if (original != null && ForgeRegistries.ENCHANTMENTS.containsKey(original)) {
+            return id;
+        }
+
+        // sweeping -> sweeping_edge
+        if ("minecraft:sweeping".equals(id)) {
+            ResourceLocation replacement =
+                    ResourceLocation.tryParse("minecraft:sweeping_edge");
+
+            if (replacement != null &&
+                    ForgeRegistries.ENCHANTMENTS.containsKey(replacement)) {
+                return "minecraft:sweeping_edge";
+            }
+        }
+
+        // sweeping_edge -> sweeping
+        // 允许新版数据反过来运行在旧版本
+        if ("minecraft:sweeping_edge".equals(id)) {
+            ResourceLocation replacement =
+                    ResourceLocation.tryParse("minecraft:sweeping");
+
+            if (replacement != null &&
+                    ForgeRegistries.ENCHANTMENTS.containsKey(replacement)) {
+                return "minecraft:sweeping";
+            }
+        }
+
+        // 都找不到则原样返回，交给后面的有效性过滤处理
+        return id;
+    }
+
+    private static List<String> normalizeEnchantmentList(List<String> list) {
+        if (list == null) return null;
+
+        return list.stream()
+                .map(InjectFinalPools::normalizeEnchantmentId)
+                .toList();
+    }
+
+    private static Map<String, Integer> normalizeExactEnchants(
+            Map<String, Integer> enchants
+    ) {
+        if (enchants == null) return null;
+
+        Map<String, Integer> normalized = new LinkedHashMap<>();
+
+        for (Map.Entry<String, Integer> entry : enchants.entrySet()) {
+            normalized.put(
+                    normalizeEnchantmentId(entry.getKey()),
+                    entry.getValue()
+            );
+        }
+
+        return normalized;
     }
 }
 

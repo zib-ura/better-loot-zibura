@@ -299,7 +299,7 @@ ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies.${mod_id}]]
-modId = "nova_cherry_village"
+modId = "mr_cherry_villages"
 mandatory = false
 versionRange = "[0.0.0,)"
 ordering = "AFTER"

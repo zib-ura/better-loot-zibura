@@ -16,6 +16,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.*;
 
+import static net.minecraft.resources.ResourceLocation.fromNamespaceAndPath;
+
 public final class ConvertibleRecipeHandler {
 
     private ConvertibleRecipeHandler() {}
@@ -69,7 +71,7 @@ public final class ConvertibleRecipeHandler {
                     }
 
                     // 1.20.1 中 ResourceLocation 构造函数为 new ResourceLocation(namespace, path)
-                    ResourceLocation recipeId = new ResourceLocation(
+                    ResourceLocation recipeId = fromNamespaceAndPath(
                             better_loot_zibura.MOD_ID,
                             String.format("convertible/%s_from_%s_%s_to_%s_%s",
                                     groupKey.toLowerCase(Locale.ROOT),

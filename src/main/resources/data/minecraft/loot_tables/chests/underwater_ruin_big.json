@@ -6,23 +6,13 @@
       "entries": [
         {
           "type": "minecraft:empty",
-          "weight": 10
-        }
-      ],
-      "rolls": 1.0
-    },
-    {
-      "bonus_rolls": 0.0,
-      "entries": [
-        {
-          "type": "minecraft:empty",
-          "weight": 1
+          "weight": 31
         }
       ],
       "rolls": {
         "type": "minecraft:uniform",
-        "max": 3.0,
-        "min": 1.0
+        "max": 8.0,
+        "min": 2.0
       }
     },
     {
@@ -30,11 +20,11 @@
       "entries": [
         {
           "type": "minecraft:empty",
-          "weight": 1
+          "weight": 23
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "minecraft:chests/trial_chambers/reward_ominous"
+  "random_sequence": "minecraft:chests/underwater_ruin_big"
 }

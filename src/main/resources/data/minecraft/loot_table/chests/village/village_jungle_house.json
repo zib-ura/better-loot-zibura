@@ -15,11 +15,5 @@
         "min": 3.0
       }
     }
-  ],
-  "functions": [
-    {
-      "function": "minecraft:reference",
-      "name": "nova_structures:loot_modifier"
-    }
   ]
 }
