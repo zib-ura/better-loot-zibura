@@ -1,0 +1,10 @@
+[
+  {
+    "target": "explorify:chest/dark_forest_settlement",
+    "config": "loot_village_dark_forest_house"
+  },
+  {
+    "target": "explorify:chest/supply_cache",
+    "config": "loot_food_supply"
+  }
+]

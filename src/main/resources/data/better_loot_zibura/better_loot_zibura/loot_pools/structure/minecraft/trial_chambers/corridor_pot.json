@@ -1,0 +1,89 @@
+{
+  "trial_chambers_pot": [
+    {
+      "groupName": "ores",
+      "groupWeight": 10,
+      "min": 2,
+      "max": 3,
+      "items": [
+        {
+          "id": "minecraft:emerald",
+          "ratio": 10
+        },
+        {
+          "id": "minecraft:diamond",
+          "ratio": 10
+        }
+      ]
+    },
+    {
+      "groupName": "small_items_and_powders",
+      "groupWeight": 90,
+      "min": 3,
+      "max": 4,
+      "items": [
+        {
+          "id": "minecraft:stick",
+          "ratio": 10
+        },
+        {
+          "id": "minecraft:flint",
+          "ratio": 10
+        },
+        {
+          "id": "minecraft:feather",
+          "ratio": 10
+        },
+        {
+          "id": "minecraft:string",
+          "ratio": 10
+        },
+        {
+          "id": "minecraft:snowball",
+          "ratio": 10
+        },
+        {
+          "id": "minecraft:clay_ball",
+          "ratio": 10
+        },
+        {
+          "id": "minecraft:bone_meal",
+          "ratio": 10
+        },
+        {
+          "id": "minecraft:sugar",
+          "ratio": 10
+        },
+        {
+          "id": "minecraft:redstone",
+          "ratio": 5
+        },
+        {
+          "id": "minecraft:glowstone_dust",
+          "ratio": 5
+        },
+        {
+          "id": "minecraft:gunpowder",
+          "ratio": 4
+        },
+        {
+          "id": "minecraft:slime_ball",
+          "ratio": 4
+        }
+      ]
+    }
+  ],
+  "trial_chambers_pot_content": [
+    [
+      "trial_chambers_pot",
+      1,
+      1
+    ]
+  ],
+  "loot_trial_chambers_pot": [
+    [
+      "trial_chambers_pot_content",
+      1
+    ]
+  ]
+}

@@ -1,0 +1,190 @@
+{
+  "music_discs_overworld": [
+    {
+      "id": "minecraft:music_disc_chirp",
+      "ratio": 10
+    },
+    {
+      "id": "minecraft:music_disc_cat",
+      "ratio": 10
+    },
+    {
+      "id": "minecraft:music_disc_mellohi",
+      "ratio": 10
+    },
+    {
+      "id": "minecraft:music_disc_far",
+      "ratio": 10
+    },
+    {
+      "id": "minecraft:music_disc_blocks",
+      "ratio": 10
+    },
+    {
+      "id": "minecraft:music_disc_relic",
+      "ratio": 10
+    },
+    {
+      "id": "minecraft:music_disc_strad",
+      "ratio": 10
+    },
+    {
+      "id": "minecraft:music_disc_otherside",
+      "ratio": 10
+    },
+    {
+      "id": "minecraft:music_disc_stal",
+      "ratio": 10
+    },
+    {
+      "id": "minecraft:music_disc_mall",
+      "ratio": 10
+    },
+    {
+      "id": "minecraft:music_disc_13",
+      "ratio": 10
+    },
+    {
+      "id": "minecraft:music_disc_11",
+      "ratio": 10
+    },
+    {
+      "id": "minecraft:music_disc_ward",
+      "ratio": 10
+    },
+    {
+      "id": "minecraft:music_disc_wait",
+      "ratio": 10
+    },
+    {
+      "id": "minecraft:music_disc_5",
+      "ratio": 10
+    },
+    {
+      "id": "supplementaries:music_disc_heave_ho",
+      "ratio": 10
+    },
+    {
+      "id": "takesapillage:music_disc_bastille_blues",
+      "ratio": 10
+    },
+    {
+      "id": "berry_good:music_disc_fox",
+      "ratio": 10
+    },
+    {
+      "id": "aeronautics:music_disc_cloud_skipper",
+      "ratio": 10
+    },
+    {
+      "id": "immersiveenchanting:music_disc_biblioclasm",
+      "ratio": 10
+    },
+    {
+      "id": "immersiveenchanting:music_disc_arcane_memories",
+      "ratio": 10
+    }
+  ],
+  "music_discs_all_dimension": [
+    {
+      "id": "minecraft:music_disc_13",
+      "ratio": 10
+    },
+    {
+      "id": "minecraft:music_disc_cat",
+      "ratio": 10
+    },
+    {
+      "id": "minecraft:music_disc_blocks",
+      "ratio": 10
+    },
+    {
+      "id": "minecraft:music_disc_chirp",
+      "ratio": 10
+    },
+    {
+      "id": "minecraft:music_disc_far",
+      "ratio": 10
+    },
+    {
+      "id": "minecraft:music_disc_mall",
+      "ratio": 10
+    },
+    {
+      "id": "minecraft:music_disc_mellohi",
+      "ratio": 10
+    },
+    {
+      "id": "minecraft:music_disc_stal",
+      "ratio": 10
+    },
+    {
+      "id": "minecraft:music_disc_strad",
+      "ratio": 10
+    },
+    {
+      "id": "minecraft:music_disc_ward",
+      "ratio": 10
+    },
+    {
+      "id": "minecraft:music_disc_11",
+      "ratio": 10
+    },
+    {
+      "id": "minecraft:music_disc_wait",
+      "ratio": 10
+    },
+    {
+      "id": "minecraft:music_disc_pigstep",
+      "ratio": 10
+    },
+    {
+      "id": "minecraft:music_disc_otherside",
+      "ratio": 10
+    },
+    {
+      "id": "minecraft:music_disc_5",
+      "ratio": 10
+    },
+    {
+      "id": "minecraft:music_disc_relic",
+      "ratio": 10
+    },
+    {
+      "id": "minecraft:music_disc_precipice",
+      "ratio": 10
+    },
+    {
+      "id": "minecraft:music_disc_creator",
+      "ratio": 10
+    },
+    {
+      "id": "minecraft:music_disc_creator_music_box",
+      "ratio": 10
+    },
+    {
+      "id": "supplementaries:music_disc_heave_ho",
+      "ratio": 10
+    },
+    {
+      "id": "takesapillage:music_disc_bastille_blues",
+      "ratio": 10
+    },
+    {
+      "id": "berry_good:music_disc_fox",
+      "ratio": 10
+    },
+    {
+      "id": "aeronautics:music_disc_cloud_skipper",
+      "ratio": 10
+    },
+    {
+      "id": "immersiveenchanting:music_disc_biblioclasm",
+      "ratio": 10
+    },
+    {
+      "id": "immersiveenchanting:music_disc_arcane_memories",
+      "ratio": 10
+    }
+  ]
+}

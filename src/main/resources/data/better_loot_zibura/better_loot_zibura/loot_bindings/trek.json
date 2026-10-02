@@ -1,0 +1,82 @@
+[
+  {
+    "target": "trek:village/village_cherry_house",
+    "config": "loot_village_cherry_house"
+  },
+  {
+    "target": "trek:village/village_library",
+    "config": "loot_village_library"
+  },
+  {
+    "target": "trek:village/village_library_secret",
+    "config": "loot_trek_village_library_secret"
+  },
+  {
+    "target": "trek:village/village_swamp_house",
+    "config": "loot_village_swamp_house"
+  },
+  {
+    "target": "trek:pillagers/miner",
+    "config": "loot_village_underground_house"
+  },
+  {
+    "target": "trek:pillagers/ocean",
+    "config": "loot_village_ocean_house"
+  },
+  {
+    "target": "trek:pillagers/outpost_barrel",
+    "config": "loot_pillager_outpost"
+  },
+  {
+    "target": "trek:pillagers/outpost_desert",
+    "config": "loot_village_desert_house"
+  },
+  {
+    "target": "trek:pillagers/outpost_jungle",
+    "config": "loot_village_jungle_house"
+  },
+  {
+    "target": "trek:pillagers/outpost_mangrove",
+    "config": "loot_village_swamp_house"
+  },
+  {
+    "target": "trek:pillagers/pillager_mansion",
+    "config": "loot_woodland_mansion"
+  },
+  {
+    "target": "trek:overworld/common/mushroom_house",
+    "config": "loot_trek_common_mushroom_house"
+  },
+  {
+    "target": "trek:overworld/rare/tower_island",
+    "config": "loot_village_ocean_house"
+  },
+  {
+    "target": "trek:overworld/rare/island_village_1/common_barrels",
+    "config": "loot_village_ocean_house"
+  },
+  {
+    "target": "trek:overworld/rare/island_village_1/top_barrels",
+    "config": "loot_village_treasure"
+  },
+  {
+    "target": "trek:overworld/rare/mushroom_island/middle",
+    "config": "loot_village_mushroom_house"
+  },
+  {
+    "target": "trek:overworld/rare/mushroom_island/top",
+    "config": "loot_village_treasure"
+  },
+  {
+    "target": "trek:overworld/rare/villager_island/bottom_barrels",
+    "config": "loot_village_ocean_house"
+  },
+  {
+    "target": "trek:overworld/rare/villager_island/good_loot",
+    "config": "loot_village_treasure"
+  },
+  {
+    "target": "trek:overworld/rare/villager_island/lighthouse",
+    "config": "loot_lighthouse"
+  }
+]

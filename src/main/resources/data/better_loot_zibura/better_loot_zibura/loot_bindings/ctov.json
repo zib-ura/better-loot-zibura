@@ -1,0 +1,46 @@
+[
+  {
+    "target": "ctov:chests/village/village_badlands_house",
+    "config": "loot_village_badlands_house"
+  },
+  {
+    "target": "ctov:chests/village/village_bakery",
+    "config": "loot_ctov_village_bakery"
+  },
+  {
+    "target": "ctov:chests/village/village_beach_house",
+    "config": "loot_village_beach_house"
+  },
+  {
+    "target": "ctov:chests/village/village_dark_forest_house",
+    "config": "loot_village_dark_forest_house"
+  },
+  {
+    "target": "ctov:chests/village/village_farm",
+    "config": "loot_village_farm"
+  },
+  {
+    "target": "ctov:chests/village/village_jungle_house",
+    "config": "loot_village_jungle_house"
+  },
+  {
+    "target": "ctov:chests/village/village_library",
+    "config": "loot_village_library"
+  },
+  {
+    "target": "ctov:chests/village/village_mountain_house",
+    "config": "loot_ctov_village_mountain"
+  },
+  {
+    "target": "ctov:chests/village/village_mushroom_house",
+    "config": "loot_village_mushroom_house"
+  },
+  {
+    "target": "ctov:chests/village/village_smith",
+    "config": "loot_ctov_village_smith"
+  },
+  {
+    "target": "ctov:chests/village/village_swamp_house",
+    "config": "loot_village_swamp_house"
+  }
+]

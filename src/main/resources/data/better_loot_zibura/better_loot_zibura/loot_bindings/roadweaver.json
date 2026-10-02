@@ -1,0 +1,6 @@
+[
+  {
+    "target": "roadweaver:chests/maid_house",
+    "config": "loot_roadweaver_maid_house"
+  }
+]
