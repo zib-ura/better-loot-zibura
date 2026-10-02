@@ -1,0 +1,234 @@
+{
+  "shepherdBiomeColors": {
+    "desert": [
+      "white",
+      "green",
+      "cyan",
+      "blue",
+      "lime"
+    ],
+    "snowy": [
+      "white",
+      "red",
+      "blue"
+    ],
+    "taiga": [
+      "white",
+      "red",
+      "blue",
+      "purple"
+    ],
+    "swamp": [
+      "light_blue",
+      "white"
+    ],
+    "cherry_grove": [
+      "pink",
+      "white"
+    ],
+    "jungle": [
+      "brown",
+      "white"
+    ],
+    "ryb": [
+      "red",
+      "yellow",
+      "blue",
+      "white"
+    ],
+    "plains": [
+      "red",
+      "yellow",
+      "blue",
+      "white"
+    ],
+    "ryo": [
+      "red",
+      "yellow",
+      "orange",
+      "white"
+    ],
+    "other": [
+      "white"
+    ]
+  },
+  "shepherdWoolTemplates": [
+    {
+      "id": "minecraft:[COLOR]_wool",
+      "ratio": 10
+    },
+    {
+      "id": "minecraft:[COLOR]_banner",
+      "ratio": 10
+    },
+    {
+      "id": "minecraft:[COLOR]_carpet",
+      "ratio": 10
+    },
+    {
+      "id": "supplementaries:bunting_[COLOR]",
+      "ratio": 10
+    },
+    {
+      "id": "supplementaries:flag_[COLOR]",
+      "ratio": 10
+    },
+    {
+      "id": "minecraft:[COLOR]_bed",
+      "ratio": 10,
+      "max": 2
+    },
+    {
+      "id": "minecraft:painting",
+      "ratio": 10
+    }
+  ],
+  "shepherdDyeTemplates": [
+    {
+      "id": "minecraft:[COLOR]_dye",
+      "ratio": 10
+    }
+  ],
+  "shepherdEquipmentGroup": [
+    {
+      "groupName": "equipment",
+      "groupWeight": 20,
+      "min": 1,
+      "max": 1,
+      "damage": [
+        0.2,
+        0.8
+      ],
+      "items": [
+        {
+          "id": "minecraft:shears",
+          "ratio": 10
+        },
+        {
+          "id": "minecraft:lead",
+          "ratio": 10
+        },
+        {
+          "id": "woodenshears:wooden_shears",
+          "ratio": 10
+        }
+      ]
+    }
+  ],
+  "shepherdMaterialGroup": [
+    {
+      "groupName": "materials",
+      "groupWeight": 20,
+      "min": 3,
+      "max": 4,
+      "items": [
+        {
+          "id": "minecraft:white_wool",
+          "ratio": 10
+        },
+        {
+          "id": "minecraft:string",
+          "ratio": 10
+        }
+      ]
+    }
+  ],
+  "biomeList": [
+    [
+      "plains",
+      {
+        "customCondition": {
+          "condition": "better_loot_zibura:match_biome_registry",
+          "registry_key": "#minecraft:has_structure/village_plains"
+        }
+      }
+    ],
+    [
+      "desert",
+      {
+        "customCondition": {
+          "condition": "better_loot_zibura:match_biome_registry",
+          "registry_key": "#minecraft:has_structure/village_desert"
+        }
+      }
+    ],
+    [
+      "snowy",
+      {
+        "customCondition": {
+          "condition": "better_loot_zibura:match_biome_registry",
+          "registry_key": "#minecraft:has_structure/village_snowy"
+        }
+      }
+    ],
+    [
+      "taiga",
+      {
+        "customCondition": {
+          "condition": "better_loot_zibura:match_biome_registry",
+          "registry_key": "#minecraft:is_taiga"
+        }
+      }
+    ],
+    [
+      "swamp",
+      {
+        "customCondition": {
+          "condition": "better_loot_zibura:match_biome_registry",
+          "registry_key": "minecraft:swamp"
+        }
+      }
+    ],
+    [
+      "cherry_grove",
+      {
+        "customCondition": {
+          "condition": "better_loot_zibura:match_biome_registry",
+          "registry_key": "minecraft:cherry_grove"
+        }
+      }
+    ],
+    [
+      "jungle",
+      {
+        "customCondition": {
+          "condition": "better_loot_zibura:match_biome_registry",
+          "registry_key": "#minecraft:is_jungle"
+        }
+      }
+    ],
+    [
+      "ryb",
+      {
+        "customCondition": {
+          "condition": "better_loot_zibura:match_biome_registry",
+          "registry_key": "#better_loot_zibura:shepherd/red_yellow_blue"
+        }
+      }
+    ],
+    [
+      "ryo",
+      {
+        "customCondition": {
+          "condition": "better_loot_zibura:match_biome_registry",
+          "registry_key": "#better_loot_zibura:shepherd/red_yellow_orange"
+        }
+      }
+    ],
+    [
+      "other",
+      {
+        "customCondition": {
+          "condition": "better_loot_zibura:match_biome_registry",
+          "registry_key": "#better_loot_zibura:shepherd/other"
+        }
+      }
+    ]
+  ],
+  "loot_village_shepherd": [
+    [
+      "village_shepherd_content",
+      1
+    ]
+  ]
+}

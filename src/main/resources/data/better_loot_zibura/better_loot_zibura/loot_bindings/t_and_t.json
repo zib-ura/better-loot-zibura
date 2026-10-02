@@ -1,0 +1,34 @@
+[
+  {
+    "target": "kaisyn:village/village_badlands_house",
+    "config": "loot_village_badlands_house"
+  },
+  {
+    "target": "kaisyn:village/village_jungle_house",
+    "config": "loot_village_jungle_house"
+  },
+  {
+    "target": "kaisyn:village/village_mushroom_house",
+    "config": "loot_village_mushroom_house"
+  },
+  {
+    "target": "kaisyn:village/village_swamp_house",
+    "config": "loot_village_swamp_house"
+  },
+  {
+    "target": "kaisyn:village/exclusives/village_classic_blacksmith",
+    "config": "loot_t_And_T_village_smith"
+  },
+  {
+    "target": "kaisyn:outpost/common/food",
+    "config": "loot_t_and_t_pillager_outpost_food_supply"
+  },
+  {
+    "target": "kaisyn:outpost/common/armory",
+    "config": "loot_pillager_outpost_armory"
+  },
+  {
+    "target": "kaisyn:outpost/exclusives/outpost_beach_barrel",
+    "config": "loot_village_beach_house"
+  }
+]
