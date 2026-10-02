@@ -206,31 +206,31 @@
         },
         {
           "reference": "lootjs:carrot",
-          "ratio": 25
+          "ratio": 12
         },
         {
           "reference": "lootjs:potato",
-          "ratio": 25
+          "ratio": 12
         },
         {
           "reference": "lootjs:cabbage_seeds",
-          "ratio": 5
+          "ratio": 3
         },
         {
           "reference": "lootjs:cabbage",
-          "ratio": 20
+          "ratio": 9
         },
         {
           "reference": "lootjs:lettuce_seeds",
-          "ratio": 5
+          "ratio": 3
         },
         {
           "reference": "lootjs:lettuce",
-          "ratio": 20
+          "ratio": 9
         },
         {
           "reference": "lootjs:rice",
-          "ratio": 25
+          "ratio": 12
         }
       ]
     }

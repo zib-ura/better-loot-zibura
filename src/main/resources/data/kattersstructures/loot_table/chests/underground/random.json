@@ -1,12 +1,12 @@
 {
-  "type": "minecraft:chest",
   "pools": [
     {
-      "rolls": 1,
+      "rolls": 5,
+      "bonus_rolls": 2,
       "entries": [
         {
           "type": "minecraft:empty",
-          "weight": 1
+          "weight": 34
         }
       ]
     }

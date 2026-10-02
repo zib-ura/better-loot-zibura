@@ -361,9 +361,9 @@
       ]
     }
   ],
-  "trial_chambers_reward_ominous_ornament": [
+  "trial_chambers_reward_ominous_collectibles": [
     {
-      "groupName": "ornament",
+      "groupName": "collectibles",
       "groupWeight": 50,
       "min": 1,
       "max": 1,
@@ -425,7 +425,7 @@
       1
     ],
     [
-      "trial_chambers_reward_ominous_ornament",
+      "trial_chambers_reward_ominous_collectibles",
       1,
       1
     ]

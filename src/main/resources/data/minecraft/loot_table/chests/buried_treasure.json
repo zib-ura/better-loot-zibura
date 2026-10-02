@@ -71,12 +71,6 @@
           "weight": 1
         }
       ],
-      "functions": [
-        {
-          "function": "minecraft:set_potion",
-          "id": "minecraft:water_breathing"
-        }
-      ],
       "rolls": {
         "type": "minecraft:uniform",
         "max": 2.0,

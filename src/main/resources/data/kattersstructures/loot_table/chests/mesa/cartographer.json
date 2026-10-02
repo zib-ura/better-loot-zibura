@@ -18,12 +18,6 @@
           "type": "minecraft:empty",
           "weight": 7
         }
-      ],
-      "conditions": [
-        {
-          "condition": "minecraft:random_chance",
-          "chance": 0.9
-        }
       ]
     }
   ]

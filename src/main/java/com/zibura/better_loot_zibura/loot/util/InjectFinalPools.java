@@ -627,7 +627,7 @@ public final class InjectFinalPools {
 //                }
 
                 // 修复点 2：附魔合法性过滤校验
-                List<String> enchantRandomly = item.enchantRandomly != null ? item.enchantRandomly : group.enchantRandomly;
+                List<String> enchantRandomly = item.enchantRandomly != null ? item.enchantRandomly : cleanGroup.enchantRandomly;
                 if (enchantRandomly != null && !enchantRandomly.isEmpty()) {
                     List<String> validEnchants = enchantRandomly.stream()
                             .filter(InjectFinalPools::isEnchantmentValid)
@@ -636,7 +636,7 @@ public final class InjectFinalPools {
                     item.enchantRandomly = validEnchants;
                 }
 
-                String potion = item.potion != null ? item.potion : group.potion;
+                String potion = item.potion != null ? item.potion : cleanGroup.potion;
                 if (potion != null && !potion.isEmpty()) {
                     if (!isPotionValid(potion)) {
                         continue;
@@ -974,4 +974,6 @@ public final class InjectFinalPools {
         copy.conditions = src.conditions != null ? new HashMap<>(src.conditions) : new HashMap<>();
         return copy;
     }
+
+
 }

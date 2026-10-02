@@ -292,10 +292,6 @@
     "config": "loot_village_tannery"
   },
   {
-    "target": "kattersstructures:chests/swamp/lighthouse",
-    "config": "loot_lighthouse"
-  },
-  {
     "target": "kattersstructures:chests/swamp/mason",
     "config": "loot_village_mason"
   },

@@ -27,12 +27,6 @@
     },
     {
       "bonus_rolls": 0.0,
-      "conditions": [
-        {
-          "chance": 0.25,
-          "condition": "minecraft:random_chance"
-        }
-      ],
       "entries": [
         {
           "type": "minecraft:empty",
