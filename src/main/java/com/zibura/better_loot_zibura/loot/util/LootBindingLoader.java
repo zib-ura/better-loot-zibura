@@ -14,11 +14,11 @@ public class LootBindingLoader {
     private static final Logger LOGGER = LogUtils.getLogger();
 
     // 暂存所有 target 对应的最新绑定配置，按 target 覆盖
-    private static final Map<String, JsonObject> TARGET_BINDINGS = new LinkedHashMap<>();
+    private static final Map<String, JsonObject> LOOT_BINDINGS = new LinkedHashMap<>();
 
 
     public static void clear() {
-        TARGET_BINDINGS.clear();
+        LOOT_BINDINGS.clear();
     }
 
     /**
@@ -33,7 +33,7 @@ public class LootBindingLoader {
             if (bObj.has("target") && bObj.get("target").isJsonPrimitive()) {
                 String target = bObj.get("target").getAsString();
                 // 核心：后加载的相同 target 直接覆盖之前的值
-                TARGET_BINDINGS.put(target, bObj);
+                LOOT_BINDINGS.put(target, bObj);
             }
         }
     }
@@ -42,7 +42,7 @@ public class LootBindingLoader {
      * 提交阶段：将最终去重覆盖后的 bindings 统一提交给 InjectFinalPools
      */
     public static void commitAllBindings() {
-        for (Map.Entry<String, JsonObject> entry : TARGET_BINDINGS.entrySet()) {
+        for (Map.Entry<String, JsonObject> entry : LOOT_BINDINGS.entrySet()) {
             try {
                 ProcessTableWeight(entry.getKey(), entry.getValue());
             } catch (Exception e) {
@@ -52,7 +52,7 @@ public class LootBindingLoader {
     }
 
     private static void ProcessTableWeight(String target, JsonObject bObj) {
-        JsonArray lootArray = LootEvaluationContext.resolveContent(bObj.get("config"));
+        JsonArray lootArray = MixedDataResolver.resolveContent(bObj.get("config"));
         if (lootArray == null || lootArray.isEmpty()) return;
 
         // 1. 计算总权重
@@ -90,7 +90,7 @@ public class LootBindingLoader {
     }
 
     private static void FinalProcessLootContent(String target, JsonElement contentElem, int totalWeight, int minTime, int maxTime) {
-        JsonArray contentArray = LootEvaluationContext.resolveContent(contentElem);
+        JsonArray contentArray = MixedDataResolver.resolveContent(contentElem);
         if (contentArray == null) return;
 
         for (JsonElement subEntry : contentArray) {
@@ -105,7 +105,7 @@ public class LootBindingLoader {
             int maxRolls = cArr.get(2).getAsInt();
 
             JsonObject mergedConditions = MergeTimeConditions(cArr, totalWeight, minTime, maxTime);
-            List<GroupDTO> resolvedGroups = LootEvaluationContext.resolveGroupList(groupElem);
+            List<GroupDTO> resolvedGroups = MixedDataResolver.resolveGroupList(groupElem);
 
             InjectFinalPools.addCustomLoot(target, resolvedGroups, minRolls, maxRolls, mergedConditions);
         }

@@ -6,7 +6,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.zibura.better_loot_zibura.loot.unification.ItemUnificationSolver;
-import com.zibura.better_loot_zibura.loot.util.LootEvaluationContext;
+import com.zibura.better_loot_zibura.loot.util.MixedDataResolver;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -37,11 +37,11 @@ public class FillSeedBundleFunction extends LootItemConditionalFunction {
                                             .forGetter((FillSeedBundleFunction fn) -> fn.seedTypeKey),
 
                                     Codec.DOUBLE
-                                            .optionalFieldOf("pool_divisor", 1.0)
+                                            .optionalFieldOf("pool_Divisor", 1.0)
                                             .forGetter((FillSeedBundleFunction fn) -> fn.poolDivisor),
 
                                     Codec.INT
-                                            .optionalFieldOf("max_distinct_types", 3)
+                                            .optionalFieldOf("max_Distinct_Types", 3)
                                             .forGetter((FillSeedBundleFunction fn) -> fn.maxDistinctTypes),
 
                                     Codec.INT
@@ -82,111 +82,260 @@ public class FillSeedBundleFunction extends LootItemConditionalFunction {
     public MapCodec<? extends LootItemConditionalFunction> codec() {
         return CODEC;
     }
+//
+//    @Override
+//    protected ItemStack run(ItemStack stack, LootContext context) {
+//        List<String> rawSeeds = getSeedTypeListSafe(this.seedTypeKey);
+//        List<String> validSeeds = new ArrayList<>();
+//
+//        for (String type : rawSeeds) {
+//            String reference = type.startsWith("lootjs:")
+//                    ? type
+//                    : "lootjs:" + type;
+//
+//            String resolvedId =
+//                    ItemUnificationSolver.resolveReference(reference);
+//
+//            if (resolvedId != null) {
+//                validSeeds.add(resolvedId);
+//            }
+//        }
+//
+//        if (validSeeds.isEmpty()) {
+//            return stack;
+//        }
+//
+//        RandomSource random = context.getRandom();
+//
+//        double divisor = this.poolDivisor <= 0.0
+//                ? 1.0
+//                : this.poolDivisor;
+//
+//        int calculatedMax =
+//                (int) Math.floor(validSeeds.size() / divisor);
+//
+//        int maxKinds =
+//                Math.min(this.maxDistinctTypes, calculatedMax);
+//
+//        maxKinds = Math.max(1, maxKinds);
+//
+//        int targetKinds =
+//                1 + random.nextInt(maxKinds);
+//
+//        targetKinds =
+//                Math.min(targetKinds, validSeeds.size());
+//
+//        Collections.shuffle(
+//                validSeeds,
+//                new Random(random.nextLong())
+//        );
+//
+//        List<String> selectedSeeds =
+//                validSeeds.subList(0, targetKinds);
+//
+//        List<ItemStackTemplate> bundleItems =
+//                new ArrayList<>();
+//
+//        for (String seedId : selectedSeeds) {
+//            Identifier itemLoc = Identifier.tryParse(seedId);
+//
+//            if (itemLoc == null) {
+//                continue;
+//            }
+//
+//            Item item =
+//                    BuiltInRegistries.ITEM.getValue(itemLoc);
+//
+//            if (item == null) {
+//                continue;
+//            }
+//
+//            Item defaultItem =
+//                    BuiltInRegistries.ITEM.getValue(
+//                            BuiltInRegistries.ITEM.getDefaultKey()
+//                    );
+//
+//            if (item == defaultItem) {
+//                continue;
+//            }
+//
+//            int actualMin = Math.max(1, this.minCount);
+//            int actualMax = Math.max(actualMin, this.maxCount);
+//
+//            int countRange =
+//                    actualMax - actualMin + 1;
+//
+//            int count =
+//                    actualMin + random.nextInt(countRange);
+//
+//            bundleItems.add(
+//                    new ItemStackTemplate(item, count)
+//            );
+//        }
+//
+//        stack.set(
+//                DataComponents.BUNDLE_CONTENTS,
+//                new BundleContents(bundleItems)
+//        );
+//
+//        return stack;
+//    }
+@Override
+protected ItemStack run(ItemStack stack, LootContext context) {
+    System.out.println("[SeedBundle] RUN stack=" + stack);
 
-    @Override
-    protected ItemStack run(ItemStack stack, LootContext context) {
-        List<String> rawSeeds = getSeedTypeListSafe(this.seedTypeKey);
-        List<String> validSeeds = new ArrayList<>();
+    List<String> rawSeeds = getSeedTypeListSafe(this.seedTypeKey);
 
-        for (String type : rawSeeds) {
-            String reference = type.startsWith("lootjs:")
-                    ? type
-                    : "lootjs:" + type;
+    System.out.println("[SeedBundle] key=" + this.seedTypeKey);
+    System.out.println("[SeedBundle] rawSeeds=" + rawSeeds);
+    System.out.println("[SeedBundle] ALL_MAP size="
+            + ItemUnificationSolver.ALL_MAP.size());
 
-            String resolvedId =
-                    ItemUnificationSolver.resolveReference(reference);
+    List<String> validSeeds = new ArrayList<>();
 
-            if (resolvedId != null) {
-                validSeeds.add(resolvedId);
-            }
-        }
+    for (String type : rawSeeds) {
+        String reference = type.startsWith("lootjs:")
+                ? type
+                : "lootjs:" + type;
 
-        if (validSeeds.isEmpty()) {
-            return stack;
-        }
+        String resolvedId =
+                ItemUnificationSolver.resolveReference(reference);
 
-        RandomSource random = context.getRandom();
-
-        double divisor = this.poolDivisor <= 0.0
-                ? 1.0
-                : this.poolDivisor;
-
-        int calculatedMax =
-                (int) Math.floor(validSeeds.size() / divisor);
-
-        int maxKinds =
-                Math.min(this.maxDistinctTypes, calculatedMax);
-
-        maxKinds = Math.max(1, maxKinds);
-
-        int targetKinds =
-                1 + random.nextInt(maxKinds);
-
-        targetKinds =
-                Math.min(targetKinds, validSeeds.size());
-
-        Collections.shuffle(
-                validSeeds,
-                new Random(random.nextLong())
+        System.out.println(
+                "[SeedBundle] " + reference
+                        + " -> " + resolvedId
         );
 
-        List<String> selectedSeeds =
-                validSeeds.subList(0, targetKinds);
-
-        List<ItemStackTemplate> bundleItems =
-                new ArrayList<>();
-
-        for (String seedId : selectedSeeds) {
-            Identifier itemLoc = Identifier.tryParse(seedId);
-
-            if (itemLoc == null) {
-                continue;
-            }
-
-            Item item =
-                    BuiltInRegistries.ITEM.getValue(itemLoc);
-
-            if (item == null) {
-                continue;
-            }
-
-            Item defaultItem =
-                    BuiltInRegistries.ITEM.getValue(
-                            BuiltInRegistries.ITEM.getDefaultKey()
-                    );
-
-            if (item == defaultItem) {
-                continue;
-            }
-
-            int actualMin = Math.max(1, this.minCount);
-            int actualMax = Math.max(actualMin, this.maxCount);
-
-            int countRange =
-                    actualMax - actualMin + 1;
-
-            int count =
-                    actualMin + random.nextInt(countRange);
-
-            bundleItems.add(
-                    new ItemStackTemplate(item, count)
-            );
+        if (resolvedId != null) {
+            validSeeds.add(resolvedId);
         }
+    }
 
-        stack.set(
-                DataComponents.BUNDLE_CONTENTS,
-                new BundleContents(bundleItems)
-        );
+    System.out.println("[SeedBundle] validSeeds=" + validSeeds);
 
+    if (validSeeds.isEmpty()) {
+        System.out.println("[SeedBundle] !!! VALID SEEDS EMPTY !!!");
         return stack;
     }
 
+    RandomSource random = context.getRandom();
+
+    double divisor = this.poolDivisor <= 0.0
+            ? 1.0
+            : this.poolDivisor;
+
+    int calculatedMax =
+            (int) Math.floor(validSeeds.size() / divisor);
+
+    int maxKinds =
+            Math.min(this.maxDistinctTypes, calculatedMax);
+
+    maxKinds = Math.max(1, maxKinds);
+
+    int targetKinds =
+            1 + random.nextInt(maxKinds);
+
+    targetKinds =
+            Math.min(targetKinds, validSeeds.size());
+
+    Collections.shuffle(
+            validSeeds,
+            new Random(random.nextLong())
+    );
+
+    List<String> selectedSeeds =
+            validSeeds.subList(0, targetKinds);
+
+    System.out.println("[SeedBundle] selectedSeeds=" + selectedSeeds);
+
+    List<ItemStackTemplate> bundleItems =
+            new ArrayList<>();
+
+    for (String seedId : selectedSeeds) {
+        Identifier itemLoc = Identifier.tryParse(seedId);
+
+        System.out.println(
+                "[SeedBundle] seedId=" + seedId
+                        + ", parsed=" + itemLoc
+        );
+
+        if (itemLoc == null) {
+            System.out.println("[SeedBundle] invalid Identifier");
+            continue;
+        }
+
+        Item item =
+                BuiltInRegistries.ITEM.getValue(itemLoc);
+
+        System.out.println(
+                "[SeedBundle] registry item=" + item
+        );
+
+        if (item == null) {
+            continue;
+        }
+
+        Item defaultItem =
+                BuiltInRegistries.ITEM.getValue(
+                        BuiltInRegistries.ITEM.getDefaultKey()
+                );
+
+        if (item == defaultItem) {
+            System.out.println("[SeedBundle] DEFAULT ITEM!");
+            continue;
+        }
+
+        int actualMin = Math.max(1, this.minCount);
+        int actualMax = Math.max(actualMin, this.maxCount);
+
+        int count =
+                actualMin
+                        + random.nextInt(
+                        actualMax - actualMin + 1
+                );
+
+        ItemStackTemplate template =
+                new ItemStackTemplate(item, count);
+
+        System.out.println(
+                "[SeedBundle] ADD template="
+                        + template
+                        + ", count=" + count
+        );
+
+        bundleItems.add(template);
+    }
+
+    System.out.println(
+            "[SeedBundle] bundleItems size="
+                    + bundleItems.size()
+    );
+
+    BundleContents contents =
+            new BundleContents(bundleItems);
+
+    System.out.println(
+            "[SeedBundle] contents=" + contents
+    );
+
+    stack.set(
+            DataComponents.BUNDLE_CONTENTS,
+            contents
+    );
+
+    System.out.println(
+            "[SeedBundle] FINAL COMPONENT="
+                    + stack.get(DataComponents.BUNDLE_CONTENTS)
+    );
+
+    return stack;
+}
     private List<String> getSeedTypeListSafe(String key) {
         List<String> result = new ArrayList<>();
 
         try {
             JsonElement elem =
-                    LootEvaluationContext.resolveElement(
+                    MixedDataResolver.resolveElement(
                             new JsonPrimitive(key)
                     );
 

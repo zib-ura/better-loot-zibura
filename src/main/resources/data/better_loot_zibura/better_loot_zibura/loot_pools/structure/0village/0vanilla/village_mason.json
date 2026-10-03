@@ -644,7 +644,7 @@
       1,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "#minecraft:has_structure/village_plains"
         }
       }
@@ -660,7 +660,7 @@
       1,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "#better_loot_zibura:mason/other"
         }
       }
@@ -671,7 +671,7 @@
       2,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "#minecraft:has_structure/village_desert"
         }
       }
@@ -682,7 +682,7 @@
       2,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "#minecraft:is_badlands"
         }
       }
@@ -693,7 +693,7 @@
       2,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "#minecraft:is_beach"
         }
       }

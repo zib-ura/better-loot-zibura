@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "entries": [
+        {
+          "type": "minecraft:empty",
+          "weight": 351
+        }
+      ],
+      "rolls": 1
+    }
+  ],
+  "random_sequence": "minecraft:pots/trial_chambers/corridor"
+}

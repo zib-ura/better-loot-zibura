@@ -116,7 +116,7 @@
       3,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "#better_loot_zibura:tannery/not_desert"
         }
       }
@@ -127,7 +127,7 @@
       3,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "minecraft:desert"
         }
       }

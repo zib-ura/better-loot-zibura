@@ -138,7 +138,7 @@
       "plains",
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "#minecraft:has_structure/village_plains"
         }
       }
@@ -147,7 +147,7 @@
       "desert",
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "#minecraft:has_structure/village_desert"
         }
       }
@@ -156,7 +156,7 @@
       "snowy",
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "#minecraft:has_structure/village_snowy"
         }
       }
@@ -165,7 +165,7 @@
       "taiga",
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "#minecraft:is_taiga"
         }
       }
@@ -174,7 +174,7 @@
       "swamp",
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "minecraft:swamp"
         }
       }
@@ -183,7 +183,7 @@
       "cherry_grove",
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "minecraft:cherry_grove"
         }
       }
@@ -192,7 +192,7 @@
       "jungle",
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "#minecraft:is_jungle"
         }
       }
@@ -201,7 +201,7 @@
       "ryb",
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "#better_loot_zibura:shepherd/red_yellow_blue"
         }
       }
@@ -210,7 +210,7 @@
       "ryo",
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "#better_loot_zibura:shepherd/red_yellow_orange"
         }
       }
@@ -219,7 +219,7 @@
       "other",
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "#better_loot_zibura:shepherd/other"
         }
       }

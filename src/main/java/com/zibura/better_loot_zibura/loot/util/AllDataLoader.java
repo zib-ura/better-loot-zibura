@@ -6,7 +6,7 @@ import com.google.gson.JsonParser;
 import com.mojang.logging.LogUtils;
 import com.zibura.better_loot_zibura.loot.SpecificLoot.CarpenterLootGenerator;
 import com.zibura.better_loot_zibura.loot.SpecificLoot.ShepherdLootGenerator;
-import com.zibura.better_loot_zibura.loot.unification.ConvertibleLootTableGenerator;
+import com.zibura.better_loot_zibura.loot.unification.ConvertibleItemsPreviewLootTableGenerator;
 import com.zibura.better_loot_zibura.loot.unification.ItemUnificationSolver;
 import net.neoforged.fml.ModList;
 import net.neoforged.neoforgespi.language.IModFileInfo;
@@ -51,16 +51,16 @@ public final class AllDataLoader {
 
         ItemUnificationSolver.rebuildAllMap();
 
-        ConvertibleLootTableGenerator.rebuildConvertibleLootTables();
+        ConvertibleItemsPreviewLootTableGenerator.rebuildConvertibleLootTables();
 
-        LootEvaluationContext.clear();
+        MixedDataResolver.clear();
         InjectFinalPools.clearRegisteredPools();
 
         loadJsonsFromAllMods(
                 "better_loot_zibura/loot_pools",
                 element -> {
                     if (element.isJsonObject()) {
-                        LootEvaluationContext.registerAll(
+                        MixedDataResolver.registerAll(
                                 element.getAsJsonObject()
                         );
                     }

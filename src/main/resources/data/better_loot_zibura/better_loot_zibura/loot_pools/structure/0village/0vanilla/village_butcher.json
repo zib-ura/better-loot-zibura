@@ -458,7 +458,7 @@
       2,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": [
             "#minecraft:has_structure/village_plains"
           ]
@@ -471,7 +471,7 @@
       2,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": [
             "#minecraft:has_structure/village_savanna"
           ]
@@ -484,7 +484,7 @@
       2,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": [
             "#minecraft:has_structure/village_snowy"
           ]
@@ -497,7 +497,7 @@
       2,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": [
             "#minecraft:has_structure/village_taiga"
           ]
@@ -510,7 +510,7 @@
       2,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": [
             "#minecraft:has_structure/village_desert"
           ]
@@ -523,7 +523,7 @@
       2,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": [
             "minecraft:swamp"
           ]
@@ -536,7 +536,7 @@
       2,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": [
             "#better_loot_zibura:butcher/other"
           ]

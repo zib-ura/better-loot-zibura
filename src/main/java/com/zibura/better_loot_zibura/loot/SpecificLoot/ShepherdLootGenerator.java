@@ -4,7 +4,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
-import com.zibura.better_loot_zibura.loot.util.LootEvaluationContext;
+import com.zibura.better_loot_zibura.loot.util.MixedDataResolver;
 
 import java.util.*;
 
@@ -53,7 +53,7 @@ public class ShepherdLootGenerator {
         // 6. 注册进全局 Context
         JsonObject registry = new JsonObject();
         registry.add("village_shepherd_content", shepherdContent);
-        LootEvaluationContext.registerAll(registry);
+        MixedDataResolver.registerAll(registry);
     }
 
     /**
@@ -115,7 +115,7 @@ public class ShepherdLootGenerator {
 
     private static JsonArray getTemplateArraySafe(String key) {
         try {
-            JsonElement elem = LootEvaluationContext.resolveElement(new JsonPrimitive(key));
+            JsonElement elem = MixedDataResolver.resolveElement(new JsonPrimitive(key));
             if (elem != null && elem.isJsonArray()) {
                 return elem.getAsJsonArray();
             }
@@ -126,7 +126,7 @@ public class ShepherdLootGenerator {
     private static Map<String, List<String>> getBiomeColorsSafe(String key) {
         Map<String, List<String>> map = new HashMap<>();
         try {
-            JsonElement elem = LootEvaluationContext.resolveElement(new JsonPrimitive(key));
+            JsonElement elem = MixedDataResolver.resolveElement(new JsonPrimitive(key));
             if (elem != null && elem.isJsonObject()) {
                 JsonObject obj = elem.getAsJsonObject();
                 for (Map.Entry<String, JsonElement> entry : obj.entrySet()) {

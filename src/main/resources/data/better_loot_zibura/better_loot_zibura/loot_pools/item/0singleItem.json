@@ -154,7 +154,7 @@
           "id": "kaleidoscope_cookery:recipe_item",
           "ratio": 10,
           "jsonFunction": {
-            "function": "kaleidoscope_cookery:recipe_randomly"
+            "type": "kaleidoscope_cookery:recipe_randomly"
           }
         }
       ]

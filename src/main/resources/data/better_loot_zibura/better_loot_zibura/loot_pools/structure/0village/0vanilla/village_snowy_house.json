@@ -128,7 +128,7 @@
           "ratio": 10,
           "jsonFunction": [
             {
-              "function": "better_loot_zibura:fill_seed_bundle",
+              "type": "better_loot_zibura:fill_seed_bundle",
               "seed_type_key": "snowy_seed_type",
               "pool_Divisor": 3.0,
               "max_Distinct_Types": 8,

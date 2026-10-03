@@ -83,7 +83,7 @@
       1,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "#minecraft:has_structure/village_plains"
         }
       }
@@ -94,7 +94,7 @@
       2,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "#minecraft:has_structure/village_plains"
         }
       }
@@ -105,7 +105,7 @@
       1,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "#minecraft:has_structure/village_desert"
         }
       }
@@ -116,7 +116,7 @@
       2,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "#minecraft:has_structure/village_desert"
         }
       }
@@ -127,7 +127,7 @@
       1,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "#minecraft:has_structure/village_savanna"
         }
       }
@@ -138,7 +138,7 @@
       2,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "#minecraft:has_structure/village_savanna"
         }
       }
@@ -149,7 +149,7 @@
       1,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "#minecraft:has_structure/village_taiga"
         }
       }
@@ -160,7 +160,7 @@
       2,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "#minecraft:has_structure/village_taiga"
         }
       }
@@ -171,7 +171,7 @@
       1,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "#minecraft:has_structure/village_snowy"
         }
       }
@@ -182,7 +182,7 @@
       2,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "#minecraft:has_structure/village_snowy"
         }
       }
@@ -193,7 +193,7 @@
       1,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "#minecraft:is_badlands"
         }
       }
@@ -204,7 +204,7 @@
       2,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "#minecraft:is_badlands"
         }
       }
@@ -215,7 +215,7 @@
       1,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "#minecraft:is_beach"
         }
       }
@@ -226,7 +226,7 @@
       2,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "#minecraft:is_beach"
         }
       }
@@ -237,7 +237,7 @@
       1,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "minecraft:cherry_grove"
         }
       }
@@ -248,7 +248,7 @@
       2,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "minecraft:cherry_grove"
         }
       }
@@ -259,7 +259,7 @@
       1,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "minecraft:dark_forest"
         }
       }
@@ -270,7 +270,7 @@
       2,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "minecraft:dark_forest"
         }
       }
@@ -281,7 +281,7 @@
       1,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "#minecraft:is_jungle"
         }
       }
@@ -292,7 +292,7 @@
       2,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "#minecraft:is_jungle"
         }
       }
@@ -303,7 +303,7 @@
       1,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "minecraft:mushroom_fields"
         }
       }
@@ -314,7 +314,7 @@
       2,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "minecraft:mushroom_fields"
         }
       }
@@ -325,7 +325,7 @@
       1,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "#minecraft:is_ocean"
         }
       }
@@ -336,7 +336,7 @@
       2,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "#minecraft:is_ocean"
         }
       }
@@ -347,7 +347,7 @@
       1,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "minecraft:swamp"
         }
       }
@@ -358,7 +358,7 @@
       2,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "minecraft:swamp"
         }
       }
@@ -369,7 +369,7 @@
       1,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "#minecraft:is_forest"
         }
       }
@@ -380,7 +380,7 @@
       2,
       {
         "customCondition": {
-          "condition": "better_loot_zibura:match_biome_registry",
+          "type": "better_loot_zibura:match_biome_registry",
           "registry_key": "#minecraft:is_forest"
         }
       }

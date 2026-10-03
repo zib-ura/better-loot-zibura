@@ -418,7 +418,7 @@
           "id": "minecraft:goat_horn",
           "ratio": 10,
           "jsonFunction": {
-            "function": "minecraft:set_instrument",
+            "type": "minecraft:set_instrument",
             "options": "#minecraft:regular_goat_horns"
           }
         }

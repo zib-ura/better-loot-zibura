@@ -195,7 +195,7 @@
           "id": "touhou_little_maid:gomoku_board_state",
           "ratio": 10,
           "jsonFunction": {
-            "function": "touhou_little_maid:board_state_randomly",
+            "type": "touhou_little_maid:board_state_randomly",
             "tags": [
               "library"
             ]
@@ -205,7 +205,7 @@
           "id": "touhou_little_maid:cchess_board_state",
           "ratio": 10,
           "jsonFunction": {
-            "function": "touhou_little_maid:board_state_randomly",
+            "type": "touhou_little_maid:board_state_randomly",
             "tags": [
               "library"
             ]
@@ -215,7 +215,7 @@
           "id": "touhou_little_maid:wchess_board_state",
           "ratio": 10,
           "jsonFunction": {
-            "function": "touhou_little_maid:board_state_randomly",
+            "type": "touhou_little_maid:board_state_randomly",
             "tags": [
               "library"
             ]

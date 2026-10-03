@@ -136,14 +136,10 @@ public class ConvertibleRecipePack implements PackResources {
 
     /**
      * 根据 CONVERTIBLE_MAP 动态构建全部转换配方资源。
-     *
      * Pack 中的资源路径：
-     *
      * better_loot_zibura:
      * recipe/convertible/<group>_from_<source>_to_<target>.json
-     *
      * Minecraft 最终得到的配方 ID：
-     *
      * better_loot_zibura:
      * convertible/<group>_from_<source>_to_<target>
      */
@@ -333,15 +329,11 @@ public class ConvertibleRecipePack implements PackResources {
 
     /**
      * 判断该物品在合成后是否返还玻璃瓶。
-     *
      * Minecraft 26.3:
-     *
      * Item#getCraftingRemainder()
      *     -> @Nullable ItemStackTemplate
-     *
      * ItemStackTemplate#item()
      *     -> Holder<Item>
-     *
      * 如果 crafting remainder 是玻璃瓶，
      * 就把该物品视为瓶装物品。
      */
