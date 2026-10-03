@@ -3,6 +3,8 @@ package com.zibura.better_loot_zibura.loot.util;
 import com.google.gson.*;
 import com.mojang.logging.LogUtils;
 import com.zibura.better_loot_zibura.loot.model.AllLevelModel.GroupDTO;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.neoforged.neoforge.event.LootTableLoadEvent;
 import org.slf4j.Logger;
 
 import java.util.LinkedHashMap;
@@ -38,80 +40,164 @@ public class LootBindingLoader {
         }
     }
 
-    /**
-     * 提交阶段：将最终去重覆盖后的 bindings 统一提交给 InjectFinalPools
-     */
-    public static void commitAllBindings() {
-        for (Map.Entry<String, JsonObject> entry : LOOT_BINDINGS.entrySet()) {
-            try {
-                ProcessTableWeight(entry.getKey(), entry.getValue());
-            } catch (Exception e) {
-                LOGGER.error("Error processing loot binding for target {}: {}", entry.getKey(), entry.getValue(), e);
-            }
+//    /**
+//     * 提交阶段：将最终去重覆盖后的 bindings 统一提交给 InjectFinalPools
+//     */
+//    public static void commitAllBindings() {
+//        for (Map.Entry<String, JsonObject> entry : LOOT_BINDINGS.entrySet()) {
+//            try {
+//                ProcessTableWeight(entry.getKey(), entry.getValue());
+//            } catch (Exception e) {
+//                LOGGER.error("Error processing loot binding for target {}: {}", entry.getKey(), entry.getValue(), e);
+//            }
+//        }
+//    }
+
+    public static void applyBinding(LootTableLoadEvent event) {
+        String target = event.getName().toString();
+
+        JsonObject binding = LOOT_BINDINGS.get(target);
+        if (binding == null) {
+            return;
+        }
+
+        try {
+            processTableWeight(event, binding);
+        } catch (Exception e) {
+            LOGGER.error(
+                    "Error processing loot binding for target {}: {}",
+                    target,
+                    binding,
+                    e
+            );
         }
     }
 
-    private static void ProcessTableWeight(String target, JsonObject bObj) {
-        JsonArray lootArray = MixedDataResolver.resolveContent(bObj.get("config"));
-        if (lootArray == null || lootArray.isEmpty()) return;
+    private static void processTableWeight(
+            LootTableLoadEvent event,
+            JsonObject bObj
+    ) {
+        JsonArray lootArray =
+                MixedDataResolver.resolveContent(bObj.get("config"));
 
-        // 1. 计算总权重
+        if (lootArray == null || lootArray.isEmpty()) {
+            return;
+        }
+
         int totalWeight = 0;
+
         for (JsonElement lootEntry : lootArray) {
-            if (lootEntry.isJsonArray()) {
-                int weight = parseWeight(lootEntry.getAsJsonArray());
-                if (weight > 0) totalWeight += weight;
+            if (!lootEntry.isJsonArray()) {
+                continue;
+            }
+
+            int weight =
+                    parseWeight(lootEntry.getAsJsonArray());
+
+            if (weight > 0) {
+                totalWeight += weight;
             }
         }
 
         if (totalWeight <= 0) {
-            LOGGER.warn("No positive loot binding weights for target {}", target);
+            LOGGER.warn(
+                    "No positive loot binding weights for target {}",
+                    event.getName()
+            );
             return;
         }
 
-        // 2. 遍历时间片区间
         int currentOffset = 0;
-        for (JsonElement lootEntry : lootArray) {
-            if (!lootEntry.isJsonArray()) continue;
-            JsonArray lArr = lootEntry.getAsJsonArray();
-            if (lArr.isEmpty()) continue;
 
-            int weight = parseWeight(lArr);
-            if (weight <= 0) {
-                LOGGER.warn("Ignoring loot binding with non-positive weight {} for target {}: {}", weight, target, lArr);
+        for (JsonElement lootEntry : lootArray) {
+            if (!lootEntry.isJsonArray()) {
                 continue;
             }
+
+            JsonArray array = lootEntry.getAsJsonArray();
+
+            if (array.isEmpty()) {
+                continue;
+            }
+
+            int weight = parseWeight(array);
+
+            if (weight <= 0) {
+                continue;
+            }
+
             int minTime = currentOffset;
             int maxTime = currentOffset + weight - 1;
+
             currentOffset += weight;
 
-            FinalProcessLootContent(target, lArr.get(0), totalWeight, minTime, maxTime);
+            finalProcessLootContent(
+                    event,
+                    array.get(0),
+                    totalWeight,
+                    minTime,
+                    maxTime
+            );
         }
     }
 
-    private static void FinalProcessLootContent(String target, JsonElement contentElem, int totalWeight, int minTime, int maxTime) {
-        JsonArray contentArray = MixedDataResolver.resolveContent(contentElem);
-        if (contentArray == null) return;
+    private static void finalProcessLootContent(
+            LootTableLoadEvent event,
+            JsonElement contentElem,
+            int totalWeight,
+            int minTime,
+            int maxTime
+    ) {
+        JsonArray contentArray =
+                MixedDataResolver.resolveContent(contentElem);
+
+        if (contentArray == null) {
+            return;
+        }
 
         for (JsonElement subEntry : contentArray) {
-            if (!subEntry.isJsonArray()) continue;
-            JsonArray cArr = subEntry.getAsJsonArray();
-            if (cArr.size() < 3) continue;
+            if (!subEntry.isJsonArray()) {
+                continue;
+            }
 
-            InjectFinalPools.recordExpectedPool(target);
+            JsonArray cArr = subEntry.getAsJsonArray();
+
+            if (cArr.size() < 3) {
+                continue;
+            }
 
             JsonElement groupElem = cArr.get(0);
+
             int minRolls = cArr.get(1).getAsInt();
             int maxRolls = cArr.get(2).getAsInt();
 
-            JsonObject mergedConditions = MergeTimeConditions(cArr, totalWeight, minTime, maxTime);
-            List<GroupDTO> resolvedGroups = MixedDataResolver.resolveGroupList(groupElem);
+            JsonObject mergedConditions =
+                    mergeTimeConditions(
+                            cArr,
+                            totalWeight,
+                            minTime,
+                            maxTime
+                    );
 
-            InjectFinalPools.addCustomLoot(target, resolvedGroups, minRolls, maxRolls, mergedConditions);
+            List<GroupDTO> resolvedGroups =
+                    MixedDataResolver.resolveGroupList(groupElem);
+
+            LootPool pool =
+                    InjectFinalPools.buildLootPool(
+                            resolvedGroups,
+                            minRolls,
+                            maxRolls,
+                            mergedConditions,
+                            event.getRegistries()
+                    );
+
+            if (pool != null) {
+                event.getTable().addPool(pool);
+            }
         }
     }
 
-    private static JsonObject MergeTimeConditions(JsonArray cArr, int totalWeight, int minTime, int maxTime) {
+    private static JsonObject mergeTimeConditions(JsonArray cArr, int totalWeight, int minTime, int maxTime) {
         JsonArray timeParams = new JsonArray();
         timeParams.add(totalWeight);
         timeParams.add(minTime);

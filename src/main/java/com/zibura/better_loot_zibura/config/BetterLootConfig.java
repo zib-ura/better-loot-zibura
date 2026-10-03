@@ -32,6 +32,6 @@ public class BetterLootConfig {
     }
 
     public static void register(ModContainer modContainer) {
-        modContainer.registerConfig(ModConfig.Type.LOCAL, COMMON_SPEC);
+        modContainer.registerConfig(ModConfig.Type.COMMON, COMMON_SPEC);
     }
 }

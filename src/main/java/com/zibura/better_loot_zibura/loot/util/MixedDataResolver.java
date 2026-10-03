@@ -116,9 +116,6 @@ public class MixedDataResolver {
                 if (obj.has("exactEnchants")) {
                     group.exactEnchants = GSON.fromJson(obj.get("exactEnchants"), new com.google.gson.reflect.TypeToken<Map<String, Integer>>(){}.getType());
                 }
-                if (obj.has("nbt") && obj.get("nbt").isJsonObject()) {
-                    group.nbt = obj.getAsJsonObject("nbt");
-                }
                 if (obj.has("conditions")) {
                     group.conditions = GSON.fromJson(obj.get("conditions"), new com.google.gson.reflect.TypeToken<Map<String, Object>>(){}.getType());
                 }

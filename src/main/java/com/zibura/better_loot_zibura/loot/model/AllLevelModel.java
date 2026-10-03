@@ -1,6 +1,5 @@
 package com.zibura.better_loot_zibura.loot.model;
 
-import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import java.util.*;
@@ -61,9 +60,6 @@ public final class AllLevelModel {
         public List<String> enchantRandomly;
         public JsonElement jsonFunction;
         public String potion;
-
-        // 兼容旧版 NBT 与 1.21.1 Data Components
-        public JsonObject nbt;
         public JsonObject components;
 
         public Map<String, Object> conditions = new HashMap<>();
@@ -85,9 +81,6 @@ public final class AllLevelModel {
         public List<String> enchantRandomly;
         public JsonElement jsonFunction;
         public String potion;
-
-        // 兼容旧版 NBT 与 1.21.1 Data Components
-        public JsonObject nbt;
         public JsonObject components;
 
         public Map<String, Object> conditions = new HashMap<>();

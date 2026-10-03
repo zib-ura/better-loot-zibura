@@ -54,7 +54,6 @@ public final class AllDataLoader {
         ConvertibleItemsPreviewLootTableGenerator.rebuildConvertibleLootTables();
 
         MixedDataResolver.clear();
-        InjectFinalPools.clearRegisteredPools();
 
         loadJsonsFromAllMods(
                 "better_loot_zibura/loot_pools",
@@ -70,15 +69,12 @@ public final class AllDataLoader {
         CarpenterLootGenerator.initCarpenterTemplates();
         ShepherdLootGenerator.initShepherdTemplates();
 
-        // 清理缓存后先全部收集（后加载覆盖同名 target），最后统一提交生效
         LootBindingLoader.clear();
 
         loadJsonsFromAllMods(
                 "better_loot_zibura/loot_bindings",
                 LootBindingLoader::collectBindings
         );
-
-        LootBindingLoader.commitAllBindings();
     }
 
     public static void loadUnifications(
