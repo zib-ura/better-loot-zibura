@@ -1,0 +1,11 @@
+{
+	"required": true,
+	"package": "com.zibura.better_loot_zibura.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"RecipeManagerMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
