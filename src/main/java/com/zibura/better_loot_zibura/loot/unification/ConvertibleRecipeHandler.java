@@ -56,6 +56,13 @@ public final class ConvertibleRecipeHandler {
 
                     boolean targetHasBottle = isBottledItem(targetItem);
 
+                    // 瓶装 -> 瓶装不能使用普通 ShapelessRecipe。
+                    // source 会返还一个空瓶，而 target 本身已经包含瓶子，
+                    // 否则会导致玻璃瓶复制。
+                    if (sourceHasBottle && targetHasBottle) {
+                        continue;
+                    }
+
                     ResourceLocation sourceId = BuiltInRegistries.ITEM.getKey(sourceItem);
                     ResourceLocation targetId = BuiltInRegistries.ITEM.getKey(targetItem);
                     if (sourceId == null || targetId == null) continue;
@@ -112,26 +119,13 @@ public final class ConvertibleRecipeHandler {
      * 判断该物品是否为瓶装/带有玻璃瓶容器
      */
     private static boolean isBottledItem(Item item) {
-        // 1. 检查合成/使用残留物是否为玻璃瓶 (标准规范模组)
+
         ItemStack dummyStack = new ItemStack(item);
         ItemStack remainder = dummyStack.getCraftingRemainingItem();
         if (!remainder.isEmpty() && remainder.is(Items.GLASS_BOTTLE)) {
             return true;
         }
 
-//        // 2. 启发式名称检测（针对一些没规范配置 remainder 的模组物品）
-//        ResourceLocation id = BuiltInRegistries.ITEM.getKey(item);
-//        if (id != null) {
-//            String path = id.getPath().toLowerCase(Locale.ROOT);
-//            // 排除明确不是瓶装的（如纯 butter、block、bucket 等）
-//            if (path.contains("butter") || path.contains("bucket") || path.contains("block")) {
-//                return false;
-//            }
-//            // 包含 oil 或 bottle 的常态液体多为瓶装
-//            if (path.contains("bottle") || path.contains("oil")) {
-//                return true;
-//            }
-//        }
 
         return false;
     }

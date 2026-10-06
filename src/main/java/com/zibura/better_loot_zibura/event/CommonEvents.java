@@ -2,8 +2,8 @@ package com.zibura.better_loot_zibura.event;
 
 import com.zibura.better_loot_zibura.better_loot_zibura;
 import com.zibura.better_loot_zibura.loot.condition.MatchBiomeRegistryCondition;
+import com.zibura.better_loot_zibura.loot.condition.SynchronizedSlotCondition;
 import com.zibura.better_loot_zibura.loot.function.FillSeedBundleFunction;
-import com.zibura.better_loot_zibura.loot.function.LazyEnchantRandomlyFunction; // 新增导包
 import com.zibura.better_loot_zibura.loot.util.*;
 import com.zibura.better_loot_zibura.loot.unification.ConvertibleLootTableGenerator;
 import com.zibura.better_loot_zibura.loot.unification.ConvertibleRecipeHandler;
@@ -38,7 +38,6 @@ public final class CommonEvents {
     public static class ModLootFunctions {
 
         public static LootItemFunctionType<FillSeedBundleFunction> FILL_SEED_BUNDLE;
-        public static LootItemFunctionType<LazyEnchantRandomlyFunction> LAZY_ENCHANT_RANDOMLY; // 新增字段
 
         @SubscribeEvent
         public static void onRegister(RegisterEvent event) {
@@ -50,20 +49,36 @@ public final class CommonEvents {
                         FILL_SEED_BUNDLE
                 );
 
-                // 注册 LazyEnchantRandomlyFunction
-                LAZY_ENCHANT_RANDOMLY = new LootItemFunctionType<>(LazyEnchantRandomlyFunction.CODEC);
-                helper.register(
-                        ResourceLocation.fromNamespaceAndPath(better_loot_zibura.MOD_ID, "lazy_enchant_randomly"),
-                        LAZY_ENCHANT_RANDOMLY
-                );
             });
 
             // 注册 Loot Condition (1.21.1)
             event.register(Registries.LOOT_CONDITION_TYPE, helper -> {
-                MatchBiomeRegistryCondition.TYPE = new LootItemConditionType(MatchBiomeRegistryCondition.CODEC);
+
+                MatchBiomeRegistryCondition.TYPE =
+                        new LootItemConditionType(
+                                MatchBiomeRegistryCondition.CODEC
+                        );
+
                 helper.register(
-                        ResourceLocation.fromNamespaceAndPath(better_loot_zibura.MOD_ID, "match_biome_registry"),
+                        ResourceLocation.fromNamespaceAndPath(
+                                better_loot_zibura.MOD_ID,
+                                "match_biome_registry"
+                        ),
                         MatchBiomeRegistryCondition.TYPE
+                );
+
+
+                SynchronizedSlotCondition.TYPE =
+                        new LootItemConditionType(
+                                SynchronizedSlotCondition.CODEC
+                        );
+
+                helper.register(
+                        ResourceLocation.fromNamespaceAndPath(
+                                better_loot_zibura.MOD_ID,
+                                "synchronized_slot"
+                        ),
+                        SynchronizedSlotCondition.TYPE
                 );
             });
         }
@@ -77,7 +92,7 @@ public final class CommonEvents {
 
         @SubscribeEvent
         public static void onLootTableLoad(LootTableLoadEvent event) {
-            InjectFinalPools.injectLootPools(event);
+            LootBindingLoader.applyBinding(event);
         }
 
         @SubscribeEvent

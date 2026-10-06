@@ -31,7 +31,7 @@ public class FillSeedBundleFunction extends LootItemConditionalFunction {
             commonFields(instance).and(
                     instance.group(
                             Codec.STRING.fieldOf("seed_type_key").forGetter(fn -> fn.seedTypeKey),
-                            Codec.DOUBLE.optionalFieldOf("pool_divisor", 1.0).forGetter(fn -> fn.poolDivisor),
+                            Codec.DOUBLE.optionalFieldOf("pool_divisor", 1.0).forGetter(fn -> fn.pooldivisor),
                             Codec.INT.optionalFieldOf("max_distinct_types", 3).forGetter(fn -> fn.maxDistinctTypes),
                             Codec.INT.optionalFieldOf("min_count", 1).forGetter(fn -> fn.minCount),
                             Codec.INT.optionalFieldOf("max_count", 2).forGetter(fn -> fn.maxCount)
@@ -40,15 +40,15 @@ public class FillSeedBundleFunction extends LootItemConditionalFunction {
     );
 
     private final String seedTypeKey;
-    private final double poolDivisor;
+    private final double pooldivisor;
     private final int maxDistinctTypes;
     private final int minCount;
     private final int maxCount;
 
-    protected FillSeedBundleFunction(List<LootItemCondition> conditions, String seedTypeKey, double poolDivisor, int maxDistinctTypes, int minCount, int maxCount) {
+    protected FillSeedBundleFunction(List<LootItemCondition> conditions, String seedTypeKey, double pooldivisor, int maxDistinctTypes, int minCount, int maxCount) {
         super(conditions);
         this.seedTypeKey = seedTypeKey;
-        this.poolDivisor = poolDivisor;
+        this.pooldivisor = pooldivisor;
         this.maxDistinctTypes = maxDistinctTypes;
         this.minCount = minCount;
         this.maxCount = maxCount;
@@ -78,7 +78,7 @@ public class FillSeedBundleFunction extends LootItemConditionalFunction {
 
         RandomSource random = context.getRandom();
 
-        int calculatedMax = (int) Math.floor((double) validSeeds.size() / this.poolDivisor);
+        int calculatedMax = (int) Math.floor((double) validSeeds.size() / this.pooldivisor);
         int maxKinds = Math.min(this.maxDistinctTypes, calculatedMax);
         maxKinds = Math.max(1, maxKinds);
 
