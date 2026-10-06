@@ -3,7 +3,9 @@ package com.zibura.better_loot_zibura.loot.util;
 import com.google.gson.*;
 import com.mojang.logging.LogUtils;
 import com.zibura.better_loot_zibura.loot.model.AllLevelModel.GroupDTO;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.storage.loot.LootPool;
+import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.event.LootTableLoadEvent;
 import org.slf4j.Logger;
 
@@ -12,15 +14,14 @@ import java.util.List;
 import java.util.Map;
 
 public class LootBindingLoader {
-    private static final Gson GSON = new GsonBuilder().create();
     private static final Logger LOGGER = LogUtils.getLogger();
 
     // 暂存所有 target 对应的最新绑定配置，按 target 覆盖
-    private static final Map<String, JsonObject> LOOT_BINDINGS = new LinkedHashMap<>();
+    private static final Map<String, JsonObject> TARGET_BINDINGS = new LinkedHashMap<>();
 
 
     public static void clear() {
-        LOOT_BINDINGS.clear();
+        TARGET_BINDINGS.clear();
     }
 
     /**
@@ -34,29 +35,37 @@ public class LootBindingLoader {
             JsonObject bObj = bElem.getAsJsonObject();
             if (bObj.has("target") && bObj.get("target").isJsonPrimitive()) {
                 String target = bObj.get("target").getAsString();
-                // 核心：后加载的相同 target 直接覆盖之前的值
-                LOOT_BINDINGS.put(target, bObj);
+
+                Identifier id = Identifier.tryParse(target);
+                if (id == null) {
+                    LOGGER.warn("Invalid loot table target: {}", target);
+                    continue;
+                }
+
+                String namespace = id.getNamespace();
+
+                // 非 minecraft 的战利品表：对应模组没加载就直接忽略
+                if (!"minecraft".equals(namespace)
+                        && !ModList.get().isLoaded(namespace)) {
+                    LOGGER.debug(
+                            "Skipping loot binding {} because mod '{}' is not loaded",
+                            target,
+                            namespace
+                    );
+                    continue;
+                }
+
+                // 后加载的相同 target 覆盖之前的值
+                TARGET_BINDINGS.put(target, bObj);
             }
         }
     }
 
-//    /**
-//     * 提交阶段：将最终去重覆盖后的 bindings 统一提交给 InjectFinalPools
-//     */
-//    public static void commitAllBindings() {
-//        for (Map.Entry<String, JsonObject> entry : LOOT_BINDINGS.entrySet()) {
-//            try {
-//                ProcessTableWeight(entry.getKey(), entry.getValue());
-//            } catch (Exception e) {
-//                LOGGER.error("Error processing loot binding for target {}: {}", entry.getKey(), entry.getValue(), e);
-//            }
-//        }
-//    }
 
     public static void applyBinding(LootTableLoadEvent event) {
         String target = event.getName().toString();
 
-        JsonObject binding = LOOT_BINDINGS.get(target);
+        JsonObject binding = TARGET_BINDINGS.get(target);
         if (binding == null) {
             return;
         }
@@ -78,7 +87,7 @@ public class LootBindingLoader {
             JsonObject bObj
     ) {
         JsonArray lootArray =
-                MixedDataResolver.resolveContent(bObj.get("config"));
+                LootEvaluationContext.resolveContent(bObj.get("config"));
 
         if (lootArray == null || lootArray.isEmpty()) {
             return;
@@ -149,7 +158,7 @@ public class LootBindingLoader {
             int maxTime
     ) {
         JsonArray contentArray =
-                MixedDataResolver.resolveContent(contentElem);
+                LootEvaluationContext.resolveContent(contentElem);
 
         if (contentArray == null) {
             return;
@@ -180,7 +189,7 @@ public class LootBindingLoader {
                     );
 
             List<GroupDTO> resolvedGroups =
-                    MixedDataResolver.resolveGroupList(groupElem);
+                    LootEvaluationContext.resolveGroupList(groupElem);
 
             LootPool pool =
                     InjectFinalPools.buildLootPool(

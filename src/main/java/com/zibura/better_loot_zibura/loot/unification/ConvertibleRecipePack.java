@@ -1,4 +1,3 @@
-
 package com.zibura.better_loot_zibura.loot.unification;
 
 import com.google.gson.JsonArray;
@@ -227,12 +226,13 @@ public class ConvertibleRecipePack implements PackResources {
                     boolean targetHasBottle =
                             isBottledItem(targetItem);
 
-                    /*
-                     * 普通物品 -> 瓶装物品
-                     * 需要额外提供一个玻璃瓶。
-                     *
-                     * 其他转换不额外要求玻璃瓶。
-                     */
+                    // 瓶装 -> 瓶装使用普通 shapeless recipe
+                    // 会返还 source 的玻璃瓶，导致复制空瓶。
+                    // 因此不生成这种转换。
+                    if (sourceHasBottle && targetHasBottle) {
+                        continue;
+                    }
+
                     boolean needsBottle =
                             !sourceHasBottle && targetHasBottle;
 

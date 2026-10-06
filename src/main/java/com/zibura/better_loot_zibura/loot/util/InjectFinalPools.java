@@ -9,7 +9,6 @@ import com.zibura.better_loot_zibura.loot.model.AllLevelModel.GroupDTO;
 import com.zibura.better_loot_zibura.loot.model.AllLevelModel.ItemDTO;
 import com.zibura.better_loot_zibura.loot.unification.ItemUnificationSolver;
 import com.zibura.better_loot_zibura.loot.condition.SynchronizedSlotCondition;
-import net.minecraft.advancements.predicates.LocationPredicate;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -18,7 +17,6 @@ import net.minecraft.resources.RegistryOps;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.*;
@@ -134,11 +132,25 @@ public final class InjectFinalPools {
             JsonObject conditionJson,
             HolderGetter.Provider registries
     ) {
+        RegistryOps<JsonElement> registryOps =
+                RegistryOps.create(
+                        JsonOps.INSTANCE,
+                        new RegistryOps.RegistryInfoLookup() {
+                            @Override
+                            public <T> Optional<HolderGetter<T>> lookup(
+                                    ResourceKey<? extends Registry<? extends T>> registryKey
+                            ) {
+                                return registries.lookup(registryKey)
+                                        .map(getter -> (HolderGetter<T>) getter);
+                            }
+                        }
+                );
+
         LootPool.Builder poolBuilder = LootPool.lootPool()
                 .setRolls(ContextIntProviders.between(minRolls, maxRolls));
 
         if (conditionJson != null) {
-            applyConditionsToPool(poolBuilder, conditionJson, registries);
+            applyConditionsToPool(poolBuilder, conditionJson, registryOps);
         }
 
         for (GroupDTO group : cleanConfig) {
@@ -219,7 +231,7 @@ public final class InjectFinalPools {
                     );
                 }
                 if (isNormalItem) {
-                    applyItemFunctions(entryBuilder, item, group, registries);
+                    applyItemFunctions(entryBuilder, item, group, registries, registryOps);
                 }
 
                 poolBuilder.add(entryBuilder);
@@ -232,7 +244,7 @@ public final class InjectFinalPools {
     private static void applyConditionsToPool(
             LootPool.Builder poolBuilder,
             JsonObject conditionJson,
-            HolderGetter.Provider registries
+            RegistryOps<JsonElement> registryOps
     ) {
         if (conditionJson.has("matchTime")) {
             JsonArray timeParams = conditionJson.getAsJsonArray("matchTime");
@@ -254,13 +266,13 @@ public final class InjectFinalPools {
             if (customElem.isJsonArray()) {
                 for (JsonElement elem : customElem.getAsJsonArray()) {
                     if (elem.isJsonObject()) {
-                        LootItemCondition.DIRECT_CODEC.parse(JsonOps.INSTANCE, elem)
+                        LootItemCondition.DIRECT_CODEC.parse(registryOps, elem)
                                 .resultOrPartial(err -> LOGGER.error("Failed to parse custom loot condition in array: {} | Error: {}", elem, err))
                                 .ifPresent(condition -> poolBuilder.when(() -> condition));
                     }
                 }
             } else if (customElem.isJsonObject()) {
-                LootItemCondition.DIRECT_CODEC.parse(JsonOps.INSTANCE, customElem)
+                LootItemCondition.DIRECT_CODEC.parse(registryOps, customElem)
                         .resultOrPartial(err -> LOGGER.error("Failed to parse custom loot condition: {} | Error: {}", customElem, err))
                         .ifPresent(condition -> poolBuilder.when(() -> condition));
             }
@@ -277,7 +289,8 @@ public final class InjectFinalPools {
             LootPoolEntryContainer.Builder<?> entryBuilder,
             ItemDTO item,
             GroupDTO group,
-            HolderGetter.Provider registries
+            HolderGetter.Provider registries,
+            RegistryOps<JsonElement> registryOps
     ) {
         // 耐久损伤
         JsonElement damageElem = item.damage != null ? item.damage : group.damage;
@@ -347,19 +360,6 @@ public final class InjectFinalPools {
             }
         }
 
-        RegistryOps<JsonElement> registryOps =
-                RegistryOps.create(
-                        JsonOps.INSTANCE,
-                        new RegistryOps.RegistryInfoLookup() {
-                            @Override
-                            public <T> Optional<HolderGetter<T>> lookup(
-                                    ResourceKey<? extends Registry<? extends T>> registryKey
-                            ) {
-                                return registries.lookup(registryKey)
-                                        .map(getter -> (HolderGetter<T>) getter);
-                            }
-                        }
-                );
         // 自定义 Function
         JsonElement funcElem = item.jsonFunction != null ? item.jsonFunction : group.jsonFunction;
         if (funcElem != null && !funcElem.isJsonNull()) {

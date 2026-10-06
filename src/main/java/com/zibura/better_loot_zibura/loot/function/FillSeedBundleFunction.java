@@ -6,7 +6,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.zibura.better_loot_zibura.loot.unification.ItemUnificationSolver;
-import com.zibura.better_loot_zibura.loot.util.MixedDataResolver;
+import com.zibura.better_loot_zibura.loot.util.LootEvaluationContext;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -37,11 +37,11 @@ public class FillSeedBundleFunction extends LootItemConditionalFunction {
                                             .forGetter((FillSeedBundleFunction fn) -> fn.seedTypeKey),
 
                                     Codec.DOUBLE
-                                            .optionalFieldOf("pool_Divisor", 1.0)
-                                            .forGetter((FillSeedBundleFunction fn) -> fn.poolDivisor),
+                                            .optionalFieldOf("pool_divisor", 1.0)
+                                            .forGetter((FillSeedBundleFunction fn) -> fn.pooldivisor),
 
                                     Codec.INT
-                                            .optionalFieldOf("max_Distinct_Types", 3)
+                                            .optionalFieldOf("max_distinct_Types", 3)
                                             .forGetter((FillSeedBundleFunction fn) -> fn.maxDistinctTypes),
 
                                     Codec.INT
@@ -56,7 +56,7 @@ public class FillSeedBundleFunction extends LootItemConditionalFunction {
             );
 
     private final String seedTypeKey;
-    private final double poolDivisor;
+    private final double pooldivisor;
     private final int maxDistinctTypes;
     private final int minCount;
     private final int maxCount;
@@ -64,7 +64,7 @@ public class FillSeedBundleFunction extends LootItemConditionalFunction {
     protected FillSeedBundleFunction(
             Optional<Holder<LootItemCondition>> condition,
             String seedTypeKey,
-            double poolDivisor,
+            double pooldivisor,
             int maxDistinctTypes,
             int minCount,
             int maxCount
@@ -72,7 +72,7 @@ public class FillSeedBundleFunction extends LootItemConditionalFunction {
         super(condition);
 
         this.seedTypeKey = seedTypeKey;
-        this.poolDivisor = poolDivisor;
+        this.pooldivisor = pooldivisor;
         this.maxDistinctTypes = maxDistinctTypes;
         this.minCount = minCount;
         this.maxCount = maxCount;
@@ -82,104 +82,7 @@ public class FillSeedBundleFunction extends LootItemConditionalFunction {
     public MapCodec<? extends LootItemConditionalFunction> codec() {
         return CODEC;
     }
-//
-//    @Override
-//    protected ItemStack run(ItemStack stack, LootContext context) {
-//        List<String> rawSeeds = getSeedTypeListSafe(this.seedTypeKey);
-//        List<String> validSeeds = new ArrayList<>();
-//
-//        for (String type : rawSeeds) {
-//            String reference = type.startsWith("lootjs:")
-//                    ? type
-//                    : "lootjs:" + type;
-//
-//            String resolvedId =
-//                    ItemUnificationSolver.resolveReference(reference);
-//
-//            if (resolvedId != null) {
-//                validSeeds.add(resolvedId);
-//            }
-//        }
-//
-//        if (validSeeds.isEmpty()) {
-//            return stack;
-//        }
-//
-//        RandomSource random = context.getRandom();
-//
-//        double divisor = this.poolDivisor <= 0.0
-//                ? 1.0
-//                : this.poolDivisor;
-//
-//        int calculatedMax =
-//                (int) Math.floor(validSeeds.size() / divisor);
-//
-//        int maxKinds =
-//                Math.min(this.maxDistinctTypes, calculatedMax);
-//
-//        maxKinds = Math.max(1, maxKinds);
-//
-//        int targetKinds =
-//                1 + random.nextInt(maxKinds);
-//
-//        targetKinds =
-//                Math.min(targetKinds, validSeeds.size());
-//
-//        Collections.shuffle(
-//                validSeeds,
-//                new Random(random.nextLong())
-//        );
-//
-//        List<String> selectedSeeds =
-//                validSeeds.subList(0, targetKinds);
-//
-//        List<ItemStackTemplate> bundleItems =
-//                new ArrayList<>();
-//
-//        for (String seedId : selectedSeeds) {
-//            Identifier itemLoc = Identifier.tryParse(seedId);
-//
-//            if (itemLoc == null) {
-//                continue;
-//            }
-//
-//            Item item =
-//                    BuiltInRegistries.ITEM.getValue(itemLoc);
-//
-//            if (item == null) {
-//                continue;
-//            }
-//
-//            Item defaultItem =
-//                    BuiltInRegistries.ITEM.getValue(
-//                            BuiltInRegistries.ITEM.getDefaultKey()
-//                    );
-//
-//            if (item == defaultItem) {
-//                continue;
-//            }
-//
-//            int actualMin = Math.max(1, this.minCount);
-//            int actualMax = Math.max(actualMin, this.maxCount);
-//
-//            int countRange =
-//                    actualMax - actualMin + 1;
-//
-//            int count =
-//                    actualMin + random.nextInt(countRange);
-//
-//            bundleItems.add(
-//                    new ItemStackTemplate(item, count)
-//            );
-//        }
-//
-//        stack.set(
-//                DataComponents.BUNDLE_CONTENTS,
-//                new BundleContents(bundleItems)
-//        );
-//
-//        return stack;
-//    }
+
 @Override
 protected ItemStack run(ItemStack stack, LootContext context) {
     System.out.println("[SeedBundle] RUN stack=" + stack);
@@ -220,9 +123,9 @@ protected ItemStack run(ItemStack stack, LootContext context) {
 
     RandomSource random = context.getRandom();
 
-    double divisor = this.poolDivisor <= 0.0
+    double divisor = this.pooldivisor <= 0.0
             ? 1.0
-            : this.poolDivisor;
+            : this.pooldivisor;
 
     int calculatedMax =
             (int) Math.floor(validSeeds.size() / divisor);
@@ -335,7 +238,7 @@ protected ItemStack run(ItemStack stack, LootContext context) {
 
         try {
             JsonElement elem =
-                    MixedDataResolver.resolveElement(
+                    LootEvaluationContext.resolveElement(
                             new JsonPrimitive(key)
                     );
 

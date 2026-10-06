@@ -4,7 +4,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
-import com.zibura.better_loot_zibura.loot.util.MixedDataResolver;
+import com.zibura.better_loot_zibura.loot.util.LootEvaluationContext;
 
 import java.util.*;
 
@@ -24,7 +24,7 @@ public class CarpenterLootGenerator {
         templates.put("sawmills", getTemplateArraySafe("carpenterSawmillTemplates"));
 
         // 2. 从 Context 动态读取群系列表与木材映射
-        List<String> biomes = MixedDataResolver.resolveStringList("carpenterBiomes");
+        List<String> biomes = LootEvaluationContext.resolveStringList("carpenterBiomes");
         Map<String, List<String>> biomeWoods = getBiomeWoodsMapSafe();
 
         // 3. 批量生成 carpenter_<biome> 并注册进全局 Context
@@ -33,7 +33,7 @@ public class CarpenterLootGenerator {
             JsonArray biomeContent = generateCarpenterContent(biome, biomeWoods.getOrDefault(biome, Collections.emptyList()), templates);
             dynamicRegistry.add("carpenter_" + biome, biomeContent);
         }
-        MixedDataResolver.registerAll(dynamicRegistry);
+        LootEvaluationContext.registerAll(dynamicRegistry);
     }
 
     /**
@@ -42,7 +42,7 @@ public class CarpenterLootGenerator {
     private static Map<String, List<String>> getBiomeWoodsMapSafe() {
         Map<String, List<String>> map = new HashMap<>();
         try {
-            JsonElement elem = MixedDataResolver.resolveElement(new JsonPrimitive("carpenterBiomeWoods"));
+            JsonElement elem = LootEvaluationContext.resolveElement(new JsonPrimitive("carpenterBiomeWoods"));
             if (elem != null && elem.isJsonObject()) {
                 JsonObject obj = elem.getAsJsonObject();
                 for (Map.Entry<String, JsonElement> entry : obj.entrySet()) {
@@ -61,7 +61,7 @@ public class CarpenterLootGenerator {
 
     private static JsonArray getTemplateArraySafe(String key) {
         try {
-            JsonElement elem = MixedDataResolver.resolveElement(new JsonPrimitive(key));
+            JsonElement elem = LootEvaluationContext.resolveElement(new JsonPrimitive(key));
             if (elem != null && elem.isJsonArray()) {
                 return elem.getAsJsonArray();
             }

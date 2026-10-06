@@ -3,7 +3,7 @@ package com.zibura.better_loot_zibura.loot.condition;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import com.zibura.better_loot_zibura.loot.util.MixedDataResolver;
+import com.zibura.better_loot_zibura.loot.util.LootEvaluationContext;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
@@ -70,7 +70,7 @@ public class MatchBiomeRegistryCondition implements LootItemCondition {
         }
 
         // 2. 尝试从自定义列表解析展开
-        List<String> allowedEntries = MixedDataResolver.resolveStringList(this.registryKey);
+        List<String> allowedEntries = LootEvaluationContext.resolveStringList(this.registryKey);
 
         // 3. 上下文中未定义该 key，当作单个群系 ID 处理
         if (allowedEntries.isEmpty()) {

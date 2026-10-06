@@ -53,13 +53,13 @@ public final class AllDataLoader {
 
         ConvertibleItemsPreviewLootTableGenerator.rebuildConvertibleLootTables();
 
-        MixedDataResolver.clear();
+        LootEvaluationContext.clear();
 
         loadJsonsFromAllMods(
                 "better_loot_zibura/loot_pools",
                 element -> {
                     if (element.isJsonObject()) {
-                        MixedDataResolver.registerAll(
+                        LootEvaluationContext.registerAll(
                                 element.getAsJsonObject()
                         );
                     }
