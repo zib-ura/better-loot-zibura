@@ -1,14 +1,12 @@
 {
 	"required": true,
-	"package": "com.zibura.mixin",
+	"package": "com.zibura.better_loot_zibura.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"ExampleMixin"
+		"RecipeManagerAccessor",
+		"RecipeManagerMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
-	},
-	"overwrites": {
-		"requireAnnotations": true
 	}
 }

@@ -12,14 +12,10 @@
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/better_loot_zibura/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.zibura.Better_loot_zibura"
-		],
-		"fabric-datagen": [
-			"com.zibura.Better_loot_ziburaDataGenerator"
+			"com.zibura.better_loot_zibura.better_loot_zibura"
 		]
 	},
 	"mixins": [
@@ -29,6 +25,41 @@
 		"fabricloader": ">=0.19.5",
 		"minecraft": "~1.20.1",
 		"java": ">=17",
-		"fabric-api": "*"
+		"fabric-api": "*",
+		"polymorph": "*"
+	},
+	"suggests": {
+		"ramadandelight": "*",
+		"rationcraft": "*",
+		"repurposed_structures": "*",
+		"revampedvillages": "*",
+		"roadweaver": "*",
+		"rusticdelight": "*",
+		"supplementaries": "*",
+		"touhou_little_maid": "*",
+		"trailandtales_delight": "*",
+		"travelersbackpack": "*",
+		"trek": "*",
+		"vanillacookbook": "*",
+		"veggiesdelight": "*",
+		"vintagedelight": "*",
+		"brewery": "*",
+		"brewinandchewin": "*",
+		"chalk": "*",
+		"corn_delight": "*",
+		"ctov": "*",
+		"dumplings_delight": "*",
+		"explorify": "*",
+		"farmersdelight": "*",
+		"immersive_armors": "*",
+		"immersiveenchanting": "*",
+		"kaisyn": "*",
+		"kattersstructures": "*",
+		"kitchenkarrot": "*",
+		"miners_delight": "*",
+		"muffins_thaidelight": "*",
+		"neapolitan": "*",
+		"nova_cherry_village": "*",
+		"nova_structures": "*"
 	}
 }
