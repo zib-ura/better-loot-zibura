@@ -1,6 +1,5 @@
 package com.zibura.better_loot_zibura.loot.model;
 
-import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import java.util.*;

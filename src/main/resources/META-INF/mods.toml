@@ -173,13 +173,6 @@ ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies.${mod_id}]]
-modId = "better_loot_zibura"
-mandatory = false
-versionRange = "[0.0.0,)"
-ordering = "AFTER"
-side = "BOTH"
-
-[[dependencies.${mod_id}]]
 modId = "brewery"
 mandatory = false
 versionRange = "[0.0.0,)"
@@ -265,13 +258,6 @@ side = "BOTH"
 
 [[dependencies.${mod_id}]]
 modId = "kitchenkarrot"
-mandatory = false
-versionRange = "[0.0.0,)"
-ordering = "AFTER"
-side = "BOTH"
-
-[[dependencies.${mod_id}]]
-modId = "minecraft"
 mandatory = false
 versionRange = "[0.0.0,)"
 ordering = "AFTER"

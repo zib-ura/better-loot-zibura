@@ -156,29 +156,12 @@ public final class InjectFinalPools {
             for (ItemDTO rawItem : group.items) {
                 ItemDTO item = copyItemConfig(rawItem);
 
-//                // 1. 尝试使用统合配置筛选解析 reference 暗号
-//                if (item.reference != null) {
-//                    String resolvedId = ItemUnificationRegistry.resolveReference(item.reference);
-//                    if (resolvedId != null) {
-//                        item.id = resolvedId;
-//                        item.reference = null; // 成功匹配，转换为普通物品
-//                    } else if (!item.reference.contains(":")) {
-//                        // 暗号无法解析且不是原生战利品表命名空间引用，作废该项
-//                        continue;
-//                    }
-//                }
-
-
                 if (item.reference != null) {
                     String resolvedId = ItemUnificationSolver.resolveReference(item.reference);
                     if (resolvedId != null) {
                         item.id = resolvedId;
                         item.reference = null; // 成功匹配，转换为普通物品
                     } else {
-//                        // 如果是以 lootjs: 开头的统合暗号，但没找到任何已安装模组的对应物品，直接丢弃该条目
-//                        if (item.reference.startsWith("lootjs:") || !item.reference.contains(":")) {
-//                            continue;
-//                        }
                         continue;
                     }
                 }
@@ -192,13 +175,6 @@ public final class InjectFinalPools {
 
                 item.exactEnchants =
                         normalizeExactEnchants(item.exactEnchants);
-
-//                // 远古书转换兼容：单随机附魔书转为 immersiveenchanting:ancient_book
-//                if ("minecraft:book".equals(item.id) && item.enchantRandomly != null && item.enchantRandomly.size() == 1) {
-//                    if (ForgeRegistries.ITEMS.containsKey(ResourceLocation.parse("immersiveenchanting:ancient_book"))) {
-//                        item.id = "immersiveenchanting:ancient_book";
-//                    }
-//                }
 
                 // 附魔有效性过滤
                 List<String> enchantRandomly = item.enchantRandomly != null ? item.enchantRandomly : cleanGroup.enchantRandomly;
@@ -319,44 +295,6 @@ public final class InjectFinalPools {
 
             poolBuilder.when(TimeCheck.time(IntRange.range(minTime, maxTime)).setPeriod(period));
         }
-        if (conditionJson.has("survivesExplosion") && conditionJson.get("survivesExplosion").getAsBoolean()) {
-            poolBuilder.when(ExplosionCondition.survivesExplosion());
-        }
-        if (conditionJson.has("killedByPlayer") && conditionJson.get("killedByPlayer").getAsBoolean()) {
-            poolBuilder.when(LootItemKilledByPlayerCondition.killedByPlayer());
-        }
-////        if (conditionJson.has("matchBiome")) {
-////            String biomePattern = conditionJson.get("matchBiome").getAsString();
-////            var builder = LocationPredicate.Builder.location();
-////
-////            if (biomePattern.startsWith("#")) {
-////                // 注：1.20.1 原生 LocationPredicate 仅支持 ResourceKey，Tag 需去掉 '#' 按具体 key 处理
-////                builder.setBiome(ResourceKey.create(Registries.BIOME, new ResourceLocation(biomePattern.substring(1))));
-////            } else {
-////                // 单个群系匹配：只传 1 个 ResourceKey 参数
-////                builder.setBiome(ResourceKey.create(Registries.BIOME, new ResourceLocation(biomePattern)));
-////            }
-////
-////            poolBuilder.when(LocationCheck.checkLocation(builder));
-////        }
-//        if (conditionJson.has("matchBiome")) {
-//            String biomeStr = conditionJson.get("matchBiome").getAsString();
-//            LocationPredicate.Builder locBuilder = LocationPredicate.Builder.location();
-//
-//            if (biomeStr.startsWith("#")) {
-//                // 解析 Tag，例如 "#minecraft:is_forest"
-//                ResourceLocation tagId = new ResourceLocation(biomeStr.substring(1));
-//                TagKey<Biome> biomeTag = TagKey.create(Registries.BIOME, tagId);
-//                locBuilder.setBiome(biomeTag);
-//            } else {
-//                // 解析单个 Biome，例如 "minecraft:plains"
-//                ResourceLocation biomeId = new ResourceLocation(biomeStr);
-//                ResourceKey<Biome> biomeKey = ResourceKey.create(Registries.BIOME, biomeId);
-//                locBuilder.setBiome(biomeKey);
-//            }
-//
-//            poolBuilder.when(LocationCheck.checkLocation(locBuilder));
-//        }
 
         if (conditionJson.has("matchBiome")) {
             JsonElement biomeElement = conditionJson.get("matchBiome");
@@ -703,7 +641,6 @@ public final class InjectFinalPools {
         if ("minecraft:sweeping".equals(id)) {
             ResourceLocation replacement =
                     ResourceLocation.tryParse("minecraft:sweeping_edge");
-
             if (replacement != null &&
                     ForgeRegistries.ENCHANTMENTS.containsKey(replacement)) {
                 return "minecraft:sweeping_edge";

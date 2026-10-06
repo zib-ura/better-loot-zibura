@@ -62,6 +62,13 @@ public final class ConvertibleRecipeHandler {
                     boolean sourceHasBottle = hasBottleContainer(sourceItem);
                     boolean targetHasBottle = hasBottleContainer(targetItem);
 
+                    // 瓶装 -> 瓶装不能使用普通 ShapelessRecipe。
+                    // source 会返还一个空瓶，而 target 本身已经包含瓶子，
+                    // 否则会导致玻璃瓶复制。
+                    if (sourceHasBottle && targetHasBottle) {
+                        continue;
+                    }
+
                     NonNullList<Ingredient> ingredients = NonNullList.create();
                     ingredients.add(Ingredient.of(sourceItem));
 

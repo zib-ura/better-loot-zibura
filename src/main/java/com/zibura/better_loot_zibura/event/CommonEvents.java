@@ -61,31 +61,10 @@ public final class CommonEvents {
 
         }
 
-//        @SubscribeEvent
-//        public static void onAddReloadListeners(AddReloadListenerEvent event) {
-//            event.addListener(new ItemUnificationLoader());
-//            event.addListener(new LootDataLoader());
-//            event.addListener(new LootBindingLoader());
-//        }
-//        @SubscribeEvent
-//        public static void onAddReloadListeners(AddReloadListenerEvent event) {
-//            // 只注册这一个监听器即可
-//            event.addListener(new BetterLootReloadListener());
-//        }
-
         @SubscribeEvent
         public static void onServerStarted(ServerStartedEvent event) {
             ConvertibleRecipeHandler.injectConvertibleRecipes(event.getServer().getRecipeManager());
             ConvertibleLootTableGenerator.injectIntoServer(event.getServer());
         }
-
-//        @SubscribeEvent
-//        public static void onDatapackSync(OnDatapackSyncEvent event) {
-//            if (event.getPlayer() == null) {
-//                MinecraftServer server = event.getPlayerList().getServer();
-//                ConvertibleRecipeHandler.injectConvertibleRecipes(server.getRecipeManager());
-//                ConvertibleLootTableGenerator.injectIntoServer(server);
-//            }
-//        }
     }
 }

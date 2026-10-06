@@ -5,7 +5,6 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.mojang.logging.LogUtils;
 import com.zibura.better_loot_zibura.loot.SpecificLoot.CarpenterLootGenerator;
-//import com.zibura.better_loot_zibura.loot.SpecificLoot.SeedBagLootGenerator;
 import com.zibura.better_loot_zibura.loot.SpecificLoot.ShepherdLootGenerator;
 import com.zibura.better_loot_zibura.loot.unification.ConvertibleLootTableGenerator;
 import com.zibura.better_loot_zibura.loot.unification.ItemUnificationSolver;

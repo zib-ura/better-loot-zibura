@@ -3,8 +3,6 @@ package com.zibura.better_loot_zibura.loot.condition;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
-import com.mojang.serialization.Codec;
-import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.zibura.better_loot_zibura.loot.util.LootEvaluationContext;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -33,67 +31,6 @@ public class MatchBiomeRegistryCondition implements LootItemCondition {
     public LootItemConditionType getType() {
         return TYPE;
     }
-
-//    @Override
-//    public boolean test(LootContext context) {
-//        Vec3 origin = context.getParamOrNull(LootContextParams.ORIGIN);
-//        if (origin == null) {
-//            return false;
-//        }
-//
-//        // 从 Registry 获取当前引用的群系列表
-//        List<String> allowedBiomes = LootEvaluationContext.resolveStringList(this.registryKey);
-//        if (allowedBiomes.isEmpty()) {
-//            return false;
-//        }
-//
-//        BlockPos pos = BlockPos.containing(origin);
-//        Holder<Biome> biomeHolder = context.getLevel().getBiome(pos);
-//
-//        return biomeHolder.unwrapKey().map(key -> {
-//            String currentBiomeId = key.location().toString();
-//            return allowedBiomes.contains(currentBiomeId);
-//        }).orElse(false);
-//    }
-
-
-//    @Override
-//    public boolean test(LootContext context) {
-//        Vec3 origin = context.getParamOrNull(LootContextParams.ORIGIN);
-//        if (origin == null) {
-//            return false;
-//        }
-//
-//        List<String> allowedEntries = LootEvaluationContext.resolveStringList(this.registryKey);
-//        if (allowedEntries.isEmpty()) {
-//            return false;
-//        }
-//
-//        BlockPos pos = BlockPos.containing(origin);
-//        Holder<Biome> biomeHolder = context.getLevel().getBiome(pos);
-//
-//        // 逐项匹配：支持普通 ID ("minecraft:plains") 与 Tag ("#minecraft:is_forest")
-//        for (String entry : allowedEntries) {
-//            if (entry.startsWith("#")) {
-//                TagKey<Biome> tagKey = TagKey.create(
-//                        Registries.BIOME,
-//                        ResourceLocation.parse(entry.substring(1))
-//                );
-//                if (biomeHolder.is(tagKey)) {
-//                    return true;
-//                }
-//            } else {
-//                boolean matches = biomeHolder.unwrapKey()
-//                        .map(key -> key.location().toString().equals(entry))
-//                        .orElse(false);
-//                if (matches) {
-//                    return true;
-//                }
-//            }
-//        }
-//
-//        return false;
-//    }
 
     @Override
     public boolean test(LootContext context) {
