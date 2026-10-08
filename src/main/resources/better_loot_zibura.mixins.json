@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.zibura.better_loot_zibura.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "better_loot_zibura.refmap.json",
+  "mixins": [
+    "ReloadableServerRegistriesMixin"
+  ],
+  "client": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

@@ -2,69 +2,92 @@ package com.zibura.better_loot_zibura.event;
 
 import com.zibura.better_loot_zibura.better_loot_zibura;
 import com.zibura.better_loot_zibura.loot.condition.MatchBiomeRegistryCondition;
+import com.zibura.better_loot_zibura.loot.condition.SynchronizedSlotCondition;
 import com.zibura.better_loot_zibura.loot.function.FillSeedBundleFunction;
-import com.zibura.better_loot_zibura.loot.unification.ConvertibleLootTableGenerator;
+import com.zibura.better_loot_zibura.loot.util.LootBindingLoader;
 import com.zibura.better_loot_zibura.loot.unification.ConvertibleRecipeHandler;
-import com.zibura.better_loot_zibura.loot.util.*;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.storage.loot.functions.LootItemFunctionType;
 import net.minecraft.world.level.storage.loot.predicates.LootItemConditionType;
 import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.event.server.ServerStartedEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.registries.RegisterEvent;
 
-public final class CommonEvents {
+import static net.minecraft.resources.ResourceLocation.fromNamespaceAndPath;
 
+/** Minecraft 1.20.1 / Forge 47.x */
+public final class CommonEvents {
     private CommonEvents() {}
 
-    // ==========================================
-    // 1. MOD 事件总线
-    // ==========================================
-    @Mod.EventBusSubscriber(modid = better_loot_zibura.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+    @Mod.EventBusSubscriber(
+            modid = better_loot_zibura.MOD_ID,
+            bus = Mod.EventBusSubscriber.Bus.MOD
+    )
     public static class ModBusEvents {
-
-        @SubscribeEvent
-        public static void onCommonSetup(FMLCommonSetupEvent event) {
-            // 直接转发给工具类加载
-            event.enqueueWork(AllDataLoader::loadAllData);
-        }
 
         public static LootItemFunctionType FILL_SEED_BUNDLE;
 
         @SubscribeEvent
         public static void onRegister(RegisterEvent event) {
+
             event.register(Registries.LOOT_FUNCTION_TYPE, helper -> {
-                FILL_SEED_BUNDLE = new LootItemFunctionType(new FillSeedBundleFunction.Serializer());
-                helper.register(ResourceLocation.fromNamespaceAndPath(better_loot_zibura.MOD_ID, "fill_seed_bundle"), FILL_SEED_BUNDLE);
+
+                FILL_SEED_BUNDLE = new LootItemFunctionType(
+                        new FillSeedBundleFunction.Serializer()
+                );
+
+                helper.register(
+                        fromNamespaceAndPath(
+                                better_loot_zibura.MOD_ID,
+                                "fill_seed_bundle"
+                        ),
+                        FILL_SEED_BUNDLE
+                );
             });
 
             event.register(Registries.LOOT_CONDITION_TYPE, helper -> {
-                MatchBiomeRegistryCondition.TYPE = new LootItemConditionType(new MatchBiomeRegistryCondition.Serializer());
-                helper.register(ResourceLocation.fromNamespaceAndPath(better_loot_zibura.MOD_ID, "match_biome_registry"), MatchBiomeRegistryCondition.TYPE);
+
+                MatchBiomeRegistryCondition.TYPE =
+                        new LootItemConditionType(
+                                new MatchBiomeRegistryCondition.Serializer()
+                        );
+
+                helper.register(
+                        fromNamespaceAndPath(
+                                better_loot_zibura.MOD_ID,
+                                "match_biome_registry"
+                        ),
+                        MatchBiomeRegistryCondition.TYPE
+                );
+
+                SynchronizedSlotCondition.TYPE =
+                        new LootItemConditionType(
+                                new SynchronizedSlotCondition.Serializer()
+                        );
+
+                helper.register(
+                        fromNamespaceAndPath(
+                                better_loot_zibura.MOD_ID,
+                                "synchronized_slot"
+                        ),
+                        SynchronizedSlotCondition.TYPE
+                );
             });
         }
     }
 
-    // ==========================================
-    // 2. FORGE 事件总线
-    // ==========================================
     @Mod.EventBusSubscriber(modid = better_loot_zibura.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
     public static class ForgeBusEvents {
-
         @SubscribeEvent
         public static void onLootTableLoad(LootTableLoadEvent event) {
-            InjectFinalPools.injectLootPools(event);
-
+            LootBindingLoader.applyBinding(event);
         }
 
         @SubscribeEvent
         public static void onServerStarted(ServerStartedEvent event) {
             ConvertibleRecipeHandler.injectConvertibleRecipes(event.getServer().getRecipeManager());
-            ConvertibleLootTableGenerator.injectIntoServer(event.getServer());
         }
     }
 }

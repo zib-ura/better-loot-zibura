@@ -3,7 +3,6 @@ package com.zibura.better_loot_zibura.loot.condition;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
-import com.zibura.better_loot_zibura.loot.util.LootEvaluationContext;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
@@ -14,7 +13,6 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemConditionType;
 import net.minecraft.world.phys.Vec3;
 
-import java.util.List;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagKey;
 public class MatchBiomeRegistryCondition implements LootItemCondition {
@@ -47,28 +45,8 @@ public class MatchBiomeRegistryCondition implements LootItemCondition {
             return checkTag(biomeHolder, this.registryKey.substring(1));
         }
 
-        // 2. 尝试从自定义列表 (LootEvaluationContext) 解析展开
-        List<String> allowedEntries = LootEvaluationContext.resolveStringList(this.registryKey);
-
-        // 3. 如果在上下文里找不到该 key 对应的数组，当成单个群系 ID 直接匹配 (如 "minecraft:desert")
-        if (allowedEntries.isEmpty()) {
-            return checkSingleBiome(biomeHolder, this.registryKey);
-        }
-
-        // 4. 如果找到了数组，遍历数组进行匹配（数组内元素同样支持 #tag 和 普通ID）
-        for (String entry : allowedEntries) {
-            if (entry.startsWith("#")) {
-                if (checkTag(biomeHolder, entry.substring(1))) {
-                    return true;
-                }
-            } else {
-                if (checkSingleBiome(biomeHolder, entry)) {
-                    return true;
-                }
-            }
-        }
-
-        return false;
+        // 直接匹配原版生物群系 ID。
+        return checkSingleBiome(biomeHolder, this.registryKey);
     }
 
     private boolean checkTag(Holder<Biome> holder, String tagLocationStr) {
