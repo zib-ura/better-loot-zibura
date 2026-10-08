@@ -45,8 +45,8 @@ Put vanilla and mod items where they belong, and make loot tables more diverse, 
 '''
 
 # The [[mixins]] block allows you to declare your mixin config to FML so that it gets loaded.
-#[[mixins]]
-#config="${mod_id}.mixins.json"
+[[mixins]]
+config="better_loot_zibura.mixins.json"
 
 # The [[accessTransformers]] block allows you to declare where your AT file is.
 # If this block is omitted, a fallback attempt will be made to load an AT from META-INF/accesstransformer.cfg
@@ -81,12 +81,12 @@ versionRange="${minecraft_version_range}"
 ordering="NONE"
 side="BOTH"
 
-[[dependencies.${mod_id}]]
-modId = "polymorph"
-type = "required"
-versionRange = "[0.0.0,)"
-ordering = "NONE"
-side = "BOTH"
+#[[dependencies.${mod_id}]]
+#modId = "polymorph"
+#type = "required"
+#versionRange = "[0.0.0,)"
+#ordering = "NONE"
+#side = "BOTH"
 
 
 [[dependencies.${mod_id}]]

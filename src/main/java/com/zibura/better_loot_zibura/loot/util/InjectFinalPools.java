@@ -50,9 +50,11 @@ public final class InjectFinalPools {
 
         List<GroupDTO> cleanConfig = new ArrayList<>();
         for (GroupDTO group : configList) {
+            // Explicit zero/negative weight disables the whole group.
+            if (group.groupWeight <= 0.0) continue;
             GroupDTO cleanGroup = new GroupDTO();
             cleanGroup.groupName = group.groupName != null ? group.groupName : "default";
-            cleanGroup.groupWeight = group.groupWeight > 0 ? group.groupWeight : 1.0;
+            cleanGroup.groupWeight = group.groupWeight;
             cleanGroup.min = group.min;
             cleanGroup.max = group.max;
             cleanGroup.damage = group.damage;
@@ -68,6 +70,8 @@ public final class InjectFinalPools {
 
             double totalRatio = 0.0;
             for (ItemDTO rawItem : group.items) {
+                // Explicit zero/negative ratio disables the item.
+                if (rawItem.ratio <= 0.0) continue;
                 ItemDTO item = copyItemConfig(rawItem);
 
                 if (item.reference != null) {
@@ -102,7 +106,7 @@ public final class InjectFinalPools {
 
                 if (isValidItem(item)) {
                     cleanGroup.items.add(item);
-                    totalRatio += (item.ratio > 0 ? item.ratio : 1.0);
+                    totalRatio += item.ratio;
                 }
             }
 
@@ -151,7 +155,7 @@ public final class InjectFinalPools {
                     .sum();
 
             for (ItemDTO item : group.items) {
-                double ratio = item.ratio > 0 ? item.ratio : 1.0;
+                double ratio = item.ratio;
                 int weight = (int) Math.max(1, (group.groupWeight * ratio * COMMON_MULTIPLIER) / groupTotalRatio);
 
                 LootPoolSingletonContainer.Builder<?> entryBuilder;

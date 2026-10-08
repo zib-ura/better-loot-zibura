@@ -3,6 +3,9 @@ package com.zibura.better_loot_zibura.loot.util;
 import com.google.gson.*;
 import com.mojang.logging.LogUtils;
 import com.zibura.better_loot_zibura.loot.model.AllLevelModel.GroupDTO;
+import com.zibura.better_loot_zibura.loot.model.AllLevelModel.ItemDTO;
+import com.google.gson.reflect.TypeToken;
+import java.util.ArrayList;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.neoforged.fml.ModList;
@@ -14,6 +17,7 @@ import java.util.Map;
 
 public class LootBindingLoader {
     private static final Logger LOGGER = LogUtils.getLogger();
+    private static final Gson GSON = new Gson();
 
     // 暂存所有 target 对应的最新绑定配置，按 target 覆盖
     private static final Map<String, JsonObject> TARGET_BINDINGS = new LinkedHashMap<>();
@@ -27,37 +31,33 @@ public class LootBindingLoader {
      * 收集阶段：同名 target 会直接 put 覆盖前面的配置
      */
     public static void collectBindings(JsonElement jsonElement) {
-        if (jsonElement == null || !jsonElement.isJsonArray()) return;
-
-        for (JsonElement bElem : jsonElement.getAsJsonArray()) {
-            if (!bElem.isJsonObject()) continue;
-            JsonObject bObj = bElem.getAsJsonObject();
-            if (bObj.has("target") && bObj.get("target").isJsonPrimitive()) {
-                String target = bObj.get("target").getAsString();
-
-                ResourceLocation id = ResourceLocation.tryParse(target);
-                if (id == null) {
-                    LOGGER.warn("Invalid loot table target: {}", target);
-                    continue;
-                }
-
-                String namespace = id.getNamespace();
-
-                // 非 minecraft 的战利品表：对应模组没加载就直接忽略
-                if (!"minecraft".equals(namespace)
-                        && !ModList.get().isLoaded(namespace)) {
-                    LOGGER.debug(
-                            "Skipping loot binding {} because mod '{}' is not loaded",
-                            target,
-                            namespace
-                    );
-                    continue;
-                }
-
-                // 后加载的相同 target 覆盖之前的值
-                TARGET_BINDINGS.put(target, bObj);
+        if (jsonElement == null || jsonElement.isJsonNull()) return;
+        if (jsonElement.isJsonObject()) {
+            collectSingleBinding(jsonElement.getAsJsonObject());
+        } else if (jsonElement.isJsonArray()) {
+            for (JsonElement element : jsonElement.getAsJsonArray()) {
+                if (element.isJsonObject()) collectSingleBinding(element.getAsJsonObject());
             }
+        } else {
+            LOGGER.warn("Expected loot binding object or array, got {}", jsonElement);
         }
+    }
+
+    private static void collectSingleBinding(JsonObject binding) {
+        if (!binding.has("target") || !binding.get("target").isJsonPrimitive()
+                || !binding.get("target").getAsJsonPrimitive().isString()) return;
+        String target = binding.get("target").getAsString();
+        ResourceLocation id = ResourceLocation.tryParse(target);
+        if (id == null) {
+            LOGGER.warn("Invalid loot table target: {}", target);
+            return;
+        }
+        String namespace = id.getNamespace();
+        if (!"minecraft".equals(namespace) && !ModList.get().isLoaded(namespace)) {
+            LOGGER.debug("Skipping loot binding {} because mod '{}' is not loaded", target, namespace);
+            return;
+        }
+        TARGET_BINDINGS.put(target, binding);
     }
 
     public static void applyBinding(LootTableLoadEvent event) {
@@ -84,8 +84,12 @@ public class LootBindingLoader {
             LootTableLoadEvent event,
             JsonObject bObj
     ) {
-        JsonArray lootArray =
-                LootEvaluationContext.resolveContent(bObj.get("config"));
+        JsonElement config = bObj.get("config");
+        if (config == null || !config.isJsonArray()) {
+            LOGGER.warn("Expected pre-expanded config array for {}", bObj.get("target"));
+            return;
+        }
+        JsonArray lootArray = config.getAsJsonArray();
 
         if (lootArray == null || lootArray.isEmpty()) {
             return;
@@ -148,8 +152,11 @@ public class LootBindingLoader {
             int minTime,
             int maxTime
     ) {
-        JsonArray contentArray =
-                LootEvaluationContext.resolveContent(contentElem);
+        if (contentElem == null || !contentElem.isJsonArray()) {
+            LOGGER.warn("Expected pre-expanded content array");
+            return;
+        }
+        JsonArray contentArray = contentElem.getAsJsonArray();
 
         if (contentArray == null) {
             return;
@@ -178,8 +185,7 @@ public class LootBindingLoader {
                             maxTime
                     );
 
-            List<GroupDTO> resolvedGroups =
-                    LootEvaluationContext.resolveGroupList(groupElem);
+            List<GroupDTO> resolvedGroups = parseGroups(groupElem);
 
             LootPool pool = InjectFinalPools.buildLootPool(
                     resolvedGroups,
@@ -193,6 +199,45 @@ public class LootBindingLoader {
                 event.getTable().addPool(pool);
             }
         }
+    }
+
+    /** Convert fully expanded group objects into DTOs; no registry lookups. */
+    private static List<GroupDTO> parseGroups(JsonElement element) {
+        if (element == null || !element.isJsonArray()) {
+            throw new IllegalArgumentException("Expected expanded group array: " + element);
+        }
+        List<GroupDTO> result = new ArrayList<>();
+        for (JsonElement entry : element.getAsJsonArray()) {
+            if (!entry.isJsonObject()) {
+                throw new IllegalArgumentException("Expected expanded group object: " + entry);
+            }
+            JsonObject obj = entry.getAsJsonObject();
+            GroupDTO group = new GroupDTO();
+            group.groupName = obj.has("groupName") ? obj.get("groupName").getAsString() : "default";
+            group.groupWeight = obj.has("groupWeight") ? obj.get("groupWeight").getAsDouble() : 1.0;
+            if (obj.has("min")) group.min = obj.get("min").getAsInt();
+            if (obj.has("max")) group.max = obj.get("max").getAsInt();
+            if (obj.has("damage")) group.damage = obj.get("damage");
+            if (obj.has("enchantChance")) group.enchantChance = obj.get("enchantChance").getAsDouble();
+            if (obj.has("enchantLevels")) group.enchantLevels = GSON.fromJson(obj.get("enchantLevels"), new TypeToken<List<Integer>>() {}.getType());
+            if (obj.has("enchantRandomly")) group.enchantRandomly = GSON.fromJson(obj.get("enchantRandomly"), new TypeToken<List<String>>() {}.getType());
+            if (obj.has("potion")) group.potion = obj.get("potion").getAsString();
+            if (obj.has("jsonFunction")) group.jsonFunction = obj.getAsJsonArray("jsonFunction");
+            if (obj.has("exactEnchants")) group.exactEnchants = GSON.fromJson(obj.get("exactEnchants"), new TypeToken<Map<String, Integer>>() {}.getType());
+            if (obj.has("nbt") && obj.get("nbt").isJsonObject()) group.nbt = obj.getAsJsonObject("nbt");
+            if (obj.has("conditions")) group.conditions = GSON.fromJson(obj.get("conditions"), new TypeToken<Map<String, Object>>() {}.getType());
+            if (obj.has("items")) {
+                JsonElement items = obj.get("items");
+                if (!items.isJsonArray()) throw new IllegalArgumentException("Expected expanded items array: " + items);
+                group.items = new ArrayList<>();
+                for (JsonElement item : items.getAsJsonArray()) {
+                    if (!item.isJsonObject()) throw new IllegalArgumentException("Expected item object: " + item);
+                    group.items.add(GSON.fromJson(item, ItemDTO.class));
+                }
+            }
+            result.add(group);
+        }
+        return result;
     }
 
     private static JsonObject mergeTimeConditions(JsonArray cArr, int totalWeight, int minTime, int maxTime) {

@@ -3,7 +3,6 @@ package com.zibura.better_loot_zibura.loot.condition;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import com.zibura.better_loot_zibura.loot.util.LootEvaluationContext;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
@@ -20,32 +19,32 @@ import java.util.List;
 
 public class MatchBiomeRegistryCondition implements LootItemCondition {
 
-    // 1.21+ 使用 MapCodec 定义数据序列化与反序列化
-    // 同时兼容 String 与 List<String>
-    private static final Codec<String> COMPAT_KEY_CODEC = Codec.either(
-            Codec.STRING,
-            Codec.STRING.listOf()
+    // The Python compiler writes registry_key as a literal biome/tag list.
+    // A single string remains accepted for backwards-compatible direct IDs.
+    private static final Codec<List<String>> BIOMES_CODEC = Codec.either(
+            Codec.STRING, Codec.STRING.listOf()
     ).xmap(
-            either -> either.map(
-                    str -> str,
-                    list -> list.isEmpty() ? "" : list.get(0) // 如果是数组，取第 1 个元素
-            ),
-            str -> com.mojang.datafixers.util.Either.left(str)
+            either -> either.map(List::of, list -> list),
+            list -> com.mojang.datafixers.util.Either.right(list)
     );
 
     public static final MapCodec<MatchBiomeRegistryCondition> CODEC = RecordCodecBuilder.mapCodec(
             instance -> instance.group(
-                    COMPAT_KEY_CODEC.fieldOf("registry_key").forGetter(cond -> cond.registryKey)
+                    BIOMES_CODEC.fieldOf("registry_key").forGetter(cond -> cond.registryKeys)
             ).apply(instance, MatchBiomeRegistryCondition::new)
     );
 
     // 1.21+ LootItemConditionType 变为泛型
     public static LootItemConditionType TYPE;
 
-    private final String registryKey;
+    private final List<String> registryKeys;
 
     public MatchBiomeRegistryCondition(String registryKey) {
-        this.registryKey = registryKey;
+        this(List.of(registryKey));
+    }
+
+    public MatchBiomeRegistryCondition(List<String> registryKeys) {
+        this.registryKeys = List.copyOf(registryKeys);
     }
 
     @Override
@@ -56,28 +55,14 @@ public class MatchBiomeRegistryCondition implements LootItemCondition {
     @Override
     public boolean test(LootContext context) {
         Vec3 origin = context.getParamOrNull(LootContextParams.ORIGIN);
-        if (origin == null || this.registryKey == null || this.registryKey.isEmpty()) {
+        if (origin == null || registryKeys.isEmpty()) {
             return false;
         }
 
         BlockPos pos = BlockPos.containing(origin);
         Holder<Biome> biomeHolder = context.getLevel().getBiome(pos);
 
-        // 1. 如果本身是 Tag 写法 (如 "#minecraft:is_ocean")
-        if (this.registryKey.startsWith("#")) {
-            return checkTag(biomeHolder, this.registryKey.substring(1));
-        }
-
-        // 2. 尝试从自定义列表解析展开
-        List<String> allowedEntries = LootEvaluationContext.resolveStringList(this.registryKey);
-
-        // 3. 上下文中未定义该 key，当作单个群系 ID 处理
-        if (allowedEntries.isEmpty()) {
-            return checkSingleBiome(biomeHolder, this.registryKey);
-        }
-
-        // 4. 遍历解析到的群系列表
-        for (String entry : allowedEntries) {
+        for (String entry : registryKeys) {
             if (entry.startsWith("#")) {
                 if (checkTag(biomeHolder, entry.substring(1))) {
                     return true;

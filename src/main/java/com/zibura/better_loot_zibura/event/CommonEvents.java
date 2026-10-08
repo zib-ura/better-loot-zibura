@@ -5,7 +5,7 @@ import com.zibura.better_loot_zibura.loot.condition.MatchBiomeRegistryCondition;
 import com.zibura.better_loot_zibura.loot.condition.SynchronizedSlotCondition;
 import com.zibura.better_loot_zibura.loot.function.FillSeedBundleFunction;
 import com.zibura.better_loot_zibura.loot.util.*;
-import com.zibura.better_loot_zibura.loot.unification.ConvertibleLootTableGenerator;
+//import com.zibura.better_loot_zibura.loot.unification.ConvertibleLootTableGenerator;
 import com.zibura.better_loot_zibura.loot.unification.ConvertibleRecipeHandler;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
@@ -25,14 +25,14 @@ public final class CommonEvents {
     // ==========================================
     // 1. MOD 事件总线
     // ==========================================
-    @EventBusSubscriber(modid = better_loot_zibura.MOD_ID)
-    public static class ModBusEvents {
-
-        @SubscribeEvent
-        public static void onCommonSetup(FMLCommonSetupEvent event) {
-            event.enqueueWork(AllDataLoader::loadAllData);
-        }
-    }
+//    @EventBusSubscriber(modid = better_loot_zibura.MOD_ID)
+//    public static class ModBusEvents {
+//
+//        @SubscribeEvent
+//        public static void onCommonSetup(FMLCommonSetupEvent event) {
+//            event.enqueueWork(AllDataLoader::loadAllData);
+//        }
+//    }
 
     @EventBusSubscriber(modid = better_loot_zibura.MOD_ID)
     public static class ModLootFunctions {
@@ -98,7 +98,7 @@ public final class CommonEvents {
         @SubscribeEvent
         public static void onServerStarted(ServerStartedEvent event) {
             ConvertibleRecipeHandler.injectConvertibleRecipes(event.getServer().getRecipeManager());
-            ConvertibleLootTableGenerator.injectIntoServer(event.getServer());
+//            ConvertibleLootTableGenerator.injectIntoServer(event.getServer());
         }
     }
 }

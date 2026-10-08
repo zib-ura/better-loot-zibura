@@ -1,13 +1,10 @@
 package com.zibura.better_loot_zibura.loot.function;
 
-import com.google.gson.JsonElement;
-import com.google.gson.JsonPrimitive;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.zibura.better_loot_zibura.event.CommonEvents;
 import com.zibura.better_loot_zibura.loot.unification.ItemUnificationSolver;
-import com.zibura.better_loot_zibura.loot.util.LootEvaluationContext;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -30,7 +27,7 @@ public class FillSeedBundleFunction extends LootItemConditionalFunction {
     public static final MapCodec<FillSeedBundleFunction> CODEC = RecordCodecBuilder.mapCodec(instance ->
             commonFields(instance).and(
                     instance.group(
-                            Codec.STRING.fieldOf("seed_type_key").forGetter(fn -> fn.seedTypeKey),
+                            Codec.STRING.listOf().fieldOf("seed_types").forGetter(fn -> fn.seedTypes),
                             Codec.DOUBLE.optionalFieldOf("pool_divisor", 1.0).forGetter(fn -> fn.pooldivisor),
                             Codec.INT.optionalFieldOf("max_distinct_types", 3).forGetter(fn -> fn.maxDistinctTypes),
                             Codec.INT.optionalFieldOf("min_count", 1).forGetter(fn -> fn.minCount),
@@ -39,15 +36,15 @@ public class FillSeedBundleFunction extends LootItemConditionalFunction {
             ).apply(instance, FillSeedBundleFunction::new)
     );
 
-    private final String seedTypeKey;
+    private final List<String> seedTypes;
     private final double pooldivisor;
     private final int maxDistinctTypes;
     private final int minCount;
     private final int maxCount;
 
-    protected FillSeedBundleFunction(List<LootItemCondition> conditions, String seedTypeKey, double pooldivisor, int maxDistinctTypes, int minCount, int maxCount) {
+    protected FillSeedBundleFunction(List<LootItemCondition> conditions, List<String> seedTypes, double pooldivisor, int maxDistinctTypes, int minCount, int maxCount) {
         super(conditions);
-        this.seedTypeKey = seedTypeKey;
+        this.seedTypes = List.copyOf(seedTypes);
         this.pooldivisor = pooldivisor;
         this.maxDistinctTypes = maxDistinctTypes;
         this.minCount = minCount;
@@ -61,7 +58,7 @@ public class FillSeedBundleFunction extends LootItemConditionalFunction {
 
     @Override
     protected ItemStack run(ItemStack stack, LootContext context) {
-        List<String> rawSeeds = getSeedTypeListSafe(this.seedTypeKey);
+        List<String> rawSeeds = this.seedTypes;
         List<String> validSeeds = new ArrayList<>();
 
         for (String type : rawSeeds) {
@@ -108,16 +105,4 @@ public class FillSeedBundleFunction extends LootItemConditionalFunction {
         return stack;
     }
 
-    private List<String> getSeedTypeListSafe(String key) {
-        List<String> result = new ArrayList<>();
-        try {
-            JsonElement elem = LootEvaluationContext.resolveElement(new JsonPrimitive(key));
-            if (elem != null && elem.isJsonArray()) {
-                for (JsonElement item : elem.getAsJsonArray()) {
-                    if (item.isJsonPrimitive()) result.add(item.getAsString());
-                }
-            }
-        } catch (Exception ignored) {}
-        return result;
-    }
 }
