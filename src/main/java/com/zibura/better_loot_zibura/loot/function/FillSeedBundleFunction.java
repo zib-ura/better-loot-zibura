@@ -36,6 +36,8 @@ public class FillSeedBundleFunction extends LootItemConditionalFunction {
             ).apply(instance, FillSeedBundleFunction::new)
     );
 
+    private static final float EXTRA_KIND_CHANCE = 0.5F;
+
     private final List<String> seedTypes;
     private final double pooldivisor;
     private final int maxDistinctTypes;
@@ -79,7 +81,13 @@ public class FillSeedBundleFunction extends LootItemConditionalFunction {
         int maxKinds = Math.min(this.maxDistinctTypes, calculatedMax);
         maxKinds = Math.max(1, maxKinds);
 
-        int targetKinds = 1 + random.nextInt(maxKinds);
+        // 二项分布：targetKinds = 1 + Binomial(maxKinds - 1, 0.35)
+        int targetKinds = 1;
+        for (int i = 1; i < maxKinds; i++) {
+            if (random.nextFloat() < EXTRA_KIND_CHANCE) {
+                targetKinds++;
+            }
+        }
         targetKinds = Math.min(targetKinds, validSeeds.size());
 
         Collections.shuffle(validSeeds, new Random(random.nextLong()));

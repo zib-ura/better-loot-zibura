@@ -15,11 +15,12 @@ public final class LootMatrixExpander {
             if (!name.endsWith("_matrix") || !entry.getValue().isJsonObject()) continue;
             JsonObject cfg = entry.getValue().getAsJsonObject();
             String type = string(cfg, "matrixType", null);
-            if (!Set.of("weight", "content", "householdWeight").contains(type)) continue;
+            if (!Set.of("groupToPool", "poolToContent", "contentToTable").contains(type)) continue;
             Map<String, JsonElement> generated = switch (type) {
-                case "weight" -> weight(name, cfg, source);
-                case "content" -> content(name, cfg, source);
-                default -> household(name, cfg, source);
+                case "groupToPool" -> groupToPool(name, cfg, source);
+                case "poolToContent" -> poolToContent(name, cfg, source);
+                case "contentToTable" -> contentToTable(name, cfg, source);
+                default -> throw new IllegalArgumentException("Unsupported matrix type: " + type);
             };
             for (var output : generated.entrySet()) {
                 if (result.has(output.getKey()) && !output.getKey().equals(name))
@@ -59,7 +60,7 @@ public final class LootMatrixExpander {
     private static void put(Map<String, JsonElement> out, String key, JsonElement value, String name) {
         if (out.putIfAbsent(key, value) != null) throw new IllegalArgumentException(name + ": duplicate output: " + key);
     }
-    private static Map<String, JsonElement> weight(String name, JsonObject cfg, JsonObject source) {
+    private static Map<String, JsonElement> groupToPool(String name, JsonObject cfg, JsonObject source) {
         JsonArray rows = array(resolved(cfg, "rows", source), name + ".rows");
         JsonArray columns = array(resolved(cfg, "columns", source), name + ".columns");
         JsonArray weights = array(resolved(cfg, "weights", source), name + ".weights");
@@ -81,18 +82,18 @@ public final class LootMatrixExpander {
         }
         return out;
     }
-    private static Map<String, JsonElement> content(String name, JsonObject cfg, JsonObject source) {
+    private static Map<String, JsonElement> poolToContent(String name, JsonObject cfg, JsonObject source) {
         JsonArray rows = array(resolved(cfg, "rows", source), name + ".rows");
         String pattern = string(cfg, "outputPattern", null), prefix = string(cfg, "prefix", "");
         if (pattern == null) throw new IllegalArgumentException(name + ": missing outputPattern");
-        boolean compact = cfg.has("columns") || cfg.has("ranges");
+        boolean compact = cfg.has("columns") || cfg.has("rolls");
         JsonArray columns = compact ? array(resolved(cfg, "columns", source), name + ".columns") : null;
-        JsonArray data = array(resolved(cfg, compact ? "ranges" : "contents", source), name + ".data");
+        JsonArray data = array(resolved(cfg, compact ? "rolls" : "contents", source), name + ".data");
         sameSize(name, rows, data);
         Map<String, JsonElement> out = new LinkedHashMap<>();
         for (int i = 0; i < rows.size(); i++) {
             JsonArray entries = array(data.get(i), name + ".data[" + i + "]");
-            if (compact && entries.size() != columns.size()) throw new IllegalArgumentException(name + ": range/column mismatch at row " + i);
+            if (compact && entries.size() != columns.size()) throw new IllegalArgumentException(name + ": roll/column mismatch at row " + i);
             JsonArray expanded = new JsonArray();
             for (int j = 0; j < entries.size(); j++) {
                 JsonElement entry = entries.get(j);
@@ -111,7 +112,7 @@ public final class LootMatrixExpander {
         }
         return out;
     }
-    private static Map<String, JsonElement> household(String name, JsonObject cfg, JsonObject source) {
+    private static Map<String, JsonElement> contentToTable(String name, JsonObject cfg, JsonObject source) {
         JsonArray rows = array(resolved(cfg, "rows", source), name + ".rows");
         JsonArray weights = array(resolved(cfg, "weights", source), name + ".weights");
         sameSize(name, rows, weights);
