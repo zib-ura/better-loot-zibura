@@ -19,45 +19,27 @@ public class LootBindingLoader {
     private static final Logger LOGGER = LogUtils.getLogger();
     private static final Gson GSON = new Gson();
 
-    // 暂存所有 target 对应的最新绑定配置，按 target 覆盖
-    private static final Map<String, JsonObject> TARGET_BINDINGS = new LinkedHashMap<>();
-
+    // Published as a single snapshot. Treat contained JsonObjects as read-only.
+    private static volatile Map<String, JsonObject> TARGET_BINDINGS = Map.of();
 
     public static void clear() {
-        TARGET_BINDINGS.clear();
+        TARGET_BINDINGS = Map.of();
     }
 
-    /**
-     * 收集阶段：同名 target 会直接 put 覆盖前面的配置
-     */
-    public static void collectBindings(JsonElement jsonElement) {
-        if (jsonElement == null || jsonElement.isJsonNull()) return;
-        if (jsonElement.isJsonObject()) {
-            collectSingleBinding(jsonElement.getAsJsonObject());
-        } else if (jsonElement.isJsonArray()) {
-            for (JsonElement element : jsonElement.getAsJsonArray()) {
-                if (element.isJsonObject()) collectSingleBinding(element.getAsJsonObject());
+    public static void replaceBindings(Map<String, JsonObject> compiled) {
+        Map<String, JsonObject> next = new LinkedHashMap<>();
+        for (Map.Entry<String, JsonObject> entry : compiled.entrySet()) {
+            String target = entry.getKey();
+            ResourceLocation id = ResourceLocation.tryParse(target);
+            if (id == null) throw new IllegalArgumentException("Invalid loot table target: " + target);
+            String namespace = id.getNamespace();
+            if (!"minecraft".equals(namespace) && !ModList.get().isLoaded(namespace)) {
+                LOGGER.debug("Skipping loot binding {} because mod '{}' is not loaded", target, namespace);
+                continue;
             }
-        } else {
-            LOGGER.warn("Expected loot binding object or array, got {}", jsonElement);
+            next.put(target, entry.getValue().deepCopy());
         }
-    }
-
-    private static void collectSingleBinding(JsonObject binding) {
-        if (!binding.has("target") || !binding.get("target").isJsonPrimitive()
-                || !binding.get("target").getAsJsonPrimitive().isString()) return;
-        String target = binding.get("target").getAsString();
-        ResourceLocation id = ResourceLocation.tryParse(target);
-        if (id == null) {
-            LOGGER.warn("Invalid loot table target: {}", target);
-            return;
-        }
-        String namespace = id.getNamespace();
-        if (!"minecraft".equals(namespace) && !ModList.get().isLoaded(namespace)) {
-            LOGGER.debug("Skipping loot binding {} because mod '{}' is not loaded", target, namespace);
-            return;
-        }
-        TARGET_BINDINGS.put(target, binding);
+        TARGET_BINDINGS = java.util.Collections.unmodifiableMap(next);
     }
 
     public static void applyBinding(LootTableLoadEvent event) {
