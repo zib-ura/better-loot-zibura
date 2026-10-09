@@ -1,0 +1,31 @@
+{
+	"schemaVersion": 1,
+	"id": "better_loot_zibura",
+	"version": "${version}",
+	"name": "better_loot_zibura",
+	"description": "Put vanilla and mod items where they belong, and make loot tables more diverse, rewarding, and reasonable.",
+	"authors": [
+		"zibura"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.zibura.better_loot_zibura.better_loot_zibura",
+			"com.zibura.better_loot_zibura.event.CommonEvents"
+		]
+	},
+	"mixins": [
+		"better_loot_zibura.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~26.2",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}
