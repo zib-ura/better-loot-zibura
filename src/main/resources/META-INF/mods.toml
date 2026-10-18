@@ -145,7 +145,7 @@ ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies.${mod_id}]]
-modId = "trek"
+modId = "mr_trek"
 mandatory = false
 versionRange = "[0.0.0,)"
 ordering = "AFTER"
@@ -243,14 +243,14 @@ ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies.${mod_id}]]
-modId = "kaisyn"
+modId = "t_and_t"
 mandatory = false
 versionRange = "[0.0.0,)"
 ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies.${mod_id}]]
-modId = "kattersstructures"
+modId = "mr_katters_structures"
 mandatory = false
 versionRange = "[0.0.0,)"
 ordering = "AFTER"
@@ -292,7 +292,14 @@ ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies.${mod_id}]]
-modId = "nova_structures"
+modId = "mr_dungeons_andtaverns"
+mandatory = false
+versionRange = "[0.0.0,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.${mod_id}]]
+modId = "mr_lukis_grandcapitals"
 mandatory = false
 versionRange = "[0.0.0,)"
 ordering = "AFTER"

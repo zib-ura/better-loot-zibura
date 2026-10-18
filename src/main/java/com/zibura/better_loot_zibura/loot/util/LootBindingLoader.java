@@ -2,15 +2,16 @@ package com.zibura.better_loot_zibura.loot.util;
 
 import com.google.gson.*;
 import com.mojang.logging.LogUtils;
+import com.zibura.better_loot_zibura.better_loot_zibura;
 import com.zibura.better_loot_zibura.loot.model.AllLevelModel.GroupDTO;
 import com.zibura.better_loot_zibura.loot.model.AllLevelModel.ItemDTO;
 import com.google.gson.reflect.TypeToken;
 import java.util.ArrayList;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.storage.loot.LootPool;
-import net.minecraft.core.RegistryAccess;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.event.LootTableLoadEvent;
+import net.minecraft.core.RegistryAccess;
 import org.slf4j.Logger;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -20,54 +21,43 @@ public class LootBindingLoader {
     private static final Logger LOGGER = LogUtils.getLogger();
     private static final Gson GSON = new Gson();
 
-    // 暂存所有 target 对应的最新绑定配置，按 target 覆盖
-    private static final Map<String, JsonObject> TARGET_BINDINGS = new LinkedHashMap<>();
-
+    // Published as a single snapshot. Treat contained JsonObjects as read-only.
+    private static volatile Map<String, JsonObject> TARGET_BINDINGS = Map.of();
 
     public static void clear() {
-        TARGET_BINDINGS.clear();
+        TARGET_BINDINGS = Map.of();
     }
 
-    /**
-     * 收集阶段：同名 target 会直接 put 覆盖前面的配置
-     */
-    public static void collectBindings(JsonElement jsonElement) {
-        if (jsonElement == null || jsonElement.isJsonNull()) return;
-        if (jsonElement.isJsonObject()) {
-            collectSingleBinding(jsonElement.getAsJsonObject());
-        } else if (jsonElement.isJsonArray()) {
-            for (JsonElement element : jsonElement.getAsJsonArray()) {
-                if (element.isJsonObject()) collectSingleBinding(element.getAsJsonObject());
-            }
-        } else {
-            LOGGER.warn("Expected loot binding object or array, got {}", jsonElement);
-        }
-    }
+    public static void replaceBindings(Map<String, JsonObject> compiled) {
+        Map<String, JsonObject> next = new LinkedHashMap<>();
+        for (Map.Entry<String, JsonObject> entry : compiled.entrySet()) {
+            String target = entry.getKey();
+            ResourceLocation id = ResourceLocation.tryParse(target);
+            if (id == null) throw new IllegalArgumentException("Invalid loot table target: " + target);
+            String namespace = id.getNamespace();
 
-    private static void collectSingleBinding(JsonObject binding) {
-        if (!binding.has("target") || !binding.get("target").isJsonPrimitive()
-                || !binding.get("target").getAsJsonPrimitive().isString()) return;
-        String target = binding.get("target").getAsString();
-        ResourceLocation id = ResourceLocation.tryParse(target);
-        if (id == null) {
-            LOGGER.warn("Invalid loot table target: {}", target);
-            return;
+            next.put(target, entry.getValue().deepCopy());
         }
-        String namespace = id.getNamespace();
-//        if (!"minecraft".equals(namespace) && !ModList.get().isLoaded(namespace)) {
-////            LOGGER.debug("Skipping loot binding {} because mod '{}' is not loaded", target, namespace);
-//            return;
-//        }
-        TARGET_BINDINGS.put(target, binding);
+        TARGET_BINDINGS = java.util.Collections.unmodifiableMap(next);
+        LOGGER.info(
+                "[BetterLoot DEBUG] Sample binding targets: {}",
+                next.keySet().stream().limit(15).toList()
+        );
     }
 
     public static void applyBinding(LootTableLoadEvent event) {
         String target = event.getName().toString();
 
         JsonObject binding = TARGET_BINDINGS.get(target);
-        if (binding == null) {
-            return;
-        }
+
+        LOGGER.info(
+                "[BetterLoot DEBUG] EVENT table={}, matched={}, totalBindings={}",
+                target,
+                binding != null,
+                TARGET_BINDINGS.size()
+        );
+
+        if (binding == null) return;
 
         try {
             processTableWeight(event, binding);
@@ -190,10 +180,9 @@ public class LootBindingLoader {
 
             RegistryAccess.Frozen registries = AllDataLoader.getRegistryAccess();
             if (registries == null) {
-                LOGGER.warn("Cannot inject loot pool: server registry access is unavailable for {}", event.getName());
+                LOGGER.warn("Cannot inject loot pool: server registry access unavailable for {}", event.getName());
                 continue;
             }
-
             LootPool pool = InjectFinalPools.buildLootPool(
                     resolvedGroups,
                     minRolls,
@@ -204,6 +193,11 @@ public class LootBindingLoader {
 
             if (pool != null) {
                 event.getTable().addPool(pool);
+
+                LOGGER.info(
+                        "[BetterLoot DEBUG] INJECTED table={}",
+                        event.getName()
+                );
             }
         }
     }
