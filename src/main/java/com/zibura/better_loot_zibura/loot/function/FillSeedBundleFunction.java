@@ -24,6 +24,8 @@ public class FillSeedBundleFunction extends LootItemConditionalFunction {
     private final int minCount;
     private final int maxCount;
 
+    private static final float EXTRA_KIND_CHANCE = 0.5F;
+
     protected FillSeedBundleFunction(LootItemCondition[] conditions, List<String> seedTypes, double pooldivisor, int maxDistinctTypes, int minCount, int maxCount) {
         super(conditions);
         this.seedTypes = List.copyOf(seedTypes);
@@ -32,7 +34,6 @@ public class FillSeedBundleFunction extends LootItemConditionalFunction {
         this.minCount = minCount;
         this.maxCount = maxCount;
     }
-
     @Override
     public @NotNull LootItemFunctionType getType() {
         return CommonEvents.ModBusEvents.FILL_SEED_BUNDLE;
@@ -62,8 +63,13 @@ public class FillSeedBundleFunction extends LootItemConditionalFunction {
         int maxKinds = Math.min(this.maxDistinctTypes, calculatedMax);
         maxKinds = Math.max(1, maxKinds); // 防止小于 1
 
-        // 随机抽取种类数 [1, maxKinds]
-        int targetKinds = 1 + random.nextInt(maxKinds);
+        // 二项分布：targetKinds = 1 + Binomial(maxKinds - 1, 0.5)
+        int targetKinds = 1;
+        for (int i = 1; i < maxKinds; i++) {
+            if (random.nextFloat() < EXTRA_KIND_CHANCE) {
+                targetKinds++;
+            }
+        }
         targetKinds = Math.min(targetKinds, validSeeds.size());
 
         // 打乱并选取 targetKinds 个不重复种子

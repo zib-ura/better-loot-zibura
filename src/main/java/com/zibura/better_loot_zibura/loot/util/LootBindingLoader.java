@@ -9,6 +9,7 @@ import com.google.gson.reflect.TypeToken;
 import java.util.ArrayList;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraft.core.RegistryAccess;
@@ -46,33 +47,26 @@ public class LootBindingLoader {
     }
 
     public static void applyBinding(LootTableLoadEvent event) {
-        String target = event.getName().toString();
+        applyBinding(event.getName(), event.getTable());
+    }
 
+    /** Called by the Forge event for non-custom tables, or before freeze for custom tables. */
+    public static void applyBinding(ResourceLocation name, LootTable table) {
+        if (name == null || table == null) return;
+        String target = name.toString();
         JsonObject binding = TARGET_BINDINGS.get(target);
-
-        LOGGER.info(
-                "[BetterLoot DEBUG] EVENT table={}, matched={}, totalBindings={}",
-                target,
-                binding != null,
-                TARGET_BINDINGS.size()
-        );
-
         if (binding == null) return;
 
         try {
-            processTableWeight(event, binding);
+            processTableWeight(name, table, binding);
         } catch (Exception e) {
-            LOGGER.error(
-                    "Error processing loot binding for target {}: {}",
-                    target,
-                    binding,
-                    e
-            );
+            LOGGER.error("Error processing loot binding for target {}: {}", target, binding, e);
         }
     }
 
     private static void processTableWeight(
-            LootTableLoadEvent event,
+            ResourceLocation name,
+            LootTable table,
             JsonObject bObj
     ) {
         JsonElement config = bObj.get("config");
@@ -127,7 +121,8 @@ public class LootBindingLoader {
             currentOffset += weight;
 
             finalProcessLootContent(
-                    event,
+                    name,
+                    table,
                     lArr.get(0),
                     totalWeight,
                     minTime,
@@ -137,7 +132,8 @@ public class LootBindingLoader {
     }
 
     private static void finalProcessLootContent(
-            LootTableLoadEvent event,
+            ResourceLocation name,
+            LootTable table,
             JsonElement contentElem,
             int totalWeight,
             int minTime,
@@ -180,7 +176,7 @@ public class LootBindingLoader {
 
             RegistryAccess.Frozen registries = AllDataLoader.getRegistryAccess();
             if (registries == null) {
-                LOGGER.warn("Cannot inject loot pool: server registry access unavailable for {}", event.getName());
+                LOGGER.warn("Cannot inject loot pool: server registry access unavailable for {}", name);
                 continue;
             }
             LootPool pool = InjectFinalPools.buildLootPool(
@@ -192,11 +188,11 @@ public class LootBindingLoader {
             );
 
             if (pool != null) {
-                event.getTable().addPool(pool);
+                table.addPool(pool);
 
                 LOGGER.info(
                         "[BetterLoot DEBUG] INJECTED table={}",
-                        event.getName()
+                        name
                 );
             }
         }

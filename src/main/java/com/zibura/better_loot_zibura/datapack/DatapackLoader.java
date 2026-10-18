@@ -22,50 +22,24 @@ public final class DatapackLoader {
     public static void onAddPackFinders(AddPackFindersEvent event) {
         if (event.getPackType() != PackType.SERVER_DATA) return;
 
-        registerIfLoaded(event, "brewery", "brewery");
-        registerIfLoaded(event, "brewinandchewin", "brewinandchewin");
-        registerIfLoaded(event, "chalk", "chalk");
-        registerIfLoaded(event, "corn_delight", "corn_delight");
-        registerIfLoaded(event, "ctov", "ctov");
-        registerIfLoaded(event, "dumplings_delight", "dumplings_delight");
-        registerIfLoaded(event, "explorify", "explorify");
-        registerIfLoaded(event, "farmersdelight", "farmersdelight");
-        registerIfLoaded(event, "immersive_armors", "immersive_armors");
-        registerIfLoaded(event, "immersiveenchanting", "immersiveenchanting");
-        registerIfLoaded(event, "kaisyn", "t_and_t");
-        registerIfLoaded(event, "kattersstructures", "mr_katters_structures");
-        registerIfLoaded(event, "kitchenkarrot", "kitchenkarrot");
-        registerIfLoaded(event, "miners_delight", "miners_delight");
-        registerIfLoaded(event, "muffins_thaidelight", "muffins_thaidelight");
-        // These two mappings are inferred from mods.toml; verify against the actual mod jars.
-        registerIfLoaded(event, "nova_cherry_village", "mr_cherry_villages");
-        registerIfLoaded(event, "nova_structures", "mr_dungeons_andtaverns");
+        Path packsRoot = ModList.get().getModFileById(better_loot_zibura.MOD_ID)
+                .getFile().findResource("packs");
+        if (!Files.isDirectory(packsRoot)) return;
 
-        registerIfLoaded(event, "ramadandelight", "ramadandelight");
-        registerIfLoaded(event, "rationcraft", "rationcraft");
-        registerIfLoaded(event, "repurposed_structures", "repurposed_structures");
-        registerIfLoaded(event, "revampedvillages", "mr_lukis_grandcapitals");
-        registerIfLoaded(event, "roadweaver", "roadweaver");
-        registerIfLoaded(event, "rusticdelight", "rusticdelight");
-        registerIfLoaded(event, "supplementaries", "supplementaries");
-        registerIfLoaded(event, "touhou_little_maid", "touhou_little_maid");
-        registerIfLoaded(event, "trailandtales_delight", "trailandtales_delight");
-        registerIfLoaded(event, "travelersbackpack", "travelersbackpack");
-        registerIfLoaded(event, "trek", "mr_trek");
-        registerIfLoaded(event, "vanillacookbook", "vanillacookbook");
-        registerIfLoaded(event, "veggiesdelight", "veggiesdelight");
-        registerIfLoaded(event, "vintagedelight", "vintagedelight");
-        registerPack(event, "minecraft");
+        try (var folders = Files.list(packsRoot)) {
+            folders.filter(Files::isDirectory).forEach(root -> {
+                String modId = root.getFileName().toString();
+                if (("minecraft".equals(modId) || ModList.get().isLoaded(modId))
+                        && Files.isRegularFile(root.resolve("pack.mcmeta"))) {
+                    registerPack(event, modId, root);
+                }
+            });
+        } catch (java.io.IOException e) {
+            throw new java.io.UncheckedIOException("Failed to scan bundled datapacks", e);
+        }
     }
 
-    private static void registerIfLoaded(AddPackFindersEvent event, String packName, String modId) {
-        if (ModList.get().isLoaded(modId)) registerPack(event, packName);
-    }
-
-    private static void registerPack(AddPackFindersEvent event, String packName) {
-        Path root = ModList.get().getModFileById(better_loot_zibura.MOD_ID)
-                .getFile().findResource("packs", packName);
-        if (!Files.isRegularFile(root.resolve("pack.mcmeta"))) return;
+    private static void registerPack(AddPackFindersEvent event, String packName, Path root) {
 
         String id = better_loot_zibura.MOD_ID + "/" + packName;
         Pack pack = Pack.readMetaAndCreate(
