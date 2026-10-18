@@ -42,10 +42,8 @@ public final class AllDataLoader {
 
             LOGGER.info("[BetterLoot] Loaded {} raw loot pool keys from {} files", registry.size(),
                     poolSources.values().stream().distinct().count());
-            LOGGER.info("[BetterLoot] CTOV bakery key present: {} (source: {})",
-                    registry.has("loot_ctov_village_bakery"), poolSources.get("loot_ctov_village_bakery"));
             JsonObject expandedMatrices = LootMatrixExpander.expand(registry);
-            LOGGER.info("[BetterLoot] Expanded matrix DSL: {} -> {} registry keys", registry.size(), expandedMatrices.size());
+//            LOGGER.info("[BetterLoot] Expanded matrix DSL: {} -> {} registry keys", registry.size(), expandedMatrices.size());
             JsonObject merged = LootReferenceResolver.withGeneratedTemplates(expandedMatrices);
             LootReferenceResolver resolver = new LootReferenceResolver(merged);
             Map<String, JsonObject> compiled = new LinkedHashMap<>();
@@ -129,9 +127,9 @@ public final class AllDataLoader {
                 );
 
         LOGGER.info("[BetterLoot] Scanning {}: {} JSON resources", subFolder, resources.size());
-        if (subFolder.equals("better_loot_zibura/loot_pools")) {
-            resources.keySet().stream().sorted().forEach(id -> LOGGER.info("[BetterLoot] Pool file: {}", id));
-        }
+//        if (subFolder.equals("better_loot_zibura/loot_pools")) {
+//            resources.keySet().stream().sorted().forEach(id -> LOGGER.info("[BetterLoot] Pool file: {}", id));
+//        }
         resources.entrySet().stream()
                 .sorted(Map.Entry.comparingByKey())
                 .forEach(entry -> {

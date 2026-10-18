@@ -32,11 +32,7 @@ public class LootBindingLoader {
             String target = entry.getKey();
             ResourceLocation id = ResourceLocation.tryParse(target);
             if (id == null) throw new IllegalArgumentException("Invalid loot table target: " + target);
-            String namespace = id.getNamespace();
-            if (!"minecraft".equals(namespace) && !ModList.get().isLoaded(namespace)) {
-                LOGGER.debug("Skipping loot binding {} because mod '{}' is not loaded", target, namespace);
-                continue;
-            }
+
             next.put(target, entry.getValue().deepCopy());
         }
         TARGET_BINDINGS = java.util.Collections.unmodifiableMap(next);

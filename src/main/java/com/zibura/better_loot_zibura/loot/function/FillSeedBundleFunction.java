@@ -81,7 +81,7 @@ public class FillSeedBundleFunction extends LootItemConditionalFunction {
         int maxKinds = Math.min(this.maxDistinctTypes, calculatedMax);
         maxKinds = Math.max(1, maxKinds);
 
-        // 二项分布：targetKinds = 1 + Binomial(maxKinds - 1, 0.35)
+        // 二项分布：targetKinds = 1 + Binomial(maxKinds - 1, 0.5)
         int targetKinds = 1;
         for (int i = 1; i < maxKinds; i++) {
             if (random.nextFloat() < EXTRA_KIND_CHANCE) {

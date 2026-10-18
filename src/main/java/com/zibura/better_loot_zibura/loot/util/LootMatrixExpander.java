@@ -99,13 +99,30 @@ public final class LootMatrixExpander {
                 JsonElement entry = entries.get(j);
                 if (compact && entry.isJsonNull()) continue;
                 JsonArray values = array(entry, name + ".entry[" + i + "][" + j + "]");
-                if (values.size() != (compact ? 2 : 3)) throw new IllegalArgumentException(name + ": invalid content entry at " + i + "/" + j);
+                int expected = compact ? 2 : 3;
+
+                if (values.size() < expected || values.size() > expected + 1) {
+                    throw new IllegalArgumentException(
+                            name + ": invalid content entry at " + i + "/" + j
+                    );
+                }
                 JsonElement pool = compact ? columns.get(j) : values.get(0);
                 if (!pool.isJsonPrimitive() || !pool.getAsJsonPrimitive().isString()) throw new IllegalArgumentException(name + ": pool must be string");
                 JsonArray item = new JsonArray();
                 item.add(format(pool.getAsString(), rows.get(i), prefix));
                 item.add(values.get(compact ? 0 : 1).deepCopy());
                 item.add(values.get(compact ? 1 : 2).deepCopy());
+                if (values.size() > expected) {
+                    JsonElement condition = values.get(expected);
+
+                    if (!condition.isJsonObject()) {
+                        throw new IllegalArgumentException(
+                                name + ": condition must be object at " + i + "/" + j
+                        );
+                    }
+
+                    item.add(condition.deepCopy());
+                }
                 expanded.add(item);
             }
             put(out, format(pattern, rows.get(i), prefix), expanded, name);

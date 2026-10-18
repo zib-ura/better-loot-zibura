@@ -25,15 +25,6 @@ public final class CommonEvents {
     // ==========================================
     // 1. MOD 事件总线
     // ==========================================
-//    @EventBusSubscriber(modid = better_loot_zibura.MOD_ID)
-//    public static class ModBusEvents {
-//
-//        @SubscribeEvent
-//        public static void onCommonSetup(FMLCommonSetupEvent event) {
-//            event.enqueueWork(AllDataLoader::loadAllData);
-//        }
-//    }
-
     @EventBusSubscriber(modid = better_loot_zibura.MOD_ID)
     public static class ModLootFunctions {
 
