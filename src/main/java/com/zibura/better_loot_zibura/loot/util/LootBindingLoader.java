@@ -2,6 +2,7 @@ package com.zibura.better_loot_zibura.loot.util;
 
 import com.google.gson.*;
 import com.mojang.logging.LogUtils;
+import com.zibura.better_loot_zibura.config.BetterLootConfig;
 import com.zibura.better_loot_zibura.loot.model.AllLevelModel.GroupDTO;
 import com.zibura.better_loot_zibura.loot.model.AllLevelModel.ItemDTO;
 import com.google.gson.reflect.TypeToken;
@@ -39,6 +40,7 @@ public class LootBindingLoader {
     }
 
     public static void applyBinding(LootTableLoadEvent event) {
+        if (!BetterLootConfig.ENABLE_LOOT_ADDITIONS_AND_PACKS.get()) return;
         String target = event.getName().toString();
 
         JsonObject binding = TARGET_BINDINGS.get(target);

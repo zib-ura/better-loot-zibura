@@ -1,6 +1,7 @@
 package com.zibura.better_loot_zibura.datapack;
 
 import com.zibura.better_loot_zibura.better_loot_zibura;
+import com.zibura.better_loot_zibura.config.BetterLootConfig;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.packs.PackLocationInfo;
 import net.minecraft.server.packs.PackSelectionConfig;
@@ -26,6 +27,7 @@ public final class DatapackLoader {
     @SubscribeEvent
     public static void onAddPackFinders(AddPackFindersEvent event) {
         if (event.getPackType() != PackType.SERVER_DATA) return;
+        if (!BetterLootConfig.ENABLE_LOOT_ADDITIONS_AND_PACKS.get()) return;
 
         Path packsRoot = ModList.get()
                 .getModFileById(better_loot_zibura.MOD_ID)
