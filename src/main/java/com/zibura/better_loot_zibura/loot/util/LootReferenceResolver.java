@@ -9,12 +9,6 @@ public final class LootReferenceResolver {
     private final JsonObject registry;
     private final Deque<String> stack = new ArrayDeque<>();
     public LootReferenceResolver(JsonObject registry) { this.registry = registry.deepCopy(); }
-    public static JsonObject withGeneratedTemplates(JsonObject source) {
-        JsonObject merged = source.deepCopy();
-        JsonObject generated = LootTemplateGenerator.generateAll(merged);
-        for (Map.Entry<String, JsonElement> e : generated.entrySet()) merged.add(e.getKey(), e.getValue());
-        return merged;
-    }
     private static boolean string(JsonElement e) {
         return e != null && e.isJsonPrimitive() && e.getAsJsonPrimitive().isString();
     }
@@ -36,12 +30,112 @@ public final class LootReferenceResolver {
         }
         return out;
     }
+    /** Expand a template's array references without treating objects as finalized items. */
+    private JsonArray templateParts(JsonElement value) {
+        if (string(value)) return ref(value.getAsString(), this::templateParts);
+        JsonArray out = new JsonArray();
+        if (value != null && value.isJsonArray()) {
+            for (JsonElement child : value.getAsJsonArray())
+                for (JsonElement part : templateParts(child)) out.add(part);
+        } else if (value != null && value.isJsonObject()) {
+            if (value.getAsJsonObject().has("template"))
+                throw error("Nested template calls are not supported: " + value);
+            out.add(value.deepCopy());
+        } else throw error("Expected template item/list/reference: " + value);
+        return out;
+    }
+    /** Replace placeholders in original string values once, without regex or cascading substitutions. */
+    private static boolean isPlaceholderName(String name) {
+        if (name.isEmpty()) return false;
+        char first = name.charAt(0);
+        if (!(Character.isLetter(first) || first == '_')) return false;
+        for (int i = 1; i < name.length(); i++) {
+            char c = name.charAt(i);
+            if (!(Character.isLetterOrDigit(c) || c == '_')) return false;
+        }
+        return true;
+    }
+    private String substitute(String input, Map<String, String> params) {
+        StringBuilder result = new StringBuilder();
+        int offset = 0;
+        while (offset < input.length()) {
+            int begin = input.indexOf('{', offset);
+            if (begin < 0) { result.append(input, offset, input.length()); break; }
+            int end = input.indexOf('}', begin + 1);
+            if (end < 0) { result.append(input, offset, input.length()); break; }
+            result.append(input, offset, begin);
+            String name = input.substring(begin + 1, end);
+            if (params.containsKey(name)) result.append(params.get(name));
+            else if (isPlaceholderName(name))
+                throw error("Missing template parameter: " + name);
+            else result.append(input, begin, end + 1);
+            offset = end + 1;
+        }
+        return result.toString();
+    }
+    private JsonElement substituteValues(JsonElement value, Map<String, String> params) {
+        if (string(value)) return new JsonPrimitive(substitute(value.getAsString(), params));
+        if (value.isJsonArray()) {
+            JsonArray out = new JsonArray();
+            for (JsonElement child : value.getAsJsonArray()) out.add(substituteValues(child, params));
+            return out;
+        }
+        if (value.isJsonObject()) {
+            JsonObject out = new JsonObject();
+            for (Map.Entry<String, JsonElement> entry : value.getAsJsonObject().entrySet())
+                out.add(entry.getKey(), substituteValues(entry.getValue(), params));
+            return out;
+        }
+        return value.deepCopy();
+    }
+    private JsonArray templateCall(JsonObject call) {
+        if (!string(call.get("template"))) throw error("Template name must be a string: " + call);
+        String name = call.get("template").getAsString();
+        JsonElement rawParams = call.get("param");
+        if (rawParams != null && !rawParams.isJsonObject()) throw error("Template param must be an object: " + call);
+        Map<String, String> fixed = new LinkedHashMap<>();
+        String arrayKey = null;
+        List<String> arrayValues = null;
+        if (rawParams != null) for (Map.Entry<String, JsonElement> e : rawParams.getAsJsonObject().entrySet()) {
+            JsonElement value = e.getValue();
+            if (string(value)) {
+                fixed.put(e.getKey(), value.getAsString());
+            } else if (value != null && value.isJsonArray()) {
+                if (arrayKey != null) throw error("Only one array template parameter is supported: " + call);
+                arrayKey = e.getKey();
+                arrayValues = new ArrayList<>();
+                for (JsonElement element : value.getAsJsonArray()) {
+                    if (!string(element)) throw error("Template array parameter must contain only strings: " + e.getKey());
+                    arrayValues.add(element.getAsString());
+                }
+            } else throw error("Template parameter must be a string or string array: " + e.getKey());
+        }
+        final String varyingKey = arrayKey;
+        final List<String> varyingValues = arrayValues;
+        return ref(name, template -> {
+            JsonArray parts = templateParts(template);
+            JsonArray out = new JsonArray();
+            List<String> values = varyingValues == null ? Collections.singletonList(null) : varyingValues;
+            for (String value : values) {
+                Map<String, String> params = new LinkedHashMap<>(fixed);
+                if (varyingKey != null) params.put(varyingKey, value);
+                for (JsonElement part : parts) out.add(metadata(substituteValues(part, params)));
+            }
+            return out;
+        });
+    }
+
     private JsonArray items(JsonElement value) {
         if (string(value)) return ref(value.getAsString(), this::items);
         JsonArray out = new JsonArray();
         if (value != null && value.isJsonArray()) {
             for (JsonElement child : value.getAsJsonArray()) for (JsonElement e : items(child)) out.add(e);
-        } else if (value != null && value.isJsonObject()) out.add(metadata(value));
+        } else if (value != null && value.isJsonObject()) {
+            JsonObject object = value.getAsJsonObject();
+            if (object.has("template")) {
+                for (JsonElement item : templateCall(object)) out.add(item);
+            } else out.add(metadata(value));
+        }
         else throw error("Expected item object/list/reference: " + value);
         return out;
     }

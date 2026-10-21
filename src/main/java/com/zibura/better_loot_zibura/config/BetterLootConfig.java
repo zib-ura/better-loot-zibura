@@ -9,6 +9,8 @@ public class BetterLootConfig {
     public static final ForgeConfigSpec.BooleanValue ENABLE_CONVERTIBLE_RECIPES;
     public static final ForgeConfigSpec.BooleanValue ENABLE_CONVERTIBLE_LOOT_TABLES;
 
+    public static final ForgeConfigSpec.BooleanValue ENABLE_LOOT_ADDITIONS_AND_PACKS;
+
     static {
         ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
 
@@ -26,6 +28,13 @@ public class BetterLootConfig {
                         "是否为 convertible 中的每一类物品注册一个统合战利品表"
                 )
                 .define("enableLootTables", true);
+        builder.pop();
+
+        builder.push("loot_injection");
+        ENABLE_LOOT_ADDITIONS_AND_PACKS = builder
+                .comment("Enable both custom loot additions and bundled datapack imports from the packs folder.",
+                        "同时控制自定义战利品添加和 packs 文件夹内数据包的导入。重启游戏或服务器以使数据包开关生效。")
+                .define("enableLootAdditionsAndPacks", true);
         builder.pop();
 
         COMMON_SPEC = builder.build();

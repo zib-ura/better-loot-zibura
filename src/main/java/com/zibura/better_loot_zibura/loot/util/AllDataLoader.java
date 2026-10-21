@@ -52,10 +52,12 @@ public final class AllDataLoader {
 
             LOGGER.info("[BetterLoot] Loaded {} raw loot pool keys from {} files", registry.size(),
                     poolSources.values().stream().distinct().count());
-            JsonObject expandedMatrices = LootMatrixExpander.expand(registry);
+            // Expand explicit output templates first, then compile legacy matrix DSL.
+            // This makes generated registry keys available to normal reference linking.
+            JsonObject generatedTemplates = LootRecursiveTemplateExpander.expand(registry);
+            JsonObject expandedMatrices = LootMatrixExpander.expand(generatedTemplates);
 //            LOGGER.info("[BetterLoot] Expanded matrix DSL: {} -> {} registry keys", registry.size(), expandedMatrices.size());
-            JsonObject merged = LootReferenceResolver.withGeneratedTemplates(expandedMatrices);
-            LootReferenceResolver resolver = new LootReferenceResolver(merged);
+            LootReferenceResolver resolver = new LootReferenceResolver(expandedMatrices);
             Map<String, JsonObject> compiled = new LinkedHashMap<>();
             scanJsonFiles(manager, "better_loot_zibura/loot_bindings", (id, element) -> {
                 JsonArray expanded;
