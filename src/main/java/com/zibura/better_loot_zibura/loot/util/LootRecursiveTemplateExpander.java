@@ -23,6 +23,8 @@ public final class LootRecursiveTemplateExpander {
     private final JsonObject result;
     private final Deque<String> chain = new ArrayDeque<>();
     private final Set<String> produced = new HashSet<>();
+    private String rootKey = "<unknown>";
+    private String activeCall = "<none>";
 
     private LootRecursiveTemplateExpander(JsonObject source) {
         this.source = source;
@@ -35,7 +37,12 @@ public final class LootRecursiveTemplateExpander {
             // Only explicitly requested output roots trigger generation. Template
             // definitions containing inherited placeholders must not run by themselves.
             if (entry.getValue().isJsonArray() && compiler.hasRootOutput(entry.getValue())) {
-                compiler.result.add(entry.getKey(), compiler.expandNode(entry.getValue(), Map.of(), false));
+                compiler.rootKey = entry.getKey();
+                try {
+                    compiler.result.add(entry.getKey(), compiler.expandNode(entry.getValue(), Map.of(), false));
+                } finally {
+                    compiler.rootKey = "<unknown>";
+                }
             }
         }
         return compiler.result;
@@ -49,7 +56,8 @@ public final class LootRecursiveTemplateExpander {
     }
 
     private IllegalArgumentException fail(String message) {
-        return new IllegalArgumentException(message + " (template chain: " + chain + ")");
+        return new IllegalArgumentException(message + " (root: " + rootKey
+                + ", call: " + activeCall + ", template chain: " + chain + ")");
     }
 
     private static boolean str(JsonElement e) {
@@ -92,54 +100,62 @@ public final class LootRecursiveTemplateExpander {
     }
 
     private JsonArray expandCall(JsonObject call, Map<String, String> parent) {
-        if (!str(call.get("template"))) throw fail("template must be a registry name string");
-        String name = replace(call.get("template").getAsString(), parent);
-        if (!source.has(name)) throw fail("Undefined template: " + name);
-        if (chain.contains(name)) throw fail("Cyclic template: " + name);
-        JsonElement template = source.get(name);
-        if (!template.isJsonArray()) throw fail("Template must resolve to an array: " + name);
-        if (call.has("output") && !str(call.get("output"))) throw fail("output must be a string");
-        List<Map<String, String>> contexts = new ArrayList<>();
-        if (!call.has("param")) contexts.add(parent);
-        else {
-            JsonElement raw = call.get("param");
-            if (!raw.isJsonObject() || raw.getAsJsonObject().size() != 1)
-                throw fail("param must contain exactly one array parameter");
-            Map.Entry<String, JsonElement> entry =
-                    raw.getAsJsonObject().entrySet().iterator().next();
-
-            JsonElement parameter = entry.getValue();
-            // 如果参数值是字符串，先替换其中的父级变量
-            if (str(parameter)) {
-                parameter = new JsonPrimitive(
-                        replace(parameter.getAsString(), parent)
-                );
-            }
-            // 解析参数数组，并为每个元素创建独立上下文
-            for (String value : parameterValues(parameter)) {
-                Map<String, String> next = new LinkedHashMap<>(parent);
-                next.put(entry.getKey(), value);
-                contexts.add(next);
-            }
-        }
-        JsonArray resultValues = new JsonArray();
-        chain.addLast(name);
+        String previousCall = activeCall;
+        activeCall = call.toString();
         try {
-            for (Map<String, String> context : contexts) {
-                JsonElement expanded = expandNode(template, context, false);
-                if (!expanded.isJsonArray()) throw fail("Expanded template is not an array: " + name);
-                if (call.has("output")) {
-                    String outputName = replace(call.get("output").getAsString(), context);
-                    if (source.has(outputName) || !produced.add(outputName))
-                        throw fail("Duplicate output registry key: " + outputName);
-                    this.result.add(outputName, expanded);
-                    resultValues.add(outputName);
-                } else {
-                    for (JsonElement child : expanded.getAsJsonArray()) resultValues.add(child);
+            if (!str(call.get("template"))) throw fail("template must be a registry name string");
+            if (call.has("output") && !str(call.get("output")))
+                throw fail("output must be a string");
+
+            // Bind parameters before resolving a dynamic template name.
+            List<Map<String, String>> contexts = new ArrayList<>();
+            if (!call.has("param")) {
+                contexts.add(parent);
+            } else {
+                JsonElement raw = call.get("param");
+                if (!raw.isJsonObject() || raw.getAsJsonObject().size() != 1)
+                    throw fail("param must contain exactly one array parameter");
+                Map.Entry<String, JsonElement> entry =
+                        raw.getAsJsonObject().entrySet().iterator().next();
+                JsonElement parameter = entry.getValue();
+                if (str(parameter))
+                    parameter = new JsonPrimitive(replace(parameter.getAsString(), parent));
+                for (String value : parameterValues(parameter)) {
+                    Map<String, String> next = new LinkedHashMap<>(parent);
+                    next.put(entry.getKey(), value);
+                    contexts.add(next);
                 }
             }
-        } finally { chain.removeLast(); }
-        return resultValues;
+
+            JsonArray resultValues = new JsonArray();
+            for (Map<String, String> context : contexts) {
+                String name = replace(call.get("template").getAsString(), context);
+                if (!source.has(name)) throw fail("Undefined template: " + name);
+                if (chain.contains(name)) throw fail("Cyclic template: " + name);
+                JsonElement template = source.get(name);
+                if (!template.isJsonArray()) throw fail("Template must resolve to an array: " + name);
+
+                chain.addLast(name);
+                try {
+                    JsonElement expanded = expandNode(template, context, false);
+                    if (!expanded.isJsonArray()) throw fail("Expanded template is not an array: " + name);
+                    if (call.has("output")) {
+                        String outputName = replace(call.get("output").getAsString(), context);
+                        if (source.has(outputName) || !produced.add(outputName))
+                            throw fail("Duplicate output registry key: " + outputName);
+                        this.result.add(outputName, expanded);
+                        resultValues.add(outputName);
+                    } else {
+                        for (JsonElement child : expanded.getAsJsonArray()) resultValues.add(child);
+                    }
+                } finally {
+                    chain.removeLast();
+                }
+            }
+            return resultValues;
+        } finally {
+            activeCall = previousCall;
+        }
     }
 
     /**
