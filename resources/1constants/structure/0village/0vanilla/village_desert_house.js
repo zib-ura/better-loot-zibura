@@ -93,8 +93,8 @@ const village_desert_varied_produce = [
     { reference: "lootjs:cabbage_seeds", ratio: 5 },
     { reference: "lootjs:cabbage", ratio: 20 },
 
-    { reference: "lootjs:lettuce_seeds", ratio: 5 },
-    { reference: "lootjs:lettuce", ratio: 20 },
+    // { reference: "lootjs:lettuce_seeds", ratio: 5 },
+    // { reference: "lootjs:lettuce", ratio: 20 },
 
     { reference: "lootjs:melon_seeds", ratio: 5 },
     { reference: "lootjs:melon_slice", ratio: 20 },
@@ -157,7 +157,7 @@ const desert_seed_type = [
     "carrot",
     "potato",
     "cabbage_seeds",
-    "lettuce_seeds",
+//     "lettuce_seeds",
     "rice",
 ];
 

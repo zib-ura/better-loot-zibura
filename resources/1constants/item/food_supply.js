@@ -45,10 +45,10 @@ const food_supply = [
             { reference: "lootjs:cabbage", ratio: 10 },
             { reference: "lootjs:cabbage_and_cabbage_block", ratio: 10 },
 
-            // 10. 生菜 (Lettuce) - 有 seeds
-            { reference: "lootjs:lettuce_seeds", ratio: 5 },
-            { reference: "lootjs:lettuce", ratio: 10 },
-            { reference: "lootjs:lettuce_and_lettuce_block", ratio: 10 },
+            // // 10. 生菜 (Lettuce) - 有 seeds
+            // { reference: "lootjs:lettuce_seeds", ratio: 5 },
+            // { reference: "lootjs:lettuce", ratio: 10 },
+            // { reference: "lootjs:lettuce_and_lettuce_block", ratio: 10 },
 
             // 11. 洋葱 (Onion) - 无 seed
             { reference: "lootjs:onion", ratio: 15 },

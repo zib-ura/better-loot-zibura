@@ -46,9 +46,9 @@ const village_taiga_crops = [
     { reference: "lootjs:cabbage_seeds", ratio: 5 },
     { reference: "lootjs:cabbage", ratio: 20 },
 
-    // Lettuce
-    { reference: "lootjs:lettuce_seeds", ratio: 5 },
-    { reference: "lootjs:lettuce", ratio: 20 },
+    // // Lettuce
+    // { reference: "lootjs:lettuce_seeds", ratio: 5 },
+    // { reference: "lootjs:lettuce", ratio: 20 },
 
     // Cauliflower
     { reference: "lootjs:cauliflower_seeds", ratio: 5 },
@@ -159,7 +159,7 @@ const taiga_seed_type = [
     "tomato_seeds",
     "onion",
     "cabbage_seeds",
-    "lettuce_seeds",
+//     "lettuce_seeds",
     "blueberry",
     "hawberry_sapling",
     "persimmon_sapling",

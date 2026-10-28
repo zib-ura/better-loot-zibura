@@ -60,9 +60,9 @@ const village_dark_forest_other_crops = [
             { reference: "lootjs:cabbage", ratio: 20 },
             { reference: "lootjs:cabbage_seeds", ratio: 5 },
 
-            // --- 生菜 Lettuce 系列 (作物+种子，总权重 25) ---
-            { reference: "lootjs:lettuce", ratio: 20 },
-            { reference: "lootjs:lettuce_seeds", ratio: 5 },
+            // // --- 生菜 Lettuce 系列 (作物+种子，总权重 25) ---
+            // { reference: "lootjs:lettuce", ratio: 20 },
+            // { reference: "lootjs:lettuce_seeds", ratio: 5 },
 
             { reference: "lootjs:egg", ratio: 25 },
 

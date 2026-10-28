@@ -56,9 +56,9 @@ const village_plains_common_produce = [
     { reference: "lootjs:cabbage", ratio: 10 },
     { reference: "lootjs:cabbage_and_cabbage_block", ratio: 10 },
 
-    { reference: "lootjs:lettuce_seeds", ratio: 5 },
-    { reference: "lootjs:lettuce", ratio: 10 },
-    { reference: "lootjs:lettuce_and_lettuce_block", ratio: 10 },
+    // { reference: "lootjs:lettuce_seeds", ratio: 5 },
+    // { reference: "lootjs:lettuce", ratio: 10 },
+    // { reference: "lootjs:lettuce_and_lettuce_block", ratio: 10 },
 
     { reference: "lootjs:pepper_seeds", ratio: 5 },
     { reference: "lootjs:pepper", ratio: 10 },
@@ -211,7 +211,7 @@ const plains_seed_type = [
     "tomato_seeds",
     "onion",
     "cabbage_seeds",
-    "lettuce_seeds",
+//     "lettuce_seeds",
     "rice",
     "pepper_seeds",
 
@@ -1477,21 +1477,21 @@ const village_plains_market_possessions_matrix = {
         { groupName: "empty",                               items: [{ id: "empty" }] },
     ],
 
-    // 与 produce_matrix / food_matrix 的家庭经济逻辑保持一致：
-    // 小农生产：重生产投入与储运，成品消费稀少；无装饰/知识/财富。
-    // 小农生活：重基本厨具、家居和储藏，少量生产用品；不以奢侈消费为主。
-    // 大农生产：较多生产资本、储运和现金，同时保留基本生活用品。
-    // 大农生活：较高生活水平，家居、装饰、厨具及财富明显提高。
-    // 非农家庭：市场依赖较高，以日常消费和加工/职业用品为主，
-    //           不默认所有非农家庭都偏好旅行、文化或奢侈品。
-    // 0 表示该类型不在此矩阵抽到该类；empty 表示此次没有额外商品。
+    // 按家庭经济条件、商品价格和实际用途分配权重。
+    // 小农生产：购买能力有限，优先投入生产工具和储藏用品，昂贵商品很少。
+    // 小农生活：食物存量较少，储藏需求有限；剩余预算偏向装饰和少量炊具。
+    // 大农生产：生产工具和储藏仍占主导，同时拥有更多现金及少量高价资产。
+    // 大农生活：购买能力较强，偏向家具、装饰和炊具，现金积累较多。
+    // 非农家庭：双职业、中偏上经济水平，兼顾职业用品、生活消费和现金。
+    // 绿宝石整体体现财富差异；empty 仅保留少量随机性。
+    // 0 表示该类型不在此矩阵抽到该类。
     //                        cooking storage furniture decoration productive travel knowledge security wealth empty
     weights: [
-        [                            0,     25,        5,         0,        55,     0,        0,       5,     0,   10 ], // smallholder_farming
-        [                           30,     20,       30,         0,        10,     0,        0,       0,     0,   10 ], // smallholder_life
-        [                            5,     20,       10,         0,        40,     0,        0,       5,    15,    5 ], // large_scale_farming
-        [                           20,     10,       25,        20,         0,     0,        5,       0,    15,    5 ], // large_scale_farm_life
-        [                           15,      5,       25,        15,         5,     5,       10,       0,    15,    5 ], // non_farm_households
+        [                            0,     25,        3,         2,        55,     0,        0,       5,     5,    5 ], // smallholder_farming
+        [                           12,     12,        8,        30,        23,     0,        0,       5,     5,    5 ], // smallholder_life
+        [                            0,     25,       10,         2,        35,     0,        0,       5,    18,    5 ], // large_scale_farming
+        [                           15,     12,       20,        18,         5,     0,        5,       0,    20,    5 ], // large_scale_farm_life
+        [                           10,     10,       18,        10,         5,    10,       10,       6,    16,    5 ], // non_farm_households
     ],
     outputPattern: "village_plains_{row}_market_possessions",
 };
@@ -1552,8 +1552,8 @@ const village_plains_content_matrix = {
     // 每个单元格为 [最少调用次数, 最多调用次数]；null 表示该家庭类型不调用此列。
     //                         staple  produce   food    seed    market  drinks  recipe
     rolls: [
-        [                         [2,3],   [1,2],   null,  [1,1],   [1,1],   null,   null  ], // smallholder_farming
-        [                         [1,1],   [1,2],  [1,2],  [1,1],   [1,2],  [1,1],   null  ], // smallholder_life
+        [                         [2,3],   [1,2],   null,  [1,1],   [0,1],   null,   null  ], // smallholder_farming
+        [                         [1,1],   [1,2],  [1,2],  [1,1],   [1,1],  [1,1],   null  ], // smallholder_life
         [                         [2,3],   [2,3],  [1,2],  [1,1],   [1,2],   null,   null  ], // large_scale_farming
         [                         [1,2],   [1,2],  [2,3],   null,   [1,2],  [1,1],  [1,1] ], // large_scale_farm_life
         [                          null,   [2,3],  [1,2],   null,   [1,2],  [1,1],  [1,1] ], // non_farm_households

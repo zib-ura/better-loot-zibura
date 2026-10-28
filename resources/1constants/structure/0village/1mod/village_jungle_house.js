@@ -80,8 +80,8 @@ const village_jungle_base_crops = [
             { reference: "lootjs:cabbage_seeds", ratio: 5 },
             { reference: "lootjs:cabbage", ratio: 20 },
 
-            { reference: "lootjs:lettuce_seeds", ratio: 5 },
-            { reference: "lootjs:lettuce", ratio: 20 },
+            // { reference: "lootjs:lettuce_seeds", ratio: 5 },
+            // { reference: "lootjs:lettuce", ratio: 20 },
 
         ]
     },
@@ -109,7 +109,7 @@ const jungle_seed_type = [
     "potato",
     "onion",
     "cabbage_seeds",
-    "lettuce_seeds",
+//     "lettuce_seeds",
     "pale_bell_pepper_seeds",
     "dark_bell_pepper_seeds",
 ];

@@ -56,8 +56,8 @@ const village_ocean_base_crops = [
             { reference: "lootjs:cabbage_seeds", ratio: 5 },
             { reference: "lootjs:cabbage", ratio: 20 },
 
-            { reference: "lootjs:lettuce_seeds", ratio: 5 },
-            { reference: "lootjs:lettuce", ratio: 20 },
+            // { reference: "lootjs:lettuce_seeds", ratio: 5 },
+            // { reference: "lootjs:lettuce", ratio: 20 },
 
             { reference: "lootjs:egg", ratio: 25 },
         ]

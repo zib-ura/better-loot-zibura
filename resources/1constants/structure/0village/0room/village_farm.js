@@ -38,7 +38,7 @@ const village_plains_farm_seed = [
             { reference: "lootjs:tomato_seeds", ratio: 10 },
             { reference: "lootjs:onion", ratio: 10 },
             { reference: "lootjs:cabbage_seeds", ratio: 10 },
-            { reference: "lootjs:lettuce_seeds", ratio: 10 },
+            // // { reference: "lootjs:lettuce_seeds", ratio: 10 },
             { reference: "lootjs:rice", ratio: 10 },
             { reference: "lootjs:pepper_seeds", ratio: 10 },
             { id: "youkaisfeasts:tea_seeds", ratio: 10 },
@@ -127,7 +127,7 @@ const village_savanna_farm_seed = [
             // { reference: "lootjs:tomato_seeds", ratio: 10 },
             // { reference: "lootjs:onion", ratio: 10 },
             // { reference: "lootjs:cabbage_seeds", ratio: 10 },
-            // { reference: "lootjs:lettuce_seeds", ratio: 10 },
+            // // { reference: "lootjs:lettuce_seeds", ratio: 10 },
             // { reference: "lootjs:rice", ratio: 10 },
             // { reference: "lootjs:pepper_seeds", ratio: 10 },
             // { reference: "lootjs:garlic_clove", ratio: 10 },
@@ -156,7 +156,7 @@ const village_snowy_farm_seed = [
         items: [
             { reference: "lootjs:onion", ratio: 10 },
             { reference: "lootjs:cabbage_seeds", ratio: 10 },
-            { reference: "lootjs:lettuce_seeds", ratio: 10 },
+            // { reference: "lootjs:lettuce_seeds", ratio: 10 },
             { reference: "lootjs:blueberry", ratio: 10 },
             { reference: "lootjs:persimmon_sapling", ratio: 10 },
             { reference: "lootjs:sweet_potato", ratio: 10 },
@@ -191,7 +191,7 @@ const village_taiga_farm_seed = [
             { reference: "lootjs:tomato_seeds", ratio: 10 },
             { reference: "lootjs:onion", ratio: 10 },
             { reference: "lootjs:cabbage_seeds", ratio: 10 },
-            { reference: "lootjs:lettuce_seeds", ratio: 10 },
+            // { reference: "lootjs:lettuce_seeds", ratio: 10 },
             { reference: "lootjs:blueberry", ratio: 10 },
             { reference: "lootjs:hawberry_sapling", ratio: 10 },
             { reference: "lootjs:persimmon_sapling", ratio: 10 },
@@ -269,7 +269,7 @@ const village_badland_farm_seed = [
     //     items: [
     //         { reference: "lootjs:tomato_seeds", ratio: 10 },
     //         { reference: "lootjs:cabbage_seeds", ratio: 10 },
-    //         { reference: "lootjs:lettuce_seeds", ratio: 10 },
+    //         // { reference: "lootjs:lettuce_seeds", ratio: 10 },
     //     ]
     // },
 ]
@@ -296,7 +296,7 @@ const village_beach_farm_seed = [
     //     min: 1, max: 2,
     //     items: [
     //         { reference: "lootjs:tomato_seeds", ratio: 10 },
-    //         { reference: "lootjs:lettuce_seeds", ratio: 10 },
+    //         // { reference: "lootjs:lettuce_seeds", ratio: 10 },
     //     ]
     // },
 ]
@@ -315,7 +315,7 @@ const village_cherry_farm_seed = [
             { reference: "lootjs:pumpkin_seeds", ratio: 8 },
             { reference: "lootjs:tomato_seeds", ratio: 10 },
             { reference: "lootjs:cabbage_seeds", ratio: 10 },
-            { reference: "lootjs:lettuce_seeds", ratio: 10 },
+            // { reference: "lootjs:lettuce_seeds", ratio: 10 },
             { reference: "lootjs:pepper_seeds", ratio: 10 },
             { reference: "lootjs:redbean", ratio: 10 },
             { reference: "lootjs:soybean", ratio: 10 },
@@ -359,7 +359,7 @@ const village_dark_forest_farm_seed = [
             { reference: "lootjs:tomato_seeds", ratio: 10 },
             { reference: "lootjs:onion", ratio: 10 }, 
             { reference: "lootjs:cabbage_seeds", ratio: 10 },
-            { reference: "lootjs:lettuce_seeds", ratio: 10 },
+            // { reference: "lootjs:lettuce_seeds", ratio: 10 },
         ]
     },
 ]
@@ -399,7 +399,7 @@ const village_jungle_farm_seed = [
             { reference: "lootjs:potato", ratio: 10 },
             { reference: "lootjs:onion", ratio: 10 },
             { reference: "lootjs:cabbage_seeds", ratio: 10 },
-            { reference: "lootjs:lettuce_seeds", ratio: 10 },
+            // { reference: "lootjs:lettuce_seeds", ratio: 10 },
         ]
     },
 ]
@@ -427,7 +427,7 @@ const village_mushroom_farm_seed = [
             { reference: "lootjs:tomato_seeds", ratio: 10 },
             { reference: "lootjs:onion", ratio: 10 },
             { reference: "lootjs:cabbage_seeds", ratio: 10 },
-            { reference: "lootjs:lettuce_seeds", ratio: 10 },
+            // { reference: "lootjs:lettuce_seeds", ratio: 10 },
         ]
     },
 ]
@@ -452,7 +452,7 @@ const village_ocean_farm_seed = [
             { reference: "lootjs:potato", ratio: 10 },
             { reference: "lootjs:onion", ratio: 10 },
             { reference: "lootjs:cabbage_seeds", ratio: 10 },
-            { reference: "lootjs:lettuce_seeds", ratio: 10 },
+            // { reference: "lootjs:lettuce_seeds", ratio: 10 },
         ]
     },
 ]
@@ -485,7 +485,7 @@ const village_swamp_farm_seed = [
             { reference: "lootjs:potato", ratio: 10 },
             { reference: "lootjs:onion", ratio: 10 },
             { reference: "lootjs:cabbage_seeds", ratio: 10 },
-            { reference: "lootjs:lettuce_seeds", ratio: 10 },
+            // { reference: "lootjs:lettuce_seeds", ratio: 10 },
         ]
     },
 ]

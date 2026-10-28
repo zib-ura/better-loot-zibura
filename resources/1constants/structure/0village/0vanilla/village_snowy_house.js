@@ -30,8 +30,8 @@ const village_snowy_common_produce = [
     { reference: "lootjs:cabbage_seeds", ratio: 5 },
     { reference: "lootjs:cabbage", ratio: 20 },
 
-    { reference: "lootjs:lettuce_seeds", ratio: 5 },
-    { reference: "lootjs:lettuce", ratio: 20 },
+    // { reference: "lootjs:lettuce_seeds", ratio: 5 },
+    // { reference: "lootjs:lettuce", ratio: 20 },
 
     { reference: "lootjs:turnip_seeds", ratio: 5 },
     { reference: "lootjs:turnip", ratio: 20 },
@@ -89,7 +89,7 @@ const snowy_seed_type = [
 // special
     "onion",
     "cabbage_seeds",
-    "lettuce_seeds",
+//     "lettuce_seeds",
     "blueberry",
     "persimmon_sapling",
     "sweet_potato",

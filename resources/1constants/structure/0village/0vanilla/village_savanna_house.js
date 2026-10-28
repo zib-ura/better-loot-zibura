@@ -56,8 +56,8 @@ const village_savanna_other_crops = [
             { reference: "lootjs:cabbage", ratio: 20 },
             { reference: "lootjs:cabbage_seeds", ratio: 5 },
 
-            { reference: "lootjs:lettuce", ratio: 20 },
-            { reference: "lootjs:lettuce_seeds", ratio: 5 },
+            // { reference: "lootjs:lettuce", ratio: 20 },
+            // { reference: "lootjs:lettuce_seeds", ratio: 5 },
 
             { reference: "lootjs:rice", ratio: 25 },
             
@@ -115,7 +115,7 @@ const savanna_seed_type = [
     "tomato_seeds",
     "onion",
     "cabbage_seeds",
-    "lettuce_seeds",
+//     "lettuce_seeds",
     "rice",
     "pepper_seeds",
     "garlic_clove",

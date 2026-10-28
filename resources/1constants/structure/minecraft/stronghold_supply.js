@@ -34,8 +34,8 @@ const stronghold_supply_food = [
             // { reference: "lootjs:cabbage_and_cabbage_block", ratio: 5 },
             // { reference: "lootjs:cabbage", ratio: 20 },
 
-            // { reference: "lootjs:lettuce_and_lettuce_block", ratio: 5 },
-            // { reference: "lootjs:lettuce", ratio: 20 },
+            // // { reference: "lootjs:lettuce_and_lettuce_block", ratio: 5 },
+            // // { reference: "lootjs:lettuce", ratio: 20 },
 
             // { reference: "lootjs:onion_and_onion_block", ratio: 5 },
             // { reference: "lootjs:onion", ratio: 20 },

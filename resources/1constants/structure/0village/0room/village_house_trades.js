@@ -76,6 +76,17 @@ const village_profession_item = [
 // Trade goods grouped by villagers' purchasing purposes.
 // Profession items are also eligible; every real item has ratio: 10.
 
+// 价格分级：
+// 便宜：Food Storage、Productive
+// 中等：Decoration、Travel、Knowledge、Security
+// 昂贵：Food Preparation、Furniture、Liquid Wealth
+//
+// Food Preparation：仅制作 Dish 需要炊具，且炊具可以租借。
+// Food Storage：主要根据家庭食物总量决定需求。
+// Furniture：已有床，额外家具昂贵。
+// Liquid Wealth：代表保留的现金资产，用于体现财富水平。
+// Empty：仅保留少量随机性，不用于直接表现贫富。
+
 // Cooking and food preparation
 const village_plains_food_preparation_trade_goods = [
     { id: "kaleidoscope_cookery:stockpot", ratio: 10 },
@@ -117,9 +128,9 @@ const village_plains_productive_trade_goods = [
 
 // Travel and carrying belongings
 const village_common_travel_trade_goods = [
-    { id: "minecraft:bundle", ratio: 10 },
-    { id: "travelersbackpack:standard", ratio: 10 },
-    { id: "minecraft:saddle", ratio: 10 },
+    { id: "minecraft:bundle", ratio: 20 },
+    { id: "travelersbackpack:standard", ratio: 2 },
+    { id: "minecraft:saddle", ratio: 2 },
     { id: "minecraft:map", ratio: 10 },
     { id: "minecraft:compass", ratio: 10 },
     { id: "minecraft:spyglass", ratio: 10 },

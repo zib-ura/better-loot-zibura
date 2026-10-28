@@ -36,8 +36,8 @@ const village_swamp_base_crops = [
             { reference: "lootjs:cabbage_seeds", ratio: 5 },
             { reference: "lootjs:cabbage", ratio: 20 },
 
-            { reference: "lootjs:lettuce_seeds", ratio: 5 },
-            { reference: "lootjs:lettuce", ratio: 20 },
+            // { reference: "lootjs:lettuce_seeds", ratio: 5 },
+            // { reference: "lootjs:lettuce", ratio: 20 },
 
             { reference: "lootjs:bayberry_sapling", ratio: 5 },
             { reference: "lootjs:bayberry", ratio: 20 },
