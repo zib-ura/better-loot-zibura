@@ -495,9 +495,26 @@ def _convert_26_3_node(value):
     return result
 
 
+def _normalize_1201_map_decoration(value):
+    """仅为 1.20.1 修正 red_x 装饰 ID，其余键和值均保留。"""
+    if isinstance(value, list):
+        return [_normalize_1201_map_decoration(item) for item in value]
+    if isinstance(value, dict):
+        return {
+            key: (
+                "red_x" if key == "decoration" and item == "minecraft:red_x"
+                else _normalize_1201_map_decoration(item)
+            )
+            for key, item in value.items()
+        }
+    return value
+
+
 def convert_to_version_format(data, version: str):
     """按目标 Minecraft 版本转换最终输出格式。"""
     profile = get_version_profile(version)
+    if version == "1.20.1":
+        data = _normalize_1201_map_decoration(data)
     if profile.loot_condition_modifier_format:
         return _convert_26_3_node(data)
     return data
@@ -639,3 +656,4 @@ def process_folder(
 
 if __name__ == "__main__":
     process_folder()
+
