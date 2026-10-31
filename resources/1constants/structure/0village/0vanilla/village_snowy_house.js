@@ -491,28 +491,52 @@ const village_snowy_food_matrix = {
     outputPattern: "village_snowy_{row}_food",
 };
 
-// Retain Taiga's seven actual market categories, including the empty outcome.
+// Household market purchases: productive tools are handled separately by profession.
 const village_snowy_market_possessions_matrix = {
     matrixType: "groupToPool",
     rows: village_snowy_household_types,
     columns: [
-        { groupName: "household_goods", min: 1, max: 1, items: village_household_trade_goods },
-        { groupName: "productive_goods", min: 1, max: 1, damage: [0.5, 0.9], items: village_productive_trade_goods },
-        { groupName: "textile_leather_goods", min: 1, max: 1, items: village_textile_leather_trade_goods },
-        { groupName: "knowledge_goods", min: 1, max: 2, items: village_knowledge_trade_goods },
-        { groupName: "security_goods", min: 1, max: 1, damage: [0.5, 0.9], items: village_security_trade_goods },
+        { groupName: "food_preparation", min: 1, max: 1, items: village_common_food_preparation_trade_goods },
+        { groupName: "food_storage", min: 1, max: 2, items: village_common_food_storage_trade_goods },
+        { groupName: "furniture", min: 1, max: 1, items: village_snowy_furniture_trade_goods },
+        { groupName: "decoration", min: 1, max: 1, items: village_snowy_decoration_trade_goods },
+        { groupName: "travel", min: 1, max: 1, items: village_common_travel_trade_goods },
+        { groupName: "knowledge", min: 1, max: 1, items: village_common_knowledge_trade_goods },
+        { groupName: "security", min: 1, max: 1, damage: [0.5, 0.9], items: village_common_security_trade_goods },
         { groupName: "liquid_wealth", min: 1, max: 3, items: [{ id: "minecraft:emerald", ratio: 10 }] },
         { groupName: "empty", items: [{ id: "empty" }] },
     ],
-    //                     household productive textile knowledge security wealth empty
+    //                     cooking storage furniture decoration travel knowledge security wealth empty
     weights: [
-        [                       20,        35,     15,        5,       5,     5,   15 ], // Farm
-        [                       20,        35,     10,        5,      10,     5,   15 ], // Forest
-        [                       20,        30,     20,        5,      10,     5,   10 ], // Herder
-        [                       25,        30,     15,        5,      10,     5,   10 ], // Fisher
-        [                       30,        10,     15,       20,       5,    15,    5 ], // Village
+        [                        0,     55,        5,        10,     5,        5,       5,    10,    5 ], // Farm
+        [                        0,     40,        5,         5,    20,        5,      15,     5,    5 ], // Forest
+        [                        0,     50,        5,         5,    10,        5,      10,    10,    5 ], // Herder
+        [                        0,     50,        5,         5,    15,        5,      10,     5,    5 ], // Fisher
+        [                       10,     30,       10,        10,     5,       10,       5,    15,    5 ], // Village
     ],
     outputPattern: "village_snowy_{row}_market_possessions",
+};
+
+// Independent household-owned productive equipment; not part of market purchases.
+const village_snowy_productive_matrix = {
+    matrixType: "groupToPool",
+    rows: village_snowy_household_types,
+    columns: [
+        { groupName: "farm", min: 1, max: 1, damage: [0.5, 0.9], items: village_farm_productive_trade_goods },
+        { groupName: "forest", min: 1, max: 1, damage: [0.5, 0.9], items: village_forest_productive_trade_goods },
+        { groupName: "herder", min: 1, max: 1, damage: [0.5, 0.9], items: village_herder_productive_trade_goods },
+        { groupName: "fisher", min: 1, max: 1, damage: [0.5, 0.9], items: village_fisher_productive_trade_goods },
+        { groupName: "empty", items: [{ id: "empty" }] },
+    ],
+    //                      farm forest herder fisher empty
+    weights: [
+        [                      100,     0,     0,     0,    0 ], // Farm
+        [                        0,   100,     0,     0,    0 ], // Forest
+        [                        0,     0,   100,     0,    0 ], // Herder
+        [                        0,     0,     0,   100,    0 ], // Fisher
+        [                        0,     0,     0,     0,  100 ], // Village
+    ],
+    outputPattern: "village_snowy_{row}_productive",
 };
 
 const village_snowy_content_matrix = {
@@ -529,14 +553,15 @@ const village_snowy_content_matrix = {
         "village_snowy_drinks",
         "village_recipe_item",
         "village_snowy_household_charcoal",
+        "{prefix}_{row}_productive",
     ],
-    //               production trade  food  seed  market drinks recipe charcoal
+    //               production trade  food  seed  market drinks recipe charcoal productive
     rolls: [
-        [              [2,3], [1,2], [0,1], [1,1], [1,1], [0,1],  null, [1,1], ], // Farm
-        [              [2,3], [2,3], [0,1],  null, [0,1], [0,1],  null, [1,1], ], // Forest
-        [              [1,2], [2,3], [0,1],  null, [1,1], [0,1],  null, [1,1], ], // Herder
-        [              [1,2], [2,3], [0,1],  null, [0,1], [0,1],  null, [1,1], ], // Fisher
-        [               null, [3,4], [1,2],  null, [1,2], [1,1], [0,1], [1,1], ], // Village
+        [              [2,3], [1,2], [0,1], [1,1], [1,1], [0,1],  null, [0,2], [0,1] ], // Farm
+        [              [2,3], [2,3], [0,1],  null, [0,1], [0,1],  null, [0,2], [0,1] ], // Forest
+        [              [1,2], [2,3], [0,1],  null, [1,1], [0,1],  null, [0,2], [0,1] ], // Herder
+        [              [1,2], [2,3], [0,1],  null, [0,1], [0,1],  null, [0,2], [0,1] ], // Fisher
+        [               null, [3,4], [1,2],  null, [1,2], [1,1], [0,1], [1,3],  null ], // Village
     ],
 };
 

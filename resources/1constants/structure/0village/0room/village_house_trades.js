@@ -88,7 +88,7 @@ const village_profession_item = [
 // Empty：仅保留少量随机性，不用于直接表现贫富。
 
 // Cooking and food preparation
-const village_plains_food_preparation_trade_goods = [
+const village_common_food_preparation_trade_goods = [
     { id: "kaleidoscope_cookery:stockpot", ratio: 10 },
     { id: "kaleidoscope_cookery:pot", ratio: 10 },
     { id: "kaleidoscope_cookery:stockpot_lid", ratio: 10 },
@@ -109,21 +109,65 @@ const village_plains_food_storage_trade_goods = [
     { id: "farmersdelight:wooden_basket", ratio: 10 },
     { id: "kaleidoscope_cookery:fruit_basket", ratio: 10 },
     { id: "minecraft:barrel", ratio: 10 },
-    { id: "supplementaries:sack", ratio: 10 },
-
+    // { id: "supplementaries:sack", ratio: 10 },
 ];
 
+// Food storage and transport
+const village_desert_food_storage_trade_goods = [
+    { id: "minecraft:glass_bottle", ratio: 10 },
+    { id: "minecraft:bowl", ratio: 10 },
+];
+
+const village_common_food_storage_trade_goods = [
+    { id: "minecraft:glass_bottle", ratio: 10 },
+    { id: "farmersdelight:wooden_basket", ratio: 10 },
+    { id: "kaleidoscope_cookery:fruit_basket", ratio: 10 },
+    { id: "minecraft:barrel", ratio: 10 },
+    // { id: "supplementaries:sack", ratio: 10 },
+];
 // Farming and gathering
-const village_plains_productive_trade_goods = [
+const village_common_productive_trade_goods = [
     { id: "minecraft:iron_hoe", ratio: 10 },
     { id: "minecraft:iron_shovel", ratio: 10 },
     { id: "minecraft:iron_axe", ratio: 10 },
-    { id: "minecraft:iron_pickaxe", ratio: 10 },
-    { id: "minecraft:shears", ratio: 10 },
+    // { id: "minecraft:iron_pickaxe", ratio: 10 },
+    // { id: "minecraft:shears", ratio: 10 },
     { id: "kaleidoscope_cookery:sickle", ratio: 10 },
-    { id: "farmersdelight:rope", ratio: 10 },
-    { id: "supplementaries:rope", ratio: 10 },
+    // { id: "farmersdelight:rope", ratio: 10 },
+    // { id: "supplementaries:rope", ratio: 10 },
     { id: "minecraft:bucket", ratio: 10 },
+];
+
+// household-owned production tools, separated by primary occupation.
+const village_farm_productive_trade_goods = [
+    { id: "minecraft:iron_hoe", ratio: 10 },
+    { id: "minecraft:iron_shovel", ratio: 10 },
+    { id: "kaleidoscope_cookery:sickle", ratio: 10 },
+    { id: "minecraft:bucket", ratio: 10 },
+];
+
+const village_forest_productive_trade_goods = [
+    { id: "minecraft:iron_axe", ratio: 10 },
+    { id: "minecraft:iron_shovel", ratio: 10 },
+    { id: "minecraft:shears", ratio: 10 },
+];
+
+const village_herder_productive_trade_goods = [
+    // { id: "minecraft:shears", ratio: 10 },
+    { id: "minecraft:lead", ratio: 10 },
+    { id: "minecraft:bucket", ratio: 10 },
+    { id: "minecraft:iron_axe", ratio: 10 },
+];
+
+const village_fisher_productive_trade_goods = [
+    { id: "minecraft:fishing_rod", ratio: 10 },
+    { id: "minecraft:bucket", ratio: 10 },
+];
+
+const village_hunter_productive_trade_goods = [
+    { id: "minecraft:bow", ratio: 10 },
+    { id: "minecraft:crossbow", ratio: 10 },
+    { id: "minecraft:iron_axe", ratio: 10 },
 ];
 
 // Travel and carrying belongings
@@ -159,11 +203,11 @@ const village_common_security_trade_goods = [
     { id: "minecraft:chainmail_chestplate", ratio: 10 },
 ];
 
-const village_household_trade_goods =[]
-const village_productive_trade_goods=[]
-const village_textile_leather_trade_goods=[]
-const village_knowledge_trade_goods=[]
-const village_security_trade_goods=[]
+// const village_household_trade_goods =[]
+// const village_productive_trade_goods=[]
+// const village_textile_leather_trade_goods=[]
+// const village_knowledge_trade_goods=[]
+// const village_security_trade_goods=[]
 
 
 
@@ -179,44 +223,48 @@ const village_security_trade_goods=[]
 // Uncolored entries intentionally repeat once per color. Patterned carpet is its own type.
 const village_decoration_common_items_template = [
     { template: "shepherdWoolColorTemplates" },
-    { id: "supplementaries:statue", ratio: 10 },
-    { id: "supplementaries:pedestal", ratio: 10 },
+
     { id: "minecraft:flower_pot", ratio: 10 },
     { id: "minecraft:item_frame", ratio: 10 },
+    { id: "minecraft:lantern", ratio: 10 },
+    { id: "minecraft:clock", ratio: 10 },
+
+    { id: "supplementaries:statue", ratio: 10 },
+    { id: "supplementaries:pedestal", ratio: 10 },
     { id: "minecraft:armor_stand", ratio: 10 },
     { id: "supplementaries:hat_stand", ratio: 10 },
-    { id: "minecraft:lantern", ratio: 10 },
     { id: "supplementaries:stone_lamp", ratio: 10 },
-    { id: "minecraft:clock", ratio: 10 },
 ];
 
 const village_decoration_plains_items_template = [
     { template: "shepherdWoolColorTemplates" },
+
     { id: "brewery:patterned_carpet", ratio: 10 },
-    { id: "supplementaries:statue", ratio: 10 },
-    { id: "supplementaries:pedestal", ratio: 10 },
+
     { id: "minecraft:flower_pot", ratio: 10 },
     { id: "minecraft:item_frame", ratio: 10 },
+    { id: "minecraft:lantern", ratio: 10 },
+    { id: "minecraft:clock", ratio: 10 },
+
+    { id: "supplementaries:statue", ratio: 10 },
+    { id: "supplementaries:pedestal", ratio: 10 },
     { id: "minecraft:armor_stand", ratio: 10 },
     { id: "supplementaries:hat_stand", ratio: 10 },
-    { id: "minecraft:lantern", ratio: 10 },
     { id: "supplementaries:stone_lamp", ratio: 10 },
-    { id: "minecraft:clock", ratio: 10 },
+
 ];
 
 const village_decoration_desert_items_template = [
     { template: "shepherdWoolColorTemplates" },
-    { id: "supplementaries:statue", ratio: 10 },
-    { id: "supplementaries:pedestal", ratio: 10 },
+
     { id: "minecraft:flower_pot", ratio: 10 },
     { id: "minecraft:item_frame", ratio: 10 },
-    { id: "minecraft:armor_stand", ratio: 10 },
-    { id: "supplementaries:hat_stand", ratio: 10 },
     { id: "minecraft:lantern", ratio: 10 },
-    { id: "supplementaries:stone_lamp", ratio: 10 },
     { id: "minecraft:clock", ratio: 10 },
-    { id: "minecraft:decorated_pot", ratio: 10 },
-    { id: "supplementaries:globe", ratio: 10 },
+
+    { id: "minecraft:glass", ratio: 10 },
+    { id: "minecraft:chiseled_sandstone", ratio: 10 },
+
 ];
 
 // Shared wrapper: expand the full item template once for every biome color.

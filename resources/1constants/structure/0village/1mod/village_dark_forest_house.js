@@ -253,5 +253,5 @@ const village_dark_forest_bakery_content = [
 const loot_village_dark_forest_house = [
     [village_dark_forest_house_content, 8],
     [carpenter_dark_oak, 1],
-    [village_dark_forest_bakery_content, 1],
+    // [village_dark_forest_bakery_content, 1],
 ];

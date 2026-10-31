@@ -292,5 +292,5 @@ const village_beach_bakery_content = [
 const loot_village_beach_house = [
     [village_beach_house_content, 8],
     // [carpenterData.beach, 1], 
-    [village_beach_bakery_content, 1],
+    // [village_beach_bakery_content, 1],
 ]

@@ -548,26 +548,29 @@ const village_desert_produce_matrix = {
 };
 
 // 市场财产：消费用品与个人积蓄，不是作坊原料或商铺库存。
-// 复用平原住宅已定义的全局贸易物品池。
 const village_desert_market_possessions_matrix = {
     matrixType: "groupToPool",
     rows: village_desert_household_types,
     columns: [
-        { groupName: "household_goods", min: 1, max: 1, items: village_household_trade_goods },
-        { groupName: "productive_goods", min: 1, max: 1, damage: [0.5, 0.9], items: village_productive_trade_goods },
-        { groupName: "textile_leather_goods", min: 1, max: 1, items: village_textile_leather_trade_goods },
-        { groupName: "knowledge_goods", min: 1, max: 2, items: village_knowledge_trade_goods },
-        { groupName: "security_goods", min: 1, max: 1, damage: [0.5, 0.9], items: village_security_trade_goods },
-        { groupName: "liquid_wealth", min: 1, max: 3, items: [{ id: "minecraft:emerald", ratio: 10 }] },
-        { groupName: "empty", items: [{ id: "empty" }] },
+        { groupName: "food_preparation", min: 1, max: 1, items: village_common_food_preparation_trade_goods },
+        { groupName: "food_storage",     min: 1, max: 2, items: village_desert_food_storage_trade_goods },
+        { groupName: "furniture",        min: 1, max: 1, items: village_desert_furniture_trade_goods },
+        { groupName: "decoration",       min: 1, max: 1, items: village_desert_decoration_trade_goods },
+        { groupName: "productive",       min: 1, max: 1, damage: [0.5, 0.9], items: village_common_productive_trade_goods },
+        { groupName: "travel",           min: 1, max: 1, items: village_common_travel_trade_goods },
+        { groupName: "knowledge",        min: 1, max: 1, items: village_common_knowledge_trade_goods },
+        { groupName: "security",         min: 1, max: 1, damage: [0.5, 0.9], items: village_common_security_trade_goods },
+        { groupName: "liquid_wealth",    min: 1, max: 3, items: [{ id: "minecraft:emerald", ratio: 10 }] },
+        { groupName: "empty",                            items: [{ id: "empty" }] },
     ],
-    //               household productive textile knowledge security wealth empty
+
+//                               cooking storage furniture decoration productive travel knowledge security wealth empty
     weights: [
-        [                   30,       20,      10,       0,       0,     2,   38 ], // 贫农
-        [                   35,       20,      15,       5,       5,     5,   15 ], // 中农
-        [                   35,       10,      20,      10,       5,    15,    5 ], // 地主
-        [                   40,        0,      25,      10,       5,    10,   10 ], // 手工业者：工具留在作坊
-        [                   30,        0,      25,      20,       5,    20,    0 ], // 大商人：库存留在商铺
+        [                            0,     25,        0,         0,        70,     0,        0,       0,     0,    5 ], // 贫农
+        [                            5,     25,        5,        10,        45,     0,        0,       0,     5,    5 ], // 中农
+        [                           10,     25,       15,        10,        10,     5,        5,       5,    10,    5 ], // 地主
+        [                           10,     10,       15,        20,         5,     5,       10,       5,    15,    5 ], // 小手工业者
+        [                           10,     10,       20,        15,         0,    15,        5,       5,    15,    5 ], // 大商人
     ],
     outputPattern: "village_desert_{row}_market_possessions",
 };
@@ -610,9 +613,9 @@ const village_desert_content_matrix = {
     rolls: [
         [                [1,2], [1,1], [0,1], [1,1], [0,1],   null,   null ], // 贫农
         [                [2,3], [2,3], [1,2], [1,1], [1,2], [0,1],   null ], // 中农
-        [                [2,3], [2,3], [2,3], [0,1], [2,3], [1,2],  [0,1] ], // 地主
-        [                [1,2],  null, [2,3],  null, [1,2], [1,1],  [0,1] ], // 小手工业者
-        [                [2,3],  null, [3,4],  null, [3,4], [1,2],  [1,1] ], // 大商人
+        [                [2,3], [2,3], [2,3], [0,1], [1,3], [1,2],  [0,1] ], // 地主
+        [                [1,2],  null, [2,3],  null, [1,3], [1,1],  [0,1] ], // 小手工业者
+        [                [2,3],  null, [3,4],  null, [2,4], [1,2],  [1,1] ], // 大商人
     ],
 };
 

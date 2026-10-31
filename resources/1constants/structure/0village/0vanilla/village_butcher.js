@@ -20,7 +20,6 @@ const village_butcher_tool_items = [
     { id: "minecraft:iron_sword", ratio: 10 },
     { id: "minecraft:iron_axe", ratio: 10 },
 
-
 ];
 
 const village_butcher_plains_meat_items = [

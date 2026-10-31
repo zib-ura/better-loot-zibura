@@ -174,7 +174,7 @@ const taiga_seed_type = [
 const village_taiga_seed_bag = [
     {
         groupName: "bundle",
-        groupWeight: 50, 
+        groupWeight: 50,
         min: 1, max: 1,
         items: getSeedBagConfig("minecraft:bundle", taiga_seed_type, 2)
     },
@@ -411,7 +411,7 @@ const village_taiga_drinks = [
         groupWeight: 50,
         min: 1, max: 2,
         items: [
-            { id: "minecraft:potion", ratio: 10 , potion: "minecraft:water" }, 
+            { id: "minecraft:potion", ratio: 10 , potion: "minecraft:water" },
 
             { id: "fruitsdelight:hawberry_tea", ratio: 10 },
             { id: "kitchenkarrot:mead", ratio: 10 },
@@ -618,29 +618,52 @@ const village_taiga_food_matrix = {
     outputPattern: "village_taiga_{row}_food",
 };
 
+// Household market purchases: professional tools are provided separately.
 const village_taiga_market_possessions_matrix = {
     matrixType: "groupToPool",
     rows: village_taiga_household_types,
     columns: [
-        { groupName: "household_goods",        min: 1, max: 1, items: village_household_trade_goods },
-        { groupName: "productive_goods",       min: 1, max: 1, damage: [0.5, 0.9], items: village_productive_trade_goods },
-        { groupName: "textile_leather_goods",  min: 1, max: 1, items: village_textile_leather_trade_goods },
-        { groupName: "knowledge_goods",        min: 1, max: 2, items: village_knowledge_trade_goods },
-        { groupName: "security_goods",         min: 1, max: 1, damage: [0.5, 0.9], items: village_security_trade_goods },
-        { groupName: "liquid_wealth",          min: 1, max: 3, items: [{ id: "minecraft:emerald", ratio: 10 }] },
-        { groupName: "empty",                  items: [{ id: "empty" }] },
+        { groupName: "food_preparation", min: 1, max: 1, items: village_common_food_preparation_trade_goods },
+        { groupName: "food_storage", min: 1, max: 2, items: village_plains_food_storage_trade_goods },
+        { groupName: "furniture", min: 1, max: 1, items: village_taiga_furniture_trade_goods },
+        { groupName: "decoration", min: 1, max: 1, items: village_taiga_decoration_trade_goods },
+        { groupName: "travel", min: 1, max: 1, items: village_common_travel_trade_goods },
+        { groupName: "knowledge", min: 1, max: 1, items: village_common_knowledge_trade_goods },
+        { groupName: "security", min: 1, max: 1, damage: [0.5, 0.9], items: village_common_security_trade_goods },
+        { groupName: "liquid_wealth", min: 1, max: 3, items: [{ id: "minecraft:emerald", ratio: 10 }] },
+        { groupName: "empty", items: [{ id: "empty" }] },
     ],
-
-    //                     household productive textile knowledge security wealth empty
+    //                      cooking storage furniture decoration travel knowledge security wealth empty
     weights: [
-        [                       20,        35,     15,        5,       5,     5,   15 ], // Farm
-        [                       20,        35,     10,        5,      10,     5,   15 ], // Forest
-        [                       15,        30,     10,        5,      25,     5,   10 ], // Hunter
-        [                       25,        30,     15,        5,      10,     5,   10 ], // Fisher
-        [                       30,        10,     15,       20,       5,    15,    5 ], // Village
+        [                         0,     50,        5,        10,     5,        5,       5,    15,    5 ], // Farm
+        [                         0,     40,        5,         5,    20,        5,      15,     5,    5 ], // Forest
+        [                         0,     40,        5,         5,    15,        5,      20,     5,    5 ], // Hunter
+        [                         0,     50,        5,         5,    15,        5,      10,     5,    5 ], // Fisher
+        [                        10,     30,       10,        10,     5,       10,       5,    15,    5 ], // Village
     ],
-
     outputPattern: "village_taiga_{row}_market_possessions",
+};
+
+// Profession-specific equipment, independent of market consumption.
+const village_taiga_productive_matrix = {
+    matrixType: "groupToPool",
+    rows: village_taiga_household_types,
+    columns: [
+        { groupName: "farm", min: 1, max: 1, damage: [0.5, 0.9], items: village_farm_productive_trade_goods },
+        { groupName: "forest", min: 1, max: 1, damage: [0.5, 0.9], items: village_forest_productive_trade_goods },
+        { groupName: "hunter", min: 1, max: 1, damage: [0.5, 0.9], items: village_hunter_productive_trade_goods },
+        { groupName: "fisher", min: 1, max: 1, damage: [0.5, 0.9], items: village_fisher_productive_trade_goods },
+        { groupName: "empty", items: [{ id: "empty" }] },
+    ],
+    //                       farm forest hunter fisher empty
+    weights: [
+        [                       100,     0,     0,     0,    0 ], // Farm
+        [                         0,   100,     0,     0,    0 ], // Forest
+        [                         0,     0,   100,     0,    0 ], // Hunter
+        [                         0,     0,     0,   100,    0 ], // Fisher
+        [                         0,     0,     0,     0,  100 ], // Village
+    ],
+    outputPattern: "village_taiga_{row}_productive",
 };
 
 // 以下两个变量需要替换为已有职业房屋中的实际 loot 引用。
@@ -663,15 +686,16 @@ const village_taiga_content_matrix = {
         "{prefix}_{row}_market_possessions",
         "village_taiga_drinks",
         "village_recipe_item",
+        "{prefix}_{row}_productive",
     ],
 
-//                              production trade  food   seed   market drinks recipe
+    //               production trade  food   seed   market drinks recipe productive
     rolls: [
-        [                          [2,3], [1,2], [0,1], [1,1], [1,1], [0,1], null  ], // Farm
-        [                          [2,3], [2,3], [0,1],  null, [0,1], [0,1], null  ], // Forest
-        [                          [1,2], [2,3], [0,1],  null, [1,1], [0,1], null  ], // Hunter
-        [                          [1,2], [2,3], [0,1],  null, [0,1], [0,1], null  ], // Fisher
-        [                           null, [3,4], [1,2],  null, [1,2], [1,1], [0,1] ], // Village
+        [              [2,3], [1,2], [0,1], [1,1], [1,1], [0,1],  null, [0,1] ], // Farm
+        [              [2,3], [2,3], [0,1],  null, [0,1], [0,1],  null, [0,1] ], // Forest
+        [              [1,2], [2,3], [0,1],  null, [1,1], [0,1],  null, [0,1] ], // Hunter
+        [              [1,2], [2,3], [0,1],  null, [0,1], [0,1],  null, [0,1] ], // Fisher
+        [               null, [3,4], [1,2],  null, [1,2], [1,1], [0,1],  null ], // Village
     ],
 };
 
