@@ -1,28 +1,23 @@
 package com.zibura.better_loot_zibura.loot.util;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
+import java.util.Map.Entry;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.mojang.logging.LogUtils;
-import com.zibura.better_loot_zibura.loot.SpecificLoot.CarpenterLootGenerator;
-//import com.zibura.better_loot_zibura.loot.SpecificLoot.SeedBagLootGenerator;
-import com.zibura.better_loot_zibura.loot.SpecificLoot.ShepherdLootGenerator;
-import com.zibura.better_loot_zibura.loot.unification.ConvertibleLootTableGenerator;
 import com.zibura.better_loot_zibura.loot.unification.ItemUnificationSolver;
-import net.fabricmc.loader.api.FabricLoader;
-import net.fabricmc.loader.api.ModContainer;
+import net.minecraft.resource.Resource;
+import net.minecraft.resource.ResourceManager;
+import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.Optional;
+import java.io.Reader;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
-import static com.zibura.better_loot_zibura.better_loot_zibura.MOD_ID;
 
 public final class AllDataLoader {
 
@@ -30,10 +25,12 @@ public final class AllDataLoader {
 
     private AllDataLoader() {}
 
-    public static void loadAllData() {
+    public static void loadAllData(ResourceManager manager) {
+        LOGGER.info("[BetterLoot] Reloading custom data from the active server resource packs");
         ItemUnificationSolver.clear();
 
         loadUnifications(
+                manager,
                 "better_loot_zibura/item_unifications/convertible",
                 (key, json) -> ItemUnificationSolver.parseAndPut(
                         key,
@@ -43,6 +40,7 @@ public final class AllDataLoader {
         );
 
         loadUnifications(
+                manager,
                 "better_loot_zibura/item_unifications/inconvertible",
                 (key, json) -> ItemUnificationSolver.parseAndPut(
                         key,
@@ -53,72 +51,114 @@ public final class AllDataLoader {
 
         ItemUnificationSolver.rebuildAllMap();
 
-        LootEvaluationContext.clear();
+        // Keep Forge's behavior: merge every raw loot_pools registry before
+        // compiling explicit template/output roots. Do NOT change the directory.
+        JsonObject rawRegistry = new JsonObject();
+        scanJsonFiles(manager, "better_loot_zibura/loot_pools", (id, element) -> {
+            if (!element.isJsonObject()) {
+                throw new IllegalArgumentException("Expected pool registry object: " + id);
+            }
+            for (Entry<String, JsonElement> entry : element.getAsJsonObject().entrySet()) {
+                // Forge policy: a later resource overrides an earlier registry key.
+                rawRegistry.add(entry.getKey(), entry.getValue().deepCopy());
+            }
+        });
 
-        loadJsonsFromAllMods(
-                "better_loot_zibura/loot_pools",
-                element -> {
-                    if (element.isJsonObject()) {
-                        LootEvaluationContext.registerAll(
-                                element.getAsJsonObject()
-                        );
-                    }
+        // Expand templates and Matrix DSL before publishing the evaluation registry.
+        // Reference linking is a separate subsequent step.
+        JsonObject expandedRegistry = LootRecursiveTemplateExpander.expand(rawRegistry);
+        // Match the Forge pipeline: recursive templates first, then Matrix DSL.
+        JsonObject matrixRegistry = LootMatrixExpander.expand(expandedRegistry);
+        LOGGER.info("[BetterLoot] Template/Matrix expansion: {} raw keys -> {} template keys -> {} matrix keys",
+                rawRegistry.size(), expandedRegistry.size(), matrixRegistry.size());
+
+        // Link only against the compiled registry, exactly as in Forge.
+        // No runtime registry context or excluded special-generator entry points.
+        try {
+            LootReferenceResolver resolver = new LootReferenceResolver(matrixRegistry);
+            Map<String, JsonObject> compiled = new LinkedHashMap<>();
+            scanJsonFiles(manager, "better_loot_zibura/loot_bindings", (id, element) -> {
+                final JsonArray expanded;
+                try {
+                    expanded = resolver.link(element);
+                } catch (IllegalArgumentException ex) {
+                    LOGGER.error("[BetterLoot] Compilation error in binding resource {}", id, ex);
+                    throw ex;
                 }
-        );
+                for (JsonElement entry : expanded) {
+                    JsonObject binding = entry.getAsJsonObject();
+                    JsonElement target = binding.get("target");
+                    if (target == null || !target.isJsonPrimitive()
+                            || !target.getAsJsonPrimitive().isString()) {
+                        throw new IllegalArgumentException("Invalid binding target in " + id);
+                    }
+                    compiled.put(target.getAsString(), binding);
+                }
+            });
 
-        CarpenterLootGenerator.initCarpenterTemplates();
-        ShepherdLootGenerator.initShepherdTemplates();
-
-        LootBindingLoader.clear();
-
-        loadJsonsFromAllMods(
-                "better_loot_zibura/loot_bindings",
-                LootBindingLoader::collectBindings
-        );
+            // The old live bindings remain unchanged if compilation fails.
+            LootBindingLoader.replaceBindings(compiled);
+            LOGGER.info("[BetterLoot] Compiled and published {} loot bindings", compiled.size());
+        } catch (Exception ex) {
+            LOGGER.error("[BetterLoot] Loot compilation failed; previous bindings retained", ex);
+            throw new IllegalStateException("BetterLoot loot compilation failed", ex);
+        }
     }
 
-    public static void loadUnifications(String subFolder, BiConsumer<String, JsonObject> consumer) {
-        scanJsonFiles(subFolder, (path, jsonElement) -> {
-            if (jsonElement.isJsonObject()) {
-                String fileName = path.getFileName().toString();
-                String key = fileName.substring(0, fileName.lastIndexOf('.'));
-                consumer.accept(key, jsonElement.getAsJsonObject());
+    public static void loadUnifications(
+            ResourceManager manager,
+            String subFolder,
+            BiConsumer<String, JsonObject> consumer
+    ) {
+        scanJsonFiles(manager, subFolder, (id, element) -> {
+            if (element.isJsonObject()) {
+                String path = id.getPath();
+                String fileName = path.substring(path.lastIndexOf('/') + 1);
+                String key = fileName.substring(0, fileName.length() - ".json".length());
+                consumer.accept(key, element.getAsJsonObject());
             }
         });
     }
 
-    public static void loadJsonsFromAllMods(String subFolder, Consumer<JsonElement> jsonConsumer) {
-        scanJsonFiles(subFolder, (path, jsonElement) -> jsonConsumer.accept(jsonElement));
+    public static void loadJsonsFromAllMods(
+            ResourceManager manager,
+            String subFolder,
+            Consumer<JsonElement> jsonConsumer
+    ) {
+        scanJsonFiles(manager, subFolder, (id, element) -> jsonConsumer.accept(element));
     }
 
     /**
-     * 通用 JSON 扫描与解析入口
+     * Read from the current SERVER_DATA ResourceManager, not directly from mod JARs.
+     *
+     * Keep subFolder unchanged, including its intentional better_loot_zibura prefix.
+     * E.g. data/<namespace>/better_loot_zibura/loot_pools/*.json.
+     * ResourceManager provides the winning resource for duplicate identifiers.
      */
-    private static void scanJsonFiles(String subFolder, BiConsumer<Path, JsonElement> fileProcessor) {
-        String relativePath = "data/" + MOD_ID + "/" + subFolder;
+    private static void scanJsonFiles(
+            ResourceManager manager,
+            String subFolder,
+            BiConsumer<Identifier, JsonElement> fileProcessor
+    ) {
+        Map<Identifier, Resource> resources = manager.findResources(
+                subFolder,
+                id -> id.getPath().endsWith(".json")
+        );
+        LOGGER.info("[BetterLoot] Scanning {}: {} JSON resources", subFolder, resources.size());
 
-        for (ModContainer mod : FabricLoader.getInstance().getAllMods()) {
-            Optional<Path> dirOpt = mod.findPath(relativePath);
-            if (dirOpt.isEmpty()) continue;
-
-            Path dir = dirOpt.get();
-            if (!Files.exists(dir) || !Files.isDirectory(dir)) continue;
-
-            try (var stream = Files.walk(dir)) {
-                stream.filter(p -> p.toString().endsWith(".json")).forEach(jsonPath -> {
-                    try (InputStream in = Files.newInputStream(jsonPath);
-                         InputStreamReader reader = new InputStreamReader(in, StandardCharsets.UTF_8)) {
-                        JsonElement jsonElement = JsonParser.parseReader(reader);
-                        if (jsonElement != null) {
-                            fileProcessor.accept(jsonPath, jsonElement);
+        resources.entrySet().stream()
+                .sorted(Map.Entry.comparingByKey())
+                .forEach(entry -> {
+                    Identifier id = entry.getKey();
+                    try (Reader reader = entry.getValue().getReader()) {
+                        JsonElement element = JsonParser.parseReader(reader);
+                        if (element != null) {
+                            fileProcessor.accept(id, element);
                         }
                     } catch (Exception e) {
-                        LOGGER.error("Failed to parse JSON file: {}", jsonPath, e);
+                        LOGGER.error("[BetterLoot] Failed to load JSON: {}", id, e);
+                        throw new IllegalStateException("Failed to load resource " + id, e);
                     }
                 });
-            } catch (Exception e) {
-                LOGGER.error("Failed to walk directory [{}] in mod [{}]", dir, mod.getMetadata().getId(), e);
-            }
-        }
     }
 }

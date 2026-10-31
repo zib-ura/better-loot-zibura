@@ -1,11 +1,11 @@
 package com.zibura.better_loot_zibura.event;
 
 import com.zibura.better_loot_zibura.better_loot_zibura;
+import com.zibura.better_loot_zibura.config.BetterLootConfig;
 import com.zibura.better_loot_zibura.loot.condition.MatchBiomeRegistryCondition;
 import com.zibura.better_loot_zibura.loot.condition.SynchronizedSlotCondition;
 import com.zibura.better_loot_zibura.loot.function.FillSeedBundleFunction;
 import com.zibura.better_loot_zibura.loot.unification.ConvertibleLootTableGenerator;
-import com.zibura.better_loot_zibura.loot.util.AllDataLoader;
 import com.zibura.better_loot_zibura.loot.util.LootBindingLoader;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
@@ -25,15 +25,16 @@ public final class CommonEvents implements ModInitializer {
     public void onInitialize() {
         registerLootTypes();
 
-        AllDataLoader.loadAllData();
-
         LootTableEvents.MODIFY.register(
-                (key, tableBuilder, source, registries) ->
+                (key, tableBuilder, source, registries) -> {
+                    if (BetterLootConfig.enableLootAdditionsAndPacks) {
                         LootBindingLoader.applyBinding(
                                 key.getValue(),
                                 tableBuilder,
                                 registries
-                        )
+                        );
+                    }
+                }
         );
 
         ConvertibleLootTableGenerator.init();

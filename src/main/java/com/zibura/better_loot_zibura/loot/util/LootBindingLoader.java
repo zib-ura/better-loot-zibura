@@ -1,70 +1,47 @@
 package com.zibura.better_loot_zibura.loot.util;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import com.google.gson.*;
+import com.google.gson.reflect.TypeToken;
 import com.mojang.logging.LogUtils;
 import com.zibura.better_loot_zibura.loot.model.AllLevelModel.GroupDTO;
-import net.fabricmc.loader.api.FabricLoader;
+import com.zibura.better_loot_zibura.loot.model.AllLevelModel.ItemDTO;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 public final class LootBindingLoader {
-
     private static final Logger LOGGER = LogUtils.getLogger();
+    private static final Gson GSON = new Gson();
 
-    private static final Map<String, JsonObject> TARGET_BINDINGS =
-            new LinkedHashMap<>();
+    // Snapshot publication: never clear the live map before a successful link.
+    private static volatile Map<String, JsonObject> TARGET_BINDINGS = Map.of();
 
     private LootBindingLoader() {}
 
     public static void clear() {
-        TARGET_BINDINGS.clear();
+        TARGET_BINDINGS = Map.of();
     }
 
-    public static void collectBindings(JsonElement jsonElement) {
-        if (jsonElement == null || !jsonElement.isJsonArray()) {
-            return;
+    public static void replaceBindings(Map<String, JsonObject> compiled) {
+        Map<String, JsonObject> next = new LinkedHashMap<>();
+        for (Map.Entry<String, JsonObject> entry : compiled.entrySet()) {
+            String target = entry.getKey();
+            if (Identifier.tryParse(target) == null) {
+                throw new IllegalArgumentException("Invalid loot table target: " + target);
+            }
+            // Do not filter by namespace / loaded Mod: original Forge did not.
+            next.put(target, entry.getValue().deepCopy());
         }
-
-        for (JsonElement bindingElement : jsonElement.getAsJsonArray()) {
-            if (!bindingElement.isJsonObject()) {
-                continue;
-            }
-
-            JsonObject binding = bindingElement.getAsJsonObject();
-
-            if (!binding.has("target")
-                    || !binding.get("target").isJsonPrimitive()) {
-                continue;
-            }
-
-            String target = binding.get("target").getAsString();
-            Identifier id = Identifier.tryParse(target);
-
-            if (id == null) {
-                LOGGER.warn("Invalid loot table target: {}", target);
-                continue;
-            }
-
-            String namespace = id.getNamespace();
-
-            // 可选 Mod 不存在时静默跳过
-            if (!"minecraft".equals(namespace)
-                    && !FabricLoader.getInstance().isModLoaded(namespace)) {
-                continue;
-            }
-
-            // 后加载配置覆盖前面的同 target 配置
-            TARGET_BINDINGS.put(target, binding);
-        }
+        TARGET_BINDINGS = Collections.unmodifiableMap(next);
+        LOGGER.info("[BetterLoot] Binding snapshot replaced: {} entries", next.size());
     }
 
     public static void applyBinding(
@@ -73,24 +50,12 @@ public final class LootBindingLoader {
             RegistryWrapper.WrapperLookup registries
     ) {
         JsonObject binding = TARGET_BINDINGS.get(tableId.toString());
-
-        if (binding == null) {
-            return;
-        }
+        if (binding == null) return;
 
         try {
-            processTableWeight(
-                    tableBuilder,
-                    registries,
-                    binding
-            );
-        } catch (Exception e) {
-            LOGGER.error(
-                    "Error processing loot binding for target {}: {}",
-                    tableId,
-                    binding,
-                    e
-            );
+            processTableWeight(tableBuilder, registries, binding);
+        } catch (Exception ex) {
+            LOGGER.error("Error processing loot binding for target {}: {}", tableId, binding, ex);
         }
     }
 
@@ -99,10 +64,14 @@ public final class LootBindingLoader {
             RegistryWrapper.WrapperLookup registries,
             JsonObject binding
     ) {
-        JsonArray lootArray =
-                LootEvaluationContext.resolveContent(binding.get("config"));
+        JsonElement config = binding.get("config");
+        if (config == null || !config.isJsonArray()) {
+            LOGGER.warn("Expected pre-expanded config array for {}", binding.get("target"));
+            return;
+        }
+        JsonArray lootArray = config.getAsJsonArray();
 
-        if (lootArray == null || lootArray.isEmpty()) {
+        if (lootArray.isEmpty()) {
             return;
         }
 
@@ -167,8 +136,11 @@ public final class LootBindingLoader {
             int minTime,
             int maxTime
     ) {
-        JsonArray contentArray =
-                LootEvaluationContext.resolveContent(contentElement);
+        if (contentElement == null || !contentElement.isJsonArray()) {
+            LOGGER.warn("Expected pre-expanded content array: {}", contentElement);
+            return;
+        }
+        JsonArray contentArray = contentElement.getAsJsonArray();
 
         if (contentArray == null) {
             return;
@@ -197,8 +169,7 @@ public final class LootBindingLoader {
                             maxTime
                     );
 
-            List<GroupDTO> resolvedGroups =
-                    LootEvaluationContext.resolveGroupList(groupElement);
+            List<GroupDTO> resolvedGroups = parseGroups(groupElement);
 
             LootPool pool = InjectFinalPools.buildLootPool(
                     resolvedGroups,
@@ -212,6 +183,46 @@ public final class LootBindingLoader {
                 tableBuilder.pool(pool);
             }
         }
+    }
+
+
+    /** Convert fully expanded group objects into DTOs; no registry lookups. */
+    private static List<GroupDTO> parseGroups(JsonElement element) {
+        if (element == null || !element.isJsonArray()) {
+            throw new IllegalArgumentException("Expected expanded group array: " + element);
+        }
+        List<GroupDTO> result = new ArrayList<>();
+        for (JsonElement entry : element.getAsJsonArray()) {
+            if (!entry.isJsonObject()) {
+                throw new IllegalArgumentException("Expected expanded group object: " + entry);
+            }
+            JsonObject obj = entry.getAsJsonObject();
+            GroupDTO group = new GroupDTO();
+            group.groupName = obj.has("groupName") ? obj.get("groupName").getAsString() : "default";
+            group.groupWeight = obj.has("groupWeight") ? obj.get("groupWeight").getAsDouble() : 1.0;
+            if (obj.has("min")) group.min = obj.get("min").getAsInt();
+            if (obj.has("max")) group.max = obj.get("max").getAsInt();
+            if (obj.has("damage")) group.damage = obj.get("damage");
+            if (obj.has("enchantChance")) group.enchantChance = obj.get("enchantChance").getAsDouble();
+            if (obj.has("enchantLevels")) group.enchantLevels = GSON.fromJson(obj.get("enchantLevels"), new TypeToken<List<Integer>>() {}.getType());
+            if (obj.has("enchantRandomly")) group.enchantRandomly = GSON.fromJson(obj.get("enchantRandomly"), new TypeToken<List<String>>() {}.getType());
+            if (obj.has("potion")) group.potion = obj.get("potion").getAsString();
+            if (obj.has("jsonFunction")) group.jsonFunction = obj.get("jsonFunction");
+            if (obj.has("exactEnchants")) group.exactEnchants = GSON.fromJson(obj.get("exactEnchants"), new TypeToken<Map<String, Integer>>() {}.getType());
+            if (obj.has("nbt") && obj.get("nbt").isJsonObject()) group.nbt = obj.getAsJsonObject("nbt");
+            if (obj.has("conditions")) group.conditions = GSON.fromJson(obj.get("conditions"), new TypeToken<Map<String, Object>>() {}.getType());
+            if (obj.has("items")) {
+                JsonElement items = obj.get("items");
+                if (!items.isJsonArray()) throw new IllegalArgumentException("Expected expanded items array: " + items);
+                group.items = new ArrayList<>();
+                for (JsonElement item : items.getAsJsonArray()) {
+                    if (!item.isJsonObject()) throw new IllegalArgumentException("Expected item object: " + item);
+                    group.items.add(GSON.fromJson(item, ItemDTO.class));
+                }
+            }
+            result.add(group);
+        }
+        return result;
     }
 
     private static JsonObject mergeTimeConditions(

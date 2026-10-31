@@ -5,12 +5,10 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.zibura.better_loot_zibura.event.CommonEvents;
-import com.zibura.better_loot_zibura.loot.util.LootEvaluationContext;
 import net.minecraft.loot.condition.LootCondition;
 import net.minecraft.loot.condition.LootConditionType;
 import net.minecraft.loot.context.LootContext;
 import net.minecraft.loot.context.LootContextParameters;
-import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.TagKey;
@@ -24,7 +22,7 @@ import java.util.List;
 public class MatchBiomeRegistryCondition implements LootCondition {
 
     /*
-     * 兼容：
+     * 兼容直接 ID/Tag 和编译后的字符串列表：
      *
      * "registry_key": "minecraft:plains"
      *
@@ -32,28 +30,29 @@ public class MatchBiomeRegistryCondition implements LootCondition {
      *
      * "registry_key": ["minecraft:plains"]
      */
-    private static final Codec<String> COMPAT_KEY_CODEC = Codec.either(
+    private static final Codec<List<String>> COMPAT_KEY_CODEC = Codec.either(
             Codec.STRING,
             Codec.STRING.listOf()
     ).xmap(
-            either -> either.map(
-                    str -> str,
-                    list -> list.isEmpty() ? "" : list.get(0)
-            ),
-            Either::left
+            either -> either.map(List::of, list -> list),
+            Either::right
     );
 
     public static final MapCodec<MatchBiomeRegistryCondition> CODEC =
             RecordCodecBuilder.mapCodec(instance -> instance.group(
                     COMPAT_KEY_CODEC
                             .fieldOf("registry_key")
-                            .forGetter(condition -> condition.registryKey)
+                            .forGetter(condition -> condition.registryKeys)
             ).apply(instance, MatchBiomeRegistryCondition::new));
 
-    private final String registryKey;
+    private final List<String> registryKeys;
 
     public MatchBiomeRegistryCondition(String registryKey) {
-        this.registryKey = registryKey;
+        this(List.of(registryKey));
+    }
+
+    public MatchBiomeRegistryCondition(List<String> registryKeys) {
+        this.registryKeys = List.copyOf(registryKeys);
     }
 
     @Override
@@ -64,63 +63,19 @@ public class MatchBiomeRegistryCondition implements LootCondition {
     @Override
     public boolean test(LootContext context) {
         Vec3d origin = context.get(LootContextParameters.ORIGIN);
-
-        if (origin == null || registryKey == null || registryKey.isEmpty()) {
-            return false;
-        }
+        if (origin == null || registryKeys.isEmpty()) return false;
 
         BlockPos pos = BlockPos.ofFloored(origin);
+        RegistryEntry<Biome> biomeEntry = context.getWorld().getBiome(pos);
 
-        RegistryEntry<Biome> biomeEntry =
-                context.getWorld().getBiome(pos);
-
-        // 1. 直接写 biome tag
-        // 例如：
-        // "#minecraft:is_ocean"
-        if (registryKey.startsWith("#")) {
-            return checkTag(
-                    biomeEntry,
-                    registryKey.substring(1)
-            );
-        }
-
-        // 2. 尝试把 registryKey 当作自定义列表名称解析
-        List<String> allowedEntries =
-                LootEvaluationContext.resolveStringList(registryKey);
-
-        // 3. 没有对应的自定义列表：
-        // 把 registryKey 本身当作 biome ID
-        if (allowedEntries.isEmpty()) {
-            return checkSingleBiome(
-                    biomeEntry,
-                    registryKey
-            );
-        }
-
-        // 4. 检查列表里的 biome / tag
-        for (String entry : allowedEntries) {
-
-            if (entry == null || entry.isEmpty()) {
-                continue;
-            }
-
-            if (entry.startsWith("#")) {
-                if (checkTag(
-                        biomeEntry,
-                        entry.substring(1)
-                )) {
-                    return true;
-                }
-            } else {
-                if (checkSingleBiome(
-                        biomeEntry,
-                        entry
-                )) {
-                    return true;
-                }
+        for (String registryKey : registryKeys) {
+            if (registryKey == null || registryKey.isEmpty()) continue;
+            if (registryKey.startsWith("#")) {
+                if (checkTag(biomeEntry, registryKey.substring(1))) return true;
+            } else if (checkSingleBiome(biomeEntry, registryKey)) {
+                return true;
             }
         }
-
         return false;
     }
 
@@ -147,15 +102,11 @@ public class MatchBiomeRegistryCondition implements LootCondition {
             RegistryEntry<Biome> biomeEntry,
             String biomeLocation
     ) {
-        Identifier id = Identifier.tryParse(biomeLocation);
-
-        if (id == null) {
-            return false;
-        }
-
+        // Forge compares the registered biome ID string verbatim.
+        // Parsing with Identifier.tryParse() here would also accept unqualified
+        // IDs such as "plains", which the original Forge condition did not match.
         return biomeEntry.getKey()
-                .map(RegistryKey::getValue)
-                .map(id::equals)
+                .map(key -> key.getValue().toString().equals(biomeLocation))
                 .orElse(false);
     }
 

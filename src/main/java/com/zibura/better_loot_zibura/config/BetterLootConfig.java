@@ -20,6 +20,7 @@ public class BetterLootConfig {
 
     public static boolean enableRecipes = true;
     public static boolean enableLootTables = true;
+    public static boolean enableLootAdditionsAndPacks = true;
 
     public static void register() {
         loadConfig();
@@ -42,6 +43,12 @@ public class BetterLootConfig {
                     enableLootTables = section.get("enableLootTables").getAsBoolean();
                 }
             }
+            if (root.has("loot_injection") && root.get("loot_injection").isJsonObject()) {
+                JsonObject injection = root.getAsJsonObject("loot_injection");
+                if (injection.has("enableLootAdditionsAndPacks")) {
+                    enableLootAdditionsAndPacks = injection.get("enableLootAdditionsAndPacks").getAsBoolean();
+                }
+            }
         } catch (Exception e) {
             LOGGER.error("[BetterLoot] Failed to load config, restoring defaults: ", e);
             saveConfig();
@@ -59,6 +66,11 @@ public class BetterLootConfig {
         section.addProperty("enableLootTables", enableLootTables);
 
         root.add("convertible_unification", section);
+
+        JsonObject injection = new JsonObject();
+        injection.addProperty("_comment", "Enable custom loot additions and bundled packs; restart to apply pack changes / 同时控制自定义战利品添加及 packs 数据包导入；数据包开关需重启");
+        injection.addProperty("enableLootAdditionsAndPacks", enableLootAdditionsAndPacks);
+        root.add("loot_injection", injection);
 
         try (FileWriter writer = new FileWriter(CONFIG_FILE)) {
             GSON.toJson(root, writer);

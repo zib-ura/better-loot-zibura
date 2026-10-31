@@ -95,6 +95,7 @@ public final class ConvertibleRecipeHandler {
                     recipes.put(
                             recipeId,
                             createRecipeJson(
+                                    groupKey,
                                     sourceId,
                                     targetId,
                                     needsBottle
@@ -165,6 +166,7 @@ public final class ConvertibleRecipeHandler {
     }
 
     private static JsonObject createRecipeJson(
+            String groupKey,
             Identifier source,
             Identifier target,
             boolean needsBottle
@@ -175,6 +177,9 @@ public final class ConvertibleRecipeHandler {
                 "type",
                 "minecraft:crafting_shapeless"
         );
+        // Match the 1.20.1 Forge recipe book category.
+        recipe.addProperty("category", "misc");
+        recipe.addProperty("group", "convertible_" + groupKey);
 
         JsonArray ingredients = new JsonArray();
 

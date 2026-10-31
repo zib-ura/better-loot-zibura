@@ -1,13 +1,10 @@
 package com.zibura.better_loot_zibura.loot.function;
 
-import com.google.gson.JsonElement;
-import com.google.gson.JsonPrimitive;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.zibura.better_loot_zibura.event.CommonEvents;
 import com.zibura.better_loot_zibura.loot.unification.ItemUnificationSolver;
-import com.zibura.better_loot_zibura.loot.util.LootEvaluationContext;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.BundleContentsComponent;
 import net.minecraft.item.Item;
@@ -23,30 +20,47 @@ import net.minecraft.util.math.random.Random;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 public class FillSeedBundleFunction extends ConditionalLootFunction {
 
+    private static final float EXTRA_KIND_CHANCE = 0.5F;
+
+    // Only the modern JSON keys are supported; omitted values use the defaults below.
     public static final MapCodec<FillSeedBundleFunction> CODEC = RecordCodecBuilder.mapCodec(instance ->
             addConditionsField(instance).and(
                     instance.group(
-                            Codec.STRING.fieldOf("seed_type_key").forGetter(f -> f.seedTypeKey),
-                            Codec.DOUBLE.optionalFieldOf("pool_divisor", 1.0).forGetter(f -> f.pooldivisor),
-                            Codec.INT.optionalFieldOf("max_distinct_types", 3).forGetter(f -> f.maxDistinctTypes),
+                            Codec.STRING.listOf().fieldOf("seed_types").forGetter(f -> f.seedTypes),
+                            Codec.DOUBLE.optionalFieldOf("pool_divisor")
+                                    .forGetter(f -> Optional.of(f.pooldivisor)),
+                            Codec.INT.optionalFieldOf("max_distinct_types")
+                                    .forGetter(f -> Optional.of(f.maxDistinctTypes)),
                             Codec.INT.optionalFieldOf("min_count", 1).forGetter(f -> f.minCount),
                             Codec.INT.optionalFieldOf("max_count", 2).forGetter(f -> f.maxCount)
                     )
-            ).apply(instance, FillSeedBundleFunction::new)
+            ).apply(instance, (conditions, seeds, divisor, kinds, min, max) ->
+                    new FillSeedBundleFunction(
+                            conditions,
+                            seeds,
+                            divisor.orElse(1.0),
+                            kinds.orElse(3),
+                            min,
+                            max
+                    )
+            )
     );
 
-    private final String seedTypeKey;
+    private final List<String> seedTypes;
     private final double pooldivisor;
     private final int maxDistinctTypes;
     private final int minCount;
     private final int maxCount;
 
-    protected FillSeedBundleFunction(List<LootCondition> conditions, String seedTypeKey, double pooldivisor, int maxDistinctTypes, int minCount, int maxCount) {
+    protected FillSeedBundleFunction(List<LootCondition> conditions, List<String> seedTypes,
+                                     double pooldivisor, int maxDistinctTypes, int minCount, int maxCount) {
         super(conditions);
-        this.seedTypeKey = seedTypeKey;
+        // The Forge linker has already resolved seed_type_key to seed_types.
+        this.seedTypes = List.copyOf(seedTypes);
         this.pooldivisor = pooldivisor;
         this.maxDistinctTypes = maxDistinctTypes;
         this.minCount = minCount;
@@ -60,7 +74,7 @@ public class FillSeedBundleFunction extends ConditionalLootFunction {
 
     @Override
     protected ItemStack process(ItemStack stack, LootContext context) {
-        List<String> rawSeeds = getSeedTypeListSafe(this.seedTypeKey);
+        List<String> rawSeeds = this.seedTypes;
         List<String> validSeeds = new ArrayList<>();
 
         for (String type : rawSeeds) {
@@ -81,7 +95,13 @@ public class FillSeedBundleFunction extends ConditionalLootFunction {
         int maxKinds = Math.min(this.maxDistinctTypes, calculatedMax);
         maxKinds = Math.max(1, maxKinds);
 
-        int targetKinds = 1 + random.nextInt(maxKinds);
+        // Match Forge 1.20.1: 1 + Binomial(maxKinds - 1, 0.5), not uniform [1, maxKinds].
+        int targetKinds = 1;
+        for (int i = 1; i < maxKinds; i++) {
+            if (random.nextFloat() < EXTRA_KIND_CHANCE) {
+                targetKinds++;
+            }
+        }
         targetKinds = Math.min(targetKinds, validSeeds.size());
 
         Collections.shuffle(validSeeds, new java.util.Random(random.nextLong()));
@@ -105,16 +125,4 @@ public class FillSeedBundleFunction extends ConditionalLootFunction {
         return stack;
     }
 
-    private List<String> getSeedTypeListSafe(String key) {
-        List<String> result = new ArrayList<>();
-        try {
-            JsonElement elem = LootEvaluationContext.resolveElement(new JsonPrimitive(key));
-            if (elem != null && elem.isJsonArray()) {
-                for (JsonElement item : elem.getAsJsonArray()) {
-                    if (item.isJsonPrimitive()) result.add(item.getAsString());
-                }
-            }
-        } catch (Exception ignored) {}
-        return result;
-    }
 }
