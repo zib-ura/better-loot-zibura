@@ -72,7 +72,6 @@ const shipwreck_treasure_valuables = [
         groupWeight: 10,
         min: 1, max: 1,
         items: [
-
             { id: "minecraft:diamond", ratio: 10 },
             { id: "minecraft:enchanted_golden_apple", ratio: 1 },
             { id: "minecraft:golden_apple", ratio: 10 },
@@ -80,8 +79,13 @@ const shipwreck_treasure_valuables = [
             { id: "mynethersdelight:enchanted_golden_egg", ratio: 10 },
             { id: "minecraft:totem_of_undying", ratio: 1 },
             { id: "minecraft:sea_lantern", ratio: 10 },
-            { id: "minecraft:nautilus_shell", ratio: 10 },        
-            { id: "minecraft:heart_of_the_sea", ratio: 10 },        
+            { id: "minecraft:nautilus_shell", ratio: 10 },
+            { id: "minecraft:heart_of_the_sea", ratio: 10 },
+
+            // { id: "minecraft:copper_nautilus_armor", ratio: 20 },
+            // { id: "minecraft:iron_nautilus_armor", ratio: 10 },
+            { id: "minecraft:golden_nautilus_armor", ratio: 5 },
+            { id: "minecraft:diamond_nautilus_armor", ratio: 2 },
         ]
     },
 ];
@@ -140,25 +144,7 @@ const shipwreck_treasure_valuables = [
 //         ]
 //     }
 // ];
-    
 
-
-const shipwreck_treasure_music_discs = [
-    {
-        groupName: "Music Discs",
-        groupWeight: 25,
-        min: 1, max: 1,
-        items: music_discs_overworld
-    },
-
-    {
-        groupName: "empty",
-        groupWeight: 75,
-        items: [
-            { id: "empty" },
-        ]
-    },
-];
 
 const shipwreck_treasure_smithing_templates_common = [
     {
@@ -296,7 +282,6 @@ const shipwreck_treasure_conduit = [
 const shipwreck_treasure_content = [
     [shipwreck_treasure_crops, 1, 1],
     [shipwreck_treasure_valuables, 2, 3],
-    // [shipwreck_treasure_music_discs, 2, 2],
     [shipwreck_treasure_smithing_templates_common, 1, 1],
     [shipwreck_treasure_smithing_templates_exclusive, 1, 1],
     [shipwreck_treasure_pottery_sherd, 1, 1],

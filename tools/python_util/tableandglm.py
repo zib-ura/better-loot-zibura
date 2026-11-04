@@ -105,51 +105,26 @@ def create_datapack_clear_entries(
 
         target_path.parent.mkdir(parents=True, exist_ok=True)
 
-        if profile.recipe_disable_strategy == "neoforge_never":
-            recipe_content = {
-                "neoforge:conditions": [
-                    {
-                        "type": "neoforge:never"
-                    }
-                ]
-            }
-
-            with open(target_path, "w", encoding="utf-8") as f:
-                json.dump(
-                    recipe_content,
-                    f,
-                    ensure_ascii=False,
-                    indent=2
-                )
-
-        elif version == "1.21.1" and loader == "fabric":
-            # Fabric 1.21.1 不能用空对象 {} 作为有效 recipe 覆盖。
-            # 使用正常游戏流程无法取得的 structure_void 制作占位配方，
-            # 从而覆盖原 recipe，同时避免玩家正常合成。
-            recipe_content = {
-                "type": "minecraft:crafting_shapeless",
-                "ingredients": [
-                    {
-                        "item": "minecraft:structure_void"
-                    }
-                ],
-                "result": {
-                    "id": "minecraft:structure_void",
-                    "count": 1
-                }
-            }
-
-            with open(target_path, "w", encoding="utf-8") as f:
-                json.dump(
-                    recipe_content,
-                    f,
-                    ensure_ascii=False,
-                    indent=2
-                )
-
-        else:
-            with open(target_path, "w", encoding="utf-8") as f:
-                f.write(EMPTY_JSON_CONTENT)
+        # 统一配方覆盖策略：所有加载器（Fabric / Forge / NeoForge）都用基岩 -> 基岩。
+        # 保留目标配方 ID 的有效注册值，避免 26.3 动态配方注册表出现未绑定引用。
+        # 这不是从注册表删除配方；如果玩家可以获得基岩，配方仍可被使用。
+        # 1.21.2 起原料从 {"item": "..."} 改为物品 ID 字符串。
+        ingredient = (
+            "minecraft:bedrock"
+            if profile.parsed.at_least("1.21.2")
+            else {"item": "minecraft:bedrock"}
+        )
+        # 1.20.5 起产物字段由 item 改为 id。
+        result_key = "id" if profile.parsed.at_least("1.20.5") else "item"
+        recipe_content = {
+            "type": "minecraft:crafting_shapeless",
+            "category": "misc",
+            "ingredients": [ingredient],
+            "result": {result_key: "minecraft:bedrock", "count": 1},
+        }
+        with open(target_path, "w", encoding="utf-8") as f:
+            json.dump(recipe_content, f, ensure_ascii=False, indent=2)
+            f.write("\n")
 
     print(f"✅ Clear entries generated: {output_data_dir}")
     print(f"   - Version: {version}")
@@ -157,4 +132,4 @@ def create_datapack_clear_entries(
         print(f"   - Loader: {loader}")
     print(f"   - Loot Tables cleared: {len(tables_to_clear)} entries")
     print(f"   - Loot Modifiers cleared: {len(modifiers_to_remove)} entries")
-    print(f"   - Recipes cleared: {len(recipes_to_remove)} entries")
+    print(f"   - Recipes replaced (bedrock -> bedrock): {len(recipes_to_remove)} entries")

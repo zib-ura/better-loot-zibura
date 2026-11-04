@@ -9,14 +9,22 @@ const village_weaponsmith_products = [
             { id: "minecraft:iron_sword", ratio: 10 },
             { id: "minecraft:stone_sword", ratio: 10 },
             { id: "minecraft:golden_sword", ratio: 10 },
+            { id: "minecraft:copper_sword", ratio: 10 },
 
             { id: "farmersdelight:iron_knife", ratio: 10 },
             { id: "farmersdelight:flint_knife", ratio: 10 },
             { id: "moredelight:stone_knife", ratio: 10 },
             { id: "farmersdelight:golden_knife", ratio: 10 },
+            { id: "farmersdelight:copper_knife", ratio: 10 },
+
+            { id: "minecraft:stone_spear", ratio: 10 },
+            { id: "minecraft:copper_spear", ratio: 10 },
+            { id: "minecraft:iron_spear", ratio: 10 },
+            { id: "minecraft:golden_spear", ratio: 10 },
 
             { id: "kaleidoscope_cookery:iron_kitchen_knife", ratio: 10 },
-            { id: "kaleidoscope_cookery:gold_kitchen_knife", ratio: 10 }
+            { id: "kaleidoscope_cookery:gold_kitchen_knife", ratio: 10 },
+            { id: "kaleidoscope_cookery:copper_kitchen_knife", ratio: 10 },
         ]
     },
 
@@ -27,12 +35,14 @@ const village_weaponsmith_products = [
         enchantChance: 0.0,
         damage: [0.7, 0.8],
         items: [
-            { id: "minecraft:diamond", ratio: 60 }, 
+            { id: "minecraft:diamond", ratio: 60 },
+            { id: "minecraft:diamond_spear", ratio: 10 },
             { id: "minecraft:diamond_sword", ratio: 10 },
             { id: "farmersdelight:diamond_knife", ratio: 10 },
-            { id: "kaleidoscope_cookery:diamond_kitchen_knife", ratio: 10 }
+            { id: "kaleidoscope_cookery:diamond_kitchen_knife", ratio: 10 },
+
         ]
-    }
+    },
 ];
 
 

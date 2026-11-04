@@ -96,12 +96,18 @@ def generate_datapack_mcmeta(output_dir: Path, version: str):
     profile = get_version_profile(version)
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    metadata = {
-        "pack": {
-            "pack_format": pack_format_json(profile.data_pack_format),
-            "description": "Better Loot Zibura compatibility overrides",
-        }
+    pack_metadata = {
+        "description": "Better Loot Zibura compatibility overrides",
+        "pack_format": pack_format_json(profile.data_pack_format),
     }
+    if profile.modern_pack_metadata:
+        # 1.21.9+ 的 pack.mcmeta 必须声明支持的 min_format/max_format。
+        # pack_format 仍为整数 major；minor 只能放入 min/max 的数组中。
+        pack_format = profile.data_pack_format
+        full_format = list(pack_format) if isinstance(pack_format, tuple) else [pack_format, 0]
+        pack_metadata["min_format"] = full_format
+        pack_metadata["max_format"] = full_format.copy()
+    metadata = {"pack": pack_metadata}
 
     with (output_dir / "pack.mcmeta").open("w", encoding="utf-8") as f:
         json.dump(metadata, f, ensure_ascii=False, indent=2)

@@ -170,6 +170,25 @@ const abandoned_mineshaft_pottery_sherd = [
         ]
     },
 ];
+
+const abandoned_mineshaft_music_disc = [
+    {
+        groupName: "enchanted_book",
+        groupWeight: 10,
+        min: 1, max: 1,
+        items: [
+            { id: "minecraft:music_disc_bounce", ratio: 10 },
+        ]
+    },
+
+    {
+        groupName: "empty",
+        groupWeight: 50,
+        items: [
+            { id: "empty" },
+        ]
+    },
+];
 // =================================================================
 // 事件注册区域
 // =================================================================
@@ -180,6 +199,7 @@ const abandoned_mineshaft_content = [
     [abandoned_mineshaft_climbing, 1, 1],
     [abandoned_mineshaft_pottery_sherd, 1, 1],
     [abandoned_mineshaft_enchanted_book, 1, 1],
+    [abandoned_mineshaft_music_disc, 1, 1, { matchBiome: "minecraft:sulfur_caves" }]
 
     // [cobweb, 4, 5],
 ];

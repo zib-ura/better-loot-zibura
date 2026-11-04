@@ -127,11 +127,18 @@ const village_common_food_storage_trade_goods = [
 ];
 // Farming and gathering
 const village_common_productive_trade_goods = [
+    // 铜制工具
+    { id: "minecraft:copper_hoe", ratio: 10 },
+    { id: "minecraft:copper_shovel", ratio: 10 },
+    { id: "minecraft:copper_axe", ratio: 10 },
+
+    // 铁制工具
     { id: "minecraft:iron_hoe", ratio: 10 },
     { id: "minecraft:iron_shovel", ratio: 10 },
     { id: "minecraft:iron_axe", ratio: 10 },
     // { id: "minecraft:iron_pickaxe", ratio: 10 },
     // { id: "minecraft:shears", ratio: 10 },
+
     { id: "kaleidoscope_cookery:sickle", ratio: 10 },
     // { id: "farmersdelight:rope", ratio: 10 },
     // { id: "supplementaries:rope", ratio: 10 },
@@ -140,22 +147,37 @@ const village_common_productive_trade_goods = [
 
 // household-owned production tools, separated by primary occupation.
 const village_farm_productive_trade_goods = [
+    // 铜制工具
+    { id: "minecraft:copper_hoe", ratio: 10 },
+    { id: "minecraft:copper_shovel", ratio: 10 },
+
+    // 铁制工具
     { id: "minecraft:iron_hoe", ratio: 10 },
     { id: "minecraft:iron_shovel", ratio: 10 },
+
     { id: "kaleidoscope_cookery:sickle", ratio: 10 },
     { id: "minecraft:bucket", ratio: 10 },
 ];
 
 const village_forest_productive_trade_goods = [
+    // 铜制工具
+    { id: "minecraft:copper_axe", ratio: 10 },
+    { id: "minecraft:copper_shovel", ratio: 10 },
+
+    // 铁制工具
     { id: "minecraft:iron_axe", ratio: 10 },
     { id: "minecraft:iron_shovel", ratio: 10 },
-    { id: "minecraft:shears", ratio: 10 },
 ];
 
 const village_herder_productive_trade_goods = [
     // { id: "minecraft:shears", ratio: 10 },
     { id: "minecraft:lead", ratio: 10 },
     { id: "minecraft:bucket", ratio: 10 },
+
+    // 铜制工具
+    { id: "minecraft:copper_axe", ratio: 10 },
+
+    // 铁制工具
     { id: "minecraft:iron_axe", ratio: 10 },
 ];
 
@@ -165,9 +187,20 @@ const village_fisher_productive_trade_goods = [
 ];
 
 const village_hunter_productive_trade_goods = [
-    { id: "minecraft:bow", ratio: 10 },
+    { id: "minecraft:bow", ratio: 20 },
     { id: "minecraft:crossbow", ratio: 10 },
+
+    // 石制武器
+    { id: "minecraft:stone_axe", ratio: 10 },
+    { id: "minecraft:stone_spear", ratio: 10 },
+
+    // 铜制武器
+    { id: "minecraft:copper_axe", ratio: 10 },
+    { id: "minecraft:copper_spear", ratio: 10 },
+
+    // 铁制武器
     { id: "minecraft:iron_axe", ratio: 10 },
+    { id: "minecraft:iron_spear", ratio: 10 },
 ];
 
 // Travel and carrying belongings
@@ -194,11 +227,31 @@ const village_common_knowledge_trade_goods = [
 const village_common_security_trade_goods = [
     { id: "minecraft:shield", ratio: 10 },
     { id: "minecraft:bow", ratio: 10 },
-    { id: "supplementaries:slingshot", ratio: 10 },
-    { id: "minecraft:stone_sword", ratio: 10 },
-    { id: "minecraft:iron_sword", ratio: 10 },
-    { id: "supplementaries:quiver", ratio: 10 },
     { id: "minecraft:crossbow", ratio: 10 },
+    { id: "supplementaries:slingshot", ratio: 10 },
+    { id: "supplementaries:quiver", ratio: 10 },
+
+    // 石制武器
+    { id: "minecraft:stone_sword", ratio: 10 },
+    { id: "minecraft:stone_spear", ratio: 10 },
+
+    // 铜制武器
+    { id: "minecraft:copper_sword", ratio: 10 },
+    { id: "minecraft:copper_spear", ratio: 10 },
+
+    // 铁制武器
+    { id: "minecraft:iron_sword", ratio: 10 },
+    { id: "minecraft:iron_spear", ratio: 10 },
+
+    // 铜甲系列
+    { id: "minecraft:copper_helmet", ratio: 10 },
+    { id: "minecraft:copper_chestplate", ratio: 10 },
+
+    // 铁甲系列
+    { id: "minecraft:iron_helmet", ratio: 10 },
+    { id: "minecraft:iron_chestplate", ratio: 10 },
+
+    // 链甲系列
     { id: "minecraft:chainmail_helmet", ratio: 10 },
     { id: "minecraft:chainmail_chestplate", ratio: 10 },
 ];
@@ -227,6 +280,7 @@ const village_decoration_common_items_template = [
     { id: "minecraft:flower_pot", ratio: 10 },
     { id: "minecraft:item_frame", ratio: 10 },
     { id: "minecraft:lantern", ratio: 10 },
+    { id: "minecraft:copper_lantern", ratio: 10 },
     { id: "minecraft:clock", ratio: 10 },
 
     { id: "supplementaries:statue", ratio: 10 },
@@ -244,6 +298,8 @@ const village_decoration_plains_items_template = [
     { id: "minecraft:flower_pot", ratio: 10 },
     { id: "minecraft:item_frame", ratio: 10 },
     { id: "minecraft:lantern", ratio: 10 },
+    { id: "minecraft:copper_lantern", ratio: 10 },
+    { id: "minecraft:candle", ratio: 10 },
     { id: "minecraft:clock", ratio: 10 },
 
     { id: "supplementaries:statue", ratio: 10 },
@@ -260,6 +316,7 @@ const village_decoration_desert_items_template = [
     { id: "minecraft:flower_pot", ratio: 10 },
     { id: "minecraft:item_frame", ratio: 10 },
     { id: "minecraft:lantern", ratio: 10 },
+    { id: "minecraft:copper_lantern", ratio: 10 },
     { id: "minecraft:clock", ratio: 10 },
 
     { id: "minecraft:glass", ratio: 10 },

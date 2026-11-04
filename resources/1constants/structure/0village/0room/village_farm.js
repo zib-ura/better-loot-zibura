@@ -1,24 +1,32 @@
 const village_farm_equipment = [
-    {   
+    {
         groupName: "common_equipment",
-        groupWeight: 95, 
-        min: 1, max: 1, damage: [0.5, 0.9],
+        groupWeight: 95,
+        min: 1, max: 1,
+        damage: [0.5, 0.9],
         items: [
-            { id: "minecraft:iron_hoe", ratio: 10 },
+            { id: "minecraft:stone_hoe", ratio: 10 },
+            { id: "minecraft:copper_hoe", ratio: 10 },
+            { id: "minecraft:iron_hoe", ratio: 5 },
+            { id: "minecraft:golden_hoe", ratio: 5 },
+
             { id: "kaleidoscope_cookery:sickle", ratio: 10 },
-            { id: "farmersdelight:iron_knife", ratio: 10 },
+
+            // 农业辅助工具
             { id: "minecraft:water_bucket", ratio: 10 },
+            { id: "minecraft:bucket", ratio: 10 },
         ]
     },
-    {   
+    {
         groupName: "rare_equipment",
-        groupWeight: 5, 
-        min: 1, max: 1, damage: [0.7, 0.8],
+        groupWeight: 5,
+        min: 1, max: 1,
+        damage: [0.7, 0.8],
         items: [
             { id: "minecraft:diamond_hoe", ratio: 10 },
         ]
     },
-]
+];
 
 // =================================================================
 // 农田种子定义区域（统一按 common:special = 80:20 分割）

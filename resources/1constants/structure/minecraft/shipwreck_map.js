@@ -3,9 +3,7 @@ const shipwreck_treasure_map = [
         groupName: "treasure_map",
         groupWeight: 100,
         min: 1, max: 1,
-        items: [
-            { id: "minecraft:map", ratio: 10, jsonFunction: [{"decoration": "minecraft:red_x", "function": "minecraft:exploration_map", "skip_existing_chunks": false, "zoom": 1}, {"function": "minecraft:set_name", "name": {"translate": "filled_map.buried_treasure"}, "target": "item_name"}] },
-        ]
+        items: treasure_map_item
     },
 ]
 

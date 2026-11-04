@@ -11,15 +11,17 @@ const village_butcher_byproduct_items = [
 
 const village_butcher_tool_items = [
     { reference: "lootjs:small_iron_knife", ratio: 10 },
+    { id: "farmersdelight:copper_knife", ratio: 10 },
     { id: "farmersdelight:cutting_board", ratio: 10 },
 
     { id: "kaleidoscope_cookery:iron_kitchen_knife", ratio: 10 },
+    { id: "kaleidoscope_cookery:copper_kitchen_knife", ratio: 10 },
     { id: "kaleidoscope_cookery:chopping_board", ratio: 10 },
 
-    // { id: "minecraft:lantern", ratio: 5 },
     { id: "minecraft:iron_sword", ratio: 10 },
+    { id: "minecraft:copper_sword", ratio: 10 },
     { id: "minecraft:iron_axe", ratio: 10 },
-
+    { id: "minecraft:copper_axe", ratio: 10 },
 ];
 
 const village_butcher_plains_meat_items = [

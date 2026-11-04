@@ -2,8 +2,8 @@ const village_armorer_products = [
     {
         groupName: "common_armor",
         groupWeight: 95,
-        min: 1,  max: 1,
-        
+        min: 1, max: 1,
+
         damage: [0.7, 0.8],
         items: [
             // 链甲系列
@@ -11,13 +11,19 @@ const village_armorer_products = [
             { id: "minecraft:chainmail_chestplate", ratio: 10 },
             { id: "minecraft:chainmail_leggings", ratio: 10 },
             { id: "minecraft:chainmail_boots", ratio: 10 },
-            
+
             // 铁甲与盾牌
             { id: "minecraft:iron_helmet", ratio: 10 },
             { id: "minecraft:iron_chestplate", ratio: 10 },
             { id: "minecraft:iron_leggings", ratio: 10 },
             { id: "minecraft:iron_boots", ratio: 10 },
             { id: "minecraft:shield", ratio: 10 },
+
+            // 铜甲系列
+            { id: "minecraft:copper_helmet", ratio: 10 },
+            { id: "minecraft:copper_chestplate", ratio: 10 },
+            { id: "minecraft:copper_leggings", ratio: 10 },
+            { id: "minecraft:copper_boots", ratio: 10 },
 
             // 模块化盔甲 - 战士系列
             { id: "immersive_armors:warrior_helmet", ratio: 10 },
@@ -31,10 +37,11 @@ const village_armorer_products = [
             { id: "immersive_armors:heavy_leggings", ratio: 10 },
             { id: "immersive_armors:heavy_boots", ratio: 10 },
 
-            // 特殊装备：马铠/狼铠没有耐久度概念，Item.exists 检查通过后，
-            // 脚本内部的 isNormalItem 虽然会执行，但底层 Minecraft 对其应用 damage(0.7, 0.8) 会直接忽略，所以放在这里完全安全。
+            // 特殊装备：马铠/狼铠
+            // 无耐久度的装备会忽略 damage 设置
             { id: "minecraft:iron_horse_armor", ratio: 10 },
-            { id: "minecraft:golden_horse_armor", ratio: 10 },   
+            { id: "minecraft:golden_horse_armor", ratio: 10 },
+            { id: "minecraft:copper_horse_armor", ratio: 10 },
             // { id: "minecraft:wolf_armor", ratio: 10 },
         ]
     },

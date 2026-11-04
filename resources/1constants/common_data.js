@@ -12,13 +12,16 @@ const village_beach_colors = ["white", "light_blue", "yellow", "orange"];
 const village_dark_forest_colors = ["green", "brown", "gray", "white"];
 const village_mushroom_colors = ["red", "white", "purple", "brown"];
 const village_ocean_colors = ["blue", "cyan", "light_blue", "white"];
+const village_pale_garden_colors = ["white", "light_gray", "gray"];
+const village_dappled_forest_colors = ["orange", "yellow", "red", "brown"];
 
 
 // 群系统一作为数组参数；plains 羊毛组有专属物品，因此单独展开。
 const village_biomes = [
     "plains", "desert", "savanna", "taiga", "snowy",
     "badlands", "beach", "cherry", "dark_forest",
-    "jungle", "mushroom", "ocean", "swamp"
+    "jungle", "mushroom", "ocean", "swamp",
+    "pale_garden", "dappled_forest"
 ];
 
 // Wood mappings for furniture. Empty means beds and common items only.
@@ -35,3 +38,5 @@ const village_jungle_woods = ["jungle"];
 const village_mushroom_woods = [];
 const village_ocean_woods = [];
 const village_swamp_woods = ["oak"];
+const village_pale_garden_woods = ["pale_oak"];
+const village_dappled_forest_woods = ["poplar"];

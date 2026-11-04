@@ -89,12 +89,6 @@ class VersionProfile:
         return self.parsed.at_least('26.3')
 
     @property
-    def recipe_disable_strategy(self) -> str:
-        if self.parsed.at_least('26.3'):
-            return 'neoforge_never'
-        return 'legacy'
-
-    @property
     def loot_table_dir(self) -> str:
         return 'loot_table' if self.singular_data_dirs else 'loot_tables'
 
@@ -121,5 +115,5 @@ def get_version_profile(version: str) -> VersionProfile:
 
 def pack_format_json(value: int | tuple[int, int]):
     if isinstance(value, tuple):
-        return [value[0], value[1]]
+        return value[0]
     return value

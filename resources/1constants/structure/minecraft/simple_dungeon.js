@@ -20,6 +20,11 @@ const simple_dungeon_equipment = [
             { id: "immersive_armors:warrior_leggings", ratio: 2 },
             { id: "immersive_armors:warrior_boots", ratio: 2 },
 
+            { id: "minecraft:copper_helmet", ratio: 2 },
+            { id: "minecraft:copper_chestplate", ratio: 2 },
+            { id: "minecraft:copper_leggings", ratio: 2 },
+            { id: "minecraft:copper_boots", ratio: 2 },
+
             { id: "minecraft:iron_helmet", ratio: 2 },
             { id: "minecraft:iron_chestplate", ratio: 2 },
             { id: "minecraft:iron_leggings", ratio: 2 },
@@ -61,15 +66,19 @@ const simple_dungeon_equipment = [
         groupWeight: 80,
         min: 1, max: 1, enchantLevels: [10, 15], damage: [0.4, 0.6],
         items: [
-            { id: "minecraft:iron_sword", ratio: 2 },
-            { id: "minecraft:iron_axe", ratio: 2 },
             { id: "minecraft:stone_sword", ratio: 2 },
             { id: "minecraft:stone_axe", ratio: 2 },
+
+            { id: "minecraft:copper_sword", ratio: 2 },
+            { id: "minecraft:copper_axe", ratio: 2 },
+
+            { id: "minecraft:iron_sword", ratio: 2 },
+            { id: "minecraft:iron_axe", ratio: 2 },
         ]
     },
 
     {
-        groupName: "rare_weapons", 
+        groupName: "rare_weapons",
         groupWeight: 20,
         min: 1, max: 1, enchantLevels: [20, 30], damage: [0.4, 0.6],
         items: [
@@ -127,7 +136,7 @@ const simple_dungeon_resources_treasure = [
             { id: "minecraft:diamond", ratio: 5 },
             // { id: "minecraft:emerald", ratio: 20 },
             { id: "minecraft:gold_ingot", ratio: 10 },
-            
+
             { id: "minecraft:golden_apple", ratio: 5 },
             { id: "trailandtales_delight:golden_lantern_fruit", ratio: 5 },
             { id: "minecraft:enchanted_golden_apple", ratio: 1 },
@@ -160,21 +169,21 @@ const simple_dungeon_supply = [
 
 const simple_dungeon_potion = [
 
-    {   
+    {
         groupName: "potion_positive",
-        groupWeight: 80, 
+        groupWeight: 80,
         min: 1, max: 1,
         items: all_positive_potion_item
     },
-    {   
+    {
         groupName: "potion_negative",
-        groupWeight: 20, 
+        groupWeight: 20,
         min: 1, max: 1,
         items: all_negative_potion_item
     },
-    {   
+    {
         groupName: "empty",
-        groupWeight: 50, 
+        groupWeight: 50,
         items: [
             { id: "empty"},
         ]
@@ -189,15 +198,15 @@ const simple_dungeon_enchanted_book = [
         items: [
 
             // ---- 装备通用 (工具/武器/防具) ----
-            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:unbreaking"] }, 
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:unbreaking"] },
             { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:mending"] },
             { id: "minecraft:book", ratio: 10, enchantRandomly: ["nova_structures:photosynthesis"] },
 
             // ---- 防具通用 ----
-            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:protection"] }, 
-            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:projectile_protection"] }, 
-            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:fire_protection"] }, 
-            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:blast_protection"] }, 
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:protection"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:projectile_protection"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:fire_protection"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:blast_protection"] },
 
             // ---- 躯干 (胸甲) ----
             { id: "minecraft:book", ratio: 10, enchantRandomly: ["kattersstructures:light"] },
@@ -205,29 +214,29 @@ const simple_dungeon_enchanted_book = [
             { id: "minecraft:book", ratio: 10, enchantRandomly: ["nova_structures:antidote"] },
 
             // ---- 腿部 (护腿) ----
-            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:swift_sneak"] }, 
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:swift_sneak"] },
 
             // ---- 脚部 (靴子) ----
-            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:feather_falling"] }, 
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:feather_falling"] },
             { id: "minecraft:book", ratio: 10, enchantRandomly: ["kattersstructures:web_walker"] },
             { id: "minecraft:book", ratio: 10, enchantRandomly: ["nova_structures:traveler"] },
 
             // ---- 近战武器 (剑/通用斧) ----
             { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:sharpness"] },
-            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:smite"] }, 
-            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:bane_of_arthropods"] }, 
-            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:knockback"] }, 
-            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:fire_aspect"] }, 
-            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:looting"] }, 
-            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:sweeping_edge"] }, 
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:smite"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:bane_of_arthropods"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:knockback"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:fire_aspect"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:looting"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:sweeping_edge"] },
             { id: "minecraft:book", ratio: 10, enchantRandomly: ["enchantencore:weaving_aspect"] },
             { id: "minecraft:book", ratio: 10, enchantRandomly: ["farmersdelight:backstabbing"] },
             { id: "minecraft:book", ratio: 10, enchantRandomly: ["kattersstructures:heavy"] },
             { id: "minecraft:book", ratio: 10, enchantRandomly: ["kattersstructures:blunt"] },
 
             // ---- 远程武器：弓 (Bow) ----
-            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:power"] }, 
-            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:punch"] }, 
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:power"] },
+            { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:punch"] },
             { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:flame"] },
             { id: "minecraft:book", ratio: 10, enchantRandomly: ["minecraft:infinity"] },
             { id: "minecraft:book", ratio: 10, enchantRandomly: ["nova_structures:piercing"] },
@@ -247,7 +256,7 @@ const simple_dungeon_enchanted_book = [
 const simple_dungeon_smithing_templates_common = [
     {
         groupName: "Smithing Templates",
-        groupWeight: 25,  
+        groupWeight: 25,
         min: 1, max: 1,
         items: [
             { id: "minecraft:host_armor_trim_smithing_template", ratio: 10 },

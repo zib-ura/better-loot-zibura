@@ -4,6 +4,9 @@ const shepherdWoolColorTemplates = [
     { id: "minecraft:{color}_carpet", ratio: 10 },
     { id: "supplementaries:bunting_{color}", ratio: 10 },
     { id: "supplementaries:flag_{color}", ratio: 10 },
+
+    { id: "minecraft:{color}_cushion", ratio: 10 },
+
     { id: "minecraft:painting", ratio: 10 },
     // { id: "minecraft:{color}_bed", ratio: 10 },
 ];

@@ -1,16 +1,26 @@
 const buried_treasure_valuables = [
     {
         groupName: "Valuable Cargo",
-        groupWeight: 25,
+        groupWeight: 80,
         min: 1, max: 1,
         items: [
-            { id: "minecraft:sea_lantern", ratio: 5 },
-            { id: "minecraft:heart_of_the_sea", ratio: 5 },
-            { id: "minecraft:nautilus_shell", ratio: 5 },          
-
+            { id: "minecraft:sea_lantern", ratio: 10 },
+            { id: "minecraft:heart_of_the_sea", ratio: 10 },
+            { id: "minecraft:nautilus_shell", ratio: 10 },
         ]
     },
-]
+    {
+        groupName: "Nautilus Armor",
+        groupWeight: 20,
+        min: 1, max: 1,
+        items: [
+            { id: "minecraft:copper_nautilus_armor", ratio: 20 },
+            { id: "minecraft:iron_nautilus_armor", ratio: 10 },
+            { id: "minecraft:golden_nautilus_armor", ratio: 5 },
+            { id: "minecraft:diamond_nautilus_armor", ratio: 2 },
+        ]
+    },
+];
 
 const gold_and_diamond_products = [
     {

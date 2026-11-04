@@ -150,3 +150,25 @@ const village_recipe_item = [
         ]
     },
 ]
+
+
+const treasure_map_item = [
+    {
+        id: "minecraft:map",
+        ratio: 10,
+        jsonFunction: [
+            {
+                "type": "minecraft:exploration_map",
+                "destination": "minecraft:buried_treasure",
+                "decoration": "minecraft:red_x",
+                "zoom": 1,
+                "skip_existing_chunks": false
+            },
+            {
+                "function": "minecraft:set_name",
+                "name": { "translate": "filled_map.buried_treasure" },
+                "target": "item_name"
+            }
+        ]
+    },
+]

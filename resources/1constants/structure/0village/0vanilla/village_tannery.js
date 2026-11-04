@@ -1,11 +1,12 @@
 const village_tannery_products = [
     {
         groupName: "common_leather_products",
-        groupWeight: 20,
+        groupWeight: 80,
         min: 2, max: 3,
         items: [
-            { id: "minecraft:item_frame", ratio: 5 },
-            { id: "minecraft:book", ratio: 5 },
+            { id: "minecraft:item_frame", ratio: 10 },
+            { id: "minecraft:book", ratio: 10 },
+            { id: "minecraft:bundle", ratio: 10 },
         ]
     },
 
@@ -15,7 +16,8 @@ const village_tannery_products = [
         min: 1, max: 1,
         items: [
             { id: "travelersbackpack:standard", ratio: 10 },
-            { id: "minecraft:bundle", ratio: 10 },
+
+            { id: "minecraft:leather_horse_armor", ratio: 10 },
             { id: "minecraft:saddle", ratio: 10 },
         ]
     },
@@ -24,23 +26,21 @@ const village_tannery_products = [
 const village_tannery_armors = [
     {
         groupName: "leather_armors",
-        groupWeight: 20,
+        groupWeight: 100,
         min: 1, max: 1, enchantChance: 0.0 , damage: [0.7, 0.8],
         items: [
-            { id: "minecraft:leather_boots", ratio: 5 },
-            { id: "minecraft:leather_helmet", ratio: 5 },
-            { id: "minecraft:leather_chestplate", ratio: 5 },
-            { id: "minecraft:leather_leggings", ratio: 5 },
+            { id: "minecraft:leather_boots", ratio: 10 },
+            { id: "minecraft:leather_helmet", ratio: 10 },
+            { id: "minecraft:leather_chestplate", ratio: 10 },
+            { id: "minecraft:leather_leggings", ratio: 10 },
         ]
-    },    
-
-
+    },
 ]
 
 const village_tannery_materials = [
     {        
         groupName: "materials",
-        groupWeight: 20,
+        groupWeight: 100,
         min: 2, max: 3,
         items: [
             { id: "minecraft:leather", ratio: 10 },
@@ -52,7 +52,7 @@ const village_tannery_materials = [
 const desert_village_tannery_materials = [
     {        
         groupName: "materials",
-        groupWeight: 20,
+        groupWeight: 100,
         min: 2, max: 3,
         items: [
             { id: "minecraft:rabbit_hide", ratio: 10 },

@@ -4,7 +4,13 @@ const trial_chambers_attack = [
         groupWeight: 40,
         min: 1, max: 1, enchantLevels: [5, 10], damage: [0.2, 0.5],
         items: [
+            // 铜制武器
+            { id: "minecraft:copper_sword", ratio: 10 },
+            { id: "minecraft:copper_spear", ratio: 10 },
+
+            // 铁制武器
             { id: "minecraft:iron_sword", ratio: 10 },
+            { id: "minecraft:iron_spear", ratio: 10 },
         ]
     },
 
@@ -30,11 +36,12 @@ const trial_chambers_attack = [
     },
 
     {
-        groupName: "rare_weapons", 
+        groupName: "rare_weapons",
         groupWeight: 5,
         min: 1, max: 1, enchantLevels: [10, 20], damage: [0.2, 0.5],
         items: [
             { id: "minecraft:diamond_sword", ratio: 10 },
+            { id: "minecraft:diamond_spear", ratio: 10 },
         ]
     },
 ]
@@ -51,6 +58,13 @@ const trial_chambers_defense = [
             { id: "immersive_armors:warrior_leggings", ratio: 2 },
             { id: "immersive_armors:warrior_boots", ratio: 2 },
 
+            // 铜甲系列
+            { id: "minecraft:copper_helmet", ratio: 2 },
+            { id: "minecraft:copper_chestplate", ratio: 2 },
+            { id: "minecraft:copper_leggings", ratio: 2 },
+            { id: "minecraft:copper_boots", ratio: 2 },
+
+            // 铁甲系列
             { id: "minecraft:iron_helmet", ratio: 2 },
             { id: "minecraft:iron_chestplate", ratio: 2 },
             { id: "minecraft:iron_leggings", ratio: 2 },
@@ -92,7 +106,7 @@ const trial_chambers_defense = [
         groupWeight: 20,
         min: 1, max: 1, enchantLevels: [5, 10], damage: [0.2, 0.5],
         items: [
-            { id: "minecraft:shield", ratio: 15 }, 
+            { id: "minecraft:shield", ratio: 15 },
         ]
     },
 
@@ -100,7 +114,7 @@ const trial_chambers_defense = [
         groupName: "tactical_defense",
         groupWeight: 30,
         min: 1, max: 1,
-        items: [            
+        items: [
             { id: "minecraft:cobweb", ratio: 10, min: 4, max: 6 },
             { id: "minecraft:water_bucket", ratio: 5 },
         ]
@@ -113,7 +127,7 @@ const trial_chambers_survival = [
     {
         groupName: "preserved_food",
         groupWeight: 70,
-        min: 2, max: 3, 
+        min: 2, max: 3,
         items: [
             // --- 金属/高阶耐久食物 ---
             { id: "minecraft:golden_carrot", ratio: 20 },          // 金胡萝卜（极高饱食度/饱和度）
@@ -132,7 +146,7 @@ const trial_chambers_survival = [
     {
         groupName: "potions",
         groupWeight: 30,
-        min: 1, max: 2, 
+        min: 1, max: 2,
         items: all_positive_potion_item
     },
 ];
@@ -141,7 +155,7 @@ const trial_chambers_mobility = [
     {
         groupName: "vertical_movement",
         groupWeight: 35,
-        min: 4, max: 6, 
+        min: 4, max: 6,
         items: [
             { id: "minecraft:ender_pearl", ratio: 15 },
             { id: "minecraft:scaffolding", ratio: 20 },
@@ -154,8 +168,9 @@ const trial_chambers_crafting = [
     {
         groupName: "ores",
         groupWeight: 30,
-        min: 2, max: 3, 
+        min: 2, max: 3,
         items: [
+            { id: "minecraft:copper_ingot", ratio: 10 },
             { id: "minecraft:iron_ingot", ratio: 10 },
             // { id: "minecraft:gold_ingot", ratio: 5 },
         ]
@@ -163,7 +178,7 @@ const trial_chambers_crafting = [
     {
         groupName: "logs",
         groupWeight: 30,
-        min: 3, max: 4, 
+        min: 3, max: 4,
         items: [
             { id: "minecraft:oak_log", ratio: 10 },
         ]

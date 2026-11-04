@@ -5,6 +5,7 @@ const village_smith_materials = [
         min: 2, max: 3,
         items: [
             { id: "minecraft:iron_ingot", ratio: 10 },
+            { id: "minecraft:copper_ingot", ratio: 10 },
             // { id: "minecraft:lava_bucket", ratio: 10 , max: 3 },
             // { id: "minecraft:bucket", ratio: 10 , max: 3 },
             { id: "minecraft:coal", ratio: 10 },
