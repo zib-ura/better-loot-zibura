@@ -19,8 +19,8 @@ import org.jetbrains.annotations.NotNull;
 public class FillSeedBundleFunction extends LootItemConditionalFunction {
 
     private final List<String> seedTypes; // 直接种子列表
-    private final double pooldivisor; // 原 x: 种子池大小的折算比例因子
-    private final int maxDistinctTypes; // 原 y: 允许抽取的最大种子种类上限
+    private final double pooldivisor; // 种子池大小的折算比例因子
+    private final int maxDistinctTypes; // 允许抽取的最大种子种类上限
     private final int minCount;
     private final int maxCount;
 
@@ -126,14 +126,8 @@ public class FillSeedBundleFunction extends LootItemConditionalFunction {
             } else {
                 throw new JsonSyntaxException("seed_types is required; seed_type_key is no longer supported");
             }
-            // 兼容旧键名 "x" 与新键名 "pool_divisor"
-            double pooldivisor = json.has("pool_divisor")
-                    ? GsonHelper.getAsDouble(json, "pool_divisor")
-                    : GsonHelper.getAsDouble(json, "x", 1.0);
-            // 兼容旧键名 "y" 与新键名 "max_distinct_types"
-            int maxDistinctTypes = json.has("max_distinct_types")
-                    ? GsonHelper.getAsInt(json, "max_distinct_types")
-                    : GsonHelper.getAsInt(json, "y", 3);
+            double pooldivisor = GsonHelper.getAsDouble(json, "pool_divisor", 1.0);
+            int maxDistinctTypes = GsonHelper.getAsInt(json, "max_distinct_types", 3);
             int minCount = GsonHelper.getAsInt(json, "min_count", 1);
             int maxCount = GsonHelper.getAsInt(json, "max_count", 2);
             return new FillSeedBundleFunction(conditions, seeds, pooldivisor, maxDistinctTypes, minCount, maxCount);
