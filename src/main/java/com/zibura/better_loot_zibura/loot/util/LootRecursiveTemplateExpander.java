@@ -133,7 +133,30 @@ public final class LootRecursiveTemplateExpander {
                 if (!source.has(name)) throw fail("Undefined template: " + name);
                 if (chain.contains(name)) throw fail("Cyclic template: " + name);
                 JsonElement template = source.get(name);
-                if (!template.isJsonArray()) throw fail("Template must resolve to an array: " + name);
+
+                Set<String> visited = new HashSet<>();
+                visited.add(name);
+
+                while (template != null
+                        && template.isJsonPrimitive()
+                        && template.getAsJsonPrimitive().isString()) {
+
+                    String reference = template.getAsString();
+
+                    if (!source.has(reference)) {
+                        throw fail("Undefined template reference: " + reference);
+                    }
+
+                    if (!visited.add(reference)) {
+                        throw fail("Cyclic template reference: " + reference);
+                    }
+
+                    template = source.get(reference);
+                }
+
+                if (template == null || !template.isJsonArray()) {
+                    throw fail("Template must resolve to an array: " + name);
+                }
 
                 chain.addLast(name);
                 try {
