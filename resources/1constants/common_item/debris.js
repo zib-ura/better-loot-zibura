@@ -6,10 +6,10 @@
 const stone_debris_materials = [
     { id: "minecraft:stone", ratio: 10 },
     { id: "minecraft:cobblestone", ratio: 10 },
-    { id: "minecraft:mossy_cobblestone", ratio: 10 },
+    // { id: "minecraft:mossy_cobblestone", ratio: 10 },
     { id: "minecraft:stone_bricks", ratio: 10 },
     { id: "minecraft:cracked_stone_bricks", ratio: 10 },
-    { id: "minecraft:mossy_stone_bricks", ratio: 10 },
+    // { id: "minecraft:mossy_stone_bricks", ratio: 10 },
     { id: "minecraft:andesite", ratio: 10 },
 
     // 彻底破坏后的碎料
@@ -34,9 +34,9 @@ const wood_debris_materials = [
     { id: "minecraft:oak_log", ratio: 10 },
     { id: "minecraft:oak_planks", ratio: 10 },
     { id: "minecraft:oak_slab", ratio: 10 },
-    { id: "minecraft:oak_stairs", ratio: 10 },
-    { id: "minecraft:oak_fence", ratio: 10 },
-    { id: "minecraft:oak_trapdoor", ratio: 10 },
+    // { id: "minecraft:oak_stairs", ratio: 10 },
+    // { id: "minecraft:oak_fence", ratio: 10 },
+    // { id: "minecraft:oak_trapdoor", ratio: 10 },
 
     // 破碎、腐朽后的残留物
     { id: "minecraft:stick", ratio: 10 },
@@ -48,9 +48,9 @@ const wood_debris_materials = [
 const dark_oak_debris_materials = [
     { id: "minecraft:dark_oak_log", ratio: 10 },
     { id: "minecraft:dark_oak_planks", ratio: 10 },
-    { id: "minecraft:dark_oak_stairs", ratio: 10 },
-    { id: "minecraft:dark_oak_fence", ratio: 10 },
-    { id: "minecraft:dark_oak_trapdoor", ratio: 10 },
+    // { id: "minecraft:dark_oak_stairs", ratio: 10 },
+    // { id: "minecraft:dark_oak_fence", ratio: 10 },
+    // { id: "minecraft:dark_oak_trapdoor", ratio: 10 },
 
     // 破碎、腐朽后的残留物
     { id: "minecraft:stick", ratio: 10 },
@@ -259,7 +259,7 @@ const fishing_debris_remnants = [
     { id: "minecraft:tripwire_hook", ratio: 10 },
     { id: "minecraft:cod", ratio: 10 },
     { id: "minecraft:salmon", ratio: 10 },
-    { id: "minecraft:dried_kelp", ratio: 10 },
+    // { id: "minecraft:dried_kelp", ratio: 10 },
 ];
 
 const mining_debris_remnants = [
@@ -282,22 +282,15 @@ const combat_debris_remnants = [
     { id: "minecraft:chain", ratio: 10 },
 ];
 
-const study_debris_remnants = [
-    { id: "minecraft:book", ratio: 10 },
-    { id: "minecraft:paper", ratio: 10 },
-    { id: "minecraft:bookshelf", ratio: 10 },
-    { id: "minecraft:ink_sac", ratio: 10 },
-    { id: "minecraft:glass_bottle", ratio: 10 },
-];
+const study_debris_remnants = records_and_ink
 
 // 航海活动：记录航路、测向、观测、运输物资。
 // 其中 map 只是普通地图；真正的藏宝图放在海底遗迹的探索奖励中。
 const navigation_debris_remnants = [
     { id: "minecraft:map", ratio: 10 },
-    { id: "minecraft:compass", ratio: 10 },
+    common_cartography_tools,
     { id: "minecraft:paper", ratio: 10 },
     { id: "minecraft:barrel", ratio: 10 },
-    { id: "minecraft:spyglass", ratio: 10 },
     { id: "minecraft:oak_boat", ratio: 10 },
 ];
 
@@ -351,119 +344,119 @@ const portal_debris_remnants = [
     { id: "minecraft:gold_nugget", ratio: 10 },
     { id: "minecraft:golden_hoe", ratio: 10 },
 ];
-
-// ===== 结构组合：只引用物品数组，避免在这里复制基础条目 =====
-const village_debris_items = [
-    wood_debris_materials,
-    clay_debris_materials,
-    household_debris_remnants,
-    food_debris_remnants,
-    farming_debris_remnants,
-];
-
-const abandoned_village_debris_items = [
-    village_debris_items,
-    environment_debris_overgrown,
-];
-
-const underwater_ruin_cold_debris_items = [
-    stone_debris_materials,
-    environment_debris_ocean,
-];
-
-const underwater_ruin_warm_debris_items = [
-    sandstone_debris_materials,
-    environment_debris_ocean,
-];
-
-const shipwreck_debris_items = [
-    wood_debris_materials,
-    environment_debris_ocean,
-    navigation_debris_remnants,
-    fishing_debris_remnants,
-];
-
-const dungeon_debris_items = [
-    stone_debris_materials,
-    environment_debris_underground,
-    combat_debris_remnants,
-];
-
-const stronghold_debris_items = [
-    stone_debris_materials,
-    environment_debris_underground,
-    study_debris_remnants,
-    mechanism_debris_remnants,
-];
-
-const trial_chambers_debris_items = [
-    tuff_copper_debris_materials,
-    environment_debris_underground,
-    combat_debris_remnants,
-    mechanism_debris_remnants,
-];
-
-const ancient_city_debris_items = [
-    deepslate_debris_materials,
-    environment_debris_sculk,
-    household_debris_remnants,
-    study_debris_remnants,
-];
-
-const mineshaft_debris_items = [
-    wood_debris_materials,
-    stone_debris_materials,
-    environment_debris_underground,
-    mining_debris_remnants,
-];
-
-const desert_pyramid_debris_items = [
-    sandstone_debris_materials,
-    environment_debris_desert,
-    mechanism_debris_remnants,
-];
-
-const jungle_temple_debris_items = [
-    stone_debris_materials,
-    environment_debris_overgrown,
-    mechanism_debris_remnants,
-];
-
-const igloo_debris_items = [
-    snow_debris_materials,
-    environment_debris_frozen,
-    household_debris_remnants,
-    alchemy_debris_remnants,
-];
-
-const woodland_mansion_debris_items = [
-    dark_oak_debris_materials,
-    household_debris_remnants,
-    study_debris_remnants,
-    combat_debris_remnants,
-];
-
-const pillager_outpost_debris_items = [
-    dark_oak_debris_materials,
-    pillager_debris_remnants,
-    farming_debris_remnants,
-];
-
-const nether_fortress_debris_items = [
-    nether_brick_debris_materials,
-    environment_debris_nether,
-    nether_debris_remnants,
-];
-
-const bastion_remnant_debris_items = [
-    blackstone_debris_materials,
-    environment_debris_nether,
-    piglin_debris_remnants,
-];
-
-const ruined_portal_debris_items = [
-    portal_debris_materials,
-    environment_debris_nether,
-    portal_debris_remnants,
-];
+//
+// // ===== 结构组合：只引用物品数组，避免在这里复制基础条目 =====
+// const village_debris_items = [
+//     wood_debris_materials,
+//     clay_debris_materials,
+//     household_debris_remnants,
+//     food_debris_remnants,
+//     farming_debris_remnants,
+// ];
+//
+// const abandoned_village_debris_items = [
+//     village_debris_items,
+//     environment_debris_overgrown,
+// ];
+//
+// const underwater_ruin_cold_debris_items = [
+//     stone_debris_materials,
+//     environment_debris_ocean,
+// ];
+//
+// const underwater_ruin_warm_debris_items = [
+//     sandstone_debris_materials,
+//     environment_debris_ocean,
+// ];
+//
+// const shipwreck_debris_items = [
+//     wood_debris_materials,
+//     environment_debris_ocean,
+//     navigation_debris_remnants,
+//     fishing_debris_remnants,
+// ];
+//
+// const dungeon_debris_items = [
+//     stone_debris_materials,
+//     environment_debris_underground,
+//     combat_debris_remnants,
+// ];
+//
+// const stronghold_debris_items = [
+//     stone_debris_materials,
+//     environment_debris_underground,
+//     study_debris_remnants,
+//     mechanism_debris_remnants,
+// ];
+//
+// const trial_chambers_debris_items = [
+//     tuff_copper_debris_materials,
+//     environment_debris_underground,
+//     combat_debris_remnants,
+//     mechanism_debris_remnants,
+// ];
+//
+// const ancient_city_debris_items = [
+//     deepslate_debris_materials,
+//     environment_debris_sculk,
+//     household_debris_remnants,
+//     study_debris_remnants,
+// ];
+//
+// const mineshaft_debris_items = [
+//     wood_debris_materials,
+//     stone_debris_materials,
+//     environment_debris_underground,
+//     mining_debris_remnants,
+// ];
+//
+// const desert_pyramid_debris_items = [
+//     sandstone_debris_materials,
+//     environment_debris_desert,
+//     mechanism_debris_remnants,
+// ];
+//
+// const jungle_temple_debris_items = [
+//     stone_debris_materials,
+//     environment_debris_overgrown,
+//     mechanism_debris_remnants,
+// ];
+//
+// const igloo_debris_items = [
+//     snow_debris_materials,
+//     environment_debris_frozen,
+//     household_debris_remnants,
+//     alchemy_debris_remnants,
+// ];
+//
+// const woodland_mansion_debris_items = [
+//     dark_oak_debris_materials,
+//     household_debris_remnants,
+//     study_debris_remnants,
+//     combat_debris_remnants,
+// ];
+//
+// const pillager_outpost_debris_items = [
+//     dark_oak_debris_materials,
+//     pillager_debris_remnants,
+//     farming_debris_remnants,
+// ];
+//
+// const nether_fortress_debris_items = [
+//     nether_brick_debris_materials,
+//     environment_debris_nether,
+//     nether_debris_remnants,
+// ];
+//
+// const bastion_remnant_debris_items = [
+//     blackstone_debris_materials,
+//     environment_debris_nether,
+//     piglin_debris_remnants,
+// ];
+//
+// const ruined_portal_debris_items = [
+//     portal_debris_materials,
+//     environment_debris_nether,
+//     portal_debris_remnants,
+// ];
 

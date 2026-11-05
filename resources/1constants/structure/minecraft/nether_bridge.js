@@ -214,11 +214,9 @@ const iron_equipment_material = [
         groupWeight: 40,
         min: 1, max: 1, damage: [0.2, 0.3],
         items: [
-            { id: "minecraft:iron_sword", ratio: 20 },
-            { id: "minecraft:iron_pickaxe", ratio: 20 },
-            { id: "minecraft:iron_axe", ratio: 20 },
-            { id: "minecraft:iron_shovel", ratio: 20 },
-            { id: "minecraft:iron_hoe", ratio: 10 }, // 原版其他工具(剑,镐,斧,锹)平均权重22.5，此处保留为 10（约一半）
+            all_common_tools,
+            all_common_weapons,
+
             { id: "minecraft:shears", ratio: 10 }, // 剪刀
             { id: "minecraft:flint_and_steel", ratio: 10 }, // 打火石
         ]
@@ -240,27 +238,7 @@ const iron_equipment_material = [
         groupName: "Iron Armor", // 铁制盔甲
         groupWeight: 40,
         min: 1, max: 1, damage: [0.2, 0.3],
-        items: [
-            { id: "immersive_armors:warrior_helmet", ratio: 10 },
-            { id: "immersive_armors:warrior_chestplate", ratio: 10 },
-            { id: "immersive_armors:warrior_leggings", ratio: 10 },
-            { id: "immersive_armors:warrior_boots", ratio: 10 },
-
-            { id: "minecraft:iron_helmet", ratio: 10 },
-            { id: "minecraft:iron_chestplate", ratio: 10 },
-            { id: "minecraft:iron_leggings", ratio: 10 },
-            { id: "minecraft:iron_boots", ratio: 10 },
-
-            { id: "minecraft:chainmail_helmet", ratio: 10 },
-            { id: "minecraft:chainmail_chestplate", ratio: 10 },
-            { id: "minecraft:chainmail_leggings", ratio: 10 },
-            { id: "minecraft:chainmail_boots", ratio: 10 },
-
-            { id: "immersive_armors:heavy_helmet", ratio: 10 },
-            { id: "immersive_armors:heavy_chestplate", ratio: 10 },
-            { id: "immersive_armors:heavy_leggings", ratio: 10 },
-            { id: "immersive_armors:heavy_boots", ratio: 10 },
-        ]
+        items: common_metal_armors
     },
     {
         groupName: "Iron Horse Armor & Shields", // 铁马铠与盾牌
@@ -281,17 +259,11 @@ const iron_equipment_material = [
             { id: "minecraft:diamond", ratio: 50 },
 
             // --- 钻石工具与武器 (Diamond Tools & Weapons - Ratio Total: 55) ---
-            { id: "minecraft:diamond_sword", ratio: 15 },
-            { id: "minecraft:diamond_pickaxe", ratio: 12 },
-            { id: "minecraft:diamond_axe", ratio: 10 },
-            { id: "minecraft:diamond_shovel", ratio: 10 },
-            { id: "minecraft:diamond_hoe", ratio: 8 },
+            all_rare_material_tools,
+            rare_material_weapons,
 
             // --- 钻石盔甲 (Diamond Armor - Ratio Total: 40) ---
-            { id: "minecraft:diamond_chestplate", ratio: 13 },
-            { id: "minecraft:diamond_leggings", ratio: 11 },
-            { id: "minecraft:diamond_helmet", ratio: 8 },
-            { id: "minecraft:diamond_boots", ratio: 8 },
+            rare_material_armors,
 
             // --- 其他钻石物品 (Other Diamond Items - Ratio Total: 5) ---
             { id: "minecraft:diamond_horse_armor", ratio: 5 }

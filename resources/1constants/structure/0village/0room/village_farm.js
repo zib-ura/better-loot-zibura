@@ -4,18 +4,7 @@ const village_farm_equipment = [
         groupWeight: 95,
         min: 1, max: 1,
         damage: [0.5, 0.9],
-        items: [
-            { id: "minecraft:stone_hoe", ratio: 10 },
-            { id: "minecraft:copper_hoe", ratio: 10 },
-            { id: "minecraft:iron_hoe", ratio: 5 },
-            { id: "minecraft:golden_hoe", ratio: 5 },
-
-            { id: "kaleidoscope_cookery:sickle", ratio: 10 },
-
-            // 农业辅助工具
-            { id: "minecraft:water_bucket", ratio: 10 },
-            { id: "minecraft:bucket", ratio: 10 },
-        ]
+        items: common_farming_tools
     },
     {
         groupName: "rare_equipment",

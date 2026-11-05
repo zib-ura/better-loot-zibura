@@ -126,12 +126,7 @@ const woodland_mansion_decorations = [
         groupWeight: 10,
         min: 1, max: 1,
         items: [
-            { id: "minecraft:clock", ratio: 10 },        
-            { id: "minecraft:painting", ratio: 10 },     
-            { id: "minecraft:item_frame", ratio: 10 },     
-            { id: "minecraft:lantern", ratio: 10 },      
-            { id: "minecraft:bookshelf", ratio: 10 },      // 书架
-            { id: "minecraft:flower_pot", ratio: 10 },     // 花盆
+            common_indoor_decoration,
         ]
     }
 ];

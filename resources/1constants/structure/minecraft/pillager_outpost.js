@@ -1,8 +1,8 @@
 const pillager_outpost_Special = [
     {
         groupName: "Combat Gear",
-        groupWeight: 30,
-        min: 1, max: 1,  damage: [0.2, 0.4],
+        groupWeight: 100,
+        min: 1, max: 1,  damage: [0.2, 0.8],
         items: [
             { id: "minecraft:crossbow", ratio: 10 },
             { id: "minecraft:iron_axe", ratio: 10 },
@@ -118,12 +118,9 @@ const pillager_outpost_Supplies = [
 ];
 
 const pillager_outpost_Treasure = [
-    // =================================================================
-    // GROUP: treasure
-    // =================================================================
     {
         groupName: "Treasure",
-        groupWeight: 30,
+        groupWeight: 100,
         min: 2, max: 3,
         items: [
             { id: "minecraft:emerald", ratio: 60 },
@@ -136,8 +133,8 @@ const pillager_outpost_Treasure = [
 const pillager_outpost_Arrow = [
     {
         groupName: "Arrow",
-        groupWeight: 30,
-        min: 1, max: 3,
+        groupWeight: 100,
+        min: 2, max: 6,
         items: [
             { id: "minecraft:arrow", ratio: 20 },
         ]
@@ -231,6 +228,22 @@ const pillager_outpost_goat_horn = [
         ]
     },
 ];
+
+const pillager_outpost_exploration = [
+    {
+        groupName: "exploration",
+        groupWeight: 50,
+        min: 2, max: 4,
+        items: common_exploration_tools
+    },
+    {
+        groupName: "empty",
+        groupWeight: 50,
+        items: [
+            { id: "empty" },
+        ]
+    },
+];
 // =================================================================
 // 事件注册区域
 // =================================================================
@@ -243,6 +256,8 @@ const pillager_outpost_content = [
     [pillager_outpost_camera, 1, 1],
     [food_supply, 1, 1],
     [pillager_outpost_goat_horn, 1, 1],
+    [pillager_outpost_Arrow, 1, 1],
+    [pillager_outpost_exploration, 1, 1],
 ];
 
 const loot_pillager_outpost = [

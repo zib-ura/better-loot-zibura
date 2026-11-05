@@ -64,4 +64,7 @@ Object.assign(allLootTables, {
     "minecraft:spawners/ominous/trial_chamber/key":            loot_trial_chambers_ominous_spawners,
     "minecraft:spawners/ominous/trial_chamber/consumables":    loot_trial_chambers_ominous_spawners,
 
+    "minecraft:barrels/abandoned_camp_barrel":       loot_abandoned_camp_barrel,
+    "minecraft:chests/abandoned_camp_common_chest": loot_abandoned_camp_common_chest,
+    "minecraft:chests/abandoned_camp_secret_chest": loot_abandoned_camp_secret_chest,
 })

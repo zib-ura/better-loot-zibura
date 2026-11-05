@@ -40,7 +40,7 @@ const abandoned_mineshaft_equipment = [
     {
         groupName: "common_equipment",
         groupWeight: 90,
-        min: 1, max: 1, enchantChance: 0 , damage: [0.4, 0.6],
+        min: 1, max: 1, damage: [0.4, 0.6],
         items: [        
             { id: "minecraft:iron_pickaxe", ratio: 5 },
             { id: "minecraft:iron_shovel", ratio: 5 },
@@ -63,11 +63,10 @@ const abandoned_mineshaft_equipment = [
 const abandoned_mineshaft_lighting = [
     {
         groupWeight: 50, 
-        min: 4, max: 5,
+        min: 2, max: 6,
         items: [
-            { id: "minecraft:lantern", ratio: 10 },
+            common_lighting_items,
             { id: "minecraft:redstone_torch", ratio: 10 },
-
         ]
     },
     // {
@@ -83,17 +82,8 @@ const abandoned_mineshaft_climbing = [
     {
         groupName: "climbing",
         groupWeight: 50, 
-        min: 4, max: 5,
-        items: [
-            { id: "minecraft:ladder", ratio: 10 },
-            { id: "farmersdelight:rope", ratio: 10 },
-            { id: "supplementaries:rope", ratio: 10 },
-            { id: "farm_and_charm:sturdy_ladder", ratio: 10 },
-            { id: "minecraft:scaffolding", ratio: 10 },
-            { id: "create:copper_ladder", ratio: 10 },
-            { id: "farmersdelight:safety_net", ratio: 10 },
-            { id: "supplementaries:rope_arrow", ratio: 10 }
-        ]
+        min: 2, max: 6,
+        items: common_climbing_items
     },
     // {
     //     groupName: "empty",

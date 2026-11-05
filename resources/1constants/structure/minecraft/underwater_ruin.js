@@ -6,50 +6,50 @@
 
 // 建筑材料与海洋环境复用原有物品数组。
 // 固定执行一次基础场景抽取，并非每件基础物品都必出。
-const underwater_ruin_cold_base_scenes = [
+const underwater_ruin_base_sceces = [
+    {
+        groupName: "seabed",
+        groupWeight: 50,
+        min: 1, max: 2, damage: [0.2, 0.6],
+        items: environment_debris_ocean
+    },
+
+    {
+        groupName: "lost_everyday_objects",
+        groupWeight: 50,
+        min: 1, max: 2, damage: [0.2, 0.6],
+        items: household_debris_remnants
+    },
+]
+const underwater_ruin_cold_structure = [
     {
         groupName: "cold_structure",
-        groupWeight: 20,
-        min: 1, max: 2,
+        groupWeight: 50,
+        min: 1, max: 2, damage: [0.2, 0.6],
         items: stone_debris_materials
     },
-
     {
-        groupName: "seabed",
-        groupWeight: 20,
-        min: 1, max: 2,
-        items: environment_debris_ocean
+        groupName: "empty",
+        groupWeight: 50,
+        items: [
+            { id: "empty" },
+        ]
     },
-
-    {
-        groupName: "lost_everyday_objects",
-        groupWeight: 30,
-        min: 1, max: 2,
-        items: household_debris_remnants
-    },
-
 ];
 
-const underwater_ruin_warm_base_scenes = [
+const underwater_ruin_warm_structure = [
     {
         groupName: "warm_structure",
-        groupWeight: 20,
-        min: 1, max: 2,
+        groupWeight: 50,
+        min: 1, max: 2, damage: [0.2, 0.6],
         items: sandstone_debris_materials
     },
-
     {
-        groupName: "seabed",
-        groupWeight: 20,
-        min: 1, max: 2,
-        items: environment_debris_ocean
-    },
-
-    {
-        groupName: "lost_everyday_objects",
-        groupWeight: 30,
-        min: 1, max: 2,
-        items: household_debris_remnants
+        groupName: "empty",
+        groupWeight: 50,
+        items: [
+            { id: "empty" },
+        ]
     },
 ];
 
@@ -60,7 +60,7 @@ const underwater_ruin_optional_scenes = [
     {
         groupName: "fishing_stop",
         groupWeight: 15,
-        min: 1, max: 2,
+        min: 1, max: 1, damage: [0.2, 0.6],
         items: fishing_debris_remnants
     },
 
@@ -68,7 +68,7 @@ const underwater_ruin_optional_scenes = [
     {
         groupName: "wayfarer",
         groupWeight: 20,
-        min: 1, max: 2,
+        min: 1, max: 1, damage: [0.2, 0.6],
         items: navigation_debris_remnants
     },
 
@@ -76,7 +76,7 @@ const underwater_ruin_optional_scenes = [
     {
         groupName: "salvage",
         groupWeight: 10,
-        min: 1, max: 2,
+        min: 1, max: 1, damage: [0.2, 0.6],
         items: [
             { id: "minecraft:stone_pickaxe", ratio: 10 },
             { id: "minecraft:stone_shovel", ratio: 10 },
@@ -87,11 +87,11 @@ const underwater_ruin_optional_scenes = [
     {
         groupName: "drowned_presence",
         groupWeight: 20,
-        min: 1, max: 2,
+        min: 1, max: 2, damage: [0.2, 0.6],
         items: [
             { id: "minecraft:rotten_flesh", ratio: 10 },
             { id: "minecraft:bone", ratio: 10 },
-            { id: "minecraft:stone_spear", ratio: 10 },
+            // { id: "minecraft:stone_spear", ratio: 10 },
         ]
     },
 
@@ -99,9 +99,9 @@ const underwater_ruin_optional_scenes = [
     {
         groupName: "nautilus_passage",
         groupWeight: 10,
-        min: 1, max: 2,
+        min: 1, max: 1,
         items: [
-            { id: "minecraft:pufferfish", ratio: 10 },
+            // { id: "minecraft:pufferfish", ratio: 10 },
             { id: "minecraft:saddle", ratio: 10 },
             { id: "minecraft:lead", ratio: 10 },
             { id: "minecraft:nautilus_shell", ratio: 10 },
@@ -116,7 +116,7 @@ const underwater_ruin_optional_scenes = [
     {
         groupName: "scattered_valuables",
         groupWeight: 10,
-        min: 1, max: 2,
+        min: 1, max: 1,
         items: [
             { id: "minecraft:emerald", ratio: 10 },
             { id: "minecraft:gold_nugget", ratio: 10 },
@@ -164,7 +164,7 @@ const underwater_ruin_big_special = [
 const underwater_ruin_treasure_map = [
     {
         groupName: "treasure_map",
-        groupWeight: 50,
+        groupWeight: 25,
         min: 1, max: 1,
         items: treasure_map_item
     },
@@ -178,16 +178,18 @@ const underwater_ruin_treasure_map = [
 ];
 
 const underwater_ruin_small_content = [
-    [underwater_ruin_warm_base_scenes, 1, 1, { matchBiome: "#minecraft:has_structure/ocean_ruin_warm" }],
-    [underwater_ruin_cold_base_scenes, 1, 1, { matchBiome: "#minecraft:has_structure/ocean_ruin_cold" }],
+    [underwater_ruin_warm_structure, 1, 1, { matchBiome: "#minecraft:has_structure/ocean_ruin_warm" }],
+    [underwater_ruin_cold_structure, 1, 1, { matchBiome: "#minecraft:has_structure/ocean_ruin_cold" }],
+    [underwater_ruin_base_sceces, 1, 1],
     [underwater_ruin_optional_scenes, 1, 1],
     [underwater_ruin_treasure_map, 1, 1],
 ];
 
 const underwater_ruin_big_content = [
-    [underwater_ruin_warm_base_scenes, 1, 1, { matchBiome: "#minecraft:has_structure/ocean_ruin_warm" }],
-    [underwater_ruin_cold_base_scenes, 1, 1, { matchBiome: "#minecraft:has_structure/ocean_ruin_cold" }],
+    [underwater_ruin_warm_structure, 1, 1, { matchBiome: "#minecraft:has_structure/ocean_ruin_warm" }],
+    [underwater_ruin_cold_structure, 1, 1, { matchBiome: "#minecraft:has_structure/ocean_ruin_cold" }],
     [underwater_ruin_optional_scenes, 1, 2],
+    [underwater_ruin_base_sceces, 1, 1],
     [underwater_ruin_big_special, 1, 1],
     [underwater_ruin_treasure_map, 1, 1],
 ];

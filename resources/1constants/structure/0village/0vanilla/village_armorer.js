@@ -6,43 +6,9 @@ const village_armorer_products = [
 
         damage: [0.7, 0.8],
         items: [
-            // 链甲系列
-            { id: "minecraft:chainmail_helmet", ratio: 10 },
-            { id: "minecraft:chainmail_chestplate", ratio: 10 },
-            { id: "minecraft:chainmail_leggings", ratio: 10 },
-            { id: "minecraft:chainmail_boots", ratio: 10 },
-
-            // 铁甲与盾牌
-            { id: "minecraft:iron_helmet", ratio: 10 },
-            { id: "minecraft:iron_chestplate", ratio: 10 },
-            { id: "minecraft:iron_leggings", ratio: 10 },
-            { id: "minecraft:iron_boots", ratio: 10 },
-            { id: "minecraft:shield", ratio: 10 },
-
-            // 铜甲系列
-            { id: "minecraft:copper_helmet", ratio: 10 },
-            { id: "minecraft:copper_chestplate", ratio: 10 },
-            { id: "minecraft:copper_leggings", ratio: 10 },
-            { id: "minecraft:copper_boots", ratio: 10 },
-
-            // 模块化盔甲 - 战士系列
-            { id: "immersive_armors:warrior_helmet", ratio: 10 },
-            { id: "immersive_armors:warrior_chestplate", ratio: 10 },
-            { id: "immersive_armors:warrior_leggings", ratio: 10 },
-            { id: "immersive_armors:warrior_boots", ratio: 10 },
-
-            // 模块化盔甲 - 重甲系列
-            { id: "immersive_armors:heavy_helmet", ratio: 10 },
-            { id: "immersive_armors:heavy_chestplate", ratio: 10 },
-            { id: "immersive_armors:heavy_leggings", ratio: 10 },
-            { id: "immersive_armors:heavy_boots", ratio: 10 },
-
-            // 特殊装备：马铠/狼铠
-            // 无耐久度的装备会忽略 damage 设置
-            { id: "minecraft:iron_horse_armor", ratio: 10 },
-            { id: "minecraft:golden_horse_armor", ratio: 10 },
-            { id: "minecraft:copper_horse_armor", ratio: 10 },
-            // { id: "minecraft:wolf_armor", ratio: 10 },
+            common_metal_armors,
+            horse_wolf_armors,
+            { id: "minecraft:shield", ratio: 20 },
         ]
     },
 
@@ -53,10 +19,7 @@ const village_armorer_products = [
         
         damage: [0.7, 0.8],
         items: [
-            // { id: "minecraft:diamond_helmet", ratio: 10 },
-            // { id: "minecraft:diamond_chestplate", ratio: 10 },
-            // { id: "minecraft:diamond_leggings", ratio: 10 },
-            // { id: "minecraft:diamond_boots", ratio: 10 },
+            // rare_material_armors,
             { id: "minecraft:diamond", ratio: 10 },
           
         ]

@@ -1,22 +1,6 @@
 const village_valuable_block = [
 
     {
-        groupName: "shepherd and tannery",
-        groupWeight: 25, 
-        min: 1,  max: 1,
-        items: [
-            { id: "minecraft:white_banner", ratio: 10 },
-            { id: "minecraft:white_carpet", ratio: 10 },
-            { id: "supplementaries:bunting_white", ratio: 10 },
-            { id: "supplementaries:flag_white", ratio: 10 },
-            { id: "minecraft:white_bed", ratio: 10 },
-            { id: "minecraft:painting", ratio: 10 },
-            { id: "minecraft:item_frame", ratio: 10 },
-
-        ]
-    },
-
-    {
         groupName: "cartographer",
         groupWeight: 25,
         min: 1, max: 1,
@@ -40,11 +24,7 @@ const village_valuable_block = [
         min: 1, max: 1,
         items: [
             { id: "minecraft:furnace", ratio: 10 },
-            { id: "minecraft:armor_stand", ratio: 10 },
-            { id: "supplementaries:hat_stand", ratio: 10 },
-            { id: "supplementaries:statue", ratio: 10 },
-            { id: "supplementaries:stone_lamp", ratio: 10 },
-            { id: "supplementaries:pedestal", ratio: 10 },
+            common_stone_decoration,
 
         ]
     },

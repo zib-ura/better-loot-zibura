@@ -4,19 +4,9 @@ const t_and_t_pillager_outpost_equipment = [
         groupWeight: 30,
         min: 1, max: 1,
         items: [
-            { id: "supplementaries:sack", ratio: 10 },       
-            { id: "farmersdelight:wooden_basket", ratio: 10 },       
-            { id: "kaleidoscope_cookery:fruit_basket", ratio: 10 },       
-            { id: "youkaisfeasts:kettle", ratio: 10 },     
-            { id: "kaleidoscope_cookery:stockpot", ratio: 10 }, 
-            { id: "kaleidoscope_cookery:pot", ratio: 10 }, 
-            { id: "kaleidoscope_cookery:stockpot_lid", ratio: 10 }, 
-            { id: "kaleidoscope_cookery:kitchen_shovel", ratio: 10 }, 
-            { id: "kaleidoscope_cookery:teapot", ratio: 10 }, 
-            { id: "farmersdelight:cooking_pot", ratio: 10 }, 
-            { id: "farmersdelight:skillet", ratio: 10 },    
-            { id: "kaleidoscope_chinesefood:pickle_jar", ratio: 10 },
-            { id: "farmersdelight:iron_knife", ratio: 10, max: 1, damage: [0.7, 0.8]},
+            village_common_food_storage_trade_goods,
+            common_cooking_tools,
+            // { id: "farmersdelight:iron_knife", ratio: 10, max: 1, damage: [0.7, 0.8]},
 
         ]
     }

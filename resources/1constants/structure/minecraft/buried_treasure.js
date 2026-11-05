@@ -94,7 +94,6 @@ const buried_treasure_emerald = [
             { reference: "lootjs:emerald", ratio: 40 },
             { reference: "lootjs:gold_ingot_and_gold_ingot_block", ratio: 10 },
             { reference: "lootjs:gold_ingot", ratio: 40 },
-
         ]
     },
 ];

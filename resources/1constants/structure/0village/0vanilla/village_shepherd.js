@@ -39,7 +39,8 @@ const shepherdDyeGroupTemplate = [
 const village_shepherd_regular_biomes = [
     "desert", "savanna", "taiga", "snowy",
     "badlands", "beach", "cherry", "dark_forest",
-    "jungle", "mushroom", "ocean", "swamp"
+    "jungle", "mushroom", "ocean", "swamp",
+    "pale_garden", "dappled_forest",
 ];
 
 // 入口数组的 template + output 会触发 Java 递归展开。
@@ -64,11 +65,7 @@ const village_shepherd_generated_groups = [
 // 共享装备与材料组（保留原配置）。
 const shepherdEquipmentGroup = [{
     groupName: "equipment", groupWeight: 20, min: 1, max: 1, damage: [0.2, 0.8],
-    items: [
-        { id: "minecraft:shears", ratio: 10 },
-        { id: "minecraft:lead", ratio: 10 },
-        { id: "woodenshears:wooden_shears", ratio: 10 },
-    ]
+    items: common_shepherd_tools
 }];
 
 const shepherdMaterialGroup = [{
@@ -107,6 +104,11 @@ const village_shepherd_content = [
     ["village_ocean_shepherd_dye", 2, 2, { matchBiome: "#minecraft:is_ocean" }],
     ["village_swamp_shepherd_wool", 1, 1, { matchBiome: "minecraft:swamp" }],
     ["village_swamp_shepherd_dye", 2, 2, { matchBiome: "minecraft:swamp" }],
+    ["village_pale_garden_shepherd_wool", 1, 1, { matchBiome: "minecraft:pale_garden" }],
+    ["village_pale_garden_shepherd_dye", 2, 2, { matchBiome: "minecraft:pale_garden" }],
+    ["village_dappled_forest_shepherd_wool", 1, 1, { matchBiome: "minecraft:dappled_forest" }],
+    ["village_dappled_forest_shepherd_dye", 2, 2, { matchBiome: "minecraft:dappled_forest" }],
+
     [shepherdEquipmentGroup, 0, 1],
     [shepherdMaterialGroup, 1, 2]
 ];

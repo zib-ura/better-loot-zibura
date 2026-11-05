@@ -249,37 +249,8 @@ const end_city_equipment = [
         groupWeight: 25,
         min: 1, max: 1, enchantLevels: [20, 40], damage: [0.7, 0.8],
         items: [
-
-            { id: "immersive_armors:bone_helmet", ratio: 6 },
-            { id: "immersive_armors:bone_chestplate", ratio: 6 },
-            { id: "immersive_armors:bone_leggings", ratio: 6 },
-            { id: "immersive_armors:bone_boots", ratio: 6 },
-
-            { id: "immersive_armors:warrior_helmet", ratio: 2 },
-            { id: "immersive_armors:warrior_chestplate", ratio: 2 },
-            { id: "immersive_armors:warrior_leggings", ratio: 2 },
-            { id: "immersive_armors:warrior_boots", ratio: 2 },
-
-            { id: "minecraft:iron_helmet", ratio: 2 },
-            { id: "minecraft:iron_chestplate", ratio: 2 },
-            { id: "minecraft:iron_leggings", ratio: 2 },
-            { id: "minecraft:iron_boots", ratio: 2 },
-
-            { id: "minecraft:chainmail_helmet", ratio: 2 },
-            { id: "minecraft:chainmail_chestplate", ratio: 2 },
-            { id: "minecraft:chainmail_leggings", ratio: 2 },
-            { id: "minecraft:chainmail_boots", ratio: 2 },
-
-            { id: "immersive_armors:heavy_helmet", ratio: 2 },
-            { id: "immersive_armors:heavy_chestplate", ratio: 2 },
-            { id: "immersive_armors:heavy_leggings", ratio: 2 },
-            { id: "immersive_armors:heavy_boots", ratio: 2 },
-
-            { id: "immersive_armors:divine_helmet", ratio: 1.5 },
-            { id: "immersive_armors:divine_chestplate", ratio: 1.5 },
-            { id: "immersive_armors:divine_leggings", ratio: 1.5 },
-            { id: "immersive_armors:divine_boots", ratio: 1.5 },
-
+            common_metal_armors,
+            { id: "minecraft:shield", ratio: 10 },
             { id: "minecraft:saddle", ratio: 10 },
         ]
     },
@@ -289,28 +260,17 @@ const end_city_equipment = [
         groupWeight: 25,
         min: 1, max: 1, enchantLevels: [20, 40], damage: [0.7, 0.8],
         items: [
-
-
-            { id: "minecraft:diamond_helmet", ratio: 1.5 },
-            { id: "minecraft:diamond_chestplate", ratio: 1.5 },
-            { id: "minecraft:diamond_leggings", ratio: 1.5 },
-            { id: "minecraft:diamond_boots", ratio: 1.5 },
+            rare_material_armors,
         ]
     },
 
     {
-        groupName: "common_weapons",
+        groupName: "common_weapons_and_tools",
         groupWeight: 25,
         min: 1, max: 1, enchantLevels: [20, 40], damage: [0.7, 0.8],
         items: [
-            { id: "minecraft:iron_sword", ratio: 10 },
-            { id: "minecraft:iron_axe", ratio: 10 },
-            { id: "minecraft:iron_pickaxe", ratio: 10 },
-            { id: "minecraft:iron_shovel", ratio: 10 },
-            { id: "minecraft:iron_hoe", ratio: 10 },
-            { id: "minecraft:bow", ratio: 10 },
-            { id: "minecraft:crossbow", ratio: 10 },
-            { id: "minecraft:shield", ratio: 10 },
+            all_common_weapons,
+            all_common_tools,
             { id: "minecraft:mace", ratio: 1 },
             { id: "minecraft:trident", ratio: 1 },
         ]
@@ -321,11 +281,8 @@ const end_city_equipment = [
         groupWeight: 25,
         min: 1, max: 1, enchantLevels: [20, 40], damage: [0.7, 0.8],
         items: [
-            { id: "minecraft:diamond_sword", ratio: 10 },
-            { id: "minecraft:diamond_axe", ratio: 10 },
-            { id: "minecraft:diamond_pickaxe", ratio: 10 },
-            { id: "minecraft:diamond_shovel", ratio: 10 },
-            { id: "minecraft:diamond_hoe", ratio: 10 },
+            all_rare_material_tools,
+            rare_material_weapons,
         ]
     },
 

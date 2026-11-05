@@ -1,7 +1,7 @@
 const village_cartographer_maps_and_guides = [
     {
         groupName: "maps_and_guides",
-        groupWeight: 20,
+        groupWeight: 100,
         min: 1, max: 1,
         items: [
             { id: "minecraft:map", ratio: 10 },
@@ -13,42 +13,30 @@ const village_cartographer_maps_and_guides = [
 const village_cartographer_cartography_tools = [
     {
         groupName: "cartography_tools",
-        groupWeight: 15,
+        groupWeight: 100,
         min: 1, max: 1,
-        items: [
-            { id: "minecraft:compass", ratio: 10 },
-            { id: "minecraft:spyglass", ratio: 10 },
-            { id: "naturescompass:naturescompass", ratio: 3 },
-            { id: "explorerscompass:explorerscompass", ratio: 3 },
-        ]
+        items: common_cartography_tools
     }
 ];
 
 const village_cartographer_records_and_ink = [
     {
         groupName: "records_and_ink",
-        groupWeight: 20,
+        groupWeight: 100,
         min: 1, max: 1,
-        items: [
-            { id: "minecraft:book", ratio: 15 },
-            { id: "minecraft:writable_book", ratio: 8 },
-            { id: "supplementaries:antique_ink", ratio: 10 },
-            { id: "minecraft:ink_sac", ratio: 12 },
-            { id: "minecraft:glow_ink_sac", ratio: 5 }, 
-        ]
+        items: records_and_ink
     }
 ];
 
 const village_cartographer_office_decorations = [
     {
         groupName: "office_decorations",
-        groupWeight: 10,
+        groupWeight: 100,
         min: 1, max: 1,
         items: [
-            { id: "supplementaries:globe", ratio: 5 }, 
-            { id: "supplementaries:globe_sepia", ratio: 5 },
-            { id: "minecraft:clock", ratio: 5 },
-            { id: "minecraft:painting", ratio: 8 }, 
+            { id: "supplementaries:globe", ratio: 10 },
+            { id: "supplementaries:globe_sepia", ratio: 10 },
+            common_indoor_decoration,
         ]
     }
 ];
@@ -56,7 +44,7 @@ const village_cartographer_office_decorations = [
 const village_cartographer_marking_materials = [
     {
         groupName: "marking_materials",
-        groupWeight: 15,
+        groupWeight: 100,
         min: 1, max: 1,
         items: [
             { id: "minecraft:white_banner", ratio: 10 },

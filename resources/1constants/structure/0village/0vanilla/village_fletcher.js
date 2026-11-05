@@ -2,14 +2,9 @@ const village_fletcher_products = [
     {
         groupName: "weapons",
         groupWeight: 20,
-        min: 1, max: 1,
+        min: 1, max: 1, damage: [0.2, 0.8],
         items: [
-            { id: "minecraft:bow", ratio: 10, damage: [0.2, 0.8] },
-            { id: "minecraft:crossbow", ratio: 10, damage: [0.2, 0.8] },
-
-            { id: "supplementaries:slingshot", ratio: 10 },
-            { id: "supplementaries:quiver", ratio: 10 },
-            { id: "supplementaries:rope_arrow", ratio: 10 },
+            common_ranged_weapons,
         ]
     },
 
@@ -20,6 +15,7 @@ const village_fletcher_products = [
         items: [
             { id: "minecraft:arrow", ratio: 10 },
             { id: "supplementaries:rope", ratio: 10 },
+            { id: "supplementaries:rope_arrow", ratio: 10 },
             { id: "farm_and_charm:rope", ratio: 10 },
             { id: "beautify:rope", ratio: 10 },
 

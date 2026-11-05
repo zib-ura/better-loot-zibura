@@ -10,38 +10,8 @@ const stronghold_corridor_armors_and_weapons = [
         groupWeight: 80,
         min: 1, max: 1, enchantLevels: [20, 30], damage: [0.1, 0.1],
         items: [
-
-            { id: "immersive_armors:bone_helmet", ratio: 6 },
-            { id: "immersive_armors:bone_chestplate", ratio: 6 },
-            { id: "immersive_armors:bone_leggings", ratio: 6 },
-            { id: "immersive_armors:bone_boots", ratio: 6 },
-
-            { id: "immersive_armors:warrior_helmet", ratio: 2 },
-            { id: "immersive_armors:warrior_chestplate", ratio: 2 },
-            { id: "immersive_armors:warrior_leggings", ratio: 2 },
-            { id: "immersive_armors:warrior_boots", ratio: 2 },
-
-            { id: "minecraft:copper_helmet", ratio: 2 },
-            { id: "minecraft:copper_chestplate", ratio: 2 },
-            { id: "minecraft:copper_leggings", ratio: 2 },
-            { id: "minecraft:copper_boots", ratio: 2 },
-
-            { id: "minecraft:iron_helmet", ratio: 2 },
-            { id: "minecraft:iron_chestplate", ratio: 2 },
-            { id: "minecraft:iron_leggings", ratio: 2 },
-            { id: "minecraft:iron_boots", ratio: 2 },
-
-            { id: "minecraft:chainmail_helmet", ratio: 2 },
-            { id: "minecraft:chainmail_chestplate", ratio: 2 },
-            { id: "minecraft:chainmail_leggings", ratio: 2 },
-            { id: "minecraft:chainmail_boots", ratio: 2 },
-
-            { id: "immersive_armors:heavy_helmet", ratio: 2 },
-            { id: "immersive_armors:heavy_chestplate", ratio: 2 },
-            { id: "immersive_armors:heavy_leggings", ratio: 2 },
-            { id: "immersive_armors:heavy_boots", ratio: 2 },
-
-
+            common_metal_armors,
+            dungeon_armors,
         ]
     },
 
@@ -53,15 +23,8 @@ const stronghold_corridor_armors_and_weapons = [
         enchantLevels: [20, 30],
         damage: [0.1, 0.1],
         items: [
-            { id: "immersive_armors:divine_helmet", ratio: 1.5 },
-            { id: "immersive_armors:divine_chestplate", ratio: 1.5 },
-            { id: "immersive_armors:divine_leggings", ratio: 1.5 },
-            { id: "immersive_armors:divine_boots", ratio: 1.5 },
-
-            { id: "minecraft:diamond_helmet", ratio: 1.5 },
-            { id: "minecraft:diamond_chestplate", ratio: 1.5 },
-            { id: "minecraft:diamond_leggings", ratio: 1.5 },
-            { id: "minecraft:diamond_boots", ratio: 1.5 },
+            special_armors,
+            rare_material_armors,
         ]
     },
 
@@ -73,14 +36,9 @@ const stronghold_corridor_armors_and_weapons = [
         enchantLevels: [20, 30],
         damage: [0.1, 0.1],
         items: [
-            { id: "minecraft:stone_sword", ratio: 2 },
-            { id: "minecraft:stone_axe", ratio: 2 },
-
-            { id: "minecraft:copper_sword", ratio: 2 },
-            { id: "minecraft:copper_axe", ratio: 2 },
-
-            { id: "minecraft:iron_sword", ratio: 2 },
-            { id: "minecraft:iron_axe", ratio: 2 },
+            common_spear,
+            common_sword,
+            common_axe,
         ]
     },
 
@@ -92,8 +50,7 @@ const stronghold_corridor_armors_and_weapons = [
         enchantLevels: [20, 30],
         damage: [0.1, 0.1],
         items: [
-            { id: "minecraft:diamond_sword", ratio: 1.5 },
-            { id: "minecraft:diamond_axe", ratio: 1.5 },
+            rare_material_weapons,
         ]
     },
 

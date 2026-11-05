@@ -21,14 +21,7 @@ const trial_chambers_reward_common_explore = [
         groupName: "structure_navigation", 
         groupWeight: 30,
         min: 1, max: 1, 
-        items: [
-            { id: "minecraft:compass", ratio: 10 },
-            { id: "minecraft:spyglass", ratio: 10 },
-            { id: "naturescompass:naturescompass", ratio: 10 },
-            { id: "explorerscompass:explorerscompass", ratio: 10 },        
-            { id: "minecraft:ender_pearl", ratio: 10 },
-            { id: "minecraft:brush", ratio: 10 },
-        ]
+        items: common_exploration_tools
     },
     {
         groupName: "expedition_survival", 

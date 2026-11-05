@@ -82,10 +82,7 @@ const carpenterSaplingTemplates = [
     { id: "minecraft:{wood}_sapling", ratio: 10 },
 ];
 
-const carpenterAxesTemplates = [
-    { id: "minecraft:stone_axe", ratio: 30, damage: [0.3, 0.4] },
-    { id: "minecraft:iron_axe", ratio: 10, damage: [0.5, 0.6] },
-];
+const carpenterAxesTemplates = common_axe
 
 const carpenterSawmillTemplates = [
     { id: "sawmill:sawmill", ratio: 10 },
@@ -154,7 +151,7 @@ const carpenter_axes_group_template = [
     {
         groupName: "axes",
         groupWeight: 100,
-        min: 1, max: 1,
+        min: 1, max: 1, damage: [0.3, 0.4],
         items: [
             { template: "carpenterAxesTemplates" },
         ]

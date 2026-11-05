@@ -99,18 +99,7 @@ const village_fisher_preserved_seafood = [
 ];
 
 const village_fisher_fishing_and_processing_tool_items = [
-    { id: "empty", ratio: 1 },
-
-
-    { id: "minecraft:fishing_rod", ratio: 10 },
-    { id: "minecraft:bucket", ratio: 10 },
-    { id: "minecraft:water_bucket", ratio: 10 },
-
-    { id: "farmersdelight:iron_knife", ratio: 10 },
-    { id: "farmersdelight:cutting_board", ratio: 10 },
-
-    { id: "kaleidoscope_cookery:iron_kitchen_knife", ratio: 10 },
-    { id: "kaleidoscope_cookery:chopping_board", ratio: 10 },
+    common_fisher_tools,
 ];
 
 const village_fisher_fishing_and_processing_tools = [

@@ -5,18 +5,15 @@ const village_mason_stone = [
         min: 1, max: 2,
         items: [
             { id: "minecraft:furnace", ratio: 10 },
-            { id: "minecraft:armor_stand", ratio: 10 },
-            { id: "supplementaries:hat_stand", ratio: 10 },
             { id: "minecraft:grindstone", ratio: 10 },
             { id: "kaleidoscope_cookery:millstone", ratio: 10 },
             { id: "stonechest:chest_stone", ratio: 10 },
-            { id: "supplementaries:statue", ratio: 10 },            // 雕像
-            { id: "supplementaries:stone_lamp", ratio: 10 },        // 石灯
-            { id: "supplementaries:pedestal", ratio: 10 },          // 展示台
+
 
             { id: "minecraft:terracotta", ratio: 5 },
-
             { id: "touhou_little_maid:furnace_backpack", ratio: 10 },
+
+            common_stone_decoration,
 
         ]
     },

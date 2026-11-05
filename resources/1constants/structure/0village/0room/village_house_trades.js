@@ -89,17 +89,10 @@ const village_profession_item = [
 
 // Cooking and food preparation
 const village_common_food_preparation_trade_goods = [
-    { id: "kaleidoscope_cookery:stockpot", ratio: 10 },
-    { id: "kaleidoscope_cookery:pot", ratio: 10 },
-    { id: "kaleidoscope_cookery:stockpot_lid", ratio: 10 },
-    { id: "kaleidoscope_cookery:kitchen_shovel", ratio: 10 },
-    { id: "kaleidoscope_cookery:teapot", ratio: 10 },
-    { id: "farmersdelight:cooking_pot", ratio: 10 },
-    { id: "farmersdelight:skillet", ratio: 10 },
-    { id: "trailandtales_delight:pottery_cooking_pot", ratio: 10 },
+    common_cooking_tools,
+
     { id: "minecraft:bowl", ratio: 10 },
     { id: "minecraft:flint_and_steel", ratio: 10 },
-
 ];
 
 // Food storage and transport
@@ -125,144 +118,36 @@ const village_common_food_storage_trade_goods = [
     { id: "minecraft:barrel", ratio: 10 },
     // { id: "supplementaries:sack", ratio: 10 },
 ];
+
 // Farming and gathering
 const village_common_productive_trade_goods = [
-    // 铜制工具
-    { id: "minecraft:copper_hoe", ratio: 10 },
-    { id: "minecraft:copper_shovel", ratio: 10 },
-    { id: "minecraft:copper_axe", ratio: 10 },
-
-    // 铁制工具
-    { id: "minecraft:iron_hoe", ratio: 10 },
-    { id: "minecraft:iron_shovel", ratio: 10 },
-    { id: "minecraft:iron_axe", ratio: 10 },
-    // { id: "minecraft:iron_pickaxe", ratio: 10 },
-    // { id: "minecraft:shears", ratio: 10 },
-
-    { id: "kaleidoscope_cookery:sickle", ratio: 10 },
-    // { id: "farmersdelight:rope", ratio: 10 },
-    // { id: "supplementaries:rope", ratio: 10 },
-    { id: "minecraft:bucket", ratio: 10 },
+    common_farming_tools,
 ];
 
 // household-owned production tools, separated by primary occupation.
-const village_farm_productive_trade_goods = [
-    // 铜制工具
-    { id: "minecraft:copper_hoe", ratio: 10 },
-    { id: "minecraft:copper_shovel", ratio: 10 },
+const village_farm_productive_trade_goods = common_farming_tools
 
-    // 铁制工具
-    { id: "minecraft:iron_hoe", ratio: 10 },
-    { id: "minecraft:iron_shovel", ratio: 10 },
+const village_forest_productive_trade_goods = common_axe
 
-    { id: "kaleidoscope_cookery:sickle", ratio: 10 },
-    { id: "minecraft:bucket", ratio: 10 },
-];
+const village_herder_productive_trade_goods = common_herder_tools
 
-const village_forest_productive_trade_goods = [
-    // 铜制工具
-    { id: "minecraft:copper_axe", ratio: 10 },
-    { id: "minecraft:copper_shovel", ratio: 10 },
+const village_fisher_productive_trade_goods = common_fisher_tools
 
-    // 铁制工具
-    { id: "minecraft:iron_axe", ratio: 10 },
-    { id: "minecraft:iron_shovel", ratio: 10 },
-];
+const village_hunter_productive_trade_goods = all_common_weapons
 
-const village_herder_productive_trade_goods = [
-    // { id: "minecraft:shears", ratio: 10 },
-    { id: "minecraft:lead", ratio: 10 },
-    { id: "minecraft:bucket", ratio: 10 },
-
-    // 铜制工具
-    { id: "minecraft:copper_axe", ratio: 10 },
-
-    // 铁制工具
-    { id: "minecraft:iron_axe", ratio: 10 },
-];
-
-const village_fisher_productive_trade_goods = [
-    { id: "minecraft:fishing_rod", ratio: 10 },
-    { id: "minecraft:bucket", ratio: 10 },
-];
-
-const village_hunter_productive_trade_goods = [
-    { id: "minecraft:bow", ratio: 20 },
-    { id: "minecraft:crossbow", ratio: 10 },
-
-    // 石制武器
-    { id: "minecraft:stone_axe", ratio: 10 },
-    { id: "minecraft:stone_spear", ratio: 10 },
-
-    // 铜制武器
-    { id: "minecraft:copper_axe", ratio: 10 },
-    { id: "minecraft:copper_spear", ratio: 10 },
-
-    // 铁制武器
-    { id: "minecraft:iron_axe", ratio: 10 },
-    { id: "minecraft:iron_spear", ratio: 10 },
-];
 
 // Travel and carrying belongings
-const village_common_travel_trade_goods = [
-    { id: "minecraft:bundle", ratio: 20 },
-    { id: "travelersbackpack:standard", ratio: 2 },
-    { id: "minecraft:saddle", ratio: 2 },
-    { id: "minecraft:map", ratio: 10 },
-    { id: "minecraft:compass", ratio: 10 },
-    { id: "minecraft:spyglass", ratio: 10 },
-    { id: "minecraft:brush", ratio: 10 },
-];
+const village_common_travel_trade_goods = common_exploration_tools
 
 // Reading, writing and record keeping
-const village_common_knowledge_trade_goods = [
-    // { id: "minecraft:paper", ratio: 10 },
-    { id: "minecraft:book", ratio: 10 },
-    { id: "minecraft:writable_book", ratio: 10 },
-
-];
+const village_common_knowledge_trade_goods = records_and_ink
 
 
 // Personal and village defense
 const village_common_security_trade_goods = [
-    { id: "minecraft:shield", ratio: 10 },
-    { id: "minecraft:bow", ratio: 10 },
-    { id: "minecraft:crossbow", ratio: 10 },
-    { id: "supplementaries:slingshot", ratio: 10 },
-    { id: "supplementaries:quiver", ratio: 10 },
-
-    // 石制武器
-    { id: "minecraft:stone_sword", ratio: 10 },
-    { id: "minecraft:stone_spear", ratio: 10 },
-
-    // 铜制武器
-    { id: "minecraft:copper_sword", ratio: 10 },
-    { id: "minecraft:copper_spear", ratio: 10 },
-
-    // 铁制武器
-    { id: "minecraft:iron_sword", ratio: 10 },
-    { id: "minecraft:iron_spear", ratio: 10 },
-
-    // 铜甲系列
-    { id: "minecraft:copper_helmet", ratio: 10 },
-    { id: "minecraft:copper_chestplate", ratio: 10 },
-
-    // 铁甲系列
-    { id: "minecraft:iron_helmet", ratio: 10 },
-    { id: "minecraft:iron_chestplate", ratio: 10 },
-
-    // 链甲系列
-    { id: "minecraft:chainmail_helmet", ratio: 10 },
-    { id: "minecraft:chainmail_chestplate", ratio: 10 },
+    all_common_weapons,
+    common_metal_armors,
 ];
-
-// const village_household_trade_goods =[]
-// const village_productive_trade_goods=[]
-// const village_textile_leather_trade_goods=[]
-// const village_knowledge_trade_goods=[]
-// const village_security_trade_goods=[]
-
-
 
 
 // Household living, comfort and utilities
@@ -277,17 +162,8 @@ const village_common_security_trade_goods = [
 const village_decoration_common_items_template = [
     { template: "shepherdWoolColorTemplates" },
 
-    { id: "minecraft:flower_pot", ratio: 10 },
-    { id: "minecraft:item_frame", ratio: 10 },
-    { id: "minecraft:lantern", ratio: 10 },
-    { id: "minecraft:copper_lantern", ratio: 10 },
-    { id: "minecraft:clock", ratio: 10 },
-
-    { id: "supplementaries:statue", ratio: 10 },
-    { id: "supplementaries:pedestal", ratio: 10 },
-    { id: "minecraft:armor_stand", ratio: 10 },
-    { id: "supplementaries:hat_stand", ratio: 10 },
-    { id: "supplementaries:stone_lamp", ratio: 10 },
+    common_indoor_decoration,
+    common_stone_decoration,
 ];
 
 const village_decoration_plains_items_template = [
@@ -295,29 +171,20 @@ const village_decoration_plains_items_template = [
 
     { id: "brewery:patterned_carpet", ratio: 10 },
 
-    { id: "minecraft:flower_pot", ratio: 10 },
-    { id: "minecraft:item_frame", ratio: 10 },
-    { id: "minecraft:lantern", ratio: 10 },
-    { id: "minecraft:copper_lantern", ratio: 10 },
-    { id: "minecraft:candle", ratio: 10 },
-    { id: "minecraft:clock", ratio: 10 },
+    common_indoor_decoration,
+    common_stone_decoration,
 
-    { id: "supplementaries:statue", ratio: 10 },
-    { id: "supplementaries:pedestal", ratio: 10 },
-    { id: "minecraft:armor_stand", ratio: 10 },
-    { id: "supplementaries:hat_stand", ratio: 10 },
-    { id: "supplementaries:stone_lamp", ratio: 10 },
+    { id: "minecraft:candle", ratio: 10 },
+
+
+
 
 ];
 
 const village_decoration_desert_items_template = [
     { template: "shepherdWoolColorTemplates" },
 
-    { id: "minecraft:flower_pot", ratio: 10 },
-    { id: "minecraft:item_frame", ratio: 10 },
-    { id: "minecraft:lantern", ratio: 10 },
-    { id: "minecraft:copper_lantern", ratio: 10 },
-    { id: "minecraft:clock", ratio: 10 },
+    common_indoor_decoration,
 
     { id: "minecraft:glass", ratio: 10 },
     { id: "minecraft:chiseled_sandstone", ratio: 10 },

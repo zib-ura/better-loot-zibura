@@ -1,7 +1,7 @@
 const stronghold_library_books_equipment = [
     {   
         groupName: "Book",
-        groupWeight: 70, 
+        groupWeight: 100,
         min: 2, max: 3,
         items: [
             { id: "minecraft:book", ratio: 20 },

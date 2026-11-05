@@ -1,39 +1,29 @@
 const trial_chambers_attack = [
     {
         groupName: "common_weapons",
-        groupWeight: 40,
+        groupWeight: 60,
         min: 1, max: 1, enchantLevels: [5, 10], damage: [0.2, 0.5],
-        items: [
-            // 铜制武器
-            { id: "minecraft:copper_sword", ratio: 10 },
-            { id: "minecraft:copper_spear", ratio: 10 },
-
-            // 铁制武器
-            { id: "minecraft:iron_sword", ratio: 10 },
-            { id: "minecraft:iron_spear", ratio: 10 },
-        ]
+        items: all_common_weapons
     },
 
     {
-        groupName: "ranged_weapons",
-        groupWeight: 20,
-        min: 1, max: 1, enchantLevels: [5, 10],
+        groupName: "arrow",
+        groupWeight: 35,
+        min: 1, max: 1,
         items: [
-            { id: "minecraft:bow", ratio: 10 },
-            { id: "minecraft:crossbow", ratio: 10 },
             { id: "minecraft:arrow", ratio: 40, min: 6, max: 8 },
         ]
     },
-    {
-        groupName: "tactical_items",
-        groupWeight: 20,
-        min: 1, max: 1,
-        items: [
-            { id: "minecraft:flint_and_steel", ratio: 10 },
-            { id: "minecraft:lava_bucket", ratio: 10 },
-            { id: "minecraft:tnt", ratio: 10, min: 6, max: 8 },
-        ]
-    },
+    // {
+    //     groupName: "tactical_items",
+    //     groupWeight: 20,
+    //     min: 1, max: 1,
+    //     items: [
+    //         { id: "minecraft:flint_and_steel", ratio: 10 },
+    //         { id: "minecraft:lava_bucket", ratio: 10 },
+    //         { id: "minecraft:tnt", ratio: 10, min: 6, max: 8 },
+    //     ]
+    // },
 
     {
         groupName: "rare_weapons",
@@ -52,35 +42,8 @@ const trial_chambers_defense = [
         groupWeight: 40,
         min: 1, max: 1, enchantLevels: [5, 10], damage: [0.2, 0.5],
         items: [
-
-            { id: "immersive_armors:warrior_helmet", ratio: 2 },
-            { id: "immersive_armors:warrior_chestplate", ratio: 2 },
-            { id: "immersive_armors:warrior_leggings", ratio: 2 },
-            { id: "immersive_armors:warrior_boots", ratio: 2 },
-
-            // 铜甲系列
-            { id: "minecraft:copper_helmet", ratio: 2 },
-            { id: "minecraft:copper_chestplate", ratio: 2 },
-            { id: "minecraft:copper_leggings", ratio: 2 },
-            { id: "minecraft:copper_boots", ratio: 2 },
-
-            // 铁甲系列
-            { id: "minecraft:iron_helmet", ratio: 2 },
-            { id: "minecraft:iron_chestplate", ratio: 2 },
-            { id: "minecraft:iron_leggings", ratio: 2 },
-            { id: "minecraft:iron_boots", ratio: 2 },
-
-            { id: "minecraft:chainmail_helmet", ratio: 2 },
-            { id: "minecraft:chainmail_chestplate", ratio: 2 },
-            { id: "minecraft:chainmail_leggings", ratio: 2 },
-            { id: "minecraft:chainmail_boots", ratio: 2 },
-
-            { id: "immersive_armors:heavy_helmet", ratio: 2 },
-            { id: "immersive_armors:heavy_chestplate", ratio: 2 },
-            { id: "immersive_armors:heavy_leggings", ratio: 2 },
-            { id: "immersive_armors:heavy_boots", ratio: 2 },
-
-
+            common_metal_armors,
+            { id: "minecraft:shield", ratio: 15 },
         ]
     },
 
@@ -89,10 +52,10 @@ const trial_chambers_defense = [
         groupWeight: 5,
         min: 1, max: 1, enchantLevels: [10, 20], damage: [0.2, 0.5],
         items: [
-            { id: "immersive_armors:divine_helmet", ratio: 1.5 },
-            { id: "immersive_armors:divine_chestplate", ratio: 1.5 },
-            { id: "immersive_armors:divine_leggings", ratio: 1.5 },
-            { id: "immersive_armors:divine_boots", ratio: 1.5 },
+            // { id: "immersive_armors:divine_helmet", ratio: 1.5 },
+            // { id: "immersive_armors:divine_chestplate", ratio: 1.5 },
+            // { id: "immersive_armors:divine_leggings", ratio: 1.5 },
+            // { id: "immersive_armors:divine_boots", ratio: 1.5 },
 
             { id: "minecraft:diamond_helmet", ratio: 1.5 },
             { id: "minecraft:diamond_chestplate", ratio: 1.5 },
@@ -101,24 +64,15 @@ const trial_chambers_defense = [
         ]
     },
 
-    {
-        groupName: "shields",
-        groupWeight: 20,
-        min: 1, max: 1, enchantLevels: [5, 10], damage: [0.2, 0.5],
-        items: [
-            { id: "minecraft:shield", ratio: 15 },
-        ]
-    },
-
-    {
-        groupName: "tactical_defense",
-        groupWeight: 30,
-        min: 1, max: 1,
-        items: [
-            { id: "minecraft:cobweb", ratio: 10, min: 4, max: 6 },
-            { id: "minecraft:water_bucket", ratio: 5 },
-        ]
-    },
+    // {
+    //     groupName: "tactical_defense",
+    //     groupWeight: 30,
+    //     min: 1, max: 1,
+    //     items: [
+    //         { id: "minecraft:cobweb", ratio: 10, min: 4, max: 6 },
+    //         { id: "minecraft:water_bucket", ratio: 5 },
+    //     ]
+    // },
 
 ];
 
@@ -155,10 +109,10 @@ const trial_chambers_mobility = [
     {
         groupName: "vertical_movement",
         groupWeight: 35,
-        min: 4, max: 6,
+        min: 2, max: 6,
         items: [
-            { id: "minecraft:ender_pearl", ratio: 15 },
-            { id: "minecraft:scaffolding", ratio: 20 },
+            common_mobility_items,
+            common_climbing_items,
             { id: "minecraft:wind_charge", ratio: 25 },
         ]
     },
@@ -166,21 +120,11 @@ const trial_chambers_mobility = [
 
 const trial_chambers_crafting = [
     {
-        groupName: "ores",
-        groupWeight: 30,
-        min: 2, max: 3,
-        items: [
-            { id: "minecraft:copper_ingot", ratio: 10 },
-            { id: "minecraft:iron_ingot", ratio: 10 },
-            // { id: "minecraft:gold_ingot", ratio: 5 },
-        ]
-    },
-    {
         groupName: "logs",
         groupWeight: 30,
-        min: 3, max: 4,
+        min: 2, max: 6,
         items: [
-            { id: "minecraft:oak_log", ratio: 10 },
+            common_basic_materials,
         ]
     },
 ];

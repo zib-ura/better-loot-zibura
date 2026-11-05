@@ -557,7 +557,7 @@ const village_desert_market_possessions_matrix = {
         { groupName: "furniture",        min: 1, max: 1, items: village_desert_furniture_trade_goods },
         { groupName: "decoration",       min: 1, max: 1, items: village_desert_decoration_trade_goods },
         { groupName: "productive",       min: 1, max: 1, damage: [0.5, 0.9], items: village_common_productive_trade_goods },
-        { groupName: "travel",           min: 1, max: 1, items: village_common_travel_trade_goods },
+        { groupName: "travel",           min: 2, max: 6, items: village_common_travel_trade_goods },
         { groupName: "knowledge",        min: 1, max: 1, items: village_common_knowledge_trade_goods },
         { groupName: "security",         min: 1, max: 1, damage: [0.5, 0.9], items: village_common_security_trade_goods },
         { groupName: "liquid_wealth",    min: 1, max: 3, items: [{ id: "minecraft:emerald", ratio: 10 }] },

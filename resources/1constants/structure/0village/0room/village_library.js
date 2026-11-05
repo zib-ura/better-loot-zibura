@@ -1,31 +1,6 @@
-const village_library_records_and_ink = [
-    {
-        groupName: "records_and_ink",
-        groupWeight: 20,
-        min: 1, max: 1,
-        items: [
-            { id: "minecraft:book", ratio: 15 },
-            { id: "minecraft:writable_book", ratio: 8 },
-            { id: "supplementaries:antique_ink", ratio: 10 },
-            { id: "minecraft:ink_sac", ratio: 12 },
-            { id: "minecraft:glow_ink_sac", ratio: 5 }, 
-        ]
-    }
-];
+const village_library_records_and_ink = village_cartographer_records_and_ink
 
-const village_library_decorations = [
-    {
-        groupName: "office_decorations",
-        groupWeight: 10,
-        min: 1, max: 1,
-        items: [
-            { id: "supplementaries:globe", ratio: 5 }, 
-            { id: "supplementaries:globe_sepia", ratio: 5 },
-            { id: "minecraft:clock", ratio: 5 },
-            { id: "minecraft:painting", ratio: 8 }, 
-        ]
-    }
-];
+const village_library_decorations = village_cartographer_office_decorations
 
 const village_library_special_books = [
     {   
@@ -109,7 +84,7 @@ const village_chess = [
 const village_library_enchanted_book = [
     {   
         groupName: "Book",
-        groupWeight: 50, 
+        groupWeight: 100,
         min: 1, max: 1,
         items: all_Available_Enchant_books
     },
