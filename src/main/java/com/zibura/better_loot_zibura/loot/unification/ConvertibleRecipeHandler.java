@@ -2,48 +2,57 @@ package com.zibura.better_loot_zibura.loot.unification;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.mojang.serialization.JsonOps;
 import com.zibura.better_loot_zibura.better_loot_zibura;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.server.packs.PackResources;
+import net.minecraft.server.packs.resources.Resource;
+import net.minecraft.server.packs.resources.ResourceManager;
 
+import java.io.ByteArrayInputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Stream;
 
 /**
- * Minecraft 26.2 + Fabric + Mojang mappings.
+ * Minecraft 26.3 reloadable-recipe adapter.
  *
- * Generates convertible recipes during RecipeManager#prepare.
- *
- * Vanilla has already parsed normal datapack recipes at this point.
- * Dynamically generated JSON is decoded through Recipe.CODEC before
- * being inserted into the recipe map.
+ * Generates the same conversion JSON as the original 263 handler, then
+ * exposes it under the recipe registry's resource directory before decoding.
+ * This preserves vanilla/datapack recipes and avoids writing to frozen maps.
  */
 public final class ConvertibleRecipeHandler {
 
     private ConvertibleRecipeHandler() {
     }
 
-    public static void inject(
-            Map<Identifier, Recipe<?>> recipes,
-            HolderLookup.Provider registries
-    ) {
-        Map<String, List<String>> convertibleMap =
-                ItemUnificationSolver.CONVERTIBLE_MAP;
+    /**
+     * Expose generated conversion recipes as virtual data-pack resources for
+     * 26.3's reloadable recipe registry, without mutating frozen registries.
+     * Existing data-pack entries always take precedence on a key collision.
+     */
+    public static ResourceManager addGeneratedRecipes(ResourceManager original) {
+        Map<Identifier, JsonObject> jsons = generateRecipeJsons();
+        if (jsons.isEmpty()) return original;
+        return new GeneratedRecipesResourceManager(original, jsons);
+    }
 
-        if (convertibleMap == null || convertibleMap.isEmpty()) {
-            return;
-        }
+    private static Map<Identifier, JsonObject> generateRecipeJsons() {
+        Map<String, List<String>> convertibleMap = ItemUnificationSolver.CONVERTIBLE_MAP;
+        Map<Identifier, JsonObject> result = new LinkedHashMap<>();
+        if (convertibleMap == null || convertibleMap.isEmpty()) return result;
 
         int generated = 0;
 
@@ -91,41 +100,10 @@ public final class ConvertibleRecipeHandler {
                                     targetId
                             );
 
-                    if (recipes.containsKey(recipeId)) {
-                        continue;
-                    }
+                    if (result.containsKey(recipeId)) continue;
 
-                    boolean needsBottle =
-                            !sourceHasBottle && targetHasBottle;
-
-                    JsonObject json =
-                            createRecipeJson(
-                                    sourceId,
-                                    targetId,
-                                    needsBottle
-                            );
-
-                    Recipe<?> recipe;
-
-                    try {
-                        recipe = Recipe.DIRECT_CODEC
-                                .parse(
-                                        registries.createSerializationContext(
-                                                JsonOps.INSTANCE
-                                        ),
-                                        json
-                                )
-                                .getOrThrow(JsonParseException::new);
-                    } catch (Exception exception) {
-                        better_loot_zibura.LOGGER.error(
-                                "Failed to generate convertible recipe {}",
-                                recipeId,
-                                exception
-                        );
-                        continue;
-                    }
-
-                    recipes.put(recipeId, recipe);
+                    boolean needsBottle = !sourceHasBottle && targetHasBottle;
+                    result.put(recipeId, createRecipeJson(sourceId, targetId, needsBottle));
                     generated++;
                 }
             }
@@ -133,10 +111,11 @@ public final class ConvertibleRecipeHandler {
 
         if (generated > 0) {
             better_loot_zibura.LOGGER.info(
-                    "Injected {} convertible recipes",
+                    "Prepared {} convertible recipe resources",
                     generated
             );
         }
+        return result;
     }
 
     private static List<Item> findValidItems(
@@ -206,26 +185,11 @@ public final class ConvertibleRecipeHandler {
 
         JsonArray ingredients = new JsonArray();
 
-        JsonObject sourceIngredient =
-                new JsonObject();
-
-        sourceIngredient.addProperty(
-                "item",
-                source.toString()
-        );
-
-        ingredients.add(sourceIngredient);
+        // Minecraft 26.3 ingredients use item ID strings, not {"item": "..."} objects.
+        ingredients.add(source.toString());
 
         if (needsBottle) {
-            JsonObject bottleIngredient =
-                    new JsonObject();
-
-            bottleIngredient.addProperty(
-                    "item",
-                    "minecraft:glass_bottle"
-            );
-
-            ingredients.add(bottleIngredient);
+            ingredients.add("minecraft:glass_bottle");
         }
 
         recipe.add(
@@ -290,5 +254,73 @@ public final class ConvertibleRecipeHandler {
                         "[^a-z0-9_.-]",
                         "_"
                 );
+    }
+    /** Delegating ResourceManager; only the recipe directory is supplemented. */
+    private static final class GeneratedRecipesResourceManager implements ResourceManager {
+        private final ResourceManager delegate;
+        private final Map<Identifier, Resource> generated;
+        private final String recipeDirectory = Registries.elementsDirPath(Registries.RECIPE);
+
+        GeneratedRecipesResourceManager(ResourceManager delegate, Map<Identifier, JsonObject> recipes) {
+            this.delegate = delegate;
+            PackResources source = delegate.listPacks().findFirst().orElseThrow(
+                    () -> new IllegalStateException("No server data pack to source generated recipes")
+            );
+            Map<Identifier, Resource> resources = new LinkedHashMap<>();
+            for (Map.Entry<Identifier, JsonObject> recipe : recipes.entrySet()) {
+                // FileToIdConverter.registry(Registries.RECIPE) uses this exact path.
+                Identifier file = recipe.getKey().withPath(
+                        recipeDirectory + "/" + recipe.getKey().getPath() + ".json"
+                );
+                byte[] jsonBytes = recipe.getValue().toString().getBytes(StandardCharsets.UTF_8);
+                resources.put(file, new Resource(source, () -> new ByteArrayInputStream(jsonBytes)));
+            }
+            this.generated = Collections.unmodifiableMap(resources);
+        }
+
+        @Override
+        public java.util.Set<String> getNamespaces() {
+            return delegate.getNamespaces();
+        }
+
+        @Override
+        public Optional<Resource> getResource(Identifier id) {
+            Optional<Resource> current = delegate.getResource(id);
+            return current.isPresent() ? current : Optional.ofNullable(generated.get(id));
+        }
+
+        @Override
+        public List<Resource> getResourceStack(Identifier id) {
+            List<Resource> existing = delegate.getResourceStack(id);
+            Resource extra = generated.get(id);
+            return existing.isEmpty() && extra != null ? List.of(extra) : existing;
+        }
+
+        @Override
+        public Map<Identifier, Resource> listResources(String directory, Selector selector) {
+            Map<Identifier, Resource> original = delegate.listResources(directory, selector);
+            if (!recipeDirectory.equals(directory)) return original;
+            Map<Identifier, Resource> merged = new LinkedHashMap<>(original);
+            generated.forEach((id, resource) -> {
+                if (selector.isIncluded(id)) merged.putIfAbsent(id, resource);
+            });
+            return merged;
+        }
+
+        @Override
+        public Map<Identifier, List<Resource>> listResourceStacks(String directory, Selector selector) {
+            Map<Identifier, List<Resource>> original = delegate.listResourceStacks(directory, selector);
+            if (!recipeDirectory.equals(directory)) return original;
+            Map<Identifier, List<Resource>> merged = new LinkedHashMap<>(original);
+            generated.forEach((id, resource) -> {
+                if (selector.isIncluded(id)) merged.putIfAbsent(id, List.of(resource));
+            });
+            return merged;
+        }
+
+        @Override
+        public Stream<PackResources> listPacks() {
+            return delegate.listPacks();
+        }
     }
 }

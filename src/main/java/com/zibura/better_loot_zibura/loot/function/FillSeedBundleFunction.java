@@ -1,13 +1,10 @@
 package com.zibura.better_loot_zibura.loot.function;
 
-import com.google.gson.JsonElement;
-import com.google.gson.JsonPrimitive;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.zibura.better_loot_zibura.event.CommonEvents;
 import com.zibura.better_loot_zibura.loot.unification.ItemUnificationSolver;
-import com.zibura.better_loot_zibura.loot.util.LootEvaluationContext;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -31,7 +28,7 @@ public class FillSeedBundleFunction extends LootItemConditionalFunction {
     public static final MapCodec<FillSeedBundleFunction> CODEC = RecordCodecBuilder.mapCodec(instance ->
             commonFields(instance).and(
                     instance.group(
-                            Codec.STRING.fieldOf("seed_type_key").forGetter(f -> f.seedTypeKey),
+                            Codec.STRING.listOf().fieldOf("seed_types").forGetter(f -> f.seedTypes),
                             Codec.DOUBLE.optionalFieldOf("pool_divisor", 1.0).forGetter(f -> f.pooldivisor),
                             Codec.INT.optionalFieldOf("max_distinct_types", 3).forGetter(f -> f.maxDistinctTypes),
                             Codec.INT.optionalFieldOf("min_count", 1).forGetter(f -> f.minCount),
@@ -40,15 +37,17 @@ public class FillSeedBundleFunction extends LootItemConditionalFunction {
             ).apply(instance, FillSeedBundleFunction::new)
     );
 
-    private final String seedTypeKey;
+    private static final float EXTRA_KIND_CHANCE = 0.5F;
+
+    private final List<String> seedTypes;
     private final double pooldivisor;
     private final int maxDistinctTypes;
     private final int minCount;
     private final int maxCount;
 
-    protected FillSeedBundleFunction(Optional<Holder<LootItemCondition>> condition, String seedTypeKey, double pooldivisor, int maxDistinctTypes, int minCount, int maxCount) {
+    protected FillSeedBundleFunction(Optional<Holder<LootItemCondition>> condition, List<String> seedTypes, double pooldivisor, int maxDistinctTypes, int minCount, int maxCount) {
         super(condition);
-        this.seedTypeKey = seedTypeKey;
+        this.seedTypes = List.copyOf(seedTypes);
         this.pooldivisor = pooldivisor;
         this.maxDistinctTypes = maxDistinctTypes;
         this.minCount = minCount;
@@ -62,7 +61,7 @@ public class FillSeedBundleFunction extends LootItemConditionalFunction {
 
     @Override
     protected ItemStack run(ItemStack stack, LootContext context) {
-        List<String> rawSeeds = getSeedTypeListSafe(this.seedTypeKey);
+        List<String> rawSeeds = this.seedTypes;
         List<String> validSeeds = new ArrayList<>();
 
         for (String type : rawSeeds) {
@@ -83,7 +82,11 @@ public class FillSeedBundleFunction extends LootItemConditionalFunction {
         int maxKinds = Math.min(this.maxDistinctTypes, calculatedMax);
         maxKinds = Math.max(1, maxKinds);
 
-        int targetKinds = 1 + random.nextInt(maxKinds);
+        // 1211 behavior: 1 + Binomial(maxKinds - 1, 0.5), not a uniform draw.
+        int targetKinds = 1;
+        for (int i = 1; i < maxKinds; i++) {
+            if (random.nextFloat() < EXTRA_KIND_CHANCE) targetKinds++;
+        }
         targetKinds = Math.min(targetKinds, validSeeds.size());
 
         Collections.shuffle(validSeeds, new java.util.Random(random.nextLong()));
@@ -111,16 +114,4 @@ public class FillSeedBundleFunction extends LootItemConditionalFunction {
         return stack;
     }
 
-    private List<String> getSeedTypeListSafe(String key) {
-        List<String> result = new ArrayList<>();
-        try {
-            JsonElement elem = LootEvaluationContext.resolveElement(new JsonPrimitive(key));
-            if (elem != null && elem.isJsonArray()) {
-                for (JsonElement item : elem.getAsJsonArray()) {
-                    if (item.isJsonPrimitive()) result.add(item.getAsString());
-                }
-            }
-        } catch (Exception ignored) {}
-        return result;
-    }
 }

@@ -3,7 +3,6 @@ package com.zibura.better_loot_zibura.loot.condition;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import com.zibura.better_loot_zibura.loot.util.LootEvaluationContext;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
@@ -17,6 +16,7 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemConditionTypes;
 import net.minecraft.world.phys.Vec3;
 
 import java.util.List;
+import com.mojang.datafixers.util.Either;
 
 public class MatchBiomeRegistryCondition implements LootItemCondition {
 
@@ -25,71 +25,44 @@ public class MatchBiomeRegistryCondition implements LootItemCondition {
         return CODEC;
     }
 
-    // 1.21+ 使用 MapCodec 定义数据序列化与反序列化
-    // 同时兼容 String 与 List<String>
-    private static final Codec<String> COMPAT_KEY_CODEC = Codec.either(
-            Codec.STRING,
-            Codec.STRING.listOf()
-    ).xmap(
-            either -> either.map(
-                    str -> str,
-                    list -> list.isEmpty() ? "" : list.get(0) // 如果是数组，取第 1 个元素
-            ),
-            str -> com.mojang.datafixers.util.Either.left(str)
-    );
+    // The 1211 linker resolves registry_key to a string array (IDs and tags).
+    // Single strings remain supported for direct datapack definitions.
+    private static final Codec<List<String>> COMPAT_KEY_CODEC = Codec.either(
+            Codec.STRING, Codec.STRING.listOf()
+    ).xmap(either -> either.map(List::of, list -> list), Either::right);
 
     public static final MapCodec<MatchBiomeRegistryCondition> CODEC = RecordCodecBuilder.mapCodec(
             instance -> instance.group(
-                    COMPAT_KEY_CODEC.fieldOf("registry_key").forGetter(cond -> cond.registryKey)
+                    COMPAT_KEY_CODEC.fieldOf("registry_key").forGetter(cond -> cond.registryKeys)
             ).apply(instance, MatchBiomeRegistryCondition::new)
     );
 
-    // 1.21+ LootItemConditions 变为泛型
-    public static LootItemConditionTypes TYPE;
-
-    private final String registryKey;
+    private final List<String> registryKeys;
 
     public MatchBiomeRegistryCondition(String registryKey) {
-        this.registryKey = registryKey;
+        this(List.of(registryKey));
+    }
+
+    public MatchBiomeRegistryCondition(List<String> registryKeys) {
+        this.registryKeys = List.copyOf(registryKeys);
     }
 
     @Override
     public boolean test(LootContext context) {
         Vec3 origin = context.getOptional(LootContextParams.ORIGIN);
-
-        if (origin == null || this.registryKey == null || this.registryKey.isEmpty()) {
-            return false;
-        }
+        if (origin == null || registryKeys.isEmpty()) return false;
 
         BlockPos pos = BlockPos.containing(origin);
         Holder<Biome> biomeHolder = context.getLevel().getBiome(pos);
 
-        // 1. 如果本身是 Tag 写法 (如 "#minecraft:is_ocean")
-        if (this.registryKey.startsWith("#")) {
-            return checkTag(biomeHolder, this.registryKey.substring(1));
-        }
-
-        // 2. 尝试从自定义列表解析展开
-        List<String> allowedEntries = LootEvaluationContext.resolveStringList(this.registryKey);
-
-        // 3. 上下文中未定义该 key，当作单个群系 ID 处理
-        if (allowedEntries.isEmpty()) {
-            return checkSingleBiome(biomeHolder, this.registryKey);
-        }
-
-        // 4. 遍历解析到的群系列表
-        for (String entry : allowedEntries) {
-            if (entry.startsWith("#")) {
-                if (checkTag(biomeHolder, entry.substring(1))) {
-                    return true;
-                }
-            } else {
-                if (checkSingleBiome(biomeHolder, entry)) {
-                    return true;
-                }
+        for (String registryKey : registryKeys) {
+            if (registryKey == null || registryKey.isEmpty()) continue;
+            if (registryKey.startsWith("#")) {
+                if (checkTag(biomeHolder, registryKey.substring(1))) return true;
+            } else if (checkSingleBiome(biomeHolder, registryKey)) {
+                return true;
             }
         }
-
         return false;
     }
 
